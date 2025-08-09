@@ -15,5 +15,10 @@
     "types": ["node"]
   },
   "include": ["src/**/*.ts", "src/**/*.tsx"],
-  "exclude": ["node_modules", "cutties_floppy_neurons", "src/renderer.ts"]
+  "exclude": [
+    "node_modules",
+    "cutties_floppy_neurons",
+    "src/renderer.ts",
+    "src/preload.ts"
+  ]
 }

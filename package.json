@@ -4,9 +4,9 @@
   "description": "PKM for people with floppy neurons",
   "main": "dist/main.js",
   "scripts": {
-    "build": "tsc --build --force && esbuild src/renderer.ts --bundle --platform=browser --outfile=dist/renderer.js --external:electron --jsx=automatic --loader:.tsx=tsx --loader:.ts=ts --format=iife --target=es2020 --define:process.env.NODE_ENV=\\\"production\\\"",
+    "build": "tsc --build --force && tsc --project tsconfig.preload.json && esbuild src/renderer.ts --bundle --platform=browser --outfile=dist/renderer.js --external:electron --jsx=automatic --loader:.tsx=tsx --loader:.ts=ts --format=iife --target=es2020 --define:process.env.NODE_ENV=\\\"production\\\"",
     "start": "pnpm run build && electron .",
-    "dev": "concurrently -n TSC,ESBUILD,ELEC -c blue,yellow,green 'tsc -w' 'esbuild src/renderer.ts --bundle --platform=browser --outfile=dist/renderer.js --external:electron --jsx=automatic --loader:.tsx=tsx --loader:.ts=ts --format=iife --target=es2020 --define:process.env.NODE_ENV=\\\"development\\\" --watch' 'wait-on dist/main.js dist/renderer.js && nodemon --watch src --watch index.html --ext ts,tsx,html --exec \"electron . --enable-logging\"'",
+    "dev": "concurrently -n TSC,PRELOAD,ESBUILD,ELEC -c blue,cyan,yellow,green 'tsc -w' 'tsc --project tsconfig.preload.json -w' 'esbuild src/renderer.ts --bundle --platform=browser --outfile=dist/renderer.js --external:electron --jsx=automatic --loader:.tsx=tsx --loader:.ts=ts --format=iife --target=es2020 --define:process.env.NODE_ENV=\\\"development\\\" --watch' 'wait-on dist/main.js dist/preload.js dist/renderer.js && nodemon --watch src --watch index.html --ext ts,tsx,html --exec \"electron . --enable-logging\"'",
     "dev:simple": "pnpm run build && electron . && echo 'App closed. Run again: pnpm run dev:simple'",
     "dev:working": "pnpm run build && electron . --enable-logging",
     "debug": "pnpm run build && electron . --enable-logging --remote-debugging-port=9222",

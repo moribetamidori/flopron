@@ -1,4 +1,4 @@
-import { app, BrowserWindow, ipcMain } from "electron/main";
+import { app, BrowserWindow, ipcMain } from "electron";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 // Get __dirname equivalent for ES modules

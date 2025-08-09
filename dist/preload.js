@@ -1,4 +1,6 @@
-import { contextBridge, ipcRenderer } from 'electron';
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const electron_1 = require("electron");
 const api = {
     getAppInfo() {
         return {
@@ -11,7 +13,7 @@ const api = {
         };
     },
     async ping() {
-        return ipcRenderer.invoke('ping');
+        return electron_1.ipcRenderer.invoke('ping');
     }
 };
-contextBridge.exposeInMainWorld('electronAPI', api);
+electron_1.contextBridge.exposeInMainWorld('electronAPI', api);
