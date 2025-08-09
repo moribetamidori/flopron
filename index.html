@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self' https://cdn.tailwindcss.com; img-src 'self' data: blob: file:; style-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flopron • Cuttie's Floppy Neurons</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* Custom CSS for specific needs not covered by Tailwind */
+      html,
+      body,
+      #root {
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        font-family: ui-monospace, SFMono-Regular, "SF Mono", Consolas,
+          "Liberation Mono", Menlo, monospace;
+      }
+
+      /* Webkit scrollbar styling for the futuristic look */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: rgba(0, 0, 0, 0.3);
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: rgba(0, 255, 255, 0.3);
+        border-radius: 4px;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: rgba(0, 255, 255, 0.5);
+      }
+
+      /* Line clamp utility */
+      .line-clamp-2 {
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+      }
+
+      /* Custom gradient backgrounds */
+      .bg-magenta-400 {
+        background-color: #f472b6;
+      }
+
+      .border-magenta-400 {
+        border-color: #f472b6;
+      }
+
+      /* Prevent text selection on UI elements */
+      .select-none {
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      /* Canvas specific styles */
+      canvas {
+        display: block;
+      }
+    </style>
+  </head>
+  <body class="bg-black text-cyan-400 overflow-hidden">
+    <div id="root"></div>
+    <script src="./dist/renderer.js" defer></script>
+  </body>
+</html>
