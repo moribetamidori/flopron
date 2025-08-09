@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import { MemoryNode, Connection } from "../hooks/useMemoryTree";
+import { MemoryNode, Connection } from "../hooks/useDatabaseMemoryTree";
 import { renderNormalView } from "./NormalView";
 import { renderPreviewView } from "./PreviewView";
 

@@ -2,18 +2,19 @@ import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useState, useRef } from "react";
 import { useAudioContext } from "./hooks/useAudioContext";
 import { useImageCache } from "./hooks/useImageCache";
-import { useMemoryTree } from "./hooks/useMemoryTree";
+import { useDatabaseMemoryTree, } from "./hooks/useDatabaseMemoryTree";
 import { use3DRendering } from "./hooks/use3DRendering";
 import { useCanvasInteraction } from "./hooks/useCanvasInteraction";
 import { CanvasRenderer } from "./components/CanvasRenderer";
 import { Sidebar } from "./components/Sidebar";
 import { NodeDetailsModal } from "./components/NodeDetailsModal";
 import { UIOverlay } from "./components/UIOverlay";
+import { AddNodeModal } from "./components/AddNodeModal";
 export default function PKMApp() {
     // Custom hooks
     const { playNodeSound } = useAudioContext();
-    const { imageCache } = useImageCache();
-    const { nodes, connections, addNode } = useMemoryTree();
+    const { nodes, connections, addNode, deleteNode, refreshData } = useDatabaseMemoryTree();
+    const { imageCache } = useImageCache({ nodes });
     const { time, rotationX, rotationY, zoom, rotateX, rotateY, project3D, updateRotation, updateZoom, } = use3DRendering();
     // State
     const [hoveredNode, setHoveredNode] = useState(null);
@@ -21,6 +22,7 @@ export default function PKMApp() {
     const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
     const [previewMode, setPreviewMode] = useState(false);
     const [selectedTags, setSelectedTags] = useState([]);
+    const [showAddModal, setShowAddModal] = useState(false);
     const [dotTooltip, setDotTooltip] = useState(null);
     // Event handlers
     const handleNodeClick = (node) => {
@@ -95,7 +97,35 @@ export default function PKMApp() {
                             window.mouseY = 0;
                             handleMouseUp();
                             handleDotLeave();
-                        }, onClick: handleCanvasClick, onWheel: handleWheel, onTouchStart: handleTouchStart, onTouchMove: handleTouchMove, onTouchEnd: handleTouchEnd })] }), _jsx(Sidebar, { nodes: filteredNodes, selectedNode: selectedNode, sidebarCollapsed: sidebarCollapsed, previewMode: previewMode, selectedTags: selectedTags, onNodeClick: handleNodeClick, onSidebarToggle: handleSidebarToggle, onTagClick: handleTagClick }), _jsx(UIOverlay, { sidebarCollapsed: sidebarCollapsed, previewMode: previewMode, zoom: zoom, hoveredNode: hoveredNode, selectedNode: selectedNode, nodes: nodes, rotationX: rotationX, rotationY: rotationY, onPreviewModeToggle: handlePreviewModeToggle, rotateX: rotateX, rotateY: rotateY, project3D: project3D }), _jsx(NodeDetailsModal, { selectedNode: selectedNode, sidebarCollapsed: sidebarCollapsed, onClose: handleCloseModal }), dotTooltip && (_jsx("div", { className: "fixed z-50 bg-black/90 text-cyan-400 font-mono text-xs p-2 rounded border border-cyan-400/50 pointer-events-none", style: {
+                        }, onClick: handleCanvasClick, onWheel: handleWheel, onTouchStart: handleTouchStart, onTouchMove: handleTouchMove, onTouchEnd: handleTouchEnd })] }), _jsx(Sidebar, { nodes: filteredNodes, selectedNode: selectedNode, sidebarCollapsed: sidebarCollapsed, previewMode: previewMode, selectedTags: selectedTags, onNodeClick: handleNodeClick, onSidebarToggle: handleSidebarToggle, onTagClick: handleTagClick, onAddClick: () => setShowAddModal(true) }), _jsx(UIOverlay, { sidebarCollapsed: sidebarCollapsed, previewMode: previewMode, zoom: zoom, hoveredNode: hoveredNode, selectedNode: selectedNode, nodes: nodes, rotationX: rotationX, rotationY: rotationY, onPreviewModeToggle: handlePreviewModeToggle, rotateX: rotateX, rotateY: rotateY, project3D: project3D }), _jsx(NodeDetailsModal, { selectedNode: selectedNode, sidebarCollapsed: sidebarCollapsed, onClose: handleCloseModal, onUpdated: ({ title, content, tags, images, links }) => {
+                    // Update selectedNode in place for immediate UI reflection
+                    setSelectedNode((prev) => prev && prev.dataLog
+                        ? {
+                            ...prev,
+                            dataLog: {
+                                ...prev.dataLog,
+                                title,
+                                content,
+                                tags,
+                                images,
+                                links,
+                            },
+                        }
+                        : prev);
+                    // Also refresh underlying data
+                    refreshData();
+                }, onDeleted: async (nodeId) => {
+                    try {
+                        await deleteNode(nodeId);
+                        setSelectedNode(null);
+                    }
+                    finally {
+                        refreshData();
+                    }
+                } }), _jsx(AddNodeModal, { isOpen: showAddModal, onClose: () => setShowAddModal(false), onNodeAdded: (dataLog) => {
+                    addNode(dataLog);
+                    setShowAddModal(false);
+                } }), dotTooltip && (_jsx("div", { className: "fixed z-50 bg-black/90 text-cyan-400 font-mono text-xs p-2 rounded border border-cyan-400/50 pointer-events-none", style: {
                     left: dotTooltip.x + 10,
                     top: dotTooltip.y - 10,
                     transform: "translateY(-100%)",

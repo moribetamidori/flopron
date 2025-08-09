@@ -1,11 +1,36 @@
 import { jsx as _jsx } from "react/jsx-runtime";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 export default function NodePreview({ dataLog, isSelected, onClick, }) {
     const [imageError, setImageError] = useState(false);
+    const [resolvedSrc, setResolvedSrc] = useState(null);
+    useEffect(() => {
+        const resolve = async () => {
+            setImageError(false);
+            const first = dataLog.images?.[0];
+            if (!first) {
+                setResolvedSrc(null);
+                return;
+            }
+            try {
+                if (window.electronAPI?.files?.getImagePath) {
+                    const full = await window.electronAPI.files.getImagePath(first);
+                    if (full) {
+                        setResolvedSrc(`file://${full}`);
+                        return;
+                    }
+                }
+                setResolvedSrc(first);
+            }
+            catch {
+                setResolvedSrc(first);
+            }
+        };
+        resolve();
+    }, [dataLog.images]);
     const renderContent = () => {
         // If there are images, show the first image
-        if (dataLog.images.length > 0 && !imageError) {
-            return (_jsx("img", { src: dataLog.images[0], alt: "Node content", className: "w-full h-full object-cover rounded", onError: () => setImageError(true) }));
+        if (dataLog.images.length > 0 && !imageError && resolvedSrc) {
+            return (_jsx("img", { src: resolvedSrc, alt: "Node content", className: "w-full h-full object-cover rounded", onError: () => setImageError(true) }));
         }
         // If no images or image failed to load, show text characters
         const text = dataLog.content;

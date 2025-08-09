@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import { DataLog } from "./data";
+import React, { useEffect, useState } from "react";
+import { DataLogWithRelations } from "./database/types";
 
 interface NodePreviewProps {
-  dataLog: DataLog;
+  dataLog: DataLogWithRelations;
   isSelected: boolean;
   onClick: () => void;
 }
@@ -13,13 +13,38 @@ export default function NodePreview({
   onClick,
 }: NodePreviewProps) {
   const [imageError, setImageError] = useState(false);
+  const [resolvedSrc, setResolvedSrc] = useState<string | null>(null);
+
+  useEffect(() => {
+    const resolve = async () => {
+      setImageError(false);
+      const first = dataLog.images?.[0];
+      if (!first) {
+        setResolvedSrc(null);
+        return;
+      }
+      try {
+        if ((window as any).electronAPI?.files?.getImagePath) {
+          const full = await (window as any).electronAPI.files.getImagePath(first);
+          if (full) {
+            setResolvedSrc(`file://${full}`);
+            return;
+          }
+        }
+        setResolvedSrc(first);
+      } catch {
+        setResolvedSrc(first);
+      }
+    };
+    resolve();
+  }, [dataLog.images]);
 
   const renderContent = () => {
     // If there are images, show the first image
-    if (dataLog.images.length > 0 && !imageError) {
+    if (dataLog.images.length > 0 && !imageError && resolvedSrc) {
       return (
         <img
-          src={dataLog.images[0]}
+          src={resolvedSrc}
           alt="Node content"
           className="w-full h-full object-cover rounded"
           onError={() => setImageError(true)}

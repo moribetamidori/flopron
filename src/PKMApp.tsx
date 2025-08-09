@@ -11,19 +11,24 @@ declare global {
 
 import { useAudioContext } from "./hooks/useAudioContext";
 import { useImageCache } from "./hooks/useImageCache";
-import { useMemoryTree, MemoryNode } from "./hooks/useMemoryTree";
+import {
+  useDatabaseMemoryTree,
+  MemoryNode,
+} from "./hooks/useDatabaseMemoryTree";
 import { use3DRendering } from "./hooks/use3DRendering";
 import { useCanvasInteraction } from "./hooks/useCanvasInteraction";
 import { CanvasRenderer } from "./components/CanvasRenderer";
 import { Sidebar } from "./components/Sidebar";
 import { NodeDetailsModal } from "./components/NodeDetailsModal";
 import { UIOverlay } from "./components/UIOverlay";
+import { AddNodeModal } from "./components/AddNodeModal";
 
 export default function PKMApp() {
   // Custom hooks
   const { playNodeSound } = useAudioContext();
-  const { imageCache } = useImageCache();
-  const { nodes, connections, addNode } = useMemoryTree();
+  const { nodes, connections, addNode, deleteNode, refreshData } =
+    useDatabaseMemoryTree();
+  const { imageCache } = useImageCache({ nodes });
   const {
     time,
     rotationX,
@@ -42,6 +47,7 @@ export default function PKMApp() {
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const [previewMode, setPreviewMode] = useState(false);
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
+  const [showAddModal, setShowAddModal] = useState(false);
 
   const [dotTooltip, setDotTooltip] = useState<{
     tags: string[];
@@ -205,6 +211,7 @@ export default function PKMApp() {
         onNodeClick={handleNodeClick}
         onSidebarToggle={handleSidebarToggle}
         onTagClick={handleTagClick}
+        onAddClick={() => setShowAddModal(true)}
       />
 
       {/* UI Overlay */}
@@ -228,6 +235,44 @@ export default function PKMApp() {
         selectedNode={selectedNode}
         sidebarCollapsed={sidebarCollapsed}
         onClose={handleCloseModal}
+        onUpdated={({ title, content, tags, images, links }) => {
+          // Update selectedNode in place for immediate UI reflection
+          setSelectedNode((prev) =>
+            prev && prev.dataLog
+              ? {
+                  ...prev,
+                  dataLog: {
+                    ...prev.dataLog,
+                    title,
+                    content,
+                    tags,
+                    images,
+                    links,
+                  },
+                }
+              : prev
+          );
+          // Also refresh underlying data
+          refreshData();
+        }}
+        onDeleted={async (nodeId) => {
+          try {
+            await deleteNode(nodeId);
+            setSelectedNode(null);
+          } finally {
+            refreshData();
+          }
+        }}
+      />
+
+      {/* Add Entry Modal */}
+      <AddNodeModal
+        isOpen={showAddModal}
+        onClose={() => setShowAddModal(false)}
+        onNodeAdded={(dataLog) => {
+          addNode(dataLog);
+          setShowAddModal(false);
+        }}
       />
 
       {/* Dot Tooltip */}

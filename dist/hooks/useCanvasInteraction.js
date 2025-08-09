@@ -92,7 +92,10 @@ export const useCanvasInteraction = ({ nodes, previewMode, rotationX, rotationY,
         }
     };
     const handleWheel = (e) => {
-        e.preventDefault();
+        // Avoid calling preventDefault on passive listeners
+        if (e.nativeEvent.cancelable) {
+            e.preventDefault();
+        }
         const zoomSpeed = 0.1;
         const zoomDelta = e.deltaY > 0 ? -zoomSpeed : zoomSpeed;
         updateZoom(zoomDelta);
@@ -107,7 +110,10 @@ export const useCanvasInteraction = ({ nodes, previewMode, rotationX, rotationY,
         }
     };
     const handleTouchMove = (e) => {
-        e.preventDefault();
+        // Avoid calling preventDefault on passive listeners
+        if (e.nativeEvent.cancelable) {
+            e.preventDefault();
+        }
         if (e.touches.length === 2 && lastTouchDistance !== null) {
             // Pinch to zoom
             const touch1 = e.touches[0];

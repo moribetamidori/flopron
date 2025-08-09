@@ -2,18 +2,6 @@ import React from "react";
 import { createRoot } from "react-dom/client";
 import PKMApp from "./PKMApp";
 
-declare global {
-  interface Window {
-    electronAPI: {
-      getAppInfo: () => {
-        platform: NodeJS.Platform;
-        versions: { node: string; chrome: string; electron: string };
-      };
-      ping: () => Promise<string>;
-    };
-  }
-}
-
 // Loading component with pulsing neuron
 const LoadingNeuron = () => {
   const [pulse, setPulse] = React.useState(0);
@@ -130,6 +118,14 @@ const LoadingNeuron = () => {
 
 document.addEventListener("DOMContentLoaded", async () => {
   console.log("DOM loaded, attempting to mount React...");
+  // Debug: verify preload exposed API
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const api = (window as any).electronAPI;
+  console.log(
+    "preload window.electronAPI present:",
+    !!api,
+    api && Object.keys(api)
+  );
 
   // Mount React PKM application
   const rootElement = document.getElementById("root");

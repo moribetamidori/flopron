@@ -1,5 +1,5 @@
 import { useState, useRef } from "react";
-import { MemoryNode } from "./useMemoryTree";
+import { MemoryNode } from "./useDatabaseMemoryTree";
 
 interface UseCanvasInteractionProps {
   nodes: MemoryNode[];
@@ -169,7 +169,10 @@ export const useCanvasInteraction = ({
   };
 
   const handleWheel = (e: React.WheelEvent<HTMLCanvasElement>) => {
-    e.preventDefault();
+    // Avoid calling preventDefault on passive listeners
+    if (e.nativeEvent.cancelable) {
+      e.preventDefault();
+    }
     const zoomSpeed = 0.1;
     const zoomDelta = e.deltaY > 0 ? -zoomSpeed : zoomSpeed;
     updateZoom(zoomDelta);
@@ -188,7 +191,10 @@ export const useCanvasInteraction = ({
   };
 
   const handleTouchMove = (e: React.TouchEvent<HTMLCanvasElement>) => {
-    e.preventDefault();
+    // Avoid calling preventDefault on passive listeners
+    if (e.nativeEvent.cancelable) {
+      e.preventDefault();
+    }
 
     if (e.touches.length === 2 && lastTouchDistance !== null) {
       // Pinch to zoom

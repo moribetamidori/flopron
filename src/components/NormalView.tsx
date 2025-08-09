@@ -1,4 +1,4 @@
-import { MemoryNode } from "../hooks/useMemoryTree";
+import { MemoryNode } from "../hooks/useDatabaseMemoryTree";
 
 interface NormalViewProps {
   node: MemoryNode;

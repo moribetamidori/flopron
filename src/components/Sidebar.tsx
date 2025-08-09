@@ -1,5 +1,5 @@
 import React from "react";
-import { MemoryNode } from "../hooks/useMemoryTree";
+import { MemoryNode } from "../hooks/useDatabaseMemoryTree";
 import { getRelativeTime } from "../utils/timeUtils";
 import NodePreview from "../NodePreview";
 
@@ -12,6 +12,7 @@ interface SidebarProps {
   onNodeClick: (node: MemoryNode) => void;
   onSidebarToggle: () => void;
   onTagClick: (tag: string) => void;
+  onAddClick?: () => void;
 }
 
 export const Sidebar: React.FC<SidebarProps> = ({
@@ -23,6 +24,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
   onNodeClick,
   onSidebarToggle,
   onTagClick,
+  onAddClick,
 }) => {
   return (
     <div
@@ -34,9 +36,18 @@ export const Sidebar: React.FC<SidebarProps> = ({
         <div className="flex justify-between items-center">
           {!sidebarCollapsed && (
             <>
-              <h2 className="text-cyan-400 font-mono font-bold text-lg">
-                JOURNAL ENTRIES
-              </h2>
+              <div className="flex items-center gap-3">
+                <h2 className="text-cyan-400 font-mono font-bold text-lg">
+                  JOURNAL ENTRIES
+                </h2>
+                <button
+                  onClick={onAddClick}
+                  className="px-3 py-1 border border-cyan-400/50 text-cyan-300 rounded hover:text-white hover:border-cyan-400 transition-colors cursor-pointer"
+                  title="Add new entry"
+                >
+                  +
+                </button>
+              </div>
               <button
                 onClick={onSidebarToggle}
                 className="text-cyan-400 hover:text-white transition-colors cursor-pointer"
@@ -152,9 +163,9 @@ export const Sidebar: React.FC<SidebarProps> = ({
                     <div className="flex justify-between items-start mb-1">
                       <div className="flex items-center gap-2">
                         <span className="font-mono text-sm font-bold">
-                          {node.id.length > 15
-                            ? `${node.id.substring(0, 15)}...`
-                            : node.id}
+                          {node.dataLog?.title && node.dataLog.title.length > 15
+                            ? `${node.dataLog.title.substring(0, 15)}...`
+                            : node.dataLog?.title || node.id}
                         </span>
                         {node.dataLog && (
                           <span className="text-xs text-cyan-300/70">

@@ -12,7 +12,9 @@
     "allowSyntheticDefaultImports": true,
     "jsx": "react-jsx",
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
-    "types": ["node"]
+    "types": ["node"],
+    "allowImportingTsExtensions": false,
+    "noEmit": false
   },
   "include": ["src/**/*.ts", "src/**/*.tsx"],
   "exclude": [

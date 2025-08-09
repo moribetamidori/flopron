@@ -1301,7 +1301,7 @@
           return dispatcher;
         }
         "undefined" !== typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ && "function" === typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart && __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart(Error());
-        var React6 = require_react(), Internals = {
+        var React7 = require_react(), Internals = {
           d: {
             f: noop,
             r: function() {
@@ -1319,7 +1319,7 @@
           },
           p: 0,
           findDOMNode: null
-        }, REACT_PORTAL_TYPE = Symbol.for("react.portal"), ReactSharedInternals = React6.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE;
+        }, REACT_PORTAL_TYPE = Symbol.for("react.portal"), ReactSharedInternals = React7.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE;
         "function" === typeof Map && null != Map.prototype && "function" === typeof Map.prototype.forEach && "function" === typeof Set && null != Set.prototype && "function" === typeof Set.prototype.clear && "function" === typeof Set.prototype.forEach || console.error(
           "React depends on Map and Set built-in types. Make sure that you load a polyfill in older browsers. https://reactjs.org/link/react-polyfills"
         );
@@ -2861,7 +2861,7 @@
           "number" === type && getActiveElement(node.ownerDocument) === node || node.defaultValue === "" + value || (node.defaultValue = "" + value);
         }
         function validateOptionProps(element, props) {
-          null == props.value && ("object" === typeof props.children && null !== props.children ? React6.Children.forEach(props.children, function(child) {
+          null == props.value && ("object" === typeof props.children && null !== props.children ? React7.Children.forEach(props.children, function(child) {
             null == child || "string" === typeof child || "number" === typeof child || "bigint" === typeof child || didWarnInvalidChild || (didWarnInvalidChild = true, console.error(
               "Cannot infer the option value of complex children. Pass a `value` prop or use a plain string as children to <option>."
             ));
@@ -16443,14 +16443,14 @@
           ));
         }
         "undefined" !== typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ && "function" === typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart && __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart(Error());
-        var Scheduler = require_scheduler(), React6 = require_react(), ReactDOM = require_react_dom(), assign = Object.assign, REACT_LEGACY_ELEMENT_TYPE = Symbol.for("react.element"), REACT_ELEMENT_TYPE = Symbol.for("react.transitional.element"), REACT_PORTAL_TYPE = Symbol.for("react.portal"), REACT_FRAGMENT_TYPE = Symbol.for("react.fragment"), REACT_STRICT_MODE_TYPE = Symbol.for("react.strict_mode"), REACT_PROFILER_TYPE = Symbol.for("react.profiler"), REACT_PROVIDER_TYPE = Symbol.for("react.provider"), REACT_CONSUMER_TYPE = Symbol.for("react.consumer"), REACT_CONTEXT_TYPE = Symbol.for("react.context"), REACT_FORWARD_REF_TYPE = Symbol.for("react.forward_ref"), REACT_SUSPENSE_TYPE = Symbol.for("react.suspense"), REACT_SUSPENSE_LIST_TYPE = Symbol.for("react.suspense_list"), REACT_MEMO_TYPE = Symbol.for("react.memo"), REACT_LAZY_TYPE = Symbol.for("react.lazy");
+        var Scheduler = require_scheduler(), React7 = require_react(), ReactDOM = require_react_dom(), assign = Object.assign, REACT_LEGACY_ELEMENT_TYPE = Symbol.for("react.element"), REACT_ELEMENT_TYPE = Symbol.for("react.transitional.element"), REACT_PORTAL_TYPE = Symbol.for("react.portal"), REACT_FRAGMENT_TYPE = Symbol.for("react.fragment"), REACT_STRICT_MODE_TYPE = Symbol.for("react.strict_mode"), REACT_PROFILER_TYPE = Symbol.for("react.profiler"), REACT_PROVIDER_TYPE = Symbol.for("react.provider"), REACT_CONSUMER_TYPE = Symbol.for("react.consumer"), REACT_CONTEXT_TYPE = Symbol.for("react.context"), REACT_FORWARD_REF_TYPE = Symbol.for("react.forward_ref"), REACT_SUSPENSE_TYPE = Symbol.for("react.suspense"), REACT_SUSPENSE_LIST_TYPE = Symbol.for("react.suspense_list"), REACT_MEMO_TYPE = Symbol.for("react.memo"), REACT_LAZY_TYPE = Symbol.for("react.lazy");
         Symbol.for("react.scope");
         var REACT_ACTIVITY_TYPE = Symbol.for("react.activity");
         Symbol.for("react.legacy_hidden");
         Symbol.for("react.tracing_marker");
         var REACT_MEMO_CACHE_SENTINEL = Symbol.for("react.memo_cache_sentinel");
         Symbol.for("react.view_transition");
-        var MAYBE_ITERATOR_SYMBOL = Symbol.iterator, REACT_CLIENT_REFERENCE = Symbol.for("react.client.reference"), isArrayImpl = Array.isArray, ReactSharedInternals = React6.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, ReactDOMSharedInternals = ReactDOM.__DOM_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, NotPending = Object.freeze({
+        var MAYBE_ITERATOR_SYMBOL = Symbol.iterator, REACT_CLIENT_REFERENCE = Symbol.for("react.client.reference"), isArrayImpl = Array.isArray, ReactSharedInternals = React7.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, ReactDOMSharedInternals = ReactDOM.__DOM_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, NotPending = Object.freeze({
           pending: false,
           data: null,
           method: null,
@@ -19172,7 +19172,7 @@
           }
         };
         (function() {
-          var isomorphicReactPackageVersion = React6.version;
+          var isomorphicReactPackageVersion = React7.version;
           if ("19.1.1" !== isomorphicReactPackageVersion)
             throw Error(
               'Incompatible React versions: The "react" and "react-dom" packages must have the exact same version. Instead got:\n  - react:      ' + (isomorphicReactPackageVersion + "\n  - react-dom:  19.1.1\nLearn more: https://react.dev/warnings/version-mismatch")
@@ -19525,20 +19525,20 @@
         function validateChildKeys(node) {
           "object" === typeof node && null !== node && node.$$typeof === REACT_ELEMENT_TYPE && node._store && (node._store.validated = 1);
         }
-        var React6 = require_react(), REACT_ELEMENT_TYPE = Symbol.for("react.transitional.element"), REACT_PORTAL_TYPE = Symbol.for("react.portal"), REACT_FRAGMENT_TYPE = Symbol.for("react.fragment"), REACT_STRICT_MODE_TYPE = Symbol.for("react.strict_mode"), REACT_PROFILER_TYPE = Symbol.for("react.profiler");
+        var React7 = require_react(), REACT_ELEMENT_TYPE = Symbol.for("react.transitional.element"), REACT_PORTAL_TYPE = Symbol.for("react.portal"), REACT_FRAGMENT_TYPE = Symbol.for("react.fragment"), REACT_STRICT_MODE_TYPE = Symbol.for("react.strict_mode"), REACT_PROFILER_TYPE = Symbol.for("react.profiler");
         Symbol.for("react.provider");
-        var REACT_CONSUMER_TYPE = Symbol.for("react.consumer"), REACT_CONTEXT_TYPE = Symbol.for("react.context"), REACT_FORWARD_REF_TYPE = Symbol.for("react.forward_ref"), REACT_SUSPENSE_TYPE = Symbol.for("react.suspense"), REACT_SUSPENSE_LIST_TYPE = Symbol.for("react.suspense_list"), REACT_MEMO_TYPE = Symbol.for("react.memo"), REACT_LAZY_TYPE = Symbol.for("react.lazy"), REACT_ACTIVITY_TYPE = Symbol.for("react.activity"), REACT_CLIENT_REFERENCE = Symbol.for("react.client.reference"), ReactSharedInternals = React6.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, hasOwnProperty = Object.prototype.hasOwnProperty, isArrayImpl = Array.isArray, createTask = console.createTask ? console.createTask : function() {
+        var REACT_CONSUMER_TYPE = Symbol.for("react.consumer"), REACT_CONTEXT_TYPE = Symbol.for("react.context"), REACT_FORWARD_REF_TYPE = Symbol.for("react.forward_ref"), REACT_SUSPENSE_TYPE = Symbol.for("react.suspense"), REACT_SUSPENSE_LIST_TYPE = Symbol.for("react.suspense_list"), REACT_MEMO_TYPE = Symbol.for("react.memo"), REACT_LAZY_TYPE = Symbol.for("react.lazy"), REACT_ACTIVITY_TYPE = Symbol.for("react.activity"), REACT_CLIENT_REFERENCE = Symbol.for("react.client.reference"), ReactSharedInternals = React7.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, hasOwnProperty = Object.prototype.hasOwnProperty, isArrayImpl = Array.isArray, createTask = console.createTask ? console.createTask : function() {
           return null;
         };
-        React6 = {
+        React7 = {
           react_stack_bottom_frame: function(callStackForError) {
             return callStackForError();
           }
         };
         var specialPropKeyWarningShown;
         var didWarnAboutElementRef = {};
-        var unknownOwnerDebugStack = React6.react_stack_bottom_frame.bind(
-          React6,
+        var unknownOwnerDebugStack = React7.react_stack_bottom_frame.bind(
+          React7,
           UnknownOwner
         )();
         var unknownOwnerDebugTask = createTask(getTaskName(UnknownOwner));
@@ -19587,14 +19587,14 @@
   });
 
   // src/renderer.ts
-  var import_react10 = __toESM(require_react());
-  var import_client = __toESM(require_client());
+  var import_react11 = __toESM(require_react(), 1);
+  var import_client = __toESM(require_client(), 1);
 
   // src/PKMApp.tsx
-  var import_react9 = __toESM(require_react());
+  var import_react10 = __toESM(require_react(), 1);
 
   // src/hooks/useAudioContext.ts
-  var import_react = __toESM(require_react());
+  var import_react = __toESM(require_react(), 1);
   var useAudioContext = () => {
     const audioContextRef = (0, import_react.useRef)(null);
     (0, import_react.useEffect)(() => {
@@ -19658,245 +19658,358 @@
   };
 
   // src/hooks/useImageCache.ts
-  var import_react2 = __toESM(require_react());
-
-  // src/data.ts
-  var dataLogs = [
-    {
-      id: "[garden]-weed-hat",
-      timestamp: /* @__PURE__ */ new Date("2025-08-03T13:38:20Z"),
-      tags: ["garden", "doggo", "jmill", "eccentric"],
-      content: "Daily garden walk and check, Jamaican cherry, doing well, watermelon, growing, two are very big now, the weeds, we really need to get rid of a lot of them before we leave. Jmill grabbed a whole cluster of weed and put it on his head, so funny such a typical doggo behavior.",
-      images: ["./assets/images/cuttie/6.webp"],
-      links: []
-    },
-    {
-      id: "[brain-farts]-venture funding fire",
-      timestamp: /* @__PURE__ */ new Date("2025-08-03T03:38:20Z"),
-      tags: ["brain farts"],
-      images: [],
-      content: `The first caveman that discovered fire: "I'll raise 400 sea shells \u{1F41A} on 10k sea shells post money valuation." Caveman Patent Office: "Just fill out these three walls for the new patent". Hater caveman: "Bro why I want fire, I could just wear more furs, sitting around fire makes me lazy, raw food is good for your health anyway." Replace fire with AI and caveman with us LOL`,
-      links: []
-    },
-    {
-      id: "walk-my-doggo",
-      timestamp: /* @__PURE__ */ new Date("2025-08-02T17:30:00Z"),
-      tags: ["doggo", "walk", "jmill", "botanical garden", "orlando"],
-      content: "Walked my doggo for half an hour in Mead Botanical Garden after coffee. He was so happy and so was I. As we took pictures in the garden trying to identify the plants we don't know, Doggo busted out this app called Seek by iNatualist that is completely free and have accomplishment badges. That's pretty cool, I wish we have more free and wholsesome apps like this.",
-      images: ["./assets/images/cuttie/1.webp", "./assets/images/cuttie/2.webp"],
-      links: ["https://share.google/gYAckrd9hOsganbTN"]
-    },
-    {
-      id: "black-phine-coffee-bar",
-      timestamp: /* @__PURE__ */ new Date("2025-08-02T16:30:00Z"),
-      tags: ["coffee", "vibe coding", "orlando"],
-      content: "Discovered a random coffe place in orlando that has a super chill interior, a lot of plants, Asian-owned, good vibe.",
-      images: ["./assets/images/cuttie/0.webp"],
-      links: ["https://share.google/GLe4MlvcwqZLLkZno"]
-    },
-    {
-      id: "florida-sky",
-      timestamp: /* @__PURE__ */ new Date("2025-08-02T00:32:15Z"),
-      tags: ["sky", "orlando", "florida"],
-      content: "Florida always has this trippy looking sky that would literally paint every white painted house dreamy purple. That's how I discovered this sky. No Photoshop. Absolutely breathtaking.",
-      images: ["./assets/images/cuttie/3.webp"],
-      links: []
-    },
-    {
-      id: "[thursday-dinner-series]-talay",
-      timestamp: /* @__PURE__ */ new Date("2025-08-02T18:35:42Z"),
-      tags: ["thursday", "dinner", "thai food", "orlando"],
-      content: "My family and I tried Talay on Thursday for dinner. I had been wanting to go there for a while, but since I came back from Thailand, I've been too spoiled by the cheap, delicious food there, so I kept putting it off. It turns out it's a very authentic place, and their raw shrimp (Goong Chae Nam Pla) is really good. Their crying tiger (Sua Rong Hai) is also on point. Their cocktail and zero-proof menu also looks like they put a lot of effort and creative energy into it.",
-      images: ["./assets/images/cuttie/4.webp", "./assets/images/cuttie/5.webp"],
-      links: []
-    },
-    {
-      id: "[cat]-my-oranges",
-      timestamp: /* @__PURE__ */ new Date("2025-07-28T08:40:05Z"),
-      tags: ["oranges", "cat", "kitties", "cara", "tangerine"],
-      content: "Enjoy their big stretches :D, the first one is Cara, female orange tabby with Turkish van medium hair, the second one is Tangerine, male orange tabby domestic short hair.",
-      images: ["./assets/images/cuttie/8.webp", "./assets/images/cuttie/7.webp"],
-      links: []
-    },
-    {
-      id: "[garden]-biggest venus mango",
-      timestamp: /* @__PURE__ */ new Date("2025-07-26T08:42:33Z"),
-      tags: ["garden", "mango"],
-      content: "We harvested the biggest mango on our Venus mango tree. 2.5Ibs, or over 1kg.",
-      images: ["./assets/images/cuttie/9.webp"],
-      links: []
-    },
-    {
-      id: "[thursday-dinner-series]-chilispot",
-      timestamp: /* @__PURE__ */ new Date("2025-07-24T18:35:42Z"),
-      tags: ["thursday", "dinner", "chinese food", "orlando"],
-      content: "We went to chilispot again for our Thursday dinner when we don't know where to go. We thought about Indian food but between Indian food and Chilispot, there's one obious winner.",
-      images: ["./assets/images/cuttie/10.webp"],
-      links: []
-    },
-    {
-      id: "[thursday-dinner-series]-prato",
-      timestamp: /* @__PURE__ */ new Date("2025-07-17T18:35:42Z"),
-      tags: ["thursday", "dinner", "italian food", "orlando"],
-      content: "We went to Prato and usually they won't have any walk-ins, but they say if we come right when it's open, we can get a table. The best pizza there is still the mushroom pizza, unbeatable. Their tiramisu dessert is also a must eat.",
-      images: [
-        "./assets/images/cuttie/11.webp",
-        "./assets/images/cuttie/12.webp",
-        "./assets/images/cuttie/13.webp"
-      ],
-      links: []
-    }
-  ];
-
-  // src/hooks/useImageCache.ts
-  var useImageCache = () => {
+  var import_react2 = __toESM(require_react(), 1);
+  var useImageCache = ({ nodes }) => {
     const [imageCache, setImageCache] = (0, import_react2.useState)(
       /* @__PURE__ */ new Map()
     );
     (0, import_react2.useEffect)(() => {
       const loadImages = async () => {
         const newCache = /* @__PURE__ */ new Map();
-        for (const dataLog of dataLogs) {
-          for (const imageSrc of dataLog.images) {
-            if (!newCache.has(imageSrc)) {
-              const img = new window.Image();
-              img.crossOrigin = "anonymous";
-              await new Promise((resolve, reject) => {
-                img.onload = () => resolve();
-                img.onerror = () => reject();
-                img.src = imageSrc;
-              });
-              newCache.set(imageSrc, img);
+        for (const node of nodes) {
+          if (node.dataLog?.images) {
+            for (const imageSrc of node.dataLog.images) {
+              if (!newCache.has(imageSrc)) {
+                try {
+                  let resolvedPath = imageSrc;
+                  if (window.electronAPI?.files?.getImagePath) {
+                    const fullPath = await window.electronAPI.files.getImagePath(imageSrc);
+                    if (fullPath) {
+                      resolvedPath = `file://${fullPath}`;
+                    }
+                  }
+                  const img = new window.Image();
+                  img.crossOrigin = "anonymous";
+                  await new Promise((resolve, reject) => {
+                    img.onload = () => {
+                      newCache.set(imageSrc, img);
+                      resolve();
+                    };
+                    img.onerror = (error) => {
+                      console.warn(`Failed to load image: ${imageSrc}`, error);
+                      reject(error);
+                    };
+                    img.src = resolvedPath;
+                  });
+                } catch (error) {
+                  console.warn(`Error loading image ${imageSrc}:`, error);
+                }
+              }
             }
           }
         }
         setImageCache(newCache);
       };
-      loadImages();
-    }, []);
+      if (nodes.length > 0) {
+        loadImages();
+      }
+    }, [nodes]);
     return { imageCache };
   };
 
-  // src/hooks/useMemoryTree.ts
-  var import_react3 = __toESM(require_react());
-  var useMemoryTree = () => {
+  // src/hooks/useDatabaseMemoryTree.ts
+  var import_react3 = __toESM(require_react(), 1);
+
+  // src/database/databaseService.ts
+  var DatabaseService = class _DatabaseService {
+    constructor() {
+    }
+    static getInstance() {
+      if (!_DatabaseService.instance) {
+        _DatabaseService.instance = new _DatabaseService();
+      }
+      return _DatabaseService.instance;
+    }
+    // Data Log operations
+    async createDataLog(input) {
+      return window.electronAPI.database.createDataLog(input);
+    }
+    async getDataLogById(id) {
+      return window.electronAPI.database.getDataLogById(id);
+    }
+    async getAllDataLogs() {
+      return window.electronAPI.database.getAllDataLogs();
+    }
+    async updateDataLog(id, updates) {
+      return window.electronAPI.database.updateDataLog(id, updates);
+    }
+    async deleteDataLog(id) {
+      return window.electronAPI.database.deleteDataLog(id);
+    }
+    // Memory Node operations
+    async createMemoryNode(input) {
+      return window.electronAPI.database.createMemoryNode(input);
+    }
+    async getMemoryNodeById(id) {
+      return window.electronAPI.database.getMemoryNodeById(id);
+    }
+    async getAllMemoryNodes() {
+      return window.electronAPI.database.getAllMemoryNodes();
+    }
+    async updateMemoryNode(id, updates) {
+      return window.electronAPI.database.updateMemoryNode(id, updates);
+    }
+    async deleteMemoryNode(id) {
+      return window.electronAPI.database.deleteMemoryNode(id);
+    }
+    // Connection operations
+    async createConnection(fromNodeId, toNodeId, sharedTags, glitchOffset) {
+      return window.electronAPI.database.createConnection(
+        fromNodeId,
+        toNodeId,
+        sharedTags,
+        glitchOffset
+      );
+    }
+    async getAllConnections() {
+      return window.electronAPI.database.getAllConnections();
+    }
+    async deleteConnection(id) {
+      return window.electronAPI.database.deleteConnection(id);
+    }
+    // Search and utility operations
+    async searchDataLogs(query) {
+      return window.electronAPI.database.searchDataLogs(query);
+    }
+    async getAllTags() {
+      return window.electronAPI.database.getAllTags();
+    }
+    // Migration helper - convert from old DataLog format to new format
+    convertDataLogToDatabase(dataLog) {
+      let title;
+      if ("title" in dataLog && typeof dataLog.title === "string" && dataLog.title) {
+        title = dataLog.title;
+      } else {
+        title = dataLog.id.replace(/[[\]()-]/g, " ").replace(/-/g, " ").split(" ").filter((word) => word.length > 0).map((word) => word.charAt(0).toUpperCase() + word.slice(1)).join(" ");
+      }
+      return {
+        id: dataLog.id,
+        title,
+        timestamp: dataLog.timestamp,
+        content: dataLog.content,
+        tags: dataLog.tags,
+        images: dataLog.images,
+        links: dataLog.links
+      };
+    }
+    // Utility to generate memory node from data log
+    createMemoryNodeFromDataLog(dataLog, position) {
+      return {
+        id: dataLog.id,
+        data_log_id: dataLog.id,
+        x: position?.x || (Math.random() - 0.5) * 800,
+        y: position?.y || (Math.random() - 0.5) * 800,
+        z: position?.z || (Math.random() - 0.5) * 400,
+        glitch_intensity: Math.random(),
+        pulse_phase: Math.random() * Math.PI * 2
+      };
+    }
+  };
+
+  // src/hooks/useDatabaseMemoryTree.ts
+  var useDatabaseMemoryTree = () => {
     const [nodes, setNodes] = (0, import_react3.useState)([]);
     const [connections, setConnections] = (0, import_react3.useState)([]);
-    const generateConnections = (nodeList) => {
-      const newConnections = [];
-      const connectionSet = /* @__PURE__ */ new Set();
-      nodeList.forEach((node, index) => {
-        if (!node.dataLog?.tags) return;
-        nodeList.forEach((otherNode, otherIndex) => {
-          if (index === otherIndex || !otherNode.dataLog?.tags) return;
-          const sharedTags = node.dataLog?.tags?.filter(
-            (tag) => otherNode.dataLog?.tags?.includes(tag)
-          ) || [];
-          if (sharedTags.length > 0) {
-            const connectionKey = [node.id, otherNode.id].sort().join("-");
-            if (!connectionSet.has(connectionKey)) {
-              connectionSet.add(connectionKey);
-              newConnections.push({
-                from: node.id,
-                to: otherNode.id,
-                glitchOffset: Math.random() * 10,
-                sharedTags
-              });
-              if (!node.connections.includes(otherNode.id)) {
-                node.connections.push(otherNode.id);
-              }
-              if (!otherNode.connections.includes(node.id)) {
-                otherNode.connections.push(node.id);
+    const [loading, setLoading] = (0, import_react3.useState)(true);
+    const [error, setError] = (0, import_react3.useState)(null);
+    const databaseService = DatabaseService.getInstance();
+    const convertToUINode = (0, import_react3.useCallback)(
+      (dbNode) => {
+        return {
+          id: dbNode.id,
+          x: dbNode.x,
+          y: dbNode.y,
+          z: dbNode.z,
+          connections: dbNode.connections,
+          glitchIntensity: dbNode.glitch_intensity,
+          pulsePhase: dbNode.pulse_phase,
+          dataLog: dbNode.dataLog
+        };
+      },
+      []
+    );
+    const convertToUIConnection = (0, import_react3.useCallback)(
+      (dbConnection) => {
+        return {
+          from: dbConnection.from_node_id,
+          to: dbConnection.to_node_id,
+          glitchOffset: dbConnection.glitch_offset,
+          sharedTags: dbConnection.sharedTags
+        };
+      },
+      []
+    );
+    const loadData = (0, import_react3.useCallback)(async () => {
+      try {
+        setLoading(true);
+        setError(null);
+        const dbNodes = await databaseService.getAllMemoryNodes();
+        const uiNodes = dbNodes.map(convertToUINode);
+        const dbConnections = await databaseService.getAllConnections();
+        const uiConnections = dbConnections.map(convertToUIConnection);
+        setNodes(uiNodes);
+        setConnections(uiConnections);
+      } catch (err) {
+        const errorMessage = err instanceof Error ? err.message : "Failed to load data from database";
+        setError(errorMessage);
+        console.error("Error loading memory tree data:", err);
+      } finally {
+        setLoading(false);
+      }
+    }, [databaseService, convertToUINode, convertToUIConnection]);
+    (0, import_react3.useEffect)(() => {
+      loadData();
+    }, [loadData]);
+    const addNode = (0, import_react3.useCallback)(
+      async (dataLog) => {
+        try {
+          const memoryNodeInput = databaseService.createMemoryNodeFromDataLog(dataLog);
+          const dbNode = await databaseService.createMemoryNode(memoryNodeInput);
+          const newUINode = convertToUINode(dbNode);
+          const existingNodes = await databaseService.getAllMemoryNodes();
+          const newConnections = [];
+          for (const existingNode of existingNodes) {
+            if (existingNode.id === dbNode.id || !existingNode.dataLog?.tags || !dataLog.tags)
+              continue;
+            const sharedTags = dataLog.tags.filter(
+              (tag) => existingNode.dataLog.tags.includes(tag)
+            );
+            if (sharedTags.length > 0) {
+              const dbConnection = await databaseService.createConnection(
+                dbNode.id,
+                existingNode.id,
+                sharedTags,
+                Math.random() * 10
+              );
+              const uiConnection = convertToUIConnection(dbConnection);
+              newConnections.push(uiConnection);
+              if (!newUINode.connections.includes(existingNode.id)) {
+                newUINode.connections.push(existingNode.id);
               }
             }
           }
-        });
-      });
-      return newConnections;
-    };
-    (0, import_react3.useEffect)(() => {
-      const generateTree = () => {
-        const newNodes = [];
-        const connectionSet = /* @__PURE__ */ new Set();
-        const centerX = 0;
-        const centerY = 0;
-        const centerZ = 0;
-        const clusterRadius = 400;
-        dataLogs.forEach((dataLog, index) => {
-          let nodeType;
-          let distributionParams;
-          if (index < 35) {
-            nodeType = "cluster";
-            const radius = Math.random() * clusterRadius;
-            const theta = Math.random() * Math.PI * 2;
-            const phi = Math.acos(2 * Math.random() - 1);
-            distributionParams = {
-              x: centerX + radius * Math.sin(phi) * Math.cos(theta),
-              y: centerY + radius * Math.cos(phi),
-              z: centerZ + radius * Math.sin(phi) * Math.sin(theta),
-              offset: 50
-            };
-          } else if (index < 43) {
-            nodeType = "spiral";
-            const spiralIndex = index - 35;
-            const angle = spiralIndex / 7 * Math.PI * 4;
-            const radius = 200 + spiralIndex * 30;
-            distributionParams = {
-              x: centerX + Math.cos(angle) * radius,
-              y: centerY + Math.sin(angle) * radius,
-              z: centerZ + (Math.random() - 0.5) * 100,
-              offset: 40
-            };
-          } else {
-            nodeType = "outlier";
-            const angle = Math.random() * Math.PI * 2;
-            const radius = clusterRadius * 0.8 + Math.random() * 200;
-            distributionParams = {
-              x: centerX + Math.cos(angle) * radius,
-              y: centerY + Math.sin(angle) * radius,
-              z: centerZ + (Math.random() - 0.5) * 150,
-              offset: 60
-            };
-          }
-          newNodes.push({
-            id: dataLog.id,
-            // Use the actual ID from data log
-            x: distributionParams.x + (Math.random() - 0.5) * distributionParams.offset,
-            y: distributionParams.y + (Math.random() - 0.5) * distributionParams.offset,
-            z: distributionParams.z,
-            connections: [],
-            glitchIntensity: Math.random(),
-            pulsePhase: Math.random() * Math.PI * 2,
-            dataLog
+          setNodes((prevNodes) => {
+            const updatedNodes = [...prevNodes, newUINode];
+            return updatedNodes.map((node) => {
+              const additionalConnections = newConnections.filter((conn) => conn.from === node.id || conn.to === node.id).map((conn) => conn.from === node.id ? conn.to : conn.from).filter((connId) => !node.connections.includes(connId));
+              if (additionalConnections.length > 0) {
+                return {
+                  ...node,
+                  connections: [...node.connections, ...additionalConnections]
+                };
+              }
+              return node;
+            });
           });
-        });
-        const newConnections = generateConnections(newNodes);
-        setNodes(newNodes);
-        setConnections(newConnections);
-      };
-      generateTree();
-    }, []);
-    const addNode = (dataLog) => {
-      const newNode = {
-        id: dataLog.id,
-        x: (Math.random() - 0.5) * 800,
-        y: (Math.random() - 0.5) * 800,
-        z: (Math.random() - 0.5) * 400,
-        connections: [],
-        glitchIntensity: Math.random(),
-        pulsePhase: Math.random() * Math.PI * 2,
-        dataLog
-      };
-      const updatedNodes = [...nodes, newNode];
-      const updatedConnections = generateConnections(updatedNodes);
-      setNodes(updatedNodes);
-      setConnections(updatedConnections);
+          setConnections((prevConnections) => [
+            ...prevConnections,
+            ...newConnections
+          ]);
+        } catch (err) {
+          const errorMessage = err instanceof Error ? err.message : "Failed to add node";
+          setError(errorMessage);
+          console.error("Error adding node:", err);
+          throw err;
+        }
+      },
+      [databaseService, convertToUINode, convertToUIConnection]
+    );
+    const updateNode = (0, import_react3.useCallback)(
+      async (nodeId, updates) => {
+        try {
+          const updatedDbNode = await databaseService.updateMemoryNode(nodeId, {
+            x: updates.x,
+            y: updates.y,
+            z: updates.z,
+            glitch_intensity: updates.glitchIntensity,
+            pulse_phase: updates.pulsePhase
+          });
+          if (updatedDbNode) {
+            const updatedUINode = convertToUINode(updatedDbNode);
+            setNodes(
+              (prevNodes) => prevNodes.map((node) => node.id === nodeId ? updatedUINode : node)
+            );
+          }
+        } catch (err) {
+          const errorMessage = err instanceof Error ? err.message : "Failed to update node";
+          setError(errorMessage);
+          console.error("Error updating node:", err);
+          throw err;
+        }
+      },
+      [databaseService, convertToUINode]
+    );
+    const deleteNode = (0, import_react3.useCallback)(
+      async (nodeId) => {
+        try {
+          const success = await databaseService.deleteMemoryNode(nodeId);
+          if (success) {
+            setNodes(
+              (prevNodes) => prevNodes.filter((node) => node.id !== nodeId)
+            );
+            setConnections(
+              (prevConnections) => prevConnections.filter(
+                (conn) => conn.from !== nodeId && conn.to !== nodeId
+              )
+            );
+          }
+        } catch (err) {
+          const errorMessage = err instanceof Error ? err.message : "Failed to delete node";
+          setError(errorMessage);
+          console.error("Error deleting node:", err);
+          throw err;
+        }
+      },
+      [databaseService]
+    );
+    const searchNodes = (0, import_react3.useCallback)(
+      async (query) => {
+        try {
+          const searchResults = await databaseService.searchDataLogs(query);
+          const searchNodes2 = [];
+          for (const dataLog of searchResults) {
+            const existingNode = nodes.find(
+              (node) => node.dataLog?.id === dataLog.id
+            );
+            if (existingNode) {
+              searchNodes2.push(existingNode);
+            }
+          }
+          return searchNodes2;
+        } catch (err) {
+          console.error("Error searching nodes:", err);
+          return [];
+        }
+      },
+      [databaseService, nodes]
+    );
+    const getAllTags = (0, import_react3.useCallback)(async () => {
+      try {
+        return await databaseService.getAllTags();
+      } catch (err) {
+        console.error("Error getting tags:", err);
+        return [];
+      }
+    }, [databaseService]);
+    const refreshData = (0, import_react3.useCallback)(() => {
+      loadData();
+    }, [loadData]);
+    return {
+      nodes,
+      connections,
+      loading,
+      error,
+      addNode,
+      updateNode,
+      deleteNode,
+      searchNodes,
+      getAllTags,
+      refreshData
     };
-    return { nodes, connections, addNode };
   };
 
   // src/hooks/use3DRendering.ts
-  var import_react4 = __toESM(require_react());
+  var import_react4 = __toESM(require_react(), 1);
   var use3DRendering = () => {
     const [time, setTime] = (0, import_react4.useState)(0);
     const [rotationX, setRotationX] = (0, import_react4.useState)(0);
@@ -19960,7 +20073,7 @@
   };
 
   // src/hooks/useCanvasInteraction.ts
-  var import_react5 = __toESM(require_react());
+  var import_react5 = __toESM(require_react(), 1);
   var useCanvasInteraction = ({
     nodes,
     previewMode,
@@ -20066,7 +20179,9 @@
       }
     };
     const handleWheel = (e) => {
-      e.preventDefault();
+      if (e.nativeEvent.cancelable) {
+        e.preventDefault();
+      }
       const zoomSpeed = 0.1;
       const zoomDelta = e.deltaY > 0 ? -zoomSpeed : zoomSpeed;
       updateZoom(zoomDelta);
@@ -20082,7 +20197,9 @@
       }
     };
     const handleTouchMove = (e) => {
-      e.preventDefault();
+      if (e.nativeEvent.cancelable) {
+        e.preventDefault();
+      }
       if (e.touches.length === 2 && lastTouchDistance !== null) {
         const touch1 = e.touches[0];
         const touch2 = e.touches[1];
@@ -20120,7 +20237,7 @@
   };
 
   // src/components/CanvasRenderer.tsx
-  var import_react6 = __toESM(require_react());
+  var import_react6 = __toESM(require_react(), 1);
 
   // src/components/NormalView.tsx
   var renderNormalView = ({
@@ -20266,7 +20383,7 @@
   };
 
   // src/components/CanvasRenderer.tsx
-  var import_jsx_runtime = __toESM(require_jsx_runtime());
+  var import_jsx_runtime = __toESM(require_jsx_runtime(), 1);
   var CanvasRenderer = ({
     nodes,
     connections,
@@ -20534,20 +20651,44 @@
   };
 
   // src/NodePreview.tsx
-  var import_react7 = __toESM(require_react());
-  var import_jsx_runtime2 = __toESM(require_jsx_runtime());
+  var import_react7 = __toESM(require_react(), 1);
+  var import_jsx_runtime2 = __toESM(require_jsx_runtime(), 1);
   function NodePreview({
     dataLog,
     isSelected,
     onClick
   }) {
     const [imageError, setImageError] = (0, import_react7.useState)(false);
+    const [resolvedSrc, setResolvedSrc] = (0, import_react7.useState)(null);
+    (0, import_react7.useEffect)(() => {
+      const resolve = async () => {
+        setImageError(false);
+        const first = dataLog.images?.[0];
+        if (!first) {
+          setResolvedSrc(null);
+          return;
+        }
+        try {
+          if (window.electronAPI?.files?.getImagePath) {
+            const full = await window.electronAPI.files.getImagePath(first);
+            if (full) {
+              setResolvedSrc(`file://${full}`);
+              return;
+            }
+          }
+          setResolvedSrc(first);
+        } catch {
+          setResolvedSrc(first);
+        }
+      };
+      resolve();
+    }, [dataLog.images]);
     const renderContent = () => {
-      if (dataLog.images.length > 0 && !imageError) {
+      if (dataLog.images.length > 0 && !imageError && resolvedSrc) {
         return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
           "img",
           {
-            src: dataLog.images[0],
+            src: resolvedSrc,
             alt: "Node content",
             className: "w-full h-full object-cover rounded",
             onError: () => setImageError(true)
@@ -20571,7 +20712,7 @@
   }
 
   // src/components/Sidebar.tsx
-  var import_jsx_runtime3 = __toESM(require_jsx_runtime());
+  var import_jsx_runtime3 = __toESM(require_jsx_runtime(), 1);
   var Sidebar = ({
     nodes,
     selectedNode,
@@ -20580,7 +20721,8 @@
     selectedTags,
     onNodeClick,
     onSidebarToggle,
-    onTagClick
+    onTagClick,
+    onAddClick
   }) => {
     return /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(
       "div",
@@ -20590,7 +20732,18 @@
           /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "p-4 border-b border-cyan-400/30", children: [
             /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "flex justify-between items-center", children: [
               !sidebarCollapsed && /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(import_jsx_runtime3.Fragment, { children: [
-                /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("h2", { className: "text-cyan-400 font-mono font-bold text-lg", children: "JOURNAL ENTRIES" }),
+                /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "flex items-center gap-3", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("h2", { className: "text-cyan-400 font-mono font-bold text-lg", children: "JOURNAL ENTRIES" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+                    "button",
+                    {
+                      onClick: onAddClick,
+                      className: "px-3 py-1 border border-cyan-400/50 text-cyan-300 rounded hover:text-white hover:border-cyan-400 transition-colors cursor-pointer",
+                      title: "Add new entry",
+                      children: "+"
+                    }
+                  )
+                ] }),
                 /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
                   "button",
                   {
@@ -20672,7 +20825,7 @@
                 children: [
                   /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "flex justify-between items-start mb-1", children: [
                     /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "flex items-center gap-2", children: [
-                      /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { className: "font-mono text-sm font-bold", children: node.id.length > 15 ? `${node.id.substring(0, 15)}...` : node.id }),
+                      /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { className: "font-mono text-sm font-bold", children: node.dataLog?.title && node.dataLog.title.length > 15 ? `${node.dataLog.title.substring(0, 15)}...` : node.dataLog?.title || node.id }),
                       node.dataLog && /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { className: "text-xs text-cyan-300/70", children: getRelativeTime(node.dataLog.timestamp) })
                     ] }),
                     node.dataLog && getRelativeTime(node.dataLog.timestamp) === null && /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { className: "text-xs opacity-70", children: node.dataLog.timestamp.toLocaleDateString(
@@ -20713,113 +20866,855 @@
   };
 
   // src/components/NodeDetailsModal.tsx
-  var import_react8 = __toESM(require_react());
-  var import_jsx_runtime4 = __toESM(require_jsx_runtime());
-  var NodeDetailsModal = ({
-    selectedNode,
-    sidebarCollapsed,
-    onClose
+  var import_react9 = __toESM(require_react(), 1);
+
+  // src/components/AddNodeModal.tsx
+  var import_react8 = __toESM(require_react(), 1);
+  var import_jsx_runtime4 = __toESM(require_jsx_runtime(), 1);
+  var TagInput = ({
+    tags,
+    onTagsChange,
+    availableTags
   }) => {
-    const [enlargedImage, setEnlargedImage] = (0, import_react8.useState)(null);
-    if (!selectedNode || !selectedNode.dataLog) return null;
-    return /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: "absolute inset-0 flex items-center justify-center pointer-events-none", children: /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(
-      "div",
-      {
-        className: "bg-black/95 border border-cyan-400/50 rounded-lg p-8 text-cyan-400 font-mono max-w-2xl w-full mx-4 max-h-[80vh] overflow-y-auto transition-all duration-300 pointer-events-auto",
-        style: {
-          transform: sidebarCollapsed ? "translateX(0)" : "translateX(160px)"
-        },
-        children: [
-          /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "flex justify-between items-start", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("h3", { className: "text-xl font-bold", children: selectedNode.id }),
-            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
-              "button",
-              {
-                onClick: onClose,
-                className: "text-cyan-400 hover:text-white transition-colors text-lg",
-                children: "\u2715"
-              }
-            )
-          ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "space-y-2", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { children: [
-              /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("span", { className: "text-cyan-300 font-semibold", children: "Timestamp:" }),
-              /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("span", { className: "ml-2 text-white", children: selectedNode.dataLog.timestamp.toLocaleString() })
-            ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { children: [
-              /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("span", { className: "text-cyan-300 font-semibold", children: "Tags:" }),
-              /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: "flex flex-wrap gap-2 mt-2", children: selectedNode.dataLog.tags.map((tag, index) => /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
-                "span",
-                {
-                  className: "px-3 py-1 bg-cyan-400/20 border border-cyan-400/50 rounded text-sm",
-                  children: tag
-                },
-                index
-              )) })
-            ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { children: [
-              /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("span", { className: "text-cyan-300 font-semibold", children: "Content:" }),
-              /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("p", { className: "mt-2 text-white text-sm leading-relaxed", children: selectedNode.dataLog.content })
-            ] }),
-            selectedNode.dataLog.images.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { children: [
-              /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("span", { className: "text-cyan-300 font-semibold", children: "Images:" }),
-              /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: "flex flex-wrap gap-4 mt-2", children: selectedNode.dataLog.images.map((image, index) => /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "flex flex-col items-center", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
-                  "img",
-                  {
-                    src: image,
-                    alt: `Image ${index + 1}`,
-                    className: "w-32 h-32 object-cover rounded border border-purple-400/50 bg-purple-400/10 cursor-pointer hover:border-purple-400/80 transition-colors",
-                    onClick: () => setEnlargedImage(image),
-                    onError: (e) => {
-                      const target = e.target;
-                      target.style.display = "none";
-                    }
-                  }
-                ),
-                /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("span", { className: "text-xs text-purple-300 mt-1 text-center", children: image })
-              ] }, index)) })
-            ] }),
-            selectedNode.dataLog.links.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { children: [
-              /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("span", { className: "text-cyan-300 font-semibold", children: "Links:" }),
-              /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: "flex flex-wrap gap-2 mt-2", children: selectedNode.dataLog.links.map((link, index) => /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
-                "a",
-                {
-                  href: link,
-                  target: "_blank",
-                  rel: "noopener noreferrer",
-                  className: "px-3 py-1 bg-blue-400/20 border border-blue-400/50 rounded text-sm text-blue-300 hover:bg-blue-400/30 transition-colors",
-                  children: link
-                },
-                index
-              )) })
-            ] }),
-            enlargedImage && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: "absolute inset-0 flex items-start justify-center pt-8 pointer-events-none bg-black/90 z-10", children: /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "relative max-w-[70%] max-h-[60%] pointer-events-auto", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
-                "img",
-                {
-                  src: enlargedImage,
-                  alt: "Enlarged image",
-                  className: "max-w-full max-h-full object-contain rounded border border-purple-400/50"
-                }
-              ),
+    const [inputValue, setInputValue] = (0, import_react8.useState)("");
+    const [showSuggestions, setShowSuggestions] = (0, import_react8.useState)(false);
+    const [filteredSuggestions, setFilteredSuggestions] = (0, import_react8.useState)([]);
+    const [selectedSuggestionIndex, setSelectedSuggestionIndex] = (0, import_react8.useState)(-1);
+    const inputRef = (0, import_react8.useRef)(null);
+    (0, import_react8.useEffect)(() => {
+      if (inputValue.trim()) {
+        const filtered = availableTags.filter(
+          (tag) => tag.toLowerCase().includes(inputValue.toLowerCase()) && !tags.includes(tag)
+        );
+        setFilteredSuggestions(filtered);
+        setShowSuggestions(filtered.length > 0);
+      } else {
+        setShowSuggestions(false);
+        setFilteredSuggestions([]);
+      }
+      setSelectedSuggestionIndex(-1);
+    }, [inputValue, availableTags, tags]);
+    const addTag = (tag) => {
+      const trimmedTag = tag.trim();
+      if (trimmedTag && !tags.includes(trimmedTag)) {
+        onTagsChange([...tags, trimmedTag]);
+      }
+      setInputValue("");
+      setShowSuggestions(false);
+      setSelectedSuggestionIndex(-1);
+    };
+    const removeTag = (indexToRemove) => {
+      onTagsChange(tags.filter((_, index) => index !== indexToRemove));
+    };
+    const handleKeyDown = (e) => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        if (selectedSuggestionIndex >= 0 && filteredSuggestions[selectedSuggestionIndex]) {
+          addTag(filteredSuggestions[selectedSuggestionIndex]);
+        } else if (inputValue.trim()) {
+          addTag(inputValue);
+        }
+      } else if (e.key === "ArrowDown") {
+        e.preventDefault();
+        setSelectedSuggestionIndex(
+          (prev) => prev < filteredSuggestions.length - 1 ? prev + 1 : prev
+        );
+      } else if (e.key === "ArrowUp") {
+        e.preventDefault();
+        setSelectedSuggestionIndex((prev) => prev > 0 ? prev - 1 : -1);
+      } else if (e.key === "Escape") {
+        setShowSuggestions(false);
+        setSelectedSuggestionIndex(-1);
+      } else if (e.key === "Backspace" && !inputValue && tags.length > 0) {
+        removeTag(tags.length - 1);
+      }
+    };
+    const handleSuggestionClick = (tag) => {
+      addTag(tag);
+      inputRef.current?.focus();
+    };
+    return /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "relative", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "flex flex-wrap gap-2 p-3 bg-black/60 border border-cyan-400/40 rounded min-h-[42px] focus-within:border-cyan-400", children: [
+        tags.map((tag, index) => /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(
+          "span",
+          {
+            className: "inline-flex items-center px-2 py-1 bg-cyan-400/30 border border-cyan-400/50 rounded text-xs text-cyan-300",
+            children: [
+              tag,
               /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
                 "button",
                 {
-                  onClick: () => setEnlargedImage(null),
-                  className: "absolute -top-2 -right-2 text-purple-400 hover:text-white transition-colors text-sm bg-black/90 rounded-full w-6 h-6 flex items-center justify-center border border-purple-400/50 cursor-pointer",
-                  children: "\u2715"
+                  type: "button",
+                  onClick: () => removeTag(index),
+                  className: "ml-1 text-cyan-200 hover:text-white focus:outline-none",
+                  children: "\xD7"
                 }
               )
-            ] }) })
-          ] })
-        ]
+            ]
+          },
+          index
+        )),
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
+          "input",
+          {
+            ref: inputRef,
+            type: "text",
+            value: inputValue,
+            onChange: (e) => setInputValue(e.target.value),
+            onKeyDown: handleKeyDown,
+            placeholder: tags.length === 0 ? "Type a tag and press Enter..." : "Add another tag...",
+            className: "flex-1 min-w-[120px] bg-transparent text-cyan-100 placeholder-cyan-300/50 focus:outline-none"
+          }
+        )
+      ] }),
+      showSuggestions && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: "absolute z-10 w-full mt-1 bg-black/80 border border-cyan-400/40 rounded shadow-lg max-h-40 overflow-y-auto", children: filteredSuggestions.map((tag, index) => /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
+        "button",
+        {
+          type: "button",
+          onClick: () => handleSuggestionClick(tag),
+          className: `w-full px-3 py-2 text-left text-cyan-100 hover:bg-cyan-400/20 focus:bg-cyan-400/20 focus:outline-none ${selectedSuggestionIndex === index ? "bg-cyan-400/20" : ""}`,
+          children: tag
+        },
+        tag
+      )) })
+    ] });
+  };
+  var ImageDropzone = ({
+    images,
+    onImagesChange
+  }) => {
+    const [isDragOver, setIsDragOver] = (0, import_react8.useState)(false);
+    const [isProcessing, setIsProcessing] = (0, import_react8.useState)(false);
+    const [processingFiles, setProcessingFiles] = (0, import_react8.useState)([]);
+    const fileInputRef = (0, import_react8.useRef)(null);
+    const handleDragOver = (e) => {
+      e.preventDefault();
+      setIsDragOver(true);
+    };
+    const handleDragLeave = (e) => {
+      e.preventDefault();
+      setIsDragOver(false);
+    };
+    const handleDrop = async (e) => {
+      e.preventDefault();
+      setIsDragOver(false);
+      const files = Array.from(e.dataTransfer.files).filter(
+        (file) => file.type.startsWith("image/")
+      );
+      if (files.length > 0) {
+        await handleFiles(files);
       }
-    ) });
+    };
+    const handleFileSelect = async (e) => {
+      const files = Array.from(e.target.files || []);
+      if (files.length > 0) {
+        await handleFiles(files);
+      }
+    };
+    const handleFiles = async (files) => {
+      setIsProcessing(true);
+      const newImagePaths = [];
+      const fileNames = files.map((f) => f.name);
+      setProcessingFiles(fileNames);
+      for (const file of files) {
+        try {
+          if (!file.type.startsWith("image/")) {
+            console.warn(`Skipping non-image file: ${file.name}`);
+            continue;
+          }
+          const timestamp = Date.now();
+          const ext = file.name.split(".").pop()?.toLowerCase() || "jpg";
+          const filename = `${timestamp}-${Math.random().toString(36).substring(2)}.${ext}`;
+          const isHeic = ext === "heic" || ext === "heif";
+          if (isHeic) {
+            console.log(`Converting HEIC file: ${file.name}`);
+          }
+          const arrayBuffer = await file.arrayBuffer();
+          const savedPath = await window.electronAPI.files.saveImage(
+            arrayBuffer,
+            filename
+          );
+          newImagePaths.push(savedPath);
+          if (isHeic) {
+            console.log(
+              `HEIC file ${file.name} converted and saved successfully`
+            );
+          } else {
+            console.log(`Saved ${file.name} to ${savedPath}`);
+          }
+        } catch (error) {
+          console.error(`Failed to process ${file.name}:`, error);
+        }
+      }
+      onImagesChange([...images, ...newImagePaths]);
+      setIsProcessing(false);
+      setProcessingFiles([]);
+    };
+    const removeImage = (indexToRemove) => {
+      onImagesChange(images.filter((_, index) => index !== indexToRemove));
+    };
+    return /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "space-y-3", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(
+        "div",
+        {
+          onDragOver: isProcessing ? void 0 : handleDragOver,
+          onDragLeave: isProcessing ? void 0 : handleDragLeave,
+          onDrop: isProcessing ? void 0 : handleDrop,
+          className: `border-2 border-dashed rounded-lg p-6 text-center transition-colors ${isProcessing ? "border-gray-700 bg-gray-800/50 cursor-not-allowed" : isDragOver ? "border-blue-500 bg-blue-900/20" : "border-gray-600 hover:border-gray-500"}`,
+          children: [
+            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
+              "input",
+              {
+                ref: fileInputRef,
+                type: "file",
+                multiple: true,
+                accept: "image/*,.heic,.heif",
+                onChange: handleFileSelect,
+                className: "hidden"
+              }
+            ),
+            /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "text-gray-400", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: "text-2xl mb-2", children: isProcessing ? "\u23F3" : "\u{1F4C1}" }),
+              isProcessing ? /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "text-center", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("p", { className: "mb-2 text-blue-400", children: "Processing images..." }),
+                processingFiles.map((fileName, index) => /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: "text-xs text-gray-500 mb-1", children: fileName.toLowerCase().endsWith(".heic") || fileName.toLowerCase().endsWith(".heif") ? `Converting ${fileName} to PNG...` : `Processing ${fileName}...` }, index))
+              ] }) : /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { children: [
+                /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("p", { className: "mb-2", children: "Drag and drop images here, or click to select" }),
+                /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("p", { className: "text-xs text-gray-500 mb-3", children: [
+                  "Supports: JPEG, PNG, GIF, WebP, HEIC, HEIF",
+                  /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("br", {}),
+                  /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("span", { className: "text-blue-400", children: "HEIC files will be automatically converted to PNG" })
+                ] }),
+                /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
+                  "button",
+                  {
+                    type: "button",
+                    onClick: () => fileInputRef.current?.click(),
+                    disabled: isProcessing,
+                    className: "px-4 py-2 bg-gray-700 text-white rounded hover:bg-gray-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed",
+                    children: "Choose Files"
+                  }
+                )
+              ] })
+            ] })
+          ]
+        }
+      ),
+      images.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "space-y-2", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("label", { className: "block text-sm font-medium text-gray-300", children: [
+          "Selected Images (",
+          images.length,
+          ")"
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: "space-y-1 max-h-32 overflow-y-auto", children: images.map((imagePath, index) => /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(
+          "div",
+          {
+            className: "flex items-center justify-between p-2 bg-gray-800 rounded text-sm",
+            children: [
+              /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("span", { className: "text-gray-300 truncate", children: imagePath }),
+              /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
+                "button",
+                {
+                  type: "button",
+                  onClick: () => removeImage(index),
+                  className: "ml-2 text-red-400 hover:text-red-300 focus:outline-none",
+                  children: "\xD7"
+                }
+              )
+            ]
+          },
+          index
+        )) })
+      ] })
+    ] });
+  };
+  var AddNodeModal = ({
+    isOpen,
+    onClose,
+    onNodeAdded
+  }) => {
+    const [formData, setFormData] = (0, import_react8.useState)({
+      title: "",
+      content: "",
+      tags: [],
+      images: [],
+      links: []
+    });
+    const [linkInput, setLinkInput] = (0, import_react8.useState)("");
+    const [availableTags, setAvailableTags] = (0, import_react8.useState)([]);
+    const [isSubmitting, setIsSubmitting] = (0, import_react8.useState)(false);
+    const [error, setError] = (0, import_react8.useState)(null);
+    const databaseService = DatabaseService.getInstance();
+    (0, import_react8.useEffect)(() => {
+      if (isOpen) {
+        loadAvailableTags();
+      }
+    }, [isOpen]);
+    const loadAvailableTags = async () => {
+      try {
+        const tags = await databaseService.getAllTags();
+        setAvailableTags(tags);
+      } catch (error2) {
+        console.error("Failed to load tags:", error2);
+      }
+    };
+    const handleInputChange = (e) => {
+      const { name, value } = e.target;
+      setFormData((prev) => ({
+        ...prev,
+        [name]: value
+      }));
+    };
+    const generateId = () => {
+      const timestamp = Date.now();
+      const random = Math.random().toString(36).substring(2, 8);
+      return `memory-${timestamp}-${random}`;
+    };
+    const addLink = () => {
+      const trimmedLink = linkInput.trim();
+      if (trimmedLink && !formData.links.includes(trimmedLink)) {
+        setFormData((prev) => ({
+          ...prev,
+          links: [...prev.links, trimmedLink]
+        }));
+        setLinkInput("");
+      }
+    };
+    const removeLink = (indexToRemove) => {
+      setFormData((prev) => ({
+        ...prev,
+        links: prev.links.filter((_, index) => index !== indexToRemove)
+      }));
+    };
+    const handleLinkKeyDown = (e) => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        addLink();
+      }
+    };
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+      setIsSubmitting(true);
+      setError(null);
+      try {
+        if (!window.electronAPI?.database) {
+          throw new Error(
+            "Preload bridge not available. Please fully rebuild and restart the app (pnpm build && pnpm start)."
+          );
+        }
+        const id = generateId();
+        const input = {
+          id,
+          title: formData.title.trim(),
+          timestamp: /* @__PURE__ */ new Date(),
+          content: formData.content.trim(),
+          tags: formData.tags,
+          images: formData.images,
+          links: formData.links
+        };
+        const createdDataLog = await databaseService.createDataLog(input);
+        const memoryNodeInput = databaseService.createMemoryNodeFromDataLog(createdDataLog);
+        await databaseService.createMemoryNode(memoryNodeInput);
+        onNodeAdded(createdDataLog);
+        setFormData({
+          title: "",
+          content: "",
+          tags: [],
+          images: [],
+          links: []
+        });
+        setLinkInput("");
+        onClose();
+      } catch (err) {
+        const errorMessage = err instanceof Error ? err.message : "Failed to create memory node";
+        setError(errorMessage);
+        console.error("Error creating node:", err);
+      } finally {
+        setIsSubmitting(false);
+      }
+    };
+    if (!isOpen) return null;
+    return /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: "fixed inset-0 bg-black/90 flex items-center justify-center z-50 p-4", children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: "bg-black/95 border border-cyan-400/50 rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto text-cyan-400 font-mono", children: /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "p-6", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "flex justify-between items-center mb-6", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("h2", { className: "text-2xl font-bold text-cyan-400", children: "Add New Memory Node" }),
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
+          "button",
+          {
+            onClick: onClose,
+            className: "text-cyan-400 hover:text-white text-2xl leading-none",
+            disabled: isSubmitting,
+            children: "\xD7"
+          }
+        )
+      ] }),
+      error && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: "mb-4 p-3 bg-red-900/70 border border-red-700 rounded text-red-200 text-sm", children: error }),
+      /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("form", { onSubmit: handleSubmit, className: "space-y-6", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("label", { className: "block text-sm font-medium text-cyan-300 mb-2", children: "Title *" }),
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
+            "input",
+            {
+              type: "text",
+              name: "title",
+              value: formData.title,
+              onChange: handleInputChange,
+              required: true,
+              className: "w-full px-3 py-2 bg-black/60 border border-cyan-400/40 rounded text-cyan-100 focus:outline-none focus:border-cyan-400 placeholder-cyan-300/50",
+              placeholder: "Enter a descriptive title for this memory...",
+              disabled: isSubmitting
+            }
+          )
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("label", { className: "block text-sm font-medium text-cyan-300 mb-2", children: "Content *" }),
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
+            "textarea",
+            {
+              name: "content",
+              value: formData.content,
+              onChange: handleInputChange,
+              required: true,
+              rows: 4,
+              className: "w-full px-3 py-2 bg-black/60 border border-cyan-400/40 rounded text-cyan-100 focus:outline-none focus:border-cyan-400 placeholder-cyan-300/50",
+              placeholder: "Describe your memory or thought in detail...",
+              disabled: isSubmitting
+            }
+          )
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("label", { className: "block text-sm font-medium text-cyan-300 mb-2", children: "Tags" }),
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
+            TagInput,
+            {
+              tags: formData.tags,
+              onTagsChange: (tags) => setFormData((prev) => ({ ...prev, tags })),
+              availableTags
+            }
+          ),
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("p", { className: "text-xs text-cyan-300/60 mt-1", children: "Type a tag and press Enter to add it. Click existing tags to add them quickly." })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("label", { className: "block text-sm font-medium text-cyan-300 mb-2", children: "Images" }),
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
+            ImageDropzone,
+            {
+              images: formData.images,
+              onImagesChange: (images) => setFormData((prev) => ({ ...prev, images }))
+            }
+          )
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("label", { className: "block text-sm font-medium text-cyan-300 mb-2", children: "Links" }),
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "space-y-3", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: "flex gap-2", children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
+              "input",
+              {
+                type: "url",
+                value: linkInput,
+                onChange: (e) => setLinkInput(e.target.value),
+                onKeyDown: handleLinkKeyDown,
+                className: "flex-1 px-3 py-2 bg-black/60 border border-cyan-400/40 rounded text-cyan-100 focus:outline-none focus:border-cyan-400 placeholder-cyan-300/50",
+                placeholder: "https://example.com (press Enter to add)",
+                disabled: isSubmitting
+              }
+            ) }),
+            formData.links.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: "space-y-1 max-h-32 overflow-y-auto", children: formData.links.map((link, index) => /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(
+              "div",
+              {
+                className: "flex items-center justify-between p-2 bg-black/60 border border-cyan-400/30 rounded text-sm",
+                children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("span", { className: "text-cyan-300 truncate", children: link }),
+                  /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
+                    "button",
+                    {
+                      type: "button",
+                      onClick: () => removeLink(index),
+                      className: "ml-2 text-red-400 hover:text-red-300 focus:outline-none",
+                      children: "\xD7"
+                    }
+                  )
+                ]
+              },
+              index
+            )) })
+          ] })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "flex justify-end space-x-3 pt-4", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
+            "button",
+            {
+              type: "button",
+              onClick: onClose,
+              className: "px-4 py-2 border border-cyan-400/50 text-cyan-300 rounded hover:text-white hover:border-cyan-400 transition-colors",
+              disabled: isSubmitting,
+              children: "Cancel"
+            }
+          ),
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
+            "button",
+            {
+              type: "submit",
+              className: "px-4 py-2 bg-cyan-600 text-white rounded hover:bg-cyan-500 transition-colors disabled:opacity-50 disabled:cursor-not-allowed",
+              disabled: isSubmitting || !formData.title.trim() || !formData.content.trim(),
+              children: isSubmitting ? "Creating..." : "Create Memory Node"
+            }
+          )
+        ] })
+      ] })
+    ] }) }) });
+  };
+
+  // src/components/NodeDetailsModal.tsx
+  var import_jsx_runtime5 = __toESM(require_jsx_runtime(), 1);
+  var ImageDisplay = ({
+    imagePath,
+    alt,
+    className,
+    onClick,
+    onError
+  }) => {
+    const [resolvedPath, setResolvedPath] = (0, import_react9.useState)(null);
+    const [error, setError] = (0, import_react9.useState)(false);
+    (0, import_react9.useEffect)(() => {
+      const resolveImagePath = async () => {
+        try {
+          if (window.electronAPI?.files?.getImagePath) {
+            const fullPath = await window.electronAPI.files.getImagePath(
+              imagePath
+            );
+            if (fullPath) {
+              setResolvedPath(`file://${fullPath}`);
+            } else {
+              setResolvedPath(imagePath);
+            }
+          } else {
+            setResolvedPath(imagePath);
+          }
+        } catch (err) {
+          console.error("Error resolving image path:", err);
+          setResolvedPath(imagePath);
+        }
+      };
+      if (imagePath) {
+        resolveImagePath();
+      }
+    }, [imagePath]);
+    if (error || !resolvedPath) {
+      return /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
+        "div",
+        {
+          className: `${className} flex items-center justify-center bg-gray-800 text-gray-400`,
+          children: /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "text-center", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "text-2xl mb-2", children: "\u{1F5BC}\uFE0F" }),
+            /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "text-xs", children: "Image not found" }),
+            /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "text-xs mt-1 opacity-70", children: imagePath })
+          ] })
+        }
+      );
+    }
+    return /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
+      "img",
+      {
+        src: resolvedPath,
+        alt,
+        className,
+        onClick,
+        onError: () => {
+          setError(true);
+          if (onError) onError();
+        }
+      }
+    );
+  };
+  var NodeDetailsModal = ({
+    selectedNode,
+    sidebarCollapsed,
+    onClose,
+    onUpdated,
+    onDeleted
+  }) => {
+    const [enlargedImage, setEnlargedImage] = (0, import_react9.useState)(null);
+    const [isEditing, setIsEditing] = (0, import_react9.useState)(false);
+    const [isExpanded, setIsExpanded] = (0, import_react9.useState)(false);
+    const databaseService = (0, import_react9.useMemo)(() => DatabaseService.getInstance(), []);
+    const [title, setTitle] = (0, import_react9.useState)("");
+    const [content, setContent] = (0, import_react9.useState)("");
+    const [tags, setTags] = (0, import_react9.useState)([]);
+    const [images, setImages] = (0, import_react9.useState)([]);
+    const [links, setLinks] = (0, import_react9.useState)([]);
+    const [linkInput, setLinkInput] = (0, import_react9.useState)("");
+    const [availableTags, setAvailableTags] = (0, import_react9.useState)([]);
+    (0, import_react9.useEffect)(() => {
+      (async () => {
+        try {
+          const all = await databaseService.getAllTags();
+          setAvailableTags(all);
+        } catch {
+        }
+      })();
+    }, [databaseService]);
+    (0, import_react9.useEffect)(() => {
+      if (!selectedNode?.dataLog) return;
+      setTitle(selectedNode.dataLog.title || "");
+      setContent(selectedNode.dataLog.content || "");
+      setTags(selectedNode.dataLog.tags || []);
+      setImages(selectedNode.dataLog.images || []);
+      setLinks(selectedNode.dataLog.links || []);
+    }, [selectedNode]);
+    if (!selectedNode || !selectedNode.dataLog) return null;
+    const sidebarWidth = sidebarCollapsed ? 48 : 320;
+    return /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
+      "div",
+      {
+        className: "absolute inset-0 z-40 flex pointer-events-none " + (isExpanded ? "items-stretch justify-end" : "items-center justify-center"),
+        children: /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(
+          "div",
+          {
+            className: "bg-black/95 border border-cyan-400/50 text-cyan-400 font-mono transition-all duration-300 pointer-events-auto " + (isExpanded ? "p-6 max-w-none w-full h-full overflow-y-auto rounded-none" : "rounded-lg p-8 max-w-2xl w-full mx-4 max-h-[80vh] overflow-y-auto"),
+            style: {
+              transform: isExpanded ? "none" : sidebarCollapsed ? "translateX(0)" : "translateX(160px)",
+              width: isExpanded ? `calc(100% - ${sidebarWidth}px)` : void 0,
+              height: isExpanded ? "100%" : void 0,
+              margin: isExpanded ? 0 : void 0
+            },
+            children: [
+              /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "flex justify-between items-start", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "flex items-center gap-3", children: isEditing ? /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
+                  "input",
+                  {
+                    value: title,
+                    onChange: (e) => setTitle(e.target.value),
+                    className: "px-3 py-2 bg-black/60 border border-cyan-400/40 rounded text-cyan-100 focus:outline-none focus:border-cyan-400"
+                  }
+                ) : /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("h3", { className: "text-xl font-bold", children: selectedNode.dataLog?.title || selectedNode.id }) }),
+                /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "flex items-center gap-2", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "relative", children: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
+                    "button",
+                    {
+                      className: "px-2 py-1 border border-cyan-400/50 text-cyan-300 rounded hover:text-white hover:border-cyan-400 transition-colors",
+                      onClick: () => setIsEditing((v) => !v),
+                      children: isEditing ? "Done" : "Edit"
+                    }
+                  ) }),
+                  /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "relative", children: /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("details", { className: "group", children: [
+                    /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("summary", { className: "list-none px-3 py-1 border border-cyan-400/50 text-cyan-300 rounded hover:text-white hover:border-cyan-400 transition-colors cursor-pointer", children: "\u22EF" }),
+                    /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "absolute right-0 mt-2 w-40 bg-black/95 border border-cyan-400/40 rounded shadow-lg z-10", children: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
+                      "button",
+                      {
+                        className: "w-full text-left px-3 py-2 text-red-400 hover:bg-red-900/30",
+                        onClick: async () => {
+                          if (confirm("Delete this node? This cannot be undone.")) {
+                            try {
+                              if (onDeleted) {
+                                onDeleted(selectedNode.id);
+                              } else {
+                                await DatabaseService.getInstance().deleteMemoryNode(
+                                  selectedNode.id
+                                );
+                              }
+                              onClose();
+                            } catch (e) {
+                              console.error(e);
+                            }
+                          }
+                        },
+                        children: "Delete Node"
+                      }
+                    ) })
+                  ] }) }),
+                  /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
+                    "button",
+                    {
+                      onClick: () => setIsExpanded((v) => !v),
+                      className: "px-3 py-1 border border-cyan-400/50 text-cyan-300 rounded hover:text-white hover:border-cyan-400 transition-colors",
+                      title: isExpanded ? "Shrink" : "Expand to right side",
+                      children: isExpanded ? "\u2921" : "\u2922"
+                    }
+                  ),
+                  /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
+                    "button",
+                    {
+                      onClick: onClose,
+                      className: "text-cyan-400 hover:text-white transition-colors text-lg",
+                      children: "\u2715"
+                    }
+                  )
+                ] })
+              ] }),
+              /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "space-y-2", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(
+                  "div",
+                  {
+                    className: "flex flex-wrap items-center gap-x-4 gap-y-1 " + (isEditing ? "mt-2" : ""),
+                    children: [
+                      /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("span", { className: "text-xs text-cyan-300/70", children: [
+                        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("span", { className: "opacity-80", children: "Created" }),
+                        ":",
+                        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("span", { className: "ml-1 text-cyan-200/80", children: selectedNode.dataLog.timestamp.toLocaleString() })
+                      ] }),
+                      /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("span", { className: "text-xs text-cyan-300/70", children: [
+                        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("span", { className: "opacity-80", children: "Modified" }),
+                        ":",
+                        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("span", { className: "ml-1 text-cyan-200/80", children: selectedNode.dataLog.modified_at ? selectedNode.dataLog.modified_at.toLocaleString() : selectedNode.dataLog.updated_at ? selectedNode.dataLog.updated_at.toLocaleString() : selectedNode.dataLog.timestamp.toLocaleString() })
+                      ] })
+                    ]
+                  }
+                ),
+                /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("span", { className: "text-cyan-300 font-semibold", children: "Tags:" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "mt-2", children: isEditing ? /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
+                    TagInput,
+                    {
+                      tags,
+                      onTagsChange: setTags,
+                      availableTags
+                    }
+                  ) : /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "flex flex-wrap gap-2", children: tags.map((tag, index) => /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
+                    "span",
+                    {
+                      className: "px-3 py-1 bg-cyan-400/20 border border-cyan-400/50 rounded text-sm",
+                      children: tag
+                    },
+                    index
+                  )) }) })
+                ] }),
+                /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("span", { className: "text-cyan-300 font-semibold", children: "Content:" }),
+                  isEditing ? /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
+                    "textarea",
+                    {
+                      className: "mt-2 w-full px-3 py-2 bg-black/60 border border-cyan-400/40 rounded text-cyan-100 focus:outline-none focus:border-cyan-400",
+                      rows: 12,
+                      style: { minHeight: "24rem" },
+                      value: content,
+                      onChange: (e) => setContent(e.target.value)
+                    }
+                  ) : /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("p", { className: "mt-2 text-white text-sm leading-relaxed", children: content })
+                ] }),
+                /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("span", { className: "text-cyan-300 font-semibold", children: "Images:" }),
+                  isEditing ? /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "mt-2", children: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(ImageDropzone, { images, onImagesChange: setImages }) }) : /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "flex flex-wrap gap-4 mt-2", children: images.map((image, index) => /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "flex flex-col items-center", children: [
+                    /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
+                      ImageDisplay,
+                      {
+                        imagePath: image,
+                        alt: `Image ${index + 1}`,
+                        className: "w-32 h-32 object-cover rounded border border-purple-400/50 bg-purple-400/10 cursor-pointer hover:border-purple-400/80 transition-colors",
+                        onClick: () => setEnlargedImage(image)
+                      }
+                    ),
+                    /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("span", { className: "text-xs text-purple-300 mt-1 text-center max-w-32 truncate", children: image.split("/").pop() || image })
+                  ] }, index)) })
+                ] }),
+                /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("span", { className: "text-cyan-300 font-semibold", children: "Links:" }),
+                  isEditing ? /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "space-y-3 mt-2", children: [
+                    /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
+                      "input",
+                      {
+                        type: "url",
+                        value: linkInput,
+                        onChange: (e) => setLinkInput(e.target.value),
+                        onKeyDown: (e) => {
+                          if (e.key === "Enter") {
+                            e.preventDefault();
+                            const v = linkInput.trim();
+                            if (v && !links.includes(v)) setLinks([...links, v]);
+                            setLinkInput("");
+                          }
+                        },
+                        className: "w-full px-3 py-2 bg-black/60 border border-cyan-400/40 rounded text-cyan-100 focus:outline-none focus:border-cyan-400",
+                        placeholder: "https://example.com (press Enter to add)"
+                      }
+                    ),
+                    links.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "space-y-1 max-h-32 overflow-y-auto", children: links.map((link, index) => /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(
+                      "div",
+                      {
+                        className: "flex items-center justify-between p-2 bg-black/60 border border-cyan-400/30 rounded text-sm",
+                        children: [
+                          /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("span", { className: "text-cyan-300 truncate", children: link }),
+                          /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
+                            "button",
+                            {
+                              type: "button",
+                              onClick: () => setLinks(links.filter((_, i) => i !== index)),
+                              className: "ml-2 text-red-400 hover:text-red-300 focus:outline-none",
+                              children: "\xD7"
+                            }
+                          )
+                        ]
+                      },
+                      index
+                    )) })
+                  ] }) : /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "flex flex-wrap gap-2 mt-2", children: links.map((link, index) => /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
+                    "a",
+                    {
+                      href: link,
+                      target: "_blank",
+                      rel: "noopener noreferrer",
+                      className: "px-3 py-1 bg-blue-400/20 border border-blue-400/50 rounded text-sm text-blue-300 hover:bg-blue-400/30 transition-colors",
+                      children: link
+                    },
+                    index
+                  )) })
+                ] }),
+                enlargedImage && /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "absolute inset-0 flex items-start justify-center pt-8 pointer-events-none bg-black/90 z-10", children: /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "relative max-w-[70%] max-h-[60%] pointer-events-auto", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
+                    ImageDisplay,
+                    {
+                      imagePath: enlargedImage,
+                      alt: "Enlarged image",
+                      className: "max-w-full max-h-full object-contain rounded border border-purple-400/50"
+                    }
+                  ),
+                  /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
+                    "button",
+                    {
+                      onClick: () => setEnlargedImage(null),
+                      className: "absolute -top-2 -right-2 text-purple-400 hover:text-white transition-colors text-sm bg-black/90 rounded-full w-6 h-6 flex items-center justify-center border border-purple-400/50 cursor-pointer",
+                      children: "\u2715"
+                    }
+                  )
+                ] }) }),
+                isEditing && /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "pt-4 flex justify-end gap-2", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
+                    "button",
+                    {
+                      className: "px-4 py-2 border border-cyan-400/50 text-cyan-300 rounded hover:text-white hover:border-cyan-400 transition-colors",
+                      onClick: () => setIsEditing(false),
+                      children: "Cancel Edit"
+                    }
+                  ),
+                  /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
+                    "button",
+                    {
+                      className: "px-4 py-2 bg-cyan-600 text-white rounded hover:bg-cyan-500",
+                      onClick: async () => {
+                        const updated = await databaseService.updateDataLog(
+                          selectedNode.id,
+                          { title, content, tags, images, links }
+                        );
+                        if (updated) {
+                          if (onUpdated) {
+                            onUpdated({ title, content, tags, images, links });
+                          }
+                          setIsEditing(false);
+                        }
+                      },
+                      children: "Save Changes"
+                    }
+                  )
+                ] })
+              ] })
+            ]
+          }
+        )
+      }
+    );
   };
 
   // src/components/UIOverlay.tsx
-  var import_jsx_runtime5 = __toESM(require_jsx_runtime());
+  var import_jsx_runtime6 = __toESM(require_jsx_runtime(), 1);
   var UIOverlay = ({
     sidebarCollapsed,
     previewMode,
@@ -20834,18 +21729,18 @@
     rotateY,
     project3D
   }) => {
-    return /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "absolute inset-0 pointer-events-none", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(
+    return /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "absolute inset-0 pointer-events-none", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(
         "div",
         {
           className: `absolute top-8 text-cyan-400 font-mono text-sm transition-all duration-300 ${sidebarCollapsed ? "left-20" : "left-96"}`,
           children: [
-            /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "mb-2", children: "CUTTIE'S FLOPPY NEURONS" }),
-            /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "text-xs opacity-70", children: "Drag to rotate \u2022 Scroll to zoom \u2022 Click nodes for details" })
+            /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "mb-2", children: "CUTTIE'S FLOPPY NEURONS" }),
+            /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "text-xs opacity-70", children: "Drag to rotate \u2022 Scroll to zoom \u2022 Click nodes for details" })
           ]
         }
       ),
-      /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "absolute top-8 right-8 text-cyan-400 font-mono text-sm z-20", children: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
+      /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "absolute top-8 right-8 text-cyan-400 font-mono text-sm z-20", children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
         "button",
         {
           onClick: onPreviewModeToggle,
@@ -20853,47 +21748,47 @@
           children: previewMode ? "Hide Preview" : "Preview"
         }
       ) }),
-      /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "absolute top-20 right-8 text-cyan-400 font-mono text-xs", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "absolute top-20 right-8 text-cyan-400 font-mono text-xs", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { children: [
           Math.round(1e3 / 16),
           " FPS"
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "opacity-70", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "opacity-70", children: [
           "Zoom: ",
           Math.round(zoom * 100),
           "%"
         ] })
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "absolute bottom-8 right-8 text-cyan-400 font-mono text-xs bg-black/50 p-3 rounded border border-cyan-400/30", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "mb-2 font-semibold", children: "Connection Strength:" }),
-        /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "space-y-1 text-xs", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "flex items-center", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "w-8 h-0.5 bg-[#00ffff] mr-2 relative", children: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "absolute top-1/2  w-2 h-2 bg-[#00ffff] border border-black rounded-full transform -translate-y-1/2" }) }),
-            /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("span", { children: "1 shared tag " })
+      /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "absolute bottom-8 right-8 text-cyan-400 font-mono text-xs bg-black/50 p-3 rounded border border-cyan-400/30", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "mb-2 font-semibold", children: "Connection Strength:" }),
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "space-y-1 text-xs", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "flex items-center", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "w-8 h-0.5 bg-[#00ffff] mr-2 relative", children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "absolute top-1/2  w-2 h-2 bg-[#00ffff] border border-black rounded-full transform -translate-y-1/2" }) }),
+            /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { children: "1 shared tag " })
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "flex items-center", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "w-8 h-1 bg-[#ffff00] mr-2 relative", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "absolute top-1/2 w-2 h-2 border border-black bg-yellow-400 rounded-full transform -translate-y-1/2" }),
-              /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "absolute top-1/2 left-1/4 w-2 h-2 border border-black bg-yellow-400 rounded-full transform -translate-y-1/2" })
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "flex items-center", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "w-8 h-1 bg-[#ffff00] mr-2 relative", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "absolute top-1/2 w-2 h-2 border border-black bg-yellow-400 rounded-full transform -translate-y-1/2" }),
+              /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "absolute top-1/2 left-1/4 w-2 h-2 border border-black bg-yellow-400 rounded-full transform -translate-y-1/2" })
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("span", { children: "2 shared tags " })
+            /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { children: "2 shared tags " })
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "flex items-center", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "w-8 h-1.5 bg-[#ff00ff] mr-2 relative", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "absolute top-1/2 w-2 h-2 border border-black bg-magenta-400 rounded-full transform -translate-y-1/2" }),
-              /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "absolute top-1/2 left-1/4 w-2 h-2 border border-black bg-magenta-400 rounded-full transform -translate-y-1/2" }),
-              /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "absolute top-1/2 left-1/2 w-2 h-2 border border-black bg-magenta-400 rounded-full transform -translate-y-1/2" })
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "flex items-center", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "w-8 h-1.5 bg-[#ff00ff] mr-2 relative", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "absolute top-1/2 w-2 h-2 border border-black bg-magenta-400 rounded-full transform -translate-y-1/2" }),
+              /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "absolute top-1/2 left-1/4 w-2 h-2 border border-black bg-magenta-400 rounded-full transform -translate-y-1/2" }),
+              /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "absolute top-1/2 left-1/2 w-2 h-2 border border-black bg-magenta-400 rounded-full transform -translate-y-1/2" })
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("span", { children: "3 shared tags " })
+            /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { children: "3 shared tags " })
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "flex items-center", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "w-8 h-2 bg-orange-400 mr-2 relative", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "absolute top-1/2 w-2 h-2 border border-black bg-orange-400 rounded-full transform -translate-y-1/2" }),
-              /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "absolute top-1/2 left-1/4 w-2 h-2 border border-black bg-orange-400 rounded-full transform -translate-y-1/2" }),
-              /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "absolute top-1/2 left-2/4 w-2 h-2 border border-black bg-orange-400 rounded-full transform -translate-y-1/2" }),
-              /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "absolute top-1/2 left-3/4 w-2 h-2 border border-black bg-orange-400 rounded-full transform -translate-y-1/2" })
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "flex items-center", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "w-8 h-2 bg-orange-400 mr-2 relative", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "absolute top-1/2 w-2 h-2 border border-black bg-orange-400 rounded-full transform -translate-y-1/2" }),
+              /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "absolute top-1/2 left-1/4 w-2 h-2 border border-black bg-orange-400 rounded-full transform -translate-y-1/2" }),
+              /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "absolute top-1/2 left-2/4 w-2 h-2 border border-black bg-orange-400 rounded-full transform -translate-y-1/2" }),
+              /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "absolute top-1/2 left-3/4 w-2 h-2 border border-black bg-orange-400 rounded-full transform -translate-y-1/2" })
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("span", { children: "4 shared tags " })
+            /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { children: "4 shared tags " })
           ] })
         ] })
       ] }),
@@ -20913,7 +21808,7 @@
           rotated.z,
           sidebarCollapsed
         );
-        return /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
+        return /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
           "div",
           {
             className: "absolute bg-black/90 border border-cyan-400/50 pt-2 px-2 rounded-lg text-cyan-400 font-mono text-center min-w-[200px] pointer-events-none",
@@ -20922,7 +21817,7 @@
               top: `${projected.y - 50}px`,
               transform: "translateY(-50%)"
             },
-            children: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "font-bold mb-2 text-xs", children: hoveredNode && hoveredNode.length > 25 ? `${hoveredNode.substring(0, 25)}...` : hoveredNode })
+            children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "font-bold mb-2 text-xs", children: hoveredNode && hoveredNode.length > 25 ? `${hoveredNode.substring(0, 25)}...` : hoveredNode })
           }
         );
       })()
@@ -20930,11 +21825,11 @@
   };
 
   // src/PKMApp.tsx
-  var import_jsx_runtime6 = __toESM(require_jsx_runtime());
+  var import_jsx_runtime7 = __toESM(require_jsx_runtime(), 1);
   function PKMApp() {
     const { playNodeSound } = useAudioContext();
-    const { imageCache } = useImageCache();
-    const { nodes, connections, addNode } = useMemoryTree();
+    const { nodes, connections, addNode, deleteNode, refreshData } = useDatabaseMemoryTree();
+    const { imageCache } = useImageCache({ nodes });
     const {
       time,
       rotationX,
@@ -20946,12 +21841,13 @@
       updateRotation,
       updateZoom
     } = use3DRendering();
-    const [hoveredNode, setHoveredNode] = (0, import_react9.useState)(null);
-    const [selectedNode, setSelectedNode] = (0, import_react9.useState)(null);
-    const [sidebarCollapsed, setSidebarCollapsed] = (0, import_react9.useState)(false);
-    const [previewMode, setPreviewMode] = (0, import_react9.useState)(false);
-    const [selectedTags, setSelectedTags] = (0, import_react9.useState)([]);
-    const [dotTooltip, setDotTooltip] = (0, import_react9.useState)(null);
+    const [hoveredNode, setHoveredNode] = (0, import_react10.useState)(null);
+    const [selectedNode, setSelectedNode] = (0, import_react10.useState)(null);
+    const [sidebarCollapsed, setSidebarCollapsed] = (0, import_react10.useState)(false);
+    const [previewMode, setPreviewMode] = (0, import_react10.useState)(false);
+    const [selectedTags, setSelectedTags] = (0, import_react10.useState)([]);
+    const [showAddModal, setShowAddModal] = (0, import_react10.useState)(false);
+    const [dotTooltip, setDotTooltip] = (0, import_react10.useState)(null);
     const handleNodeClick = (node) => {
       if (selectedNode?.id === node.id) {
         setSelectedNode(null);
@@ -20971,7 +21867,7 @@
     const handleCloseModal = () => {
       setSelectedNode(null);
     };
-    const currentTooltipRef = (0, import_react9.useRef)(null);
+    const currentTooltipRef = (0, import_react10.useRef)(null);
     const handleDotHover = (sharedTags, x, y) => {
       const newTooltip = { tags: sharedTags, x, y };
       const current = currentTooltipRef.current;
@@ -21017,14 +21913,14 @@
       onNodeHover: handleNodeHover,
       playNodeSound
     });
-    return /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(
+    return /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)(
       "div",
       {
         className: "relative w-full h-screen overflow-hidden bg-black",
         style: { touchAction: "none" },
         children: [
-          /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "absolute inset-0", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
+          /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { className: "absolute inset-0", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
               CanvasRenderer,
               {
                 nodes: filteredNodes,
@@ -21045,7 +21941,7 @@
                 project3D
               }
             ),
-            /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
+            /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
               "canvas",
               {
                 ref: canvasRef,
@@ -21072,7 +21968,7 @@
               }
             )
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
+          /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
             Sidebar,
             {
               nodes: filteredNodes,
@@ -21082,10 +21978,11 @@
               selectedTags,
               onNodeClick: handleNodeClick,
               onSidebarToggle: handleSidebarToggle,
-              onTagClick: handleTagClick
+              onTagClick: handleTagClick,
+              onAddClick: () => setShowAddModal(true)
             }
           ),
-          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
+          /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
             UIOverlay,
             {
               sidebarCollapsed,
@@ -21102,15 +21999,50 @@
               project3D
             }
           ),
-          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
+          /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
             NodeDetailsModal,
             {
               selectedNode,
               sidebarCollapsed,
-              onClose: handleCloseModal
+              onClose: handleCloseModal,
+              onUpdated: ({ title, content, tags, images, links }) => {
+                setSelectedNode(
+                  (prev) => prev && prev.dataLog ? {
+                    ...prev,
+                    dataLog: {
+                      ...prev.dataLog,
+                      title,
+                      content,
+                      tags,
+                      images,
+                      links
+                    }
+                  } : prev
+                );
+                refreshData();
+              },
+              onDeleted: async (nodeId) => {
+                try {
+                  await deleteNode(nodeId);
+                  setSelectedNode(null);
+                } finally {
+                  refreshData();
+                }
+              }
             }
           ),
-          dotTooltip && /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
+          /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
+            AddNodeModal,
+            {
+              isOpen: showAddModal,
+              onClose: () => setShowAddModal(false),
+              onNodeAdded: (dataLog) => {
+                addNode(dataLog);
+                setShowAddModal(false);
+              }
+            }
+          ),
+          dotTooltip && /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
             "div",
             {
               className: "fixed z-50 bg-black/90 text-cyan-400 font-mono text-xs p-2 rounded border border-cyan-400/50 pointer-events-none",
@@ -21119,7 +22051,7 @@
                 top: dotTooltip.y - 10,
                 transform: "translateY(-100%)"
               },
-              children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "space-y-1", children: dotTooltip.tags.map((tag, index) => /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "text-cyan-300", children: [
+              children: /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("div", { className: "space-y-1", children: dotTooltip.tags.map((tag, index) => /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { className: "text-cyan-300", children: [
                 "\u2022 ",
                 tag
               ] }, index)) })
@@ -21132,8 +22064,8 @@
 
   // src/renderer.ts
   var LoadingNeuron = () => {
-    const [pulse, setPulse] = import_react10.default.useState(0);
-    import_react10.default.useEffect(() => {
+    const [pulse, setPulse] = import_react11.default.useState(0);
+    import_react11.default.useEffect(() => {
       let animationId;
       let startTime = Date.now();
       const animate = () => {
@@ -21144,7 +22076,7 @@
       animate();
       return () => cancelAnimationFrame(animationId);
     }, []);
-    return import_react10.default.createElement(
+    return import_react11.default.createElement(
       "div",
       {
         style: {
@@ -21162,7 +22094,7 @@
         }
       },
       // Neuron container
-      import_react10.default.createElement(
+      import_react11.default.createElement(
         "div",
         {
           style: {
@@ -21175,7 +22107,7 @@
           }
         },
         // Outer glow
-        import_react10.default.createElement("div", {
+        import_react11.default.createElement("div", {
           style: {
             position: "absolute",
             width: `${120 + pulse * 40}px`,
@@ -21186,7 +22118,7 @@
           }
         }),
         // Core neuron
-        import_react10.default.createElement("div", {
+        import_react11.default.createElement("div", {
           style: {
             position: "absolute",
             width: `${40 + pulse * 20}px`,
@@ -21197,7 +22129,7 @@
           }
         }),
         // Wireframe ring
-        import_react10.default.createElement("div", {
+        import_react11.default.createElement("div", {
           style: {
             position: "absolute",
             width: `${60 + pulse * 25}px`,
@@ -21209,7 +22141,7 @@
         })
       ),
       // Loading text
-      import_react10.default.createElement(
+      import_react11.default.createElement(
         "div",
         {
           style: {
@@ -21222,7 +22154,7 @@
         },
         "INITIALIZING FLOPPY NEURONS..."
       ),
-      import_react10.default.createElement(
+      import_react11.default.createElement(
         "div",
         {
           style: {
@@ -21239,21 +22171,27 @@
   };
   document.addEventListener("DOMContentLoaded", async () => {
     console.log("DOM loaded, attempting to mount React...");
+    const api = window.electronAPI;
+    console.log(
+      "preload window.electronAPI present:",
+      !!api,
+      api && Object.keys(api)
+    );
     const rootElement = document.getElementById("root");
     console.log("Root element found:", rootElement);
     if (rootElement) {
       try {
         const root = (0, import_client.createRoot)(rootElement);
         console.log("React root created, rendering...");
-        root.render(import_react10.default.createElement(LoadingNeuron));
+        root.render(import_react11.default.createElement(LoadingNeuron));
         setTimeout(() => {
           console.log("Loading PKM app...");
           try {
-            root.render(import_react10.default.createElement(PKMApp));
+            root.render(import_react11.default.createElement(PKMApp));
           } catch (error) {
             console.error("Error loading PKMApp:", error);
             root.render(
-              import_react10.default.createElement(
+              import_react11.default.createElement(
                 "div",
                 {
                   style: { color: "white", padding: "20px", background: "black" }

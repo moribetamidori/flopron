@@ -1,5 +1,5 @@
 import React from "react";
-import { MemoryNode } from "../hooks/useMemoryTree";
+import { MemoryNode } from "../hooks/useDatabaseMemoryTree";
 
 interface UIOverlayProps {
   sidebarCollapsed: boolean;

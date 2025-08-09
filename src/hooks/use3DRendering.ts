@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { MemoryNode } from "./useMemoryTree";
+import { MemoryNode } from "./useDatabaseMemoryTree";
 
 export const use3DRendering = () => {
   const [time, setTime] = useState(0);
