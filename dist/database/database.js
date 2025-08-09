@@ -317,7 +317,7 @@ export class PKMDatabase {
     getAllMemoryNodes() {
         const nodes = this.db
             .prepare(`
-      SELECT * FROM memory_nodes ORDER BY created_at
+      SELECT * FROM memory_nodes ORDER BY created_at DESC
     `)
             .all();
         return nodes.map((node) => ({

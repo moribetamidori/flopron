@@ -26,6 +26,20 @@ export const Sidebar: React.FC<SidebarProps> = ({
   onTagClick,
   onAddClick,
 }) => {
+  const nodesByNewest = React.useMemo(() => {
+    return [...nodes].sort((a, b) => {
+      const ta =
+        a.dataLog?.timestamp instanceof Date
+          ? a.dataLog.timestamp.getTime()
+          : 0;
+      const tb =
+        b.dataLog?.timestamp instanceof Date
+          ? b.dataLog.timestamp.getTime()
+          : 0;
+      return tb - ta; // newest first
+    });
+  }, [nodes]);
+
   return (
     <div
       className={`absolute left-0 top-0 bottom-0 bg-black/90 border-r border-cyan-400/30 pointer-events-auto transition-all duration-300 flex flex-col ${
@@ -134,7 +148,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
               // Grid view for preview mode
               <div className="p-4">
                 <div className="grid grid-cols-4 gap-3">
-                  {nodes.map((node) => (
+                  {nodesByNewest.map((node) => (
                     <div key={node.id} className="flex justify-center">
                       {node.dataLog && (
                         <NodePreview
@@ -150,7 +164,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
             ) : (
               // List view for normal mode
               <div className="p-4 space-y-2">
-                {nodes.map((node) => (
+                {nodesByNewest.map((node) => (
                   <div
                     key={node.id}
                     onClick={() => onNodeClick(node)}

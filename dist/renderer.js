@@ -1301,7 +1301,7 @@
           return dispatcher;
         }
         "undefined" !== typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ && "function" === typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart && __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart(Error());
-        var React7 = require_react(), Internals = {
+        var React9 = require_react(), Internals = {
           d: {
             f: noop,
             r: function() {
@@ -1319,7 +1319,7 @@
           },
           p: 0,
           findDOMNode: null
-        }, REACT_PORTAL_TYPE = Symbol.for("react.portal"), ReactSharedInternals = React7.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE;
+        }, REACT_PORTAL_TYPE = Symbol.for("react.portal"), ReactSharedInternals = React9.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE;
         "function" === typeof Map && null != Map.prototype && "function" === typeof Map.prototype.forEach && "function" === typeof Set && null != Set.prototype && "function" === typeof Set.prototype.clear && "function" === typeof Set.prototype.forEach || console.error(
           "React depends on Map and Set built-in types. Make sure that you load a polyfill in older browsers. https://reactjs.org/link/react-polyfills"
         );
@@ -2861,7 +2861,7 @@
           "number" === type && getActiveElement(node.ownerDocument) === node || node.defaultValue === "" + value || (node.defaultValue = "" + value);
         }
         function validateOptionProps(element, props) {
-          null == props.value && ("object" === typeof props.children && null !== props.children ? React7.Children.forEach(props.children, function(child) {
+          null == props.value && ("object" === typeof props.children && null !== props.children ? React9.Children.forEach(props.children, function(child) {
             null == child || "string" === typeof child || "number" === typeof child || "bigint" === typeof child || didWarnInvalidChild || (didWarnInvalidChild = true, console.error(
               "Cannot infer the option value of complex children. Pass a `value` prop or use a plain string as children to <option>."
             ));
@@ -16443,14 +16443,14 @@
           ));
         }
         "undefined" !== typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ && "function" === typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart && __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart(Error());
-        var Scheduler = require_scheduler(), React7 = require_react(), ReactDOM = require_react_dom(), assign = Object.assign, REACT_LEGACY_ELEMENT_TYPE = Symbol.for("react.element"), REACT_ELEMENT_TYPE = Symbol.for("react.transitional.element"), REACT_PORTAL_TYPE = Symbol.for("react.portal"), REACT_FRAGMENT_TYPE = Symbol.for("react.fragment"), REACT_STRICT_MODE_TYPE = Symbol.for("react.strict_mode"), REACT_PROFILER_TYPE = Symbol.for("react.profiler"), REACT_PROVIDER_TYPE = Symbol.for("react.provider"), REACT_CONSUMER_TYPE = Symbol.for("react.consumer"), REACT_CONTEXT_TYPE = Symbol.for("react.context"), REACT_FORWARD_REF_TYPE = Symbol.for("react.forward_ref"), REACT_SUSPENSE_TYPE = Symbol.for("react.suspense"), REACT_SUSPENSE_LIST_TYPE = Symbol.for("react.suspense_list"), REACT_MEMO_TYPE = Symbol.for("react.memo"), REACT_LAZY_TYPE = Symbol.for("react.lazy");
+        var Scheduler = require_scheduler(), React9 = require_react(), ReactDOM = require_react_dom(), assign = Object.assign, REACT_LEGACY_ELEMENT_TYPE = Symbol.for("react.element"), REACT_ELEMENT_TYPE = Symbol.for("react.transitional.element"), REACT_PORTAL_TYPE = Symbol.for("react.portal"), REACT_FRAGMENT_TYPE = Symbol.for("react.fragment"), REACT_STRICT_MODE_TYPE = Symbol.for("react.strict_mode"), REACT_PROFILER_TYPE = Symbol.for("react.profiler"), REACT_PROVIDER_TYPE = Symbol.for("react.provider"), REACT_CONSUMER_TYPE = Symbol.for("react.consumer"), REACT_CONTEXT_TYPE = Symbol.for("react.context"), REACT_FORWARD_REF_TYPE = Symbol.for("react.forward_ref"), REACT_SUSPENSE_TYPE = Symbol.for("react.suspense"), REACT_SUSPENSE_LIST_TYPE = Symbol.for("react.suspense_list"), REACT_MEMO_TYPE = Symbol.for("react.memo"), REACT_LAZY_TYPE = Symbol.for("react.lazy");
         Symbol.for("react.scope");
         var REACT_ACTIVITY_TYPE = Symbol.for("react.activity");
         Symbol.for("react.legacy_hidden");
         Symbol.for("react.tracing_marker");
         var REACT_MEMO_CACHE_SENTINEL = Symbol.for("react.memo_cache_sentinel");
         Symbol.for("react.view_transition");
-        var MAYBE_ITERATOR_SYMBOL = Symbol.iterator, REACT_CLIENT_REFERENCE = Symbol.for("react.client.reference"), isArrayImpl = Array.isArray, ReactSharedInternals = React7.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, ReactDOMSharedInternals = ReactDOM.__DOM_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, NotPending = Object.freeze({
+        var MAYBE_ITERATOR_SYMBOL = Symbol.iterator, REACT_CLIENT_REFERENCE = Symbol.for("react.client.reference"), isArrayImpl = Array.isArray, ReactSharedInternals = React9.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, ReactDOMSharedInternals = ReactDOM.__DOM_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, NotPending = Object.freeze({
           pending: false,
           data: null,
           method: null,
@@ -19172,7 +19172,7 @@
           }
         };
         (function() {
-          var isomorphicReactPackageVersion = React7.version;
+          var isomorphicReactPackageVersion = React9.version;
           if ("19.1.1" !== isomorphicReactPackageVersion)
             throw Error(
               'Incompatible React versions: The "react" and "react-dom" packages must have the exact same version. Instead got:\n  - react:      ' + (isomorphicReactPackageVersion + "\n  - react-dom:  19.1.1\nLearn more: https://react.dev/warnings/version-mismatch")
@@ -19525,20 +19525,20 @@
         function validateChildKeys(node) {
           "object" === typeof node && null !== node && node.$$typeof === REACT_ELEMENT_TYPE && node._store && (node._store.validated = 1);
         }
-        var React7 = require_react(), REACT_ELEMENT_TYPE = Symbol.for("react.transitional.element"), REACT_PORTAL_TYPE = Symbol.for("react.portal"), REACT_FRAGMENT_TYPE = Symbol.for("react.fragment"), REACT_STRICT_MODE_TYPE = Symbol.for("react.strict_mode"), REACT_PROFILER_TYPE = Symbol.for("react.profiler");
+        var React9 = require_react(), REACT_ELEMENT_TYPE = Symbol.for("react.transitional.element"), REACT_PORTAL_TYPE = Symbol.for("react.portal"), REACT_FRAGMENT_TYPE = Symbol.for("react.fragment"), REACT_STRICT_MODE_TYPE = Symbol.for("react.strict_mode"), REACT_PROFILER_TYPE = Symbol.for("react.profiler");
         Symbol.for("react.provider");
-        var REACT_CONSUMER_TYPE = Symbol.for("react.consumer"), REACT_CONTEXT_TYPE = Symbol.for("react.context"), REACT_FORWARD_REF_TYPE = Symbol.for("react.forward_ref"), REACT_SUSPENSE_TYPE = Symbol.for("react.suspense"), REACT_SUSPENSE_LIST_TYPE = Symbol.for("react.suspense_list"), REACT_MEMO_TYPE = Symbol.for("react.memo"), REACT_LAZY_TYPE = Symbol.for("react.lazy"), REACT_ACTIVITY_TYPE = Symbol.for("react.activity"), REACT_CLIENT_REFERENCE = Symbol.for("react.client.reference"), ReactSharedInternals = React7.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, hasOwnProperty = Object.prototype.hasOwnProperty, isArrayImpl = Array.isArray, createTask = console.createTask ? console.createTask : function() {
+        var REACT_CONSUMER_TYPE = Symbol.for("react.consumer"), REACT_CONTEXT_TYPE = Symbol.for("react.context"), REACT_FORWARD_REF_TYPE = Symbol.for("react.forward_ref"), REACT_SUSPENSE_TYPE = Symbol.for("react.suspense"), REACT_SUSPENSE_LIST_TYPE = Symbol.for("react.suspense_list"), REACT_MEMO_TYPE = Symbol.for("react.memo"), REACT_LAZY_TYPE = Symbol.for("react.lazy"), REACT_ACTIVITY_TYPE = Symbol.for("react.activity"), REACT_CLIENT_REFERENCE = Symbol.for("react.client.reference"), ReactSharedInternals = React9.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, hasOwnProperty = Object.prototype.hasOwnProperty, isArrayImpl = Array.isArray, createTask = console.createTask ? console.createTask : function() {
           return null;
         };
-        React7 = {
+        React9 = {
           react_stack_bottom_frame: function(callStackForError) {
             return callStackForError();
           }
         };
         var specialPropKeyWarningShown;
         var didWarnAboutElementRef = {};
-        var unknownOwnerDebugStack = React7.react_stack_bottom_frame.bind(
-          React7,
+        var unknownOwnerDebugStack = React9.react_stack_bottom_frame.bind(
+          React9,
           UnknownOwner
         )();
         var unknownOwnerDebugTask = createTask(getTaskName(UnknownOwner));
@@ -19587,11 +19587,11 @@
   });
 
   // src/renderer.ts
-  var import_react11 = __toESM(require_react(), 1);
+  var import_react13 = __toESM(require_react(), 1);
   var import_client = __toESM(require_client(), 1);
 
   // src/PKMApp.tsx
-  var import_react10 = __toESM(require_react(), 1);
+  var import_react12 = __toESM(require_react(), 1);
 
   // src/hooks/useAudioContext.ts
   var import_react = __toESM(require_react(), 1);
@@ -20625,6 +20625,9 @@
     );
   };
 
+  // src/components/Sidebar.tsx
+  var import_react8 = __toESM(require_react(), 1);
+
   // src/utils/timeUtils.ts
   var getRelativeTime = (timestamp) => {
     const now = /* @__PURE__ */ new Date();
@@ -20724,6 +20727,13 @@
     onTagClick,
     onAddClick
   }) => {
+    const nodesByNewest = import_react8.default.useMemo(() => {
+      return [...nodes].sort((a, b) => {
+        const ta = a.dataLog?.timestamp instanceof Date ? a.dataLog.timestamp.getTime() : 0;
+        const tb = b.dataLog?.timestamp instanceof Date ? b.dataLog.timestamp.getTime() : 0;
+        return tb - ta;
+      });
+    }, [nodes]);
     return /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(
       "div",
       {
@@ -20807,7 +20817,7 @@
           ] }),
           !sidebarCollapsed && /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "flex-1 overflow-y-auto", children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "h-full", children: previewMode ? (
             // Grid view for preview mode
-            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "p-4", children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "grid grid-cols-4 gap-3", children: nodes.map((node) => /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "flex justify-center", children: node.dataLog && /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "p-4", children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "grid grid-cols-4 gap-3", children: nodesByNewest.map((node) => /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "flex justify-center", children: node.dataLog && /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
               NodePreview,
               {
                 dataLog: node.dataLog,
@@ -20817,7 +20827,7 @@
             ) }, node.id)) }) })
           ) : (
             // List view for normal mode
-            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "p-4 space-y-2", children: nodes.map((node) => /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(
+            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "p-4 space-y-2", children: nodesByNewest.map((node) => /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(
               "div",
               {
                 onClick: () => onNodeClick(node),
@@ -20866,22 +20876,22 @@
   };
 
   // src/components/NodeDetailsModal.tsx
-  var import_react9 = __toESM(require_react(), 1);
+  var import_react10 = __toESM(require_react(), 1);
 
   // src/components/AddNodeModal.tsx
-  var import_react8 = __toESM(require_react(), 1);
+  var import_react9 = __toESM(require_react(), 1);
   var import_jsx_runtime4 = __toESM(require_jsx_runtime(), 1);
   var TagInput = ({
     tags,
     onTagsChange,
     availableTags
   }) => {
-    const [inputValue, setInputValue] = (0, import_react8.useState)("");
-    const [showSuggestions, setShowSuggestions] = (0, import_react8.useState)(false);
-    const [filteredSuggestions, setFilteredSuggestions] = (0, import_react8.useState)([]);
-    const [selectedSuggestionIndex, setSelectedSuggestionIndex] = (0, import_react8.useState)(-1);
-    const inputRef = (0, import_react8.useRef)(null);
-    (0, import_react8.useEffect)(() => {
+    const [inputValue, setInputValue] = (0, import_react9.useState)("");
+    const [showSuggestions, setShowSuggestions] = (0, import_react9.useState)(false);
+    const [filteredSuggestions, setFilteredSuggestions] = (0, import_react9.useState)([]);
+    const [selectedSuggestionIndex, setSelectedSuggestionIndex] = (0, import_react9.useState)(-1);
+    const inputRef = (0, import_react9.useRef)(null);
+    (0, import_react9.useEffect)(() => {
       if (inputValue.trim()) {
         const filtered = availableTags.filter(
           (tag) => tag.toLowerCase().includes(inputValue.toLowerCase()) && !tags.includes(tag)
@@ -20983,10 +20993,10 @@
     images,
     onImagesChange
   }) => {
-    const [isDragOver, setIsDragOver] = (0, import_react8.useState)(false);
-    const [isProcessing, setIsProcessing] = (0, import_react8.useState)(false);
-    const [processingFiles, setProcessingFiles] = (0, import_react8.useState)([]);
-    const fileInputRef = (0, import_react8.useRef)(null);
+    const [isDragOver, setIsDragOver] = (0, import_react9.useState)(false);
+    const [isProcessing, setIsProcessing] = (0, import_react9.useState)(false);
+    const [processingFiles, setProcessingFiles] = (0, import_react9.useState)([]);
+    const fileInputRef = (0, import_react9.useRef)(null);
     const handleDragOver = (e) => {
       e.preventDefault();
       setIsDragOver(true);
@@ -21133,19 +21143,19 @@
     onClose,
     onNodeAdded
   }) => {
-    const [formData, setFormData] = (0, import_react8.useState)({
+    const [formData, setFormData] = (0, import_react9.useState)({
       title: "",
       content: "",
       tags: [],
       images: [],
       links: []
     });
-    const [linkInput, setLinkInput] = (0, import_react8.useState)("");
-    const [availableTags, setAvailableTags] = (0, import_react8.useState)([]);
-    const [isSubmitting, setIsSubmitting] = (0, import_react8.useState)(false);
-    const [error, setError] = (0, import_react8.useState)(null);
+    const [linkInput, setLinkInput] = (0, import_react9.useState)("");
+    const [availableTags, setAvailableTags] = (0, import_react9.useState)([]);
+    const [isSubmitting, setIsSubmitting] = (0, import_react9.useState)(false);
+    const [error, setError] = (0, import_react9.useState)(null);
     const databaseService = DatabaseService.getInstance();
-    (0, import_react8.useEffect)(() => {
+    (0, import_react9.useEffect)(() => {
       if (isOpen) {
         loadAvailableTags();
       }
@@ -21373,9 +21383,9 @@
     onClick,
     onError
   }) => {
-    const [resolvedPath, setResolvedPath] = (0, import_react9.useState)(null);
-    const [error, setError] = (0, import_react9.useState)(false);
-    (0, import_react9.useEffect)(() => {
+    const [resolvedPath, setResolvedPath] = (0, import_react10.useState)(null);
+    const [error, setError] = (0, import_react10.useState)(false);
+    (0, import_react10.useEffect)(() => {
       const resolveImagePath = async () => {
         try {
           if (window.electronAPI?.files?.getImagePath) {
@@ -21433,18 +21443,18 @@
     onUpdated,
     onDeleted
   }) => {
-    const [enlargedImage, setEnlargedImage] = (0, import_react9.useState)(null);
-    const [isEditing, setIsEditing] = (0, import_react9.useState)(false);
-    const [isExpanded, setIsExpanded] = (0, import_react9.useState)(false);
-    const databaseService = (0, import_react9.useMemo)(() => DatabaseService.getInstance(), []);
-    const [title, setTitle] = (0, import_react9.useState)("");
-    const [content, setContent] = (0, import_react9.useState)("");
-    const [tags, setTags] = (0, import_react9.useState)([]);
-    const [images, setImages] = (0, import_react9.useState)([]);
-    const [links, setLinks] = (0, import_react9.useState)([]);
-    const [linkInput, setLinkInput] = (0, import_react9.useState)("");
-    const [availableTags, setAvailableTags] = (0, import_react9.useState)([]);
-    (0, import_react9.useEffect)(() => {
+    const [enlargedImage, setEnlargedImage] = (0, import_react10.useState)(null);
+    const [isEditing, setIsEditing] = (0, import_react10.useState)(false);
+    const [isExpanded, setIsExpanded] = (0, import_react10.useState)(false);
+    const databaseService = (0, import_react10.useMemo)(() => DatabaseService.getInstance(), []);
+    const [title, setTitle] = (0, import_react10.useState)("");
+    const [content, setContent] = (0, import_react10.useState)("");
+    const [tags, setTags] = (0, import_react10.useState)([]);
+    const [images, setImages] = (0, import_react10.useState)([]);
+    const [links, setLinks] = (0, import_react10.useState)([]);
+    const [linkInput, setLinkInput] = (0, import_react10.useState)("");
+    const [availableTags, setAvailableTags] = (0, import_react10.useState)([]);
+    (0, import_react10.useEffect)(() => {
       (async () => {
         try {
           const all = await databaseService.getAllTags();
@@ -21453,7 +21463,7 @@
         }
       })();
     }, [databaseService]);
-    (0, import_react9.useEffect)(() => {
+    (0, import_react10.useEffect)(() => {
       if (!selectedNode?.dataLog) return;
       setTitle(selectedNode.dataLog.title || "");
       setContent(selectedNode.dataLog.content || "");
@@ -21714,6 +21724,7 @@
   };
 
   // src/components/UIOverlay.tsx
+  var import_react11 = __toESM(require_react(), 1);
   var import_jsx_runtime6 = __toESM(require_jsx_runtime(), 1);
   var UIOverlay = ({
     sidebarCollapsed,
@@ -21729,13 +21740,56 @@
     rotateY,
     project3D
   }) => {
+    const LOCAL_STORAGE_KEY = "mindName";
+    const DEFAULT_MIND_NAME = "Floppy Neurons";
+    const [mindName, setMindName] = (0, import_react11.useState)(() => {
+      try {
+        const saved = window.localStorage.getItem(LOCAL_STORAGE_KEY);
+        return saved && saved.trim().length > 0 ? saved : DEFAULT_MIND_NAME;
+      } catch {
+        return DEFAULT_MIND_NAME;
+      }
+    });
+    const [isEditingName, setIsEditingName] = (0, import_react11.useState)(false);
+    (0, import_react11.useEffect)(() => {
+      try {
+        window.localStorage.setItem(LOCAL_STORAGE_KEY, mindName);
+      } catch {
+      }
+    }, [mindName]);
     return /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "absolute inset-0 pointer-events-none", children: [
       /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(
         "div",
         {
-          className: `absolute top-8 text-cyan-400 font-mono text-sm transition-all duration-300 ${sidebarCollapsed ? "left-20" : "left-96"}`,
+          className: `absolute top-8 text-cyan-400 font-mono text-sm transition-all duration-300 ${sidebarCollapsed ? "left-20" : "left-96"} pointer-events-auto`,
           children: [
-            /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "mb-2", children: "CUTTIE'S FLOPPY NEURONS" }),
+            isEditingName ? /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
+              "input",
+              {
+                "aria-label": "Mind name",
+                value: mindName,
+                onChange: (e) => setMindName(e.target.value),
+                onBlur: () => setIsEditingName(false),
+                onKeyDown: (e) => {
+                  if (e.key === "Enter") {
+                    e.currentTarget.blur();
+                  }
+                  if (e.key === "Escape") {
+                    setIsEditingName(false);
+                  }
+                },
+                autoFocus: true,
+                className: "mb-2 px-2 py-1 bg-black/60 border border-cyan-400/40 rounded text-cyan-100 focus:outline-none focus:border-cyan-400"
+              }
+            ) : /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
+              "div",
+              {
+                className: "mb-2 cursor-text select-text",
+                title: "Click to rename your mind",
+                onClick: () => setIsEditingName(true),
+                children: mindName
+              }
+            ),
             /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "text-xs opacity-70", children: "Drag to rotate \u2022 Scroll to zoom \u2022 Click nodes for details" })
           ]
         }
@@ -21841,13 +21895,13 @@
       updateRotation,
       updateZoom
     } = use3DRendering();
-    const [hoveredNode, setHoveredNode] = (0, import_react10.useState)(null);
-    const [selectedNode, setSelectedNode] = (0, import_react10.useState)(null);
-    const [sidebarCollapsed, setSidebarCollapsed] = (0, import_react10.useState)(false);
-    const [previewMode, setPreviewMode] = (0, import_react10.useState)(false);
-    const [selectedTags, setSelectedTags] = (0, import_react10.useState)([]);
-    const [showAddModal, setShowAddModal] = (0, import_react10.useState)(false);
-    const [dotTooltip, setDotTooltip] = (0, import_react10.useState)(null);
+    const [hoveredNode, setHoveredNode] = (0, import_react12.useState)(null);
+    const [selectedNode, setSelectedNode] = (0, import_react12.useState)(null);
+    const [sidebarCollapsed, setSidebarCollapsed] = (0, import_react12.useState)(false);
+    const [previewMode, setPreviewMode] = (0, import_react12.useState)(false);
+    const [selectedTags, setSelectedTags] = (0, import_react12.useState)([]);
+    const [showAddModal, setShowAddModal] = (0, import_react12.useState)(false);
+    const [dotTooltip, setDotTooltip] = (0, import_react12.useState)(null);
     const handleNodeClick = (node) => {
       if (selectedNode?.id === node.id) {
         setSelectedNode(null);
@@ -21867,7 +21921,7 @@
     const handleCloseModal = () => {
       setSelectedNode(null);
     };
-    const currentTooltipRef = (0, import_react10.useRef)(null);
+    const currentTooltipRef = (0, import_react12.useRef)(null);
     const handleDotHover = (sharedTags, x, y) => {
       const newTooltip = { tags: sharedTags, x, y };
       const current = currentTooltipRef.current;
@@ -22064,8 +22118,8 @@
 
   // src/renderer.ts
   var LoadingNeuron = () => {
-    const [pulse, setPulse] = import_react11.default.useState(0);
-    import_react11.default.useEffect(() => {
+    const [pulse, setPulse] = import_react13.default.useState(0);
+    import_react13.default.useEffect(() => {
       let animationId;
       let startTime = Date.now();
       const animate = () => {
@@ -22076,7 +22130,7 @@
       animate();
       return () => cancelAnimationFrame(animationId);
     }, []);
-    return import_react11.default.createElement(
+    return import_react13.default.createElement(
       "div",
       {
         style: {
@@ -22094,7 +22148,7 @@
         }
       },
       // Neuron container
-      import_react11.default.createElement(
+      import_react13.default.createElement(
         "div",
         {
           style: {
@@ -22107,7 +22161,7 @@
           }
         },
         // Outer glow
-        import_react11.default.createElement("div", {
+        import_react13.default.createElement("div", {
           style: {
             position: "absolute",
             width: `${120 + pulse * 40}px`,
@@ -22118,7 +22172,7 @@
           }
         }),
         // Core neuron
-        import_react11.default.createElement("div", {
+        import_react13.default.createElement("div", {
           style: {
             position: "absolute",
             width: `${40 + pulse * 20}px`,
@@ -22129,7 +22183,7 @@
           }
         }),
         // Wireframe ring
-        import_react11.default.createElement("div", {
+        import_react13.default.createElement("div", {
           style: {
             position: "absolute",
             width: `${60 + pulse * 25}px`,
@@ -22141,7 +22195,7 @@
         })
       ),
       // Loading text
-      import_react11.default.createElement(
+      import_react13.default.createElement(
         "div",
         {
           style: {
@@ -22154,7 +22208,7 @@
         },
         "INITIALIZING FLOPPY NEURONS..."
       ),
-      import_react11.default.createElement(
+      import_react13.default.createElement(
         "div",
         {
           style: {
@@ -22183,15 +22237,15 @@
       try {
         const root = (0, import_client.createRoot)(rootElement);
         console.log("React root created, rendering...");
-        root.render(import_react11.default.createElement(LoadingNeuron));
+        root.render(import_react13.default.createElement(LoadingNeuron));
         setTimeout(() => {
           console.log("Loading PKM app...");
           try {
-            root.render(import_react11.default.createElement(PKMApp));
+            root.render(import_react13.default.createElement(PKMApp));
           } catch (error) {
             console.error("Error loading PKMApp:", error);
             root.render(
-              import_react11.default.createElement(
+              import_react13.default.createElement(
                 "div",
                 {
                   style: { color: "white", padding: "20px", background: "black" }

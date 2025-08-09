@@ -8,7 +8,8 @@ CREATE TABLE IF NOT EXISTS data_logs (
     timestamp DATETIME NOT NULL,
     content TEXT NOT NULL,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    modified_at DATETIME
 );
 
 -- Tags table for normalized tag storage
@@ -57,6 +58,7 @@ CREATE TABLE IF NOT EXISTS memory_nodes (
     pulse_phase REAL NOT NULL DEFAULT 0,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
     updated_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    modified_at DATETIME,
     FOREIGN KEY (data_log_id) REFERENCES data_logs(id) ON DELETE CASCADE
 );
 
@@ -98,8 +100,36 @@ CREATE TRIGGER IF NOT EXISTS update_data_logs_updated_at
         UPDATE data_logs SET updated_at = CURRENT_TIMESTAMP WHERE id = NEW.id;
     END;
 
+CREATE TRIGGER IF NOT EXISTS update_data_logs_modified_at 
+  AFTER UPDATE ON data_logs
+  BEGIN
+    UPDATE data_logs SET modified_at = CURRENT_TIMESTAMP WHERE id = NEW.id;
+  END;
+
+CREATE TRIGGER IF NOT EXISTS set_data_logs_modified_at_on_insert
+  AFTER INSERT ON data_logs
+  BEGIN
+    UPDATE data_logs
+    SET modified_at = COALESCE(NEW.modified_at, NEW.created_at, CURRENT_TIMESTAMP)
+    WHERE id = NEW.id;
+  END;
+
 CREATE TRIGGER IF NOT EXISTS update_memory_nodes_updated_at 
     AFTER UPDATE ON memory_nodes
     BEGIN
         UPDATE memory_nodes SET updated_at = CURRENT_TIMESTAMP WHERE id = NEW.id;
     END;
+
+CREATE TRIGGER IF NOT EXISTS update_memory_nodes_modified_at 
+  AFTER UPDATE ON memory_nodes
+  BEGIN
+    UPDATE memory_nodes SET modified_at = CURRENT_TIMESTAMP WHERE id = NEW.id;
+  END;
+
+CREATE TRIGGER IF NOT EXISTS set_memory_nodes_modified_at_on_insert
+  AFTER INSERT ON memory_nodes
+  BEGIN
+    UPDATE memory_nodes
+    SET modified_at = COALESCE(NEW.modified_at, NEW.created_at, CURRENT_TIMESTAMP)
+    WHERE id = NEW.id;
+  END;

@@ -1,6 +1,34 @@
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import { useEffect, useState } from "react";
 export const UIOverlay = ({ sidebarCollapsed, previewMode, zoom, hoveredNode, selectedNode, nodes, rotationX, rotationY, onPreviewModeToggle, rotateX, rotateY, project3D, }) => {
-    return (_jsxs("div", { className: "absolute inset-0 pointer-events-none", children: [_jsxs("div", { className: `absolute top-8 text-cyan-400 font-mono text-sm transition-all duration-300 ${sidebarCollapsed ? "left-20" : "left-96"}`, children: [_jsx("div", { className: "mb-2", children: "CUTTIE'S FLOPPY NEURONS" }), _jsx("div", { className: "text-xs opacity-70", children: "Drag to rotate \u2022 Scroll to zoom \u2022 Click nodes for details" })] }), _jsx("div", { className: "absolute top-8 right-8 text-cyan-400 font-mono text-sm z-20", children: _jsx("button", { onClick: onPreviewModeToggle, className: `px-4 py-2 border border-cyan-400/50 rounded transition-all duration-200 pointer-events-auto ${previewMode
+    const LOCAL_STORAGE_KEY = "mindName";
+    const DEFAULT_MIND_NAME = "Floppy Neurons";
+    const [mindName, setMindName] = useState(() => {
+        try {
+            const saved = window.localStorage.getItem(LOCAL_STORAGE_KEY);
+            return saved && saved.trim().length > 0 ? saved : DEFAULT_MIND_NAME;
+        }
+        catch {
+            return DEFAULT_MIND_NAME;
+        }
+    });
+    const [isEditingName, setIsEditingName] = useState(false);
+    useEffect(() => {
+        try {
+            window.localStorage.setItem(LOCAL_STORAGE_KEY, mindName);
+        }
+        catch {
+            // ignore storage errors
+        }
+    }, [mindName]);
+    return (_jsxs("div", { className: "absolute inset-0 pointer-events-none", children: [_jsxs("div", { className: `absolute top-8 text-cyan-400 font-mono text-sm transition-all duration-300 ${sidebarCollapsed ? "left-20" : "left-96"} pointer-events-auto`, children: [isEditingName ? (_jsx("input", { "aria-label": "Mind name", value: mindName, onChange: (e) => setMindName(e.target.value), onBlur: () => setIsEditingName(false), onKeyDown: (e) => {
+                            if (e.key === "Enter") {
+                                e.currentTarget.blur();
+                            }
+                            if (e.key === "Escape") {
+                                setIsEditingName(false);
+                            }
+                        }, autoFocus: true, className: "mb-2 px-2 py-1 bg-black/60 border border-cyan-400/40 rounded text-cyan-100 focus:outline-none focus:border-cyan-400" })) : (_jsx("div", { className: "mb-2 cursor-text select-text", title: "Click to rename your mind", onClick: () => setIsEditingName(true), children: mindName })), _jsx("div", { className: "text-xs opacity-70", children: "Drag to rotate \u2022 Scroll to zoom \u2022 Click nodes for details" })] }), _jsx("div", { className: "absolute top-8 right-8 text-cyan-400 font-mono text-sm z-20", children: _jsx("button", { onClick: onPreviewModeToggle, className: `px-4 py-2 border border-cyan-400/50 rounded transition-all duration-200 pointer-events-auto ${previewMode
                         ? "bg-cyan-400/20 text-white border-cyan-400"
                         : "bg-black/50 text-cyan-400 hover:bg-cyan-400/10"}`, children: previewMode ? "Hide Preview" : "Preview" }) }), _jsxs("div", { className: "absolute top-20 right-8 text-cyan-400 font-mono text-xs", children: [_jsxs("div", { children: [Math.round(1000 / 16), " FPS"] }), _jsxs("div", { className: "opacity-70", children: ["Zoom: ", Math.round(zoom * 100), "%"] })] }), _jsxs("div", { className: "absolute bottom-8 right-8 text-cyan-400 font-mono text-xs bg-black/50 p-3 rounded border border-cyan-400/30", children: [_jsx("div", { className: "mb-2 font-semibold", children: "Connection Strength:" }), _jsxs("div", { className: "space-y-1 text-xs", children: [_jsxs("div", { className: "flex items-center", children: [_jsx("div", { className: "w-8 h-0.5 bg-[#00ffff] mr-2 relative", children: _jsx("div", { className: "absolute top-1/2  w-2 h-2 bg-[#00ffff] border border-black rounded-full transform -translate-y-1/2" }) }), _jsx("span", { children: "1 shared tag " })] }), _jsxs("div", { className: "flex items-center", children: [_jsxs("div", { className: "w-8 h-1 bg-[#ffff00] mr-2 relative", children: [_jsx("div", { className: "absolute top-1/2 w-2 h-2 border border-black bg-yellow-400 rounded-full transform -translate-y-1/2" }), _jsx("div", { className: "absolute top-1/2 left-1/4 w-2 h-2 border border-black bg-yellow-400 rounded-full transform -translate-y-1/2" })] }), _jsx("span", { children: "2 shared tags " })] }), _jsxs("div", { className: "flex items-center", children: [_jsxs("div", { className: "w-8 h-1.5 bg-[#ff00ff] mr-2 relative", children: [_jsx("div", { className: "absolute top-1/2 w-2 h-2 border border-black bg-magenta-400 rounded-full transform -translate-y-1/2" }), _jsx("div", { className: "absolute top-1/2 left-1/4 w-2 h-2 border border-black bg-magenta-400 rounded-full transform -translate-y-1/2" }), _jsx("div", { className: "absolute top-1/2 left-1/2 w-2 h-2 border border-black bg-magenta-400 rounded-full transform -translate-y-1/2" })] }), _jsx("span", { children: "3 shared tags " })] }), _jsxs("div", { className: "flex items-center", children: [_jsxs("div", { className: "w-8 h-2 bg-orange-400 mr-2 relative", children: [_jsx("div", { className: "absolute top-1/2 w-2 h-2 border border-black bg-orange-400 rounded-full transform -translate-y-1/2" }), _jsx("div", { className: "absolute top-1/2 left-1/4 w-2 h-2 border border-black bg-orange-400 rounded-full transform -translate-y-1/2" }), _jsx("div", { className: "absolute top-1/2 left-2/4 w-2 h-2 border border-black bg-orange-400 rounded-full transform -translate-y-1/2" }), _jsx("div", { className: "absolute top-1/2 left-3/4 w-2 h-2 border border-black bg-orange-400 rounded-full transform -translate-y-1/2" })] }), _jsx("span", { children: "4 shared tags " })] })] })] }), hoveredNode &&
                 !selectedNode &&
