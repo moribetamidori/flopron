@@ -8,6 +8,22 @@ export class DatabaseService {
         }
         return DatabaseService.instance;
     }
+    // Neuron Cluster operations
+    async createNeuronCluster(input) {
+        return window.electronAPI.database.createNeuronCluster(input);
+    }
+    async getNeuronClusterById(id) {
+        return window.electronAPI.database.getNeuronClusterById(id);
+    }
+    async getAllNeuronClusters() {
+        return window.electronAPI.database.getAllNeuronClusters();
+    }
+    async updateNeuronCluster(id, updates) {
+        return window.electronAPI.database.updateNeuronCluster(id, updates);
+    }
+    async deleteNeuronCluster(id) {
+        return window.electronAPI.database.deleteNeuronCluster(id);
+    }
     // Data Log operations
     async createDataLog(input) {
         return window.electronAPI.database.createDataLog(input);
@@ -17,6 +33,9 @@ export class DatabaseService {
     }
     async getAllDataLogs() {
         return window.electronAPI.database.getAllDataLogs();
+    }
+    async getDataLogsByCluster(clusterId) {
+        return window.electronAPI.database.getDataLogsByCluster(clusterId);
     }
     async updateDataLog(id, updates) {
         return window.electronAPI.database.updateDataLog(id, updates);
@@ -30,6 +49,9 @@ export class DatabaseService {
     }
     async getMemoryNodeById(id) {
         return window.electronAPI.database.getMemoryNodeById(id);
+    }
+    async getMemoryNodesByDataLogId(dataLogId) {
+        return window.electronAPI.database.getMemoryNodesByDataLogId(dataLogId);
     }
     async getAllMemoryNodes() {
         return window.electronAPI.database.getAllMemoryNodes();
@@ -49,6 +71,9 @@ export class DatabaseService {
     }
     async deleteConnection(id) {
         return window.electronAPI.database.deleteConnection(id);
+    }
+    async regenerateConnectionsForNode(nodeId) {
+        return window.electronAPI.database.regenerateConnectionsForNode(nodeId);
     }
     // Search and utility operations
     async searchDataLogs(query) {

@@ -1,11 +1,22 @@
 // Database types for PKM application
 // These types match the database schema and extend the original data types
 
+export interface DatabaseNeuronCluster {
+  id: string;
+  name: string;
+  description?: string;
+  color?: string;
+  created_at: Date;
+  updated_at: Date;
+  modified_at: Date;
+}
+
 export interface DatabaseDataLog {
   id: string;
   title: string;
   timestamp: Date;
   content: string;
+  cluster_id?: string;
   created_at: Date;
   updated_at: Date;
   modified_at: Date;
@@ -58,6 +69,7 @@ export interface DataLogWithRelations extends DatabaseDataLog {
   tags: string[];
   images: string[];
   links: string[];
+  cluster?: DatabaseNeuronCluster | null;
 }
 
 export interface MemoryNodeWithRelations extends DatabaseMemoryNode {
@@ -70,6 +82,19 @@ export interface ConnectionWithSharedTags extends DatabaseNodeConnection {
 }
 
 // Input types for creating new records
+export interface CreateNeuronClusterInput {
+  id: string;
+  name: string;
+  description?: string;
+  color?: string;
+}
+
+export interface UpdateNeuronClusterInput {
+  name?: string;
+  description?: string;
+  color?: string;
+}
+
 export interface CreateDataLogInput {
   id: string;
   title: string;
@@ -78,6 +103,7 @@ export interface CreateDataLogInput {
   tags: string[];
   images: string[];
   links: string[];
+  cluster_id?: string;
 }
 
 export interface UpdateDataLogInput {
@@ -87,6 +113,7 @@ export interface UpdateDataLogInput {
   tags?: string[];
   images?: string[];
   links?: string[];
+  cluster_id?: string;
 }
 
 export interface CreateMemoryNodeInput {

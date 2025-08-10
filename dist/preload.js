@@ -14,6 +14,22 @@ const api = {
         return ipcRenderer.invoke("ping");
     },
     database: {
+        // Neuron Cluster operations
+        async createNeuronCluster(input) {
+            return ipcRenderer.invoke("database:createNeuronCluster", input);
+        },
+        async getNeuronClusterById(id) {
+            return ipcRenderer.invoke("database:getNeuronClusterById", id);
+        },
+        async getAllNeuronClusters() {
+            return ipcRenderer.invoke("database:getAllNeuronClusters");
+        },
+        async updateNeuronCluster(id, updates) {
+            return ipcRenderer.invoke("database:updateNeuronCluster", id, updates);
+        },
+        async deleteNeuronCluster(id) {
+            return ipcRenderer.invoke("database:deleteNeuronCluster", id);
+        },
         // Data Log operations
         async createDataLog(input) {
             return ipcRenderer.invoke("database:createDataLog", input);
@@ -23,6 +39,9 @@ const api = {
         },
         async getAllDataLogs() {
             return ipcRenderer.invoke("database:getAllDataLogs");
+        },
+        async getDataLogsByCluster(clusterId) {
+            return ipcRenderer.invoke("database:getDataLogsByCluster", clusterId);
         },
         async updateDataLog(id, updates) {
             return ipcRenderer.invoke("database:updateDataLog", id, updates);
@@ -36,6 +55,9 @@ const api = {
         },
         async getMemoryNodeById(id) {
             return ipcRenderer.invoke("database:getMemoryNodeById", id);
+        },
+        async getMemoryNodesByDataLogId(dataLogId) {
+            return ipcRenderer.invoke("database:getMemoryNodesByDataLogId", dataLogId);
         },
         async getAllMemoryNodes() {
             return ipcRenderer.invoke("database:getAllMemoryNodes");
@@ -55,6 +77,9 @@ const api = {
         },
         async deleteConnection(id) {
             return ipcRenderer.invoke("database:deleteConnection", id);
+        },
+        async regenerateConnectionsForNode(nodeId) {
+            return ipcRenderer.invoke("database:regenerateConnectionsForNode", nodeId);
         },
         // Search and utility operations
         async searchDataLogs(query) {

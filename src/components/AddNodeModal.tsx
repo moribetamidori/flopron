@@ -1,11 +1,12 @@
 import React, { useState, useEffect, useRef, KeyboardEvent } from "react";
 import { DatabaseService } from "../database/databaseService";
-import { CreateDataLogInput } from "../database/types";
+import { CreateDataLogInput, DatabaseNeuronCluster } from "../database/types";
 
 interface AddNodeModalProps {
   isOpen: boolean;
   onClose: () => void;
   onNodeAdded: (dataLog: any) => void;
+  selectedClusterId?: string | null;
 }
 
 interface TagInputProps {
@@ -336,6 +337,7 @@ export const AddNodeModal: React.FC<AddNodeModalProps> = ({
   isOpen,
   onClose,
   onNodeAdded,
+  selectedClusterId,
 }) => {
   const [formData, setFormData] = useState({
     title: "",
@@ -343,20 +345,31 @@ export const AddNodeModal: React.FC<AddNodeModalProps> = ({
     tags: [] as string[],
     images: [] as string[],
     links: [] as string[],
+    clusterId: selectedClusterId || null,
   });
   const [linkInput, setLinkInput] = useState("");
   const [availableTags, setAvailableTags] = useState<string[]>([]);
+  const [clusters, setClusters] = useState<DatabaseNeuronCluster[]>([]);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   const databaseService = DatabaseService.getInstance();
 
-  // Load available tags when modal opens
+  // Load available tags and clusters when modal opens
   useEffect(() => {
     if (isOpen) {
       loadAvailableTags();
+      loadClusters();
     }
   }, [isOpen]);
+
+  // Update cluster ID when selectedClusterId prop changes
+  useEffect(() => {
+    setFormData((prev) => ({
+      ...prev,
+      clusterId: selectedClusterId || null,
+    }));
+  }, [selectedClusterId]);
 
   const loadAvailableTags = async () => {
     try {
@@ -367,8 +380,19 @@ export const AddNodeModal: React.FC<AddNodeModalProps> = ({
     }
   };
 
+  const loadClusters = async () => {
+    try {
+      const allClusters = await databaseService.getAllNeuronClusters();
+      setClusters(allClusters);
+    } catch (error) {
+      console.error("Failed to load clusters:", error);
+    }
+  };
+
   const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -431,6 +455,7 @@ export const AddNodeModal: React.FC<AddNodeModalProps> = ({
         tags: formData.tags,
         images: formData.images,
         links: formData.links,
+        cluster_id: formData.clusterId || undefined,
       };
 
       // Create the data log
@@ -451,6 +476,7 @@ export const AddNodeModal: React.FC<AddNodeModalProps> = ({
         tags: [],
         images: [],
         links: [],
+        clusterId: selectedClusterId || null,
       });
       setLinkInput("");
 
@@ -521,6 +547,30 @@ export const AddNodeModal: React.FC<AddNodeModalProps> = ({
                 placeholder="Describe your memory or thought in detail..."
                 disabled={isSubmitting}
               />
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-cyan-300 mb-2">
+                Cluster
+              </label>
+              <select
+                name="clusterId"
+                value={formData.clusterId || ""}
+                onChange={handleInputChange}
+                className="w-full px-3 py-2 bg-black/60 border border-cyan-400/40 rounded text-cyan-100 focus:outline-none focus:border-cyan-400"
+                disabled={isSubmitting}
+              >
+                <option value="">Select a cluster (optional)</option>
+                {clusters.map((cluster) => (
+                  <option key={cluster.id} value={cluster.id}>
+                    {cluster.name}
+                  </option>
+                ))}
+              </select>
+              <p className="text-xs text-cyan-300/60 mt-1">
+                Choose which cluster this memory belongs to. Leave empty to use
+                the default cluster.
+              </p>
             </div>
 
             <div>

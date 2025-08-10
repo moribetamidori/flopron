@@ -4,7 +4,7 @@
 
 ### 1. Module Import Errors (ES Modules)
 
-**Error**: `Cannot find module '/Users/lucyqiu/Desktop/flopron/dist/database/database'`
+**Error**: `Cannot find module '/Users/lucyqiu/Desktop/neuppy/dist/database/database'`
 
 **Root Cause**:
 
@@ -96,9 +96,9 @@ Choose how you want to integrate:
 
 Your database will be stored at:
 
-- **macOS**: `~/Library/Application Support/flopron/pkm-data.db`
-- **Windows**: `%APPDATA%/flopron/pkm-data.db`
-- **Linux**: `~/.config/flopron/pkm-data.db`
+- **macOS**: `~/Library/Application Support/neuppy/pkm-data.db`
+- **Windows**: `%APPDATA%/neuppy/pkm-data.db`
+- **Linux**: `~/.config/neuppy/pkm-data.db`
 
 ## 🎯 Key Files Ready for Use
 

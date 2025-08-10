@@ -7,6 +7,9 @@ import {
   DataLogWithRelations,
   MemoryNodeWithRelations,
   ConnectionWithSharedTags,
+  DatabaseNeuronCluster,
+  CreateNeuronClusterInput,
+  UpdateNeuronClusterInput,
 } from "./database/types.js";
 
 type AppInfo = {
@@ -33,6 +36,30 @@ const api = {
     return ipcRenderer.invoke("ping");
   },
   database: {
+    // Neuron Cluster operations
+    async createNeuronCluster(
+      input: CreateNeuronClusterInput
+    ): Promise<DatabaseNeuronCluster> {
+      return ipcRenderer.invoke("database:createNeuronCluster", input);
+    },
+    async getNeuronClusterById(
+      id: string
+    ): Promise<DatabaseNeuronCluster | null> {
+      return ipcRenderer.invoke("database:getNeuronClusterById", id);
+    },
+    async getAllNeuronClusters(): Promise<DatabaseNeuronCluster[]> {
+      return ipcRenderer.invoke("database:getAllNeuronClusters");
+    },
+    async updateNeuronCluster(
+      id: string,
+      updates: UpdateNeuronClusterInput
+    ): Promise<DatabaseNeuronCluster | null> {
+      return ipcRenderer.invoke("database:updateNeuronCluster", id, updates);
+    },
+    async deleteNeuronCluster(id: string): Promise<boolean> {
+      return ipcRenderer.invoke("database:deleteNeuronCluster", id);
+    },
+
     // Data Log operations
     async createDataLog(
       input: CreateDataLogInput
@@ -44,6 +71,11 @@ const api = {
     },
     async getAllDataLogs(): Promise<DataLogWithRelations[]> {
       return ipcRenderer.invoke("database:getAllDataLogs");
+    },
+    async getDataLogsByCluster(
+      clusterId: string
+    ): Promise<DataLogWithRelations[]> {
+      return ipcRenderer.invoke("database:getDataLogsByCluster", clusterId);
     },
     async updateDataLog(
       id: string,
@@ -65,6 +97,14 @@ const api = {
       id: string
     ): Promise<MemoryNodeWithRelations | null> {
       return ipcRenderer.invoke("database:getMemoryNodeById", id);
+    },
+    async getMemoryNodesByDataLogId(
+      dataLogId: string
+    ): Promise<MemoryNodeWithRelations[]> {
+      return ipcRenderer.invoke(
+        "database:getMemoryNodesByDataLogId",
+        dataLogId
+      );
     },
     async getAllMemoryNodes(): Promise<MemoryNodeWithRelations[]> {
       return ipcRenderer.invoke("database:getAllMemoryNodes");
@@ -99,6 +139,12 @@ const api = {
     },
     async deleteConnection(id: number): Promise<boolean> {
       return ipcRenderer.invoke("database:deleteConnection", id);
+    },
+    async regenerateConnectionsForNode(nodeId: string): Promise<void> {
+      return ipcRenderer.invoke(
+        "database:regenerateConnectionsForNode",
+        nodeId
+      );
     },
 
     // Search and utility operations

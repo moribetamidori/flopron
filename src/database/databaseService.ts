@@ -9,6 +9,9 @@ import {
   UpdateDataLogInput,
   CreateMemoryNodeInput,
   UpdateMemoryNodeInput,
+  DatabaseNeuronCluster,
+  CreateNeuronClusterInput,
+  UpdateNeuronClusterInput,
 } from "./types.js";
 
 // Since we're in an Electron app, we'll communicate with the main process
@@ -26,6 +29,34 @@ export class DatabaseService {
     return DatabaseService.instance;
   }
 
+  // Neuron Cluster operations
+  async createNeuronCluster(
+    input: CreateNeuronClusterInput
+  ): Promise<DatabaseNeuronCluster> {
+    return window.electronAPI.database.createNeuronCluster(input);
+  }
+
+  async getNeuronClusterById(
+    id: string
+  ): Promise<DatabaseNeuronCluster | null> {
+    return window.electronAPI.database.getNeuronClusterById(id);
+  }
+
+  async getAllNeuronClusters(): Promise<DatabaseNeuronCluster[]> {
+    return window.electronAPI.database.getAllNeuronClusters();
+  }
+
+  async updateNeuronCluster(
+    id: string,
+    updates: UpdateNeuronClusterInput
+  ): Promise<DatabaseNeuronCluster | null> {
+    return window.electronAPI.database.updateNeuronCluster(id, updates);
+  }
+
+  async deleteNeuronCluster(id: string): Promise<boolean> {
+    return window.electronAPI.database.deleteNeuronCluster(id);
+  }
+
   // Data Log operations
   async createDataLog(
     input: CreateDataLogInput
@@ -39,6 +70,12 @@ export class DatabaseService {
 
   async getAllDataLogs(): Promise<DataLogWithRelations[]> {
     return window.electronAPI.database.getAllDataLogs();
+  }
+
+  async getDataLogsByCluster(
+    clusterId: string
+  ): Promise<DataLogWithRelations[]> {
+    return window.electronAPI.database.getDataLogsByCluster(clusterId);
   }
 
   async updateDataLog(
@@ -61,6 +98,12 @@ export class DatabaseService {
 
   async getMemoryNodeById(id: string): Promise<MemoryNodeWithRelations | null> {
     return window.electronAPI.database.getMemoryNodeById(id);
+  }
+
+  async getMemoryNodesByDataLogId(
+    dataLogId: string
+  ): Promise<MemoryNodeWithRelations[]> {
+    return window.electronAPI.database.getMemoryNodesByDataLogId(dataLogId);
   }
 
   async getAllMemoryNodes(): Promise<MemoryNodeWithRelations[]> {
@@ -99,6 +142,10 @@ export class DatabaseService {
 
   async deleteConnection(id: number): Promise<boolean> {
     return window.electronAPI.database.deleteConnection(id);
+  }
+
+  async regenerateConnectionsForNode(nodeId: string): Promise<void> {
+    return window.electronAPI.database.regenerateConnectionsForNode(nodeId);
   }
 
   // Search and utility operations
@@ -164,23 +211,45 @@ declare global {
   interface Window {
     electronAPI: {
       database: {
+        // Neuron Cluster operations
+        createNeuronCluster: (
+          input: CreateNeuronClusterInput
+        ) => Promise<DatabaseNeuronCluster>;
+        getNeuronClusterById: (
+          id: string
+        ) => Promise<DatabaseNeuronCluster | null>;
+        getAllNeuronClusters: () => Promise<DatabaseNeuronCluster[]>;
+        updateNeuronCluster: (
+          id: string,
+          updates: UpdateNeuronClusterInput
+        ) => Promise<DatabaseNeuronCluster | null>;
+        deleteNeuronCluster: (id: string) => Promise<boolean>;
+
+        // Data Log operations
         createDataLog: (
           input: CreateDataLogInput
         ) => Promise<DataLogWithRelations>;
         getDataLogById: (id: string) => Promise<DataLogWithRelations | null>;
         getAllDataLogs: () => Promise<DataLogWithRelations[]>;
+        getDataLogsByCluster: (
+          clusterId: string
+        ) => Promise<DataLogWithRelations[]>;
         updateDataLog: (
           id: string,
           updates: UpdateDataLogInput
         ) => Promise<DataLogWithRelations | null>;
         deleteDataLog: (id: string) => Promise<boolean>;
 
+        // Memory Node operations
         createMemoryNode: (
           input: CreateMemoryNodeInput
         ) => Promise<MemoryNodeWithRelations>;
         getMemoryNodeById: (
           id: string
         ) => Promise<MemoryNodeWithRelations | null>;
+        getMemoryNodesByDataLogId: (
+          dataLogId: string
+        ) => Promise<MemoryNodeWithRelations[]>;
         getAllMemoryNodes: () => Promise<MemoryNodeWithRelations[]>;
         updateMemoryNode: (
           id: string,
@@ -188,6 +257,7 @@ declare global {
         ) => Promise<MemoryNodeWithRelations | null>;
         deleteMemoryNode: (id: string) => Promise<boolean>;
 
+        // Connection operations
         createConnection: (
           fromNodeId: string,
           toNodeId: string,
@@ -196,7 +266,9 @@ declare global {
         ) => Promise<ConnectionWithSharedTags>;
         getAllConnections: () => Promise<ConnectionWithSharedTags[]>;
         deleteConnection: (id: number) => Promise<boolean>;
+        regenerateConnectionsForNode: (nodeId: string) => Promise<void>;
 
+        // Search and utility operations
         searchDataLogs: (query: string) => Promise<DataLogWithRelations[]>;
         getAllTags: () => Promise<string[]>;
         runMigration: () => Promise<void>;

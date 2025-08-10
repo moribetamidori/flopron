@@ -9,6 +9,7 @@ interface NormalViewProps {
   glitchX: number;
   glitchY: number;
   ctx: CanvasRenderingContext2D;
+  clusterColor?: string;
 }
 
 export const renderNormalView = ({
@@ -20,9 +21,13 @@ export const renderNormalView = ({
   glitchX,
   glitchY,
   ctx,
+  clusterColor,
 }: NormalViewProps) => {
   const pulse = Math.sin(time * 3 + node.pulsePhase) * 0.3 + 0.7;
   const radius = isSelected ? 20 : isHovered ? 15 : 8 + pulse * 5;
+
+  // Use the provided cluster color or fall back to node's data log or default
+  const nodeColor = clusterColor || node.dataLog?.cluster?.color || "#00ff88";
 
   // Node glow
   const gradient = ctx.createRadialGradient(
@@ -35,11 +40,11 @@ export const renderNormalView = ({
   );
   gradient.addColorStop(
     0,
-    isSelected ? "#ff00ff" : isHovered ? "#00ffff" : "#00ff88"
+    isSelected ? "#ff00ff" : isHovered ? "#00ffff" : nodeColor
   );
   gradient.addColorStop(
     0.5,
-    isSelected ? "#ff0088" : isHovered ? "#0088ff" : "#00ff44"
+    isSelected ? "#ff0088" : isHovered ? "#0088ff" : nodeColor + "88"
   );
   gradient.addColorStop(1, "transparent");
 
@@ -55,13 +60,13 @@ export const renderNormalView = ({
   ctx.fill();
 
   // Node core
-  ctx.fillStyle = isSelected ? "#ffffff" : isHovered ? "#ffffff" : "#00ffff";
+  ctx.fillStyle = isSelected ? "#ffffff" : isHovered ? "#ffffff" : nodeColor;
   ctx.beginPath();
   ctx.arc(projected.x + glitchX, projected.y + glitchY, radius, 0, Math.PI * 2);
   ctx.fill();
 
   // Wireframe effect
-  ctx.strokeStyle = "#00ffff";
+  ctx.strokeStyle = nodeColor;
   ctx.lineWidth = 1;
   ctx.globalAlpha = 0.8;
   ctx.beginPath();

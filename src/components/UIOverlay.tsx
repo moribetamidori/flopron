@@ -45,27 +45,6 @@ export const UIOverlay: React.FC<UIOverlayProps> = ({
   rotateY,
   project3D,
 }) => {
-  const LOCAL_STORAGE_KEY = "mindName";
-  const DEFAULT_MIND_NAME = "Floppy Neurons";
-
-  const [mindName, setMindName] = useState<string>(() => {
-    try {
-      const saved = window.localStorage.getItem(LOCAL_STORAGE_KEY);
-      return saved && saved.trim().length > 0 ? saved : DEFAULT_MIND_NAME;
-    } catch {
-      return DEFAULT_MIND_NAME;
-    }
-  });
-  const [isEditingName, setIsEditingName] = useState<boolean>(false);
-
-  useEffect(() => {
-    try {
-      window.localStorage.setItem(LOCAL_STORAGE_KEY, mindName);
-    } catch {
-      // ignore storage errors
-    }
-  }, [mindName]);
-
   return (
     <div className="absolute inset-0 pointer-events-none">
       {/* Overlay text */}
@@ -74,32 +53,6 @@ export const UIOverlay: React.FC<UIOverlayProps> = ({
           sidebarCollapsed ? "left-20" : "left-96"
         } pointer-events-auto`}
       >
-        {isEditingName ? (
-          <input
-            aria-label="Mind name"
-            value={mindName}
-            onChange={(e) => setMindName(e.target.value)}
-            onBlur={() => setIsEditingName(false)}
-            onKeyDown={(e) => {
-              if (e.key === "Enter") {
-                (e.currentTarget as HTMLInputElement).blur();
-              }
-              if (e.key === "Escape") {
-                setIsEditingName(false);
-              }
-            }}
-            autoFocus
-            className="mb-2 px-2 py-1 bg-black/60 border border-cyan-400/40 rounded text-cyan-100 focus:outline-none focus:border-cyan-400"
-          />
-        ) : (
-          <div
-            className="mb-2 cursor-text select-text"
-            title="Click to rename your mind"
-            onClick={() => setIsEditingName(true)}
-          >
-            {mindName}
-          </div>
-        )}
         <div className="text-xs opacity-70">
           Drag to rotate • Scroll to zoom • Click nodes for details
         </div>
@@ -194,9 +147,9 @@ export const UIOverlay: React.FC<UIOverlayProps> = ({
               }}
             >
               <div className="font-bold mb-2 text-xs">
-                {hoveredNode && hoveredNode.length > 25
-                  ? `${hoveredNode.substring(0, 25)}...`
-                  : hoveredNode}
+                {hoveredNodeData.dataLog?.title ||
+                  hoveredNodeData.dataLog?.content?.substring(0, 25) ||
+                  hoveredNode}
               </div>
             </div>
           );
