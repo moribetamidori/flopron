@@ -1,6 +1,6 @@
-# Assets Directory
+# Images
 
-This directory contains static assets for the Flopron PKM application.
+This directory contains static assets for the Neuppy PKM application.
 
 ## Structure
 

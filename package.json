@@ -1,41 +1,122 @@
 {
-  "name": "flopron",
-  "version": "1.0.0",
+  "name": "neuppy",
+  "version": "1.0.6",
   "description": "PKM for people with floppy neurons",
   "main": "dist/main.js",
   "type": "module",
   "scripts": {
     "build": "tsc --build --force && tsc --project tsconfig.preload.json && esbuild src/renderer.ts --bundle --platform=browser --outfile=dist/renderer.js --external:electron --jsx=automatic --loader:.tsx=tsx --loader:.ts=ts --format=iife --target=es2020 --define:process.env.NODE_ENV=\\\"production\\\" && cp src/database/schema.sql dist/database/",
-    "rebuild": "electron-rebuild",
-    "postinstall": "electron-rebuild",
+    "postinstall": "electron-builder install-app-deps && electron-rebuild -f -w better-sqlite3",
+    "rebuild": "electron-rebuild -f -w better-sqlite3",
     "start": "pnpm run build && electron .",
     "dev": "concurrently -n TSC,PRELOAD,ESBUILD,ELEC -c blue,cyan,yellow,green 'tsc -w' 'tsc --project tsconfig.preload.json -w' 'esbuild src/renderer.ts --bundle --platform=browser --outfile=dist/renderer.js --external:electron --jsx=automatic --loader:.tsx=tsx --loader:.ts=ts --format=iife --target=es2020 --define:process.env.NODE_ENV=\\\"development\\\" --watch' 'wait-on dist/main.js dist/preload.js dist/renderer.js && nodemon --watch src --watch index.html --ext ts,tsx,html --exec \"electron . --enable-logging\"'",
     "dev:simple": "pnpm run build && electron . && echo 'App closed. Run again: pnpm run dev:simple'",
     "dev:working": "pnpm run build && electron . --enable-logging",
     "debug": "pnpm run build && electron . --enable-logging --remote-debugging-port=9222",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "pack": "pnpm run build && electron-builder --dir",
+    "dist": "pnpm run build && electron-builder -mwl",
+    "release": "pnpm run build && electron-builder -mwl --publish always",
+    "release:mac": "pnpm run build && electron-builder --mac --publish always",
+    "release:win": "pnpm run build && electron-builder --win --publish always",
+    "release:mac:arm64": "pnpm run build && electron-builder --mac --arm64 --publish always",
+    "release:mac:x64": "pnpm run build && electron-builder --mac --x64 --publish always"
   },
   "keywords": [],
   "author": "Lucy Qiu",
   "license": "ISC",
   "devDependencies": {
+    "@types/better-sqlite3": "^7.6.13",
     "@types/heic-convert": "^2.1.0",
     "@types/node": "^20.14.11",
     "concurrently": "^9.0.1",
     "electron": "^37.2.6",
-    "electron-rebuild": "^3.2.9",
+    "electron-builder": "^25.1.8",
     "esbuild": "^0.25.8",
     "nodemon": "^3.1.10",
     "typescript": "^5.6.3",
     "wait-on": "^7.2.0"
   },
   "dependencies": {
-    "@types/better-sqlite3": "^7.6.13",
+    "@electron/rebuild": "^4.0.1",
     "@types/react": "^19.1.9",
     "@types/react-dom": "^19.1.7",
+    "@types/sql.js": "^1.4.9",
     "better-sqlite3": "^12.2.0",
+    "electron-updater": "^6.3.9",
     "heic-convert": "^2.1.0",
     "react": "^19.1.1",
-    "react-dom": "^19.1.1"
+    "react-dom": "^19.1.1",
+    "sql.js": "^1.13.0"
+  },
+  "build": {
+    "appId": "com.lucyqiu.neuppy",
+    "productName": "Neuppy",
+    "directories": {
+      "output": "release",
+      "buildResources": "build"
+    },
+    "files": [
+      "dist/**/*",
+      "index.html",
+      "assets/**/*",
+      "!**/*.map"
+    ],
+    "asar": true,
+    "asarUnpack": [
+      "**/*.node"
+    ],
+    "mac": {
+      "target": [
+        "dmg",
+        "zip"
+      ],
+      "category": "public.app-category.productivity",
+      "icon": "build/icon.icns"
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        },
+        "zip"
+      ],
+      "publisherName": "Lucy Qiu",
+      "icon": "build/icon.ico"
+    },
+    "nsis": {
+      "oneClick": true,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": false
+    },
+    "dmg": {
+      "background": "build/dmg-background.png",
+      "icon": "build/icon.icns",
+      "iconSize": 128,
+      "iconTextSize": 14,
+      "window": {
+        "width": 660,
+        "height": 440
+      },
+      "contents": [
+        {
+          "x": 180,
+          "y": 220,
+          "type": "file"
+        },
+        {
+          "x": 480,
+          "y": 220,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
+    },
+    "publish": [
+      "github"
+    ]
   }
 }

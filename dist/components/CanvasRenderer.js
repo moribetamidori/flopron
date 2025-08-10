@@ -2,7 +2,7 @@ import { jsx as _jsx } from "react/jsx-runtime";
 import { useEffect, useRef } from "react";
 import { renderNormalView } from "./NormalView";
 import { renderPreviewView } from "./PreviewView";
-export const CanvasRenderer = ({ nodes, connections, hoveredNode, selectedNode, sidebarCollapsed, previewMode, imageCache, time, rotationX, rotationY, zoom, onDotHover, onDotLeave, rotateX, rotateY, project3D, }) => {
+export const CanvasRenderer = ({ nodes, connections, hoveredNode, selectedNode, sidebarCollapsed, previewMode, imageCache, time, rotationX, rotationY, zoom, selectedClusterColor, onDotHover, onDotLeave, rotateX, rotateY, project3D, }) => {
     const canvasRef = useRef(null);
     useEffect(() => {
         const canvas = canvasRef.current;
@@ -171,6 +171,7 @@ export const CanvasRenderer = ({ nodes, connections, hoveredNode, selectedNode, 
                     glitchX,
                     glitchY,
                     ctx,
+                    clusterColor: selectedClusterColor,
                 });
             }
         });

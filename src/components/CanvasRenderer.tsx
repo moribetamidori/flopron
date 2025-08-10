@@ -15,6 +15,7 @@ interface CanvasRendererProps {
   rotationX: number;
   rotationY: number;
   zoom: number;
+  selectedClusterColor?: string;
   onDotHover?: (sharedTags: string[], x: number, y: number) => void;
   onDotLeave?: () => void;
   rotateX: (
@@ -49,6 +50,7 @@ export const CanvasRenderer: React.FC<CanvasRendererProps> = ({
   rotationX,
   rotationY,
   zoom,
+  selectedClusterColor,
   onDotHover,
   onDotLeave,
   rotateX,
@@ -285,6 +287,7 @@ export const CanvasRenderer: React.FC<CanvasRendererProps> = ({
           glitchX,
           glitchY,
           ctx,
+          clusterColor: selectedClusterColor,
         });
       }
     });

@@ -75,9 +75,9 @@ I've successfully implemented a complete SQLite-based database solution for your
 
 The app will automatically migrate your existing data from `data.ts` to SQLite on first run. The database file will be stored in:
 
-- **macOS**: `~/Library/Application Support/flopron/pkm-data.db`
-- **Windows**: `%APPDATA%/flopron/pkm-data.db`
-- **Linux**: `~/.config/flopron/pkm-data.db`
+- **macOS**: `~/Library/Application Support/neuppy/pkm-data.db`
+- **Windows**: `%APPDATA%/neuppy/pkm-data.db`
+- **Linux**: `~/.config/neuppy/pkm-data.db`
 
 ### 2. CRUD Operations
 

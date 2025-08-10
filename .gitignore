@@ -17,12 +17,23 @@
 /.next/
 /out/
 
-# production
-/build
+# build outputs (do not commit compiled artifacts)
+/dist
+/release/
+
+# local app/runtime data
+.neuppy/
+
+# keep Electron build resources (icons, dmg backgrounds) in repo
+# DO NOT ignore /build, it's used by electron-builder as buildResources
 
 # misc
 .DS_Store
+Thumbs.db
 *.pem
+.eslintcache
+.idea/
+.vscode/
 
 # debug
 npm-debug.log*
@@ -39,3 +50,4 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+release/

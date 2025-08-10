@@ -1,5 +1,5 @@
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useAudioContext } from "./hooks/useAudioContext";
 import { useImageCache } from "./hooks/useImageCache";
 import { useDatabaseMemoryTree, } from "./hooks/useDatabaseMemoryTree";
@@ -10,6 +10,10 @@ import { Sidebar } from "./components/Sidebar";
 import { NodeDetailsModal } from "./components/NodeDetailsModal";
 import { UIOverlay } from "./components/UIOverlay";
 import { AddNodeModal } from "./components/AddNodeModal";
+import { ClusterSettingsModal } from "./components/ClusterSettingsModal";
+import { CreateClusterModal } from "./components/CreateClusterModal";
+import { AllClustersGrid } from "./components/AllClustersGrid";
+import { DatabaseService } from "./database/databaseService";
 export default function PKMApp() {
     // Custom hooks
     const { playNodeSound } = useAudioContext();
@@ -23,7 +27,89 @@ export default function PKMApp() {
     const [previewMode, setPreviewMode] = useState(false);
     const [selectedTags, setSelectedTags] = useState([]);
     const [showAddModal, setShowAddModal] = useState(false);
+    const [clusters, setClusters] = useState([]);
+    const [selectedClusterId, setSelectedClusterId] = useState(null);
+    const [showClusterSettings, setShowClusterSettings] = useState(false);
+    const [showCreateCluster, setShowCreateCluster] = useState(false);
+    const [showAllClustersGrid, setShowAllClustersGrid] = useState(false);
+    const [filteredNodes, setFilteredNodes] = useState([]);
+    const [filteredConnections, setFilteredConnections] = useState([]);
+    const [editingCluster, setEditingCluster] = useState(null);
     const [dotTooltip, setDotTooltip] = useState(null);
+    // Database service
+    const databaseService = DatabaseService.getInstance();
+    // Load clusters on mount
+    useEffect(() => {
+        loadClusters();
+    }, []);
+    // Function to generate connections based on shared tags for given nodes
+    const generateSharedTagConnections = (nodeList) => {
+        const generatedConnections = [];
+        // Generate connections between all pairs of nodes
+        for (let i = 0; i < nodeList.length; i++) {
+            for (let j = i + 1; j < nodeList.length; j++) {
+                const nodeA = nodeList[i];
+                const nodeB = nodeList[j];
+                if (nodeA.dataLog?.tags && nodeB.dataLog?.tags) {
+                    // Find shared tags
+                    const sharedTags = nodeA.dataLog.tags.filter((tag) => nodeB.dataLog.tags.includes(tag));
+                    if (sharedTags.length > 0) {
+                        // Check if this connection already exists in database connections
+                        const existingConnection = connections.find((conn) => (conn.from === nodeA.id && conn.to === nodeB.id) ||
+                            (conn.from === nodeB.id && conn.to === nodeA.id));
+                        if (!existingConnection) {
+                            generatedConnections.push({
+                                from: nodeA.id,
+                                to: nodeB.id,
+                                glitchOffset: Math.random() * 10,
+                                sharedTags: sharedTags,
+                            });
+                        }
+                    }
+                }
+            }
+        }
+        return generatedConnections;
+    };
+    // Filter nodes and connections based on selected cluster and tags
+    useEffect(() => {
+        let filteredNodes = nodes;
+        // Filter by cluster
+        if (selectedClusterId) {
+            filteredNodes = filteredNodes.filter((node) => node.dataLog?.cluster?.id === selectedClusterId);
+        }
+        // Filter by tags
+        if (selectedTags.length > 0) {
+            filteredNodes = filteredNodes.filter((node) => node.dataLog?.tags?.some((tag) => selectedTags.includes(tag)));
+        }
+        setFilteredNodes(filteredNodes);
+        // Filter existing connections to only include connections between filtered nodes
+        const filteredNodeIds = filteredNodes.map((node) => node.id);
+        const filteredExistingConnections = connections.filter((connection) => filteredNodeIds.includes(connection.from) &&
+            filteredNodeIds.includes(connection.to));
+        // Generate shared tag connections for the filtered nodes
+        const generatedConnections = generateSharedTagConnections(filteredNodes);
+        // Combine existing and generated connections
+        const allFilteredConnections = [
+            ...filteredExistingConnections,
+            ...generatedConnections,
+        ];
+        setFilteredConnections(allFilteredConnections);
+    }, [nodes, connections, selectedClusterId, selectedTags]);
+    const loadClusters = async () => {
+        try {
+            const allClusters = await databaseService.getAllNeuronClusters();
+            setClusters(allClusters);
+            // Set default cluster if none selected
+            if (!selectedClusterId && allClusters.length > 0) {
+                const defaultCluster = allClusters.find((c) => c.id === "default-cluster");
+                setSelectedClusterId(defaultCluster?.id || allClusters[0]?.id || null);
+            }
+        }
+        catch (error) {
+            console.error("Failed to load clusters:", error);
+        }
+    };
     // Event handlers
     const handleNodeClick = (node) => {
         if (selectedNode?.id === node.id) {
@@ -45,6 +131,77 @@ export default function PKMApp() {
     const handleCloseModal = () => {
         setSelectedNode(null);
     };
+    // Cluster handlers
+    const handleClusterSelect = (clusterId) => {
+        setSelectedClusterId(clusterId);
+    };
+    const handleCreateNewCluster = () => {
+        setShowCreateCluster(true);
+    };
+    const handleShowAllClusters = () => {
+        setShowAllClustersGrid(true);
+    };
+    const handleClusterSelectFromGrid = (clusterId) => {
+        setSelectedClusterId(clusterId);
+        setShowAllClustersGrid(false);
+    };
+    const handleBackFromAllClusters = () => {
+        setShowAllClustersGrid(false);
+    };
+    const handleSettingsClick = (clusterId) => {
+        if (clusterId) {
+            const cluster = clusters.find((c) => c.id === clusterId);
+            if (cluster) {
+                setEditingCluster(cluster);
+                setShowClusterSettings(true);
+            }
+        }
+        else {
+            // Show settings for currently selected cluster
+            const cluster = clusters.find((c) => c.id === selectedClusterId);
+            if (cluster) {
+                setEditingCluster(cluster);
+                setShowClusterSettings(true);
+            }
+        }
+    };
+    const handleCreateCluster = async (input) => {
+        try {
+            await databaseService.createNeuronCluster(input);
+            await loadClusters();
+            // Select the newly created cluster
+            setSelectedClusterId(input.id);
+        }
+        catch (error) {
+            console.error("Failed to create cluster:", error);
+            throw error;
+        }
+    };
+    const handleUpdateCluster = async (id, updates) => {
+        try {
+            await databaseService.updateNeuronCluster(id, updates);
+            await loadClusters();
+        }
+        catch (error) {
+            console.error("Failed to update cluster:", error);
+            throw error;
+        }
+    };
+    const handleDeleteCluster = async (id) => {
+        try {
+            await databaseService.deleteNeuronCluster(id);
+            await loadClusters();
+            // If the deleted cluster was selected, switch to default cluster
+            if (selectedClusterId === id) {
+                const defaultCluster = clusters.find((c) => c.id === "default-cluster");
+                setSelectedClusterId(defaultCluster?.id || null);
+            }
+        }
+        catch (error) {
+            console.error("Failed to delete cluster:", error);
+            throw error;
+        }
+    };
     // Use ref to track current tooltip to prevent infinite loops
     const currentTooltipRef = useRef(null);
     const handleDotHover = (sharedTags, x, y) => {
@@ -63,17 +220,13 @@ export default function PKMApp() {
         currentTooltipRef.current = null;
         setDotTooltip(null);
     };
-    // Filter nodes based on selected tags
-    const filteredNodes = selectedTags.length > 0
-        ? nodes.filter((node) => node.dataLog?.tags?.some((tag) => selectedTags.includes(tag)))
-        : nodes;
     // Handle tag selection/deselection
     const handleTagClick = (tag) => {
         setSelectedTags((prev) => prev.includes(tag) ? prev.filter((t) => t !== tag) : [...prev, tag]);
     };
     // Canvas interaction hook
     const { canvasRef, handleMouseMove, handleMouseDown, handleMouseUp, handleCanvasClick, handleWheel, handleTouchStart, handleTouchMove, handleTouchEnd, } = useCanvasInteraction({
-        nodes,
+        nodes: filteredNodes,
         previewMode,
         rotationX,
         rotationY,
@@ -87,7 +240,11 @@ export default function PKMApp() {
         onNodeHover: handleNodeHover,
         playNodeSound,
     });
-    return (_jsxs("div", { className: "relative w-full h-screen overflow-hidden bg-black", style: { touchAction: "none" }, children: [_jsxs("div", { className: "absolute inset-0", children: [_jsx(CanvasRenderer, { nodes: filteredNodes, connections: connections, hoveredNode: hoveredNode, selectedNode: selectedNode, sidebarCollapsed: sidebarCollapsed, previewMode: previewMode, imageCache: imageCache, time: time, rotationX: rotationX, rotationY: rotationY, zoom: zoom, onDotHover: handleDotHover, onDotLeave: handleDotLeave, rotateX: rotateX, rotateY: rotateY, project3D: project3D }), _jsx("canvas", { ref: canvasRef, className: "w-full h-full cursor-pointer absolute inset-0", style: { touchAction: "none" }, onMouseMove: (e) => {
+    // Show All Clusters Grid if requested
+    if (showAllClustersGrid) {
+        return (_jsx(AllClustersGrid, { clusters: clusters, onClusterSelect: handleClusterSelectFromGrid, onBack: handleBackFromAllClusters }));
+    }
+    return (_jsxs("div", { className: "relative w-full h-screen overflow-hidden bg-black", style: { touchAction: "none" }, children: [_jsxs("div", { className: "absolute inset-0", children: [_jsx(CanvasRenderer, { nodes: filteredNodes, connections: filteredConnections, hoveredNode: hoveredNode, selectedNode: selectedNode, sidebarCollapsed: sidebarCollapsed, previewMode: previewMode, imageCache: imageCache, time: time, rotationX: rotationX, rotationY: rotationY, zoom: zoom, selectedClusterColor: clusters.find((c) => c.id === selectedClusterId)?.color, onDotHover: handleDotHover, onDotLeave: handleDotLeave, rotateX: rotateX, rotateY: rotateY, project3D: project3D }), _jsx("canvas", { ref: canvasRef, className: "w-full h-full cursor-pointer absolute inset-0", style: { touchAction: "none" }, onMouseMove: (e) => {
                             // Track mouse position for dot hover detection
                             window.mouseX = e.clientX;
                             window.mouseY = e.clientY;
@@ -97,7 +254,7 @@ export default function PKMApp() {
                             window.mouseY = 0;
                             handleMouseUp();
                             handleDotLeave();
-                        }, onClick: handleCanvasClick, onWheel: handleWheel, onTouchStart: handleTouchStart, onTouchMove: handleTouchMove, onTouchEnd: handleTouchEnd })] }), _jsx(Sidebar, { nodes: filteredNodes, selectedNode: selectedNode, sidebarCollapsed: sidebarCollapsed, previewMode: previewMode, selectedTags: selectedTags, onNodeClick: handleNodeClick, onSidebarToggle: handleSidebarToggle, onTagClick: handleTagClick, onAddClick: () => setShowAddModal(true) }), _jsx(UIOverlay, { sidebarCollapsed: sidebarCollapsed, previewMode: previewMode, zoom: zoom, hoveredNode: hoveredNode, selectedNode: selectedNode, nodes: nodes, rotationX: rotationX, rotationY: rotationY, onPreviewModeToggle: handlePreviewModeToggle, rotateX: rotateX, rotateY: rotateY, project3D: project3D }), _jsx(NodeDetailsModal, { selectedNode: selectedNode, sidebarCollapsed: sidebarCollapsed, onClose: handleCloseModal, onUpdated: ({ title, content, tags, images, links }) => {
+                        }, onClick: handleCanvasClick, onWheel: handleWheel, onTouchStart: handleTouchStart, onTouchMove: handleTouchMove, onTouchEnd: handleTouchEnd })] }), _jsx(Sidebar, { nodes: filteredNodes, selectedNode: selectedNode, sidebarCollapsed: sidebarCollapsed, previewMode: previewMode, selectedTags: selectedTags, clusters: clusters, selectedClusterId: selectedClusterId, onNodeClick: handleNodeClick, onSidebarToggle: handleSidebarToggle, onTagClick: handleTagClick, onAddClick: () => setShowAddModal(true), onClusterSelect: handleClusterSelect, onCreateNewCluster: handleCreateNewCluster, onShowAllClusters: handleShowAllClusters, onSettingsClick: handleSettingsClick }), _jsx(UIOverlay, { sidebarCollapsed: sidebarCollapsed, previewMode: previewMode, zoom: zoom, hoveredNode: hoveredNode, selectedNode: selectedNode, nodes: filteredNodes, rotationX: rotationX, rotationY: rotationY, onPreviewModeToggle: handlePreviewModeToggle, rotateX: rotateX, rotateY: rotateY, project3D: project3D }), _jsx(NodeDetailsModal, { selectedNode: selectedNode, sidebarCollapsed: sidebarCollapsed, onClose: handleCloseModal, onUpdated: ({ title, content, tags, images, links }) => {
                     // Update selectedNode in place for immediate UI reflection
                     setSelectedNode((prev) => prev && prev.dataLog
                         ? {
@@ -125,7 +282,16 @@ export default function PKMApp() {
                 } }), _jsx(AddNodeModal, { isOpen: showAddModal, onClose: () => setShowAddModal(false), onNodeAdded: (dataLog) => {
                     addNode(dataLog);
                     setShowAddModal(false);
-                } }), dotTooltip && (_jsx("div", { className: "fixed z-50 bg-black/90 text-cyan-400 font-mono text-xs p-2 rounded border border-cyan-400/50 pointer-events-none", style: {
+                }, selectedClusterId: selectedClusterId }), _jsx(ClusterSettingsModal, { cluster: editingCluster, onClose: () => {
+                    setShowClusterSettings(false);
+                    setEditingCluster(null);
+                }, onUpdate: async ({ name, color }) => {
+                    if (editingCluster) {
+                        await handleUpdateCluster(editingCluster.id, { name, color });
+                        setShowClusterSettings(false);
+                        setEditingCluster(null);
+                    }
+                } }), _jsx(CreateClusterModal, { isOpen: showCreateCluster, onClose: () => setShowCreateCluster(false), onCreateCluster: handleCreateCluster, existingClusters: clusters }), dotTooltip && (_jsx("div", { className: "fixed z-50 bg-black/90 text-cyan-400 font-mono text-xs p-2 rounded border border-cyan-400/50 pointer-events-none", style: {
                     left: dotTooltip.x + 10,
                     top: dotTooltip.y - 10,
                     transform: "translateY(-100%)",

@@ -157,9 +157,9 @@ if (error) {
 
 Your data is stored in:
 
-- **macOS**: `~/Library/Application Support/flopron/pkm-data.db`
-- **Windows**: `%APPDATA%/flopron/pkm-data.db`
-- **Linux**: `~/.config/flopron/pkm-data.db`
+- **macOS**: `~/Library/Application Support/neuppy/pkm-data.db`
+- **Windows**: `%APPDATA%/neuppy/pkm-data.db`
+- **Linux**: `~/.config/neuppy/pkm-data.db`
 
 ## Troubleshooting
 

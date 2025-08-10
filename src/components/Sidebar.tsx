@@ -1,7 +1,9 @@
 import React from "react";
 import { MemoryNode } from "../hooks/useDatabaseMemoryTree";
+import { DatabaseNeuronCluster } from "../database/types";
 import { getRelativeTime } from "../utils/timeUtils";
 import NodePreview from "../NodePreview";
+import { ClusterDropdown } from "./ClusterDropdown";
 
 interface SidebarProps {
   nodes: MemoryNode[];
@@ -9,10 +11,16 @@ interface SidebarProps {
   sidebarCollapsed: boolean;
   previewMode: boolean;
   selectedTags: string[];
+  clusters: DatabaseNeuronCluster[];
+  selectedClusterId: string | null;
   onNodeClick: (node: MemoryNode) => void;
   onSidebarToggle: () => void;
   onTagClick: (tag: string) => void;
   onAddClick?: () => void;
+  onClusterSelect: (clusterId: string | null) => void;
+  onCreateNewCluster: () => void;
+  onShowAllClusters: () => void;
+  onSettingsClick: () => void;
 }
 
 export const Sidebar: React.FC<SidebarProps> = ({
@@ -21,10 +29,16 @@ export const Sidebar: React.FC<SidebarProps> = ({
   sidebarCollapsed,
   previewMode,
   selectedTags,
+  clusters,
+  selectedClusterId,
   onNodeClick,
   onSidebarToggle,
   onTagClick,
   onAddClick,
+  onClusterSelect,
+  onCreateNewCluster,
+  onShowAllClusters,
+  onSettingsClick,
 }) => {
   const nodesByNewest = React.useMemo(() => {
     return [...nodes].sort((a, b) => {
@@ -51,16 +65,14 @@ export const Sidebar: React.FC<SidebarProps> = ({
           {!sidebarCollapsed && (
             <>
               <div className="flex items-center gap-3">
-                <h2 className="text-cyan-400 font-mono font-bold text-lg">
-                  JOURNAL ENTRIES
-                </h2>
-                <button
-                  onClick={onAddClick}
-                  className="px-3 py-1 border border-cyan-400/50 text-cyan-300 rounded hover:text-white hover:border-cyan-400 transition-colors cursor-pointer"
-                  title="Add new entry"
-                >
-                  +
-                </button>
+                <ClusterDropdown
+                  clusters={clusters}
+                  selectedClusterId={selectedClusterId}
+                  onClusterSelect={onClusterSelect}
+                  onCreateNewCluster={onCreateNewCluster}
+                  onShowAllClusters={onShowAllClusters}
+                  onSettingsClick={onSettingsClick}
+                />
               </div>
               <button
                 onClick={onSidebarToggle}
@@ -164,6 +176,20 @@ export const Sidebar: React.FC<SidebarProps> = ({
             ) : (
               // List view for normal mode
               <div className="p-4 space-y-2">
+                {/* Add New Entry Button - Only show when a cluster is selected */}
+                {selectedClusterId && onAddClick ? (
+                  <button
+                    onClick={onAddClick}
+                    className="w-full px-3 py-1 border border-cyan-400/50 text-cyan-300 rounded hover:text-white hover:border-cyan-400 transition-colors cursor-pointer"
+                    title="Add new entry"
+                  >
+                    +
+                  </button>
+                ) : (
+                  <div className="w-full px-3 py-2 border border-cyan-400/20 text-cyan-400/50 rounded text-center text-sm">
+                    Select a cluster to add entries
+                  </div>
+                )}
                 {nodesByNewest.map((node) => (
                   <div
                     key={node.id}

@@ -1,15 +1,27 @@
 -- PKM Database Schema
 -- SQLite database for Personal Knowledge Management app
 
+-- Neuron clusters table for organizing memory nodes into clusters
+CREATE TABLE IF NOT EXISTS neuron_clusters (
+    id TEXT PRIMARY KEY,
+    name TEXT NOT NULL,
+    description TEXT,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    modified_at DATETIME
+);
+
 -- DataLogs table for storing memory entries
 CREATE TABLE IF NOT EXISTS data_logs (
     id TEXT PRIMARY KEY,
     title TEXT NOT NULL,
     timestamp DATETIME NOT NULL,
     content TEXT NOT NULL,
+    cluster_id TEXT,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
     updated_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-    modified_at DATETIME
+    modified_at DATETIME,
+    FOREIGN KEY (cluster_id) REFERENCES neuron_clusters(id) ON DELETE SET NULL
 );
 
 -- Tags table for normalized tag storage
@@ -84,6 +96,8 @@ CREATE TABLE IF NOT EXISTS connection_shared_tags (
 );
 
 -- Indexes for better performance
+CREATE INDEX IF NOT EXISTS idx_neuron_clusters_name ON neuron_clusters(name);
+CREATE INDEX IF NOT EXISTS idx_data_logs_cluster_id ON data_logs(cluster_id);
 CREATE INDEX IF NOT EXISTS idx_data_logs_timestamp ON data_logs(timestamp);
 CREATE INDEX IF NOT EXISTS idx_data_log_tags_data_log_id ON data_log_tags(data_log_id);
 CREATE INDEX IF NOT EXISTS idx_data_log_tags_tag_id ON data_log_tags(tag_id);
@@ -94,6 +108,26 @@ CREATE INDEX IF NOT EXISTS idx_node_connections_from_node_id ON node_connections
 CREATE INDEX IF NOT EXISTS idx_node_connections_to_node_id ON node_connections(to_node_id);
 
 -- Triggers to automatically update the updated_at timestamp
+CREATE TRIGGER IF NOT EXISTS update_neuron_clusters_updated_at 
+    AFTER UPDATE ON neuron_clusters
+    BEGIN
+        UPDATE neuron_clusters SET updated_at = CURRENT_TIMESTAMP WHERE id = NEW.id;
+    END;
+
+CREATE TRIGGER IF NOT EXISTS update_neuron_clusters_modified_at 
+  AFTER UPDATE ON neuron_clusters
+  BEGIN
+    UPDATE neuron_clusters SET modified_at = CURRENT_TIMESTAMP WHERE id = NEW.id;
+  END;
+
+CREATE TRIGGER IF NOT EXISTS set_neuron_clusters_modified_at_on_insert
+  AFTER INSERT ON neuron_clusters
+  BEGIN
+    UPDATE neuron_clusters
+    SET modified_at = COALESCE(NEW.modified_at, NEW.created_at, CURRENT_TIMESTAMP)
+    WHERE id = NEW.id;
+  END;
+
 CREATE TRIGGER IF NOT EXISTS update_data_logs_updated_at 
     AFTER UPDATE ON data_logs
     BEGIN

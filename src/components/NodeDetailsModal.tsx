@@ -183,7 +183,29 @@ export const NodeDetailsModal: React.FC<NodeDetailsModalProps> = ({
             <div className="relative">
               <button
                 className="px-2 py-1 border border-cyan-400/50 text-cyan-300 rounded hover:text-white hover:border-cyan-400 transition-colors"
-                onClick={() => setIsEditing((v) => !v)}
+                onClick={async () => {
+                  if (isEditing) {
+                    // Save changes when clicking "Done"
+                    const updated = await databaseService.updateDataLog(
+                      selectedNode.dataLog!.id,
+                      { title, content, tags, images, links }
+                    );
+                    if (updated) {
+                      // Regenerate connections for this memory node since tags may have changed
+                      await databaseService.regenerateConnectionsForNode(
+                        selectedNode.id
+                      );
+
+                      if (onUpdated) {
+                        onUpdated({ title, content, tags, images, links });
+                      }
+                      setIsEditing(false);
+                    }
+                  } else {
+                    // Toggle to edit mode when clicking "Edit"
+                    setIsEditing(true);
+                  }
+                }}
               >
                 {isEditing ? "Done" : "Edit"}
               </button>
@@ -413,10 +435,15 @@ export const NodeDetailsModal: React.FC<NodeDetailsModalProps> = ({
                 className="px-4 py-2 bg-cyan-600 text-white rounded hover:bg-cyan-500"
                 onClick={async () => {
                   const updated = await databaseService.updateDataLog(
-                    selectedNode.id,
+                    selectedNode.dataLog!.id,
                     { title, content, tags, images, links }
                   );
                   if (updated) {
+                    // Regenerate connections for this memory node since tags may have changed
+                    await databaseService.regenerateConnectionsForNode(
+                      selectedNode.id
+                    );
+
                     if (onUpdated) {
                       onUpdated({ title, content, tags, images, links });
                     }
