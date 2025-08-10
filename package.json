@@ -1,6 +1,6 @@
 {
   "name": "neuppy",
-  "version": "1.0.6",
+  "version": "1.0.9",
   "description": "PKM for people with floppy neurons",
   "main": "dist/main.js",
   "type": "module",
