@@ -99,15 +99,45 @@ export default function PKMApp() {
     const loadClusters = async () => {
         try {
             const allClusters = await databaseService.getAllNeuronClusters();
-            setClusters(allClusters);
-            // Set default cluster if none selected
-            if (!selectedClusterId && allClusters.length > 0) {
-                const defaultCluster = allClusters.find((c) => c.id === "default-cluster");
-                setSelectedClusterId(defaultCluster?.id || allClusters[0]?.id || null);
+            console.log(`🔍 Found ${allClusters.length} existing clusters`);
+            // If no clusters exist, create a default cluster
+            if (allClusters.length === 0) {
+                console.log("🚀 No clusters found - creating default cluster...");
+                const defaultClusterInput = {
+                    id: "default-cluster",
+                    name: "Default Cluster",
+                    description: "Your default knowledge cluster",
+                    color: "#00ffff", // cyan color
+                };
+                try {
+                    await databaseService.createNeuronCluster(defaultClusterInput);
+                    console.log("✅ Default cluster created successfully");
+                    // Reload clusters after creating the default one
+                    const updatedClusters = await databaseService.getAllNeuronClusters();
+                    setClusters(updatedClusters);
+                    console.log(`📊 Updated clusters list: ${updatedClusters.length} clusters`);
+                    // Set the default cluster as selected
+                    setSelectedClusterId("default-cluster");
+                    console.log("🎯 Default cluster selected");
+                }
+                catch (error) {
+                    console.error("❌ Failed to create default cluster:", error);
+                }
+            }
+            else {
+                console.log("📋 Using existing clusters");
+                setClusters(allClusters);
+                // Set default cluster if none selected
+                if (!selectedClusterId) {
+                    const defaultCluster = allClusters.find((c) => c.id === "default-cluster");
+                    const selectedId = defaultCluster?.id || allClusters[0]?.id || null;
+                    setSelectedClusterId(selectedId);
+                    console.log(`🎯 Selected cluster: ${selectedId}`);
+                }
             }
         }
         catch (error) {
-            console.error("Failed to load clusters:", error);
+            console.error("❌ Failed to load clusters:", error);
         }
     };
     // Event handlers

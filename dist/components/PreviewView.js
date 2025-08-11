@@ -17,9 +17,32 @@ export const renderPreviewView = ({ node, projected, isHovered, isSelected, time
         const imageSrc = node.dataLog.images[0];
         const cachedImg = imageCache.get(imageSrc);
         if (cachedImg) {
-            // Simple image display - just draw the image in the box
+            // Calculate aspect ratio to maintain image proportions and fill the square
             const boxSize = size - 8;
-            ctx.drawImage(cachedImg, projected.x - halfSize + 4 + glitchX, projected.y - halfSize + 4 + glitchY, boxSize, boxSize);
+            const imgAspectRatio = cachedImg.width / cachedImg.height;
+            const boxAspectRatio = 1; // Square box
+            let drawWidth, drawHeight, sourceX, sourceY, sourceWidth, sourceHeight;
+            if (imgAspectRatio > boxAspectRatio) {
+                // Image is wider than square - crop from sides to fit height
+                drawWidth = boxSize;
+                drawHeight = boxSize;
+                sourceHeight = cachedImg.height;
+                sourceWidth = cachedImg.height; // Square source
+                sourceX = (cachedImg.width - sourceWidth) / 2; // Center crop
+                sourceY = 0;
+            }
+            else {
+                // Image is taller than square - crop from top/bottom to fit width
+                drawWidth = boxSize;
+                drawHeight = boxSize;
+                sourceWidth = cachedImg.width;
+                sourceHeight = cachedImg.width; // Square source
+                sourceX = 0;
+                sourceY = (cachedImg.height - sourceHeight) / 2; // Center crop
+            }
+            ctx.drawImage(cachedImg, sourceX, sourceY, sourceWidth, sourceHeight, // Source rectangle
+            projected.x - halfSize + 4 + glitchX, projected.y - halfSize + 4 + glitchY, drawWidth, drawHeight // Destination rectangle
+            );
         }
         else {
             // Fallback placeholder
