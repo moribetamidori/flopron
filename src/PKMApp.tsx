@@ -594,9 +594,11 @@ export default function PKMApp() {
       <AddNodeModal
         isOpen={showAddModal}
         onClose={() => setShowAddModal(false)}
-        onNodeAdded={(dataLog) => {
-          addNode(dataLog);
+        onNodeAdded={async (dataLog) => {
+          await addNode(dataLog);
           setShowAddModal(false);
+          // Force refresh of data to ensure tags are up to date
+          refreshData();
         }}
         selectedClusterId={selectedClusterId}
       />

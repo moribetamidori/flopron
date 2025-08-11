@@ -53,15 +53,31 @@ export const NodeDetailsModal = ({ selectedNode, sidebarCollapsed, onClose, onUp
     const [links, setLinks] = useState([]);
     const [linkInput, setLinkInput] = useState("");
     const [availableTags, setAvailableTags] = useState([]);
+    const [clusters, setClusters] = useState([]);
+    const [clusterId, setClusterId] = useState(null);
     useEffect(() => {
         (async () => {
             try {
-                const all = await databaseService.getAllTags();
-                setAvailableTags(all);
+                const [allTags, allClusters] = await Promise.all([
+                    databaseService.getAllTags(),
+                    databaseService.getAllNeuronClusters(),
+                ]);
+                setAvailableTags(allTags);
+                setClusters(allClusters);
             }
             catch { }
         })();
     }, [databaseService]);
+    // Ensure the tag suggestions are always fresh when switching nodes or entering edit mode
+    useEffect(() => {
+        (async () => {
+            try {
+                const allTags = await databaseService.getAllTags();
+                setAvailableTags(allTags);
+            }
+            catch { }
+        })();
+    }, [databaseService, selectedNode, isEditing]);
     useEffect(() => {
         if (!selectedNode?.dataLog)
             return;
@@ -70,7 +86,15 @@ export const NodeDetailsModal = ({ selectedNode, sidebarCollapsed, onClose, onUp
         setTags(selectedNode.dataLog.tags || []);
         setImages(selectedNode.dataLog.images || []);
         setLinks(selectedNode.dataLog.links || []);
-    }, [selectedNode]);
+        // If no cluster, default to first available cluster when clusters are loaded
+        const nodeClusterId = selectedNode.dataLog.cluster?.id;
+        if (nodeClusterId) {
+            setClusterId(nodeClusterId);
+        }
+        else if (clusters.length > 0) {
+            setClusterId(clusters[0].id);
+        }
+    }, [selectedNode, clusters]);
     if (!selectedNode || !selectedNode.dataLog)
         return null;
     const sidebarWidth = sidebarCollapsed ? 48 : 320; // w-12 vs w-80
@@ -92,7 +116,14 @@ export const NodeDetailsModal = ({ selectedNode, sidebarCollapsed, onClose, onUp
             }, children: [_jsxs("div", { className: "flex justify-between items-start", children: [_jsx("div", { className: "flex items-center gap-3", children: isEditing ? (_jsx("input", { value: title, onChange: (e) => setTitle(e.target.value), className: "px-3 py-2 bg-black/60 border border-cyan-400/40 rounded text-cyan-100 focus:outline-none focus:border-cyan-400" })) : (_jsx("h3", { className: "text-xl font-bold", children: selectedNode.dataLog?.title || selectedNode.id })) }), _jsxs("div", { className: "flex items-center gap-2", children: [_jsx("div", { className: "relative", children: _jsx("button", { className: "px-2 py-1 border border-cyan-400/50 text-cyan-300 rounded hover:text-white hover:border-cyan-400 transition-colors", onClick: async () => {
                                             if (isEditing) {
                                                 // Save changes when clicking "Done"
-                                                const updated = await databaseService.updateDataLog(selectedNode.dataLog.id, { title, content, tags, images, links });
+                                                const updated = await databaseService.updateDataLog(selectedNode.dataLog.id, {
+                                                    title,
+                                                    content,
+                                                    tags,
+                                                    images,
+                                                    links,
+                                                    cluster_id: clusterId || undefined,
+                                                });
                                                 if (updated) {
                                                     // Regenerate connections for this memory node since tags may have changed
                                                     await databaseService.regenerateConnectionsForNode(selectedNode.id);
@@ -126,7 +157,8 @@ export const NodeDetailsModal = ({ selectedNode, sidebarCollapsed, onClose, onUp
                                                 ? selectedNode.dataLog.modified_at.toLocaleString()
                                                 : selectedNode.dataLog.updated_at
                                                     ? selectedNode.dataLog.updated_at.toLocaleString()
-                                                    : selectedNode.dataLog.timestamp.toLocaleString() })] })] }), _jsxs("div", { children: [_jsx("span", { className: "text-cyan-300 font-semibold", children: "Tags:" }), _jsx("div", { className: "mt-2", children: isEditing ? (_jsx(TagInput, { tags: tags, onTagsChange: setTags, availableTags: availableTags })) : (_jsx("div", { className: "flex flex-wrap gap-2", children: tags.map((tag, index) => (_jsx("span", { className: "px-3 py-1 bg-cyan-400/20 border border-cyan-400/50 rounded text-sm", children: tag }, index))) })) })] }), _jsxs("div", { children: [_jsx("span", { className: "text-cyan-300 font-semibold", children: "Content:" }), isEditing ? (_jsx("textarea", { className: "mt-2 w-full px-3 py-2 bg-black/60 border border-cyan-400/40 rounded text-cyan-100 focus:outline-none focus:border-cyan-400", rows: 12, style: { minHeight: "24rem" }, value: content, onChange: (e) => setContent(e.target.value) })) : (_jsx("p", { className: "mt-2 text-white text-sm leading-relaxed", children: content }))] }), _jsxs("div", { children: [_jsx("span", { className: "text-cyan-300 font-semibold", children: "Images:" }), isEditing ? (_jsx("div", { className: "mt-2", children: _jsx(ImageDropzone, { images: images, onImagesChange: setImages }) })) : (_jsx("div", { className: "flex flex-wrap gap-4 mt-2", children: images.map((image, index) => (_jsxs("div", { className: "flex flex-col items-center", children: [_jsx(ImageDisplay, { imagePath: image, alt: `Image ${index + 1}`, className: "w-32 h-32 object-cover rounded border border-purple-400/50 bg-purple-400/10 cursor-pointer hover:border-purple-400/80 transition-colors", onClick: () => setEnlargedImage(image) }), _jsx("span", { className: "text-xs text-purple-300 mt-1 text-center max-w-32 truncate", children: image.split("/").pop() || image })] }, index))) }))] }), _jsxs("div", { children: [_jsx("span", { className: "text-cyan-300 font-semibold", children: "Links:" }), isEditing ? (_jsxs("div", { className: "space-y-3 mt-2", children: [_jsx("input", { type: "url", value: linkInput, onChange: (e) => setLinkInput(e.target.value), onKeyDown: (e) => {
+                                                    : selectedNode.dataLog.timestamp.toLocaleString() })] })] }), _jsxs("div", { children: [_jsx("span", { className: "text-cyan-300 font-semibold", children: "Tags:" }), _jsx("div", { className: "mt-2", children: isEditing ? (_jsx(TagInput, { tags: tags, onTagsChange: setTags, availableTags: availableTags })) : (_jsx("div", { className: "flex flex-wrap gap-2", children: tags.map((tag, index) => (_jsx("span", { className: "px-3 py-1 bg-cyan-400/20 border border-cyan-400/50 rounded text-sm", children: tag }, index))) })) })] }), _jsxs("div", { children: [_jsx("span", { className: "text-cyan-300 font-semibold", children: "Cluster:" }), _jsx("div", { className: "mt-2", children: isEditing ? (_jsx("select", { value: clusterId || "", onChange: (e) => setClusterId(e.target.value || null), className: "w-full px-3 py-2 bg-black/60 border border-cyan-400/40 rounded text-cyan-100 focus:outline-none focus:border-cyan-400", children: clusters.map((cluster) => (_jsx("option", { value: cluster.id, children: cluster.name }, cluster.id))) })) : (_jsx("span", { className: "text-white text-sm", children: clusters.find((c) => c.id === clusterId)?.name ||
+                                            (clusters.length > 0 ? clusters[0].name : "Loading...") })) })] }), _jsxs("div", { children: [_jsx("span", { className: "text-cyan-300 font-semibold", children: "Content:" }), isEditing ? (_jsx("textarea", { className: "mt-2 w-full px-3 py-2 bg-black/60 border border-cyan-400/40 rounded text-cyan-100 focus:outline-none focus:border-cyan-400", rows: 12, style: { minHeight: "24rem" }, value: content, onChange: (e) => setContent(e.target.value) })) : (_jsx("p", { className: "mt-2 text-white text-sm leading-relaxed", children: content }))] }), _jsxs("div", { children: [_jsx("span", { className: "text-cyan-300 font-semibold", children: "Images:" }), isEditing ? (_jsx("div", { className: "mt-2", children: _jsx(ImageDropzone, { images: images, onImagesChange: setImages }) })) : (_jsx("div", { className: "flex flex-wrap gap-4 mt-2", children: images.map((image, index) => (_jsxs("div", { className: "flex flex-col items-center", children: [_jsx(ImageDisplay, { imagePath: image, alt: `Image ${index + 1}`, className: "w-32 h-32 object-cover rounded border border-purple-400/50 bg-purple-400/10 cursor-pointer hover:border-purple-400/80 transition-colors", onClick: () => setEnlargedImage(image) }), _jsx("span", { className: "text-xs text-purple-300 mt-1 text-center max-w-32 truncate", children: image.split("/").pop() || image })] }, index))) }))] }), _jsxs("div", { children: [_jsx("span", { className: "text-cyan-300 font-semibold", children: "Links:" }), isEditing ? (_jsxs("div", { className: "space-y-3 mt-2", children: [_jsx("input", { type: "url", value: linkInput, onChange: (e) => setLinkInput(e.target.value), onKeyDown: (e) => {
                                                 if (e.key === "Enter") {
                                                     e.preventDefault();
                                                     const v = linkInput.trim();

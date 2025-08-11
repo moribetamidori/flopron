@@ -361,9 +361,11 @@ export default function PKMApp() {
                     finally {
                         refreshData();
                     }
-                } }), _jsx(AddNodeModal, { isOpen: showAddModal, onClose: () => setShowAddModal(false), onNodeAdded: (dataLog) => {
-                    addNode(dataLog);
+                } }), _jsx(AddNodeModal, { isOpen: showAddModal, onClose: () => setShowAddModal(false), onNodeAdded: async (dataLog) => {
+                    await addNode(dataLog);
                     setShowAddModal(false);
+                    // Force refresh of data to ensure tags are up to date
+                    refreshData();
                 }, selectedClusterId: selectedClusterId }), _jsx(ClusterSettingsModal, { cluster: editingCluster, onClose: () => {
                     setShowClusterSettings(false);
                     setEditingCluster(null);

@@ -53,6 +53,17 @@ export const ImageDropModal: React.FC<ImageDropModalProps> = ({
   );
   const fileInputRef = useRef<HTMLInputElement>(null);
 
+  // Check if API key is available
+  const [hasApiKey, setHasApiKey] = useState(false);
+
+  useEffect(() => {
+    if (isOpen) {
+      const geminiService = GeminiService.getInstance();
+      const apiKey = geminiService.getApiKey();
+      setHasApiKey(!!apiKey);
+    }
+  }, [isOpen]);
+
   // Ensure we have a cluster selected when the modal opens
   useEffect(() => {
     if (!isOpen) return;
@@ -301,14 +312,22 @@ export const ImageDropModal: React.FC<ImageDropModalProps> = ({
           <h2 className="text-cyan-400 font-mono text-lg font-bold">
             AI Image Node Generator
           </h2>
-          <div className="flex gap-2">
+          <div className="flex gap-2 items-center">
             {onOpenSettings && (
               <button
-                onClick={onOpenSettings}
-                className="text-cyan-400 hover:text-white transition-colors text-sm"
-                title="Gemini API Settings"
+                onClick={() => {
+                  onOpenSettings();
+                  // Refresh API key status when settings are opened
+                  setTimeout(() => {
+                    const geminiService = GeminiService.getInstance();
+                    const apiKey = geminiService.getApiKey();
+                    setHasApiKey(!!apiKey);
+                  }, 500);
+                }}
+                className="px-3 py-1 bg-cyan-400/20 border border-cyan-400/50 text-cyan-300 rounded hover:bg-cyan-400/30 transition-colors text-xs"
+                title="Configure Gemini API Key"
               >
-                ⚙️
+                Input Gemini API
               </button>
             )}
             <button
@@ -350,6 +369,23 @@ export const ImageDropModal: React.FC<ImageDropModalProps> = ({
               Please select a cluster from the sidebar before using the AI Image
               Generator.
             </div>
+          </div>
+        ) : !hasApiKey ? (
+          <div className="text-red-400 text-center py-8">
+            <div className="text-2xl mb-4">🔑</div>
+            <div className="text-lg font-bold mb-2">API Key Required</div>
+            <div className="text-sm mb-4">
+              Please configure your Gemini API key to use the AI Image
+              Generator.
+            </div>
+            {onOpenSettings && (
+              <button
+                onClick={onOpenSettings}
+                className="px-4 py-2 bg-cyan-400/20 border border-cyan-400/50 text-cyan-300 rounded hover:bg-cyan-400/30 transition-colors"
+              >
+                Input Gemini API
+              </button>
+            )}
           </div>
         ) : (
           <>

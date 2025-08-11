@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { MemoryNode } from "../hooks/useDatabaseMemoryTree";
 import { DatabaseService } from "../database/databaseService";
+import { DatabaseNeuronCluster } from "../database/types";
 import { TagInput, ImageDropzone } from "./AddNodeModal";
 
 interface NodeDetailsModalProps {
@@ -111,15 +112,31 @@ export const NodeDetailsModal: React.FC<NodeDetailsModalProps> = ({
   const [links, setLinks] = useState<string[]>([]);
   const [linkInput, setLinkInput] = useState("");
   const [availableTags, setAvailableTags] = useState<string[]>([]);
+  const [clusters, setClusters] = useState<DatabaseNeuronCluster[]>([]);
+  const [clusterId, setClusterId] = useState<string | null>(null);
 
   useEffect(() => {
     (async () => {
       try {
-        const all = await databaseService.getAllTags();
-        setAvailableTags(all);
+        const [allTags, allClusters] = await Promise.all([
+          databaseService.getAllTags(),
+          databaseService.getAllNeuronClusters(),
+        ]);
+        setAvailableTags(allTags);
+        setClusters(allClusters);
       } catch {}
     })();
   }, [databaseService]);
+
+  // Ensure the tag suggestions are always fresh when switching nodes or entering edit mode
+  useEffect(() => {
+    (async () => {
+      try {
+        const allTags = await databaseService.getAllTags();
+        setAvailableTags(allTags);
+      } catch {}
+    })();
+  }, [databaseService, selectedNode, isEditing]);
 
   useEffect(() => {
     if (!selectedNode?.dataLog) return;
@@ -128,7 +145,14 @@ export const NodeDetailsModal: React.FC<NodeDetailsModalProps> = ({
     setTags(selectedNode.dataLog.tags || []);
     setImages(selectedNode.dataLog.images || []);
     setLinks(selectedNode.dataLog.links || []);
-  }, [selectedNode]);
+    // If no cluster, default to first available cluster when clusters are loaded
+    const nodeClusterId = selectedNode.dataLog.cluster?.id;
+    if (nodeClusterId) {
+      setClusterId(nodeClusterId);
+    } else if (clusters.length > 0) {
+      setClusterId(clusters[0].id);
+    }
+  }, [selectedNode, clusters]);
 
   if (!selectedNode || !selectedNode.dataLog) return null;
 
@@ -188,7 +212,14 @@ export const NodeDetailsModal: React.FC<NodeDetailsModalProps> = ({
                     // Save changes when clicking "Done"
                     const updated = await databaseService.updateDataLog(
                       selectedNode.dataLog!.id,
-                      { title, content, tags, images, links }
+                      {
+                        title,
+                        content,
+                        tags,
+                        images,
+                        links,
+                        cluster_id: clusterId || undefined,
+                      }
                     );
                     if (updated) {
                       // Regenerate connections for this memory node since tags may have changed
@@ -301,6 +332,30 @@ export const NodeDetailsModal: React.FC<NodeDetailsModalProps> = ({
                     </span>
                   ))}
                 </div>
+              )}
+            </div>
+          </div>
+
+          <div>
+            <span className="text-cyan-300 font-semibold">Cluster:</span>
+            <div className="mt-2">
+              {isEditing ? (
+                <select
+                  value={clusterId || ""}
+                  onChange={(e) => setClusterId(e.target.value || null)}
+                  className="w-full px-3 py-2 bg-black/60 border border-cyan-400/40 rounded text-cyan-100 focus:outline-none focus:border-cyan-400"
+                >
+                  {clusters.map((cluster) => (
+                    <option key={cluster.id} value={cluster.id}>
+                      {cluster.name}
+                    </option>
+                  ))}
+                </select>
+              ) : (
+                <span className="text-white text-sm">
+                  {clusters.find((c) => c.id === clusterId)?.name ||
+                    (clusters.length > 0 ? clusters[0].name : "Loading...")}
+                </span>
               )}
             </div>
           </div>

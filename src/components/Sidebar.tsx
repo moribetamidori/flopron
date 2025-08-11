@@ -334,7 +334,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                 )}
 
                 {/* Bulk actions */}
-                {selectedIds.size > 0 && (
+                {selectedIds.size > 1 && (
                   <div
                     className="flex items-center justify-between py-1"
                     data-no-select="true"
@@ -411,7 +411,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                 )}
 
                 {/* Bulk actions */}
-                {selectedIds.size > 0 && (
+                {selectedIds.size > 1 && (
                   <div
                     className="flex items-center justify-between py-1"
                     data-no-select="true"

@@ -68,7 +68,7 @@ export const GeminiSettingsModal: React.FC<GeminiSettingsModalProps> = ({
 
   const handleGetApiKey = () => {
     // Open Gemini API key page in default browser
-    window.open("https://makersuite.google.com/app/apikey", "_blank");
+    window.open("https://aistudio.google.com/welcome", "_blank");
   };
 
   const toggleApiKeyVisibility = () => {
@@ -133,7 +133,10 @@ export const GeminiSettingsModal: React.FC<GeminiSettingsModalProps> = ({
 
             <div className="text-xs text-cyan-400/70">
               <p>Your API key is stored locally and never shared.</p>
-              <p>Get your API key from Google AI Studio.</p>
+              <p>
+                Get your API key from Google AI Studio. Gemini Flash 2.5 is free
+                to use{" "}
+              </p>
             </div>
 
             <button

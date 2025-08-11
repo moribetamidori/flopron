@@ -358,8 +358,9 @@ export const AddNodeModal: React.FC<AddNodeModalProps> = ({
   // Load available tags and clusters when modal opens
   useEffect(() => {
     if (isOpen) {
-      loadAvailableTags();
-      loadClusters();
+      // Always refresh tags and clusters when modal is opened
+      void loadClusters();
+      void loadAvailableTags();
     }
   }, [isOpen]);
 
@@ -466,7 +467,7 @@ export const AddNodeModal: React.FC<AddNodeModalProps> = ({
         databaseService.createMemoryNodeFromDataLog(createdDataLog);
       await databaseService.createMemoryNode(memoryNodeInput);
 
-      // Notify parent component
+      // Notify parent component (this triggers global refresh)
       onNodeAdded(createdDataLog);
 
       // Reset form
@@ -535,46 +536,6 @@ export const AddNodeModal: React.FC<AddNodeModalProps> = ({
 
             <div>
               <label className="block text-sm font-medium text-cyan-300 mb-2">
-                Content *
-              </label>
-              <textarea
-                name="content"
-                value={formData.content}
-                onChange={handleInputChange}
-                required
-                rows={4}
-                className="w-full px-3 py-2 bg-black/60 border border-cyan-400/40 rounded text-cyan-100 focus:outline-none focus:border-cyan-400 placeholder-cyan-300/50"
-                placeholder="Describe your memory or thought in detail..."
-                disabled={isSubmitting}
-              />
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium text-cyan-300 mb-2">
-                Cluster
-              </label>
-              <select
-                name="clusterId"
-                value={formData.clusterId || ""}
-                onChange={handleInputChange}
-                className="w-full px-3 py-2 bg-black/60 border border-cyan-400/40 rounded text-cyan-100 focus:outline-none focus:border-cyan-400"
-                disabled={isSubmitting}
-              >
-                <option value="">Select a cluster (optional)</option>
-                {clusters.map((cluster) => (
-                  <option key={cluster.id} value={cluster.id}>
-                    {cluster.name}
-                  </option>
-                ))}
-              </select>
-              <p className="text-xs text-cyan-300/60 mt-1">
-                Choose which cluster this memory belongs to. Leave empty to use
-                the default cluster.
-              </p>
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium text-cyan-300 mb-2">
                 Tags
               </label>
               <TagInput
@@ -588,6 +549,21 @@ export const AddNodeModal: React.FC<AddNodeModalProps> = ({
                 Type a tag and press Enter to add it. Click existing tags to add
                 them quickly.
               </p>
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-cyan-300 mb-2">
+                Content *
+              </label>
+              <textarea
+                name="content"
+                value={formData.content}
+                onChange={handleInputChange}
+                required
+                rows={4}
+                className="w-full px-3 py-2 bg-black/60 border border-cyan-400/40 rounded text-cyan-100 focus:outline-none focus:border-cyan-400 placeholder-cyan-300/50"
+                placeholder="Describe your memory or thought in detail..."
+                disabled={isSubmitting}
+              />
             </div>
 
             <div>
@@ -639,6 +615,29 @@ export const AddNodeModal: React.FC<AddNodeModalProps> = ({
                   </div>
                 )}
               </div>
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-cyan-300 mb-2">
+                Cluster
+              </label>
+              <select
+                name="clusterId"
+                value={formData.clusterId || ""}
+                onChange={handleInputChange}
+                className="w-full px-3 py-2 bg-black/60 border border-cyan-400/40 rounded text-cyan-100 focus:outline-none focus:border-cyan-400"
+                disabled={isSubmitting}
+              >
+                <option value="">Select a cluster (optional)</option>
+                {clusters.map((cluster) => (
+                  <option key={cluster.id} value={cluster.id}>
+                    {cluster.name}
+                  </option>
+                ))}
+              </select>
+              <p className="text-xs text-cyan-300/60 mt-1">
+                Choose which cluster this memory belongs to. Leave empty to use
+                the default cluster.
+              </p>
             </div>
 
             <div className="flex justify-end space-x-3 pt-4">

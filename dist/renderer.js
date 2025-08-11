@@ -21132,7 +21132,7 @@
                         }
                       )
                     ] }),
-                    selectedIds.size > 0 && /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(
+                    selectedIds.size > 1 && /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(
                       "div",
                       {
                         className: "flex items-center justify-between py-1",
@@ -21201,7 +21201,7 @@
                         }
                       )
                     ] }) : /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: "w-full px-3 py-2 border border-cyan-400/20 text-cyan-400/50 rounded text-center text-sm", children: "Select a cluster to add entries" }),
-                    selectedIds.size > 0 && /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(
+                    selectedIds.size > 1 && /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(
                       "div",
                       {
                         className: "flex items-center justify-between py-1",
@@ -21565,8 +21565,8 @@
     const databaseService = DatabaseService.getInstance();
     (0, import_react10.useEffect)(() => {
       if (isOpen) {
-        loadAvailableTags();
-        loadClusters();
+        void loadClusters();
+        void loadAvailableTags();
       }
     }, [isOpen]);
     (0, import_react10.useEffect)(() => {
@@ -21701,6 +21701,18 @@
           )
         ] }),
         /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("label", { className: "block text-sm font-medium text-cyan-300 mb-2", children: "Tags" }),
+          /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
+            TagInput,
+            {
+              tags: formData.tags,
+              onTagsChange: (tags) => setFormData((prev) => ({ ...prev, tags })),
+              availableTags
+            }
+          ),
+          /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("p", { className: "text-xs text-cyan-300/60 mt-1", children: "Type a tag and press Enter to add it. Click existing tags to add them quickly." })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { children: [
           /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("label", { className: "block text-sm font-medium text-cyan-300 mb-2", children: "Content *" }),
           /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
             "textarea",
@@ -21715,36 +21727,6 @@
               disabled: isSubmitting
             }
           )
-        ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("label", { className: "block text-sm font-medium text-cyan-300 mb-2", children: "Cluster" }),
-          /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(
-            "select",
-            {
-              name: "clusterId",
-              value: formData.clusterId || "",
-              onChange: handleInputChange,
-              className: "w-full px-3 py-2 bg-black/60 border border-cyan-400/40 rounded text-cyan-100 focus:outline-none focus:border-cyan-400",
-              disabled: isSubmitting,
-              children: [
-                /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("option", { value: "", children: "Select a cluster (optional)" }),
-                clusters.map((cluster) => /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("option", { value: cluster.id, children: cluster.name }, cluster.id))
-              ]
-            }
-          ),
-          /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("p", { className: "text-xs text-cyan-300/60 mt-1", children: "Choose which cluster this memory belongs to. Leave empty to use the default cluster." })
-        ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("label", { className: "block text-sm font-medium text-cyan-300 mb-2", children: "Tags" }),
-          /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
-            TagInput,
-            {
-              tags: formData.tags,
-              onTagsChange: (tags) => setFormData((prev) => ({ ...prev, tags })),
-              availableTags
-            }
-          ),
-          /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("p", { className: "text-xs text-cyan-300/60 mt-1", children: "Type a tag and press Enter to add it. Click existing tags to add them quickly." })
         ] }),
         /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { children: [
           /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("label", { className: "block text-sm font-medium text-cyan-300 mb-2", children: "Images" }),
@@ -21791,6 +21773,24 @@
               index
             )) })
           ] })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("label", { className: "block text-sm font-medium text-cyan-300 mb-2", children: "Cluster" }),
+          /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(
+            "select",
+            {
+              name: "clusterId",
+              value: formData.clusterId || "",
+              onChange: handleInputChange,
+              className: "w-full px-3 py-2 bg-black/60 border border-cyan-400/40 rounded text-cyan-100 focus:outline-none focus:border-cyan-400",
+              disabled: isSubmitting,
+              children: [
+                /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("option", { value: "", children: "Select a cluster (optional)" }),
+                clusters.map((cluster) => /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("option", { value: cluster.id, children: cluster.name }, cluster.id))
+              ]
+            }
+          ),
+          /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("p", { className: "text-xs text-cyan-300/60 mt-1", children: "Choose which cluster this memory belongs to. Leave empty to use the default cluster." })
         ] }),
         /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "flex justify-end space-x-3 pt-4", children: [
           /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
@@ -21897,15 +21897,30 @@
     const [links, setLinks] = (0, import_react11.useState)([]);
     const [linkInput, setLinkInput] = (0, import_react11.useState)("");
     const [availableTags, setAvailableTags] = (0, import_react11.useState)([]);
+    const [clusters, setClusters] = (0, import_react11.useState)([]);
+    const [clusterId, setClusterId] = (0, import_react11.useState)(null);
     (0, import_react11.useEffect)(() => {
       (async () => {
         try {
-          const all = await databaseService.getAllTags();
-          setAvailableTags(all);
+          const [allTags, allClusters] = await Promise.all([
+            databaseService.getAllTags(),
+            databaseService.getAllNeuronClusters()
+          ]);
+          setAvailableTags(allTags);
+          setClusters(allClusters);
         } catch {
         }
       })();
     }, [databaseService]);
+    (0, import_react11.useEffect)(() => {
+      (async () => {
+        try {
+          const allTags = await databaseService.getAllTags();
+          setAvailableTags(allTags);
+        } catch {
+        }
+      })();
+    }, [databaseService, selectedNode, isEditing]);
     (0, import_react11.useEffect)(() => {
       if (!selectedNode?.dataLog) return;
       setTitle(selectedNode.dataLog.title || "");
@@ -21913,7 +21928,13 @@
       setTags(selectedNode.dataLog.tags || []);
       setImages(selectedNode.dataLog.images || []);
       setLinks(selectedNode.dataLog.links || []);
-    }, [selectedNode]);
+      const nodeClusterId = selectedNode.dataLog.cluster?.id;
+      if (nodeClusterId) {
+        setClusterId(nodeClusterId);
+      } else if (clusters.length > 0) {
+        setClusterId(clusters[0].id);
+      }
+    }, [selectedNode, clusters]);
     if (!selectedNode || !selectedNode.dataLog) return null;
     const sidebarWidth = sidebarCollapsed ? 48 : 320;
     return /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
@@ -21949,7 +21970,14 @@
                         if (isEditing) {
                           const updated = await databaseService.updateDataLog(
                             selectedNode.dataLog.id,
-                            { title, content, tags, images, links }
+                            {
+                              title,
+                              content,
+                              tags,
+                              images,
+                              links,
+                              cluster_id: clusterId || void 0
+                            }
                           );
                           if (updated) {
                             await databaseService.regenerateConnectionsForNode(
@@ -22048,6 +22076,18 @@
                     },
                     index
                   )) }) })
+                ] }),
+                /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { className: "text-cyan-300 font-semibold", children: "Cluster:" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "mt-2", children: isEditing ? /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
+                    "select",
+                    {
+                      value: clusterId || "",
+                      onChange: (e) => setClusterId(e.target.value || null),
+                      className: "w-full px-3 py-2 bg-black/60 border border-cyan-400/40 rounded text-cyan-100 focus:outline-none focus:border-cyan-400",
+                      children: clusters.map((cluster) => /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("option", { value: cluster.id, children: cluster.name }, cluster.id))
+                    }
+                  ) : /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { className: "text-white text-sm", children: clusters.find((c) => c.id === clusterId)?.name || (clusters.length > 0 ? clusters[0].name : "Loading...") }) })
                 ] }),
                 /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { children: [
                   /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { className: "text-cyan-300 font-semibold", children: "Content:" }),
@@ -39581,6 +39621,14 @@ Be thoughtful and accurate in your analysis. The content should be useful for fu
       selectedClusterId
     );
     const fileInputRef = (0, import_react16.useRef)(null);
+    const [hasApiKey, setHasApiKey] = (0, import_react16.useState)(false);
+    (0, import_react16.useEffect)(() => {
+      if (isOpen) {
+        const geminiService = GeminiService.getInstance();
+        const apiKey = geminiService.getApiKey();
+        setHasApiKey(!!apiKey);
+      }
+    }, [isOpen]);
     (0, import_react16.useEffect)(() => {
       if (!isOpen) return;
       if (!currentClusterId) {
@@ -39764,14 +39812,21 @@ Be thoughtful and accurate in your analysis. The content should be useful for fu
     return /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", { className: "fixed inset-0 bg-black/80 flex items-center justify-center z-50", children: /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { className: "bg-black border border-cyan-400/50 rounded-lg p-6 w-full max-w-2xl max-h-[80vh] overflow-y-auto", children: [
       /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { className: "flex justify-between items-center mb-4", children: [
         /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("h2", { className: "text-cyan-400 font-mono text-lg font-bold", children: "AI Image Node Generator" }),
-        /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { className: "flex gap-2", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { className: "flex gap-2 items-center", children: [
           onOpenSettings && /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
             "button",
             {
-              onClick: onOpenSettings,
-              className: "text-cyan-400 hover:text-white transition-colors text-sm",
-              title: "Gemini API Settings",
-              children: "\u2699\uFE0F"
+              onClick: () => {
+                onOpenSettings();
+                setTimeout(() => {
+                  const geminiService = GeminiService.getInstance();
+                  const apiKey = geminiService.getApiKey();
+                  setHasApiKey(!!apiKey);
+                }, 500);
+              },
+              className: "px-3 py-1 bg-cyan-400/20 border border-cyan-400/50 text-cyan-300 rounded hover:bg-cyan-400/30 transition-colors text-xs",
+              title: "Configure Gemini API Key",
+              children: "Input Gemini API"
             }
           ),
           /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
@@ -39804,6 +39859,18 @@ Be thoughtful and accurate in your analysis. The content should be useful for fu
         /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", { className: "text-2xl mb-4", children: "\u26A0\uFE0F" }),
         /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", { className: "text-lg font-bold mb-2", children: "No Cluster Selected" }),
         /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", { className: "text-sm", children: "Please select a cluster from the sidebar before using the AI Image Generator." })
+      ] }) : !hasApiKey ? /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { className: "text-red-400 text-center py-8", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", { className: "text-2xl mb-4", children: "\u{1F511}" }),
+        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", { className: "text-lg font-bold mb-2", children: "API Key Required" }),
+        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", { className: "text-sm mb-4", children: "Please configure your Gemini API key to use the AI Image Generator." }),
+        onOpenSettings && /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
+          "button",
+          {
+            onClick: onOpenSettings,
+            className: "px-4 py-2 bg-cyan-400/20 border border-cyan-400/50 text-cyan-300 rounded hover:bg-cyan-400/30 transition-colors",
+            children: "Input Gemini API"
+          }
+        )
       ] }) : /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)(import_jsx_runtime12.Fragment, { children: [
         /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)(
           "div",
@@ -39971,7 +40038,7 @@ Be thoughtful and accurate in your analysis. The content should be useful for fu
       }
     };
     const handleGetApiKey = () => {
-      window.open("https://makersuite.google.com/app/apikey", "_blank");
+      window.open("https://aistudio.google.com/welcome", "_blank");
     };
     const toggleApiKeyVisibility = () => {
       setShowApiKey(!showApiKey);
@@ -40030,7 +40097,10 @@ Be thoughtful and accurate in your analysis. The content should be useful for fu
           ] }),
           /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "text-xs text-cyan-400/70", children: [
             /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("p", { children: "Your API key is stored locally and never shared." }),
-            /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("p", { children: "Get your API key from Google AI Studio." })
+            /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("p", { children: [
+              "Get your API key from Google AI Studio. Gemini Flash 2.5 is free to use",
+              " "
+            ] })
           ] }),
           /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
             "button",
@@ -40539,9 +40609,10 @@ Be thoughtful and accurate in your analysis. The content should be useful for fu
             {
               isOpen: showAddModal,
               onClose: () => setShowAddModal(false),
-              onNodeAdded: (dataLog) => {
-                addNode(dataLog);
+              onNodeAdded: async (dataLog) => {
+                await addNode(dataLog);
                 setShowAddModal(false);
+                refreshData();
               },
               selectedClusterId
             }
