@@ -101,6 +101,14 @@ const api = {
             return ipcRenderer.invoke("file:getImagePath", relativePath);
         },
     },
+    settings: {
+        async get(key) {
+            return ipcRenderer.invoke("settings:get", key);
+        },
+        async set(key, value) {
+            return ipcRenderer.invoke("settings:set", key, value);
+        },
+    },
 };
 contextBridge.exposeInMainWorld("electronAPI", api);
 // Helpful debug to verify preload executed and API is exposed

@@ -26,11 +26,14 @@ import { AddNodeModal } from "./components/AddNodeModal";
 import { ClusterSettingsModal } from "./components/ClusterSettingsModal";
 import { CreateClusterModal } from "./components/CreateClusterModal";
 import { AllClustersGrid } from "./components/AllClustersGrid";
+import { ImageDropModal } from "./components/ImageDropModal";
+import { GeminiSettingsModal } from "./components/GeminiSettingsModal";
 import { DatabaseService } from "./database/databaseService";
 import {
   DatabaseNeuronCluster,
   CreateNeuronClusterInput,
   UpdateNeuronClusterInput,
+  DataLogWithRelations,
 } from "./database/types";
 
 export default function PKMApp() {
@@ -71,6 +74,8 @@ export default function PKMApp() {
   );
   const [editingCluster, setEditingCluster] =
     useState<DatabaseNeuronCluster | null>(null);
+  const [showImageDropModal, setShowImageDropModal] = useState(false);
+  const [showGeminiSettings, setShowGeminiSettings] = useState(false);
 
   const [dotTooltip, setDotTooltip] = useState<{
     tags: string[];
@@ -358,6 +363,69 @@ export default function PKMApp() {
     );
   };
 
+  const handleImageDropClick = () => {
+    setShowImageDropModal(true);
+  };
+
+  const handleDeleteMultiple = async (ids: string[]) => {
+    // Delete sequentially to keep DB consistent
+    for (const id of ids) {
+      try {
+        await deleteNode(id);
+      } catch (err) {
+        console.error("Failed to delete node", id, err);
+      }
+    }
+    refreshData();
+  };
+
+  const handleOpenGeminiSettings = () => {
+    setShowGeminiSettings(true);
+  };
+
+  const handleNodesGenerated = async (
+    nodesData: Array<{
+      title: string;
+      content: string;
+      tags: string[];
+      imagePath: string;
+      clusterId: string | null;
+    }>
+  ) => {
+    try {
+      for (const nodeData of nodesData) {
+        // 1) Create a new DataLog in the database
+        const generatedId = `memory-${Date.now()}-${Math.random()
+          .toString(36)
+          .substring(2, 8)}`;
+
+        const createInput = {
+          id: generatedId,
+          title: nodeData.title,
+          timestamp: new Date(),
+          content: nodeData.content,
+          tags: nodeData.tags,
+          images: [nodeData.imagePath],
+          links: [],
+          cluster_id: nodeData.clusterId || selectedClusterId || undefined,
+        };
+
+        const createdDataLog = await databaseService.createDataLog(createInput);
+
+        // 2) Create the corresponding memory node
+        const memoryNodeInput =
+          databaseService.createMemoryNodeFromDataLog(createdDataLog);
+        await databaseService.createMemoryNode(memoryNodeInput);
+      }
+
+      // Refresh data to show new nodes
+      refreshData();
+    } catch (error) {
+      console.error("Error creating nodes from images:", error);
+      alert("Error creating nodes from images. Please try again.");
+    }
+  };
+
   // Canvas interaction hook
   const {
     canvasRef,
@@ -463,10 +531,12 @@ export default function PKMApp() {
         onSidebarToggle={handleSidebarToggle}
         onTagClick={handleTagClick}
         onAddClick={() => setShowAddModal(true)}
+        onImageDropClick={handleImageDropClick}
         onClusterSelect={handleClusterSelect}
         onCreateNewCluster={handleCreateNewCluster}
         onShowAllClusters={handleShowAllClusters}
         onSettingsClick={handleSettingsClick}
+        onDeleteNodes={handleDeleteMultiple}
       />
 
       {/* UI Overlay */}
@@ -553,6 +623,23 @@ export default function PKMApp() {
         onClose={() => setShowCreateCluster(false)}
         onCreateCluster={handleCreateCluster}
         existingClusters={clusters}
+      />
+
+      {/* Image Drop Modal */}
+      <ImageDropModal
+        isOpen={showImageDropModal}
+        onClose={() => setShowImageDropModal(false)}
+        onNodesGenerated={handleNodesGenerated}
+        selectedClusterId={selectedClusterId}
+        clusters={clusters}
+        existingNodes={filteredNodes}
+        onOpenSettings={handleOpenGeminiSettings}
+      />
+
+      {/* Gemini Settings Modal */}
+      <GeminiSettingsModal
+        isOpen={showGeminiSettings}
+        onClose={() => setShowGeminiSettings(false)}
       />
 
       {/* Dot Tooltip */}

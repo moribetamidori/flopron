@@ -13,6 +13,8 @@ import { AddNodeModal } from "./components/AddNodeModal";
 import { ClusterSettingsModal } from "./components/ClusterSettingsModal";
 import { CreateClusterModal } from "./components/CreateClusterModal";
 import { AllClustersGrid } from "./components/AllClustersGrid";
+import { ImageDropModal } from "./components/ImageDropModal";
+import { GeminiSettingsModal } from "./components/GeminiSettingsModal";
 import { DatabaseService } from "./database/databaseService";
 export default function PKMApp() {
     // Custom hooks
@@ -35,6 +37,8 @@ export default function PKMApp() {
     const [filteredNodes, setFilteredNodes] = useState([]);
     const [filteredConnections, setFilteredConnections] = useState([]);
     const [editingCluster, setEditingCluster] = useState(null);
+    const [showImageDropModal, setShowImageDropModal] = useState(false);
+    const [showGeminiSettings, setShowGeminiSettings] = useState(false);
     const [dotTooltip, setDotTooltip] = useState(null);
     // Database service
     const databaseService = DatabaseService.getInstance();
@@ -254,6 +258,54 @@ export default function PKMApp() {
     const handleTagClick = (tag) => {
         setSelectedTags((prev) => prev.includes(tag) ? prev.filter((t) => t !== tag) : [...prev, tag]);
     };
+    const handleImageDropClick = () => {
+        setShowImageDropModal(true);
+    };
+    const handleDeleteMultiple = async (ids) => {
+        // Delete sequentially to keep DB consistent
+        for (const id of ids) {
+            try {
+                await deleteNode(id);
+            }
+            catch (err) {
+                console.error("Failed to delete node", id, err);
+            }
+        }
+        refreshData();
+    };
+    const handleOpenGeminiSettings = () => {
+        setShowGeminiSettings(true);
+    };
+    const handleNodesGenerated = async (nodesData) => {
+        try {
+            for (const nodeData of nodesData) {
+                // 1) Create a new DataLog in the database
+                const generatedId = `memory-${Date.now()}-${Math.random()
+                    .toString(36)
+                    .substring(2, 8)}`;
+                const createInput = {
+                    id: generatedId,
+                    title: nodeData.title,
+                    timestamp: new Date(),
+                    content: nodeData.content,
+                    tags: nodeData.tags,
+                    images: [nodeData.imagePath],
+                    links: [],
+                    cluster_id: nodeData.clusterId || selectedClusterId || undefined,
+                };
+                const createdDataLog = await databaseService.createDataLog(createInput);
+                // 2) Create the corresponding memory node
+                const memoryNodeInput = databaseService.createMemoryNodeFromDataLog(createdDataLog);
+                await databaseService.createMemoryNode(memoryNodeInput);
+            }
+            // Refresh data to show new nodes
+            refreshData();
+        }
+        catch (error) {
+            console.error("Error creating nodes from images:", error);
+            alert("Error creating nodes from images. Please try again.");
+        }
+    };
     // Canvas interaction hook
     const { canvasRef, handleMouseMove, handleMouseDown, handleMouseUp, handleCanvasClick, handleWheel, handleTouchStart, handleTouchMove, handleTouchEnd, } = useCanvasInteraction({
         nodes: filteredNodes,
@@ -284,7 +336,7 @@ export default function PKMApp() {
                             window.mouseY = 0;
                             handleMouseUp();
                             handleDotLeave();
-                        }, onClick: handleCanvasClick, onWheel: handleWheel, onTouchStart: handleTouchStart, onTouchMove: handleTouchMove, onTouchEnd: handleTouchEnd })] }), _jsx(Sidebar, { nodes: filteredNodes, selectedNode: selectedNode, sidebarCollapsed: sidebarCollapsed, previewMode: previewMode, selectedTags: selectedTags, clusters: clusters, selectedClusterId: selectedClusterId, onNodeClick: handleNodeClick, onSidebarToggle: handleSidebarToggle, onTagClick: handleTagClick, onAddClick: () => setShowAddModal(true), onClusterSelect: handleClusterSelect, onCreateNewCluster: handleCreateNewCluster, onShowAllClusters: handleShowAllClusters, onSettingsClick: handleSettingsClick }), _jsx(UIOverlay, { sidebarCollapsed: sidebarCollapsed, previewMode: previewMode, zoom: zoom, hoveredNode: hoveredNode, selectedNode: selectedNode, nodes: filteredNodes, rotationX: rotationX, rotationY: rotationY, onPreviewModeToggle: handlePreviewModeToggle, rotateX: rotateX, rotateY: rotateY, project3D: project3D }), _jsx(NodeDetailsModal, { selectedNode: selectedNode, sidebarCollapsed: sidebarCollapsed, onClose: handleCloseModal, onUpdated: ({ title, content, tags, images, links }) => {
+                        }, onClick: handleCanvasClick, onWheel: handleWheel, onTouchStart: handleTouchStart, onTouchMove: handleTouchMove, onTouchEnd: handleTouchEnd })] }), _jsx(Sidebar, { nodes: filteredNodes, selectedNode: selectedNode, sidebarCollapsed: sidebarCollapsed, previewMode: previewMode, selectedTags: selectedTags, clusters: clusters, selectedClusterId: selectedClusterId, onNodeClick: handleNodeClick, onSidebarToggle: handleSidebarToggle, onTagClick: handleTagClick, onAddClick: () => setShowAddModal(true), onImageDropClick: handleImageDropClick, onClusterSelect: handleClusterSelect, onCreateNewCluster: handleCreateNewCluster, onShowAllClusters: handleShowAllClusters, onSettingsClick: handleSettingsClick, onDeleteNodes: handleDeleteMultiple }), _jsx(UIOverlay, { sidebarCollapsed: sidebarCollapsed, previewMode: previewMode, zoom: zoom, hoveredNode: hoveredNode, selectedNode: selectedNode, nodes: filteredNodes, rotationX: rotationX, rotationY: rotationY, onPreviewModeToggle: handlePreviewModeToggle, rotateX: rotateX, rotateY: rotateY, project3D: project3D }), _jsx(NodeDetailsModal, { selectedNode: selectedNode, sidebarCollapsed: sidebarCollapsed, onClose: handleCloseModal, onUpdated: ({ title, content, tags, images, links }) => {
                     // Update selectedNode in place for immediate UI reflection
                     setSelectedNode((prev) => prev && prev.dataLog
                         ? {
@@ -321,7 +373,7 @@ export default function PKMApp() {
                         setShowClusterSettings(false);
                         setEditingCluster(null);
                     }
-                } }), _jsx(CreateClusterModal, { isOpen: showCreateCluster, onClose: () => setShowCreateCluster(false), onCreateCluster: handleCreateCluster, existingClusters: clusters }), dotTooltip && (_jsx("div", { className: "fixed z-50 bg-black/90 text-cyan-400 font-mono text-xs p-2 rounded border border-cyan-400/50 pointer-events-none", style: {
+                } }), _jsx(CreateClusterModal, { isOpen: showCreateCluster, onClose: () => setShowCreateCluster(false), onCreateCluster: handleCreateCluster, existingClusters: clusters }), _jsx(ImageDropModal, { isOpen: showImageDropModal, onClose: () => setShowImageDropModal(false), onNodesGenerated: handleNodesGenerated, selectedClusterId: selectedClusterId, clusters: clusters, existingNodes: filteredNodes, onOpenSettings: handleOpenGeminiSettings }), _jsx(GeminiSettingsModal, { isOpen: showGeminiSettings, onClose: () => setShowGeminiSettings(false) }), dotTooltip && (_jsx("div", { className: "fixed z-50 bg-black/90 text-cyan-400 font-mono text-xs p-2 rounded border border-cyan-400/50 pointer-events-none", style: {
                     left: dotTooltip.x + 10,
                     top: dotTooltip.y - 10,
                     transform: "translateY(-100%)",

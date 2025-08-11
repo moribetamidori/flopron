@@ -4,6 +4,7 @@ const { autoUpdater } = pkg;
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import * as fs from "node:fs";
+import * as fsp from "node:fs/promises";
 import convert from "heic-convert";
 // Explicitly load native dependency to ensure Electron rebuild picks it up
 import "better-sqlite3";
@@ -372,6 +373,46 @@ function setupDatabaseIPC() {
         catch (error) {
             console.error("Error getting image path:", error);
             return null;
+        }
+    });
+    // Settings persistence (JSON file in userData)
+    ipcMain.handle("settings:get", async (_, key) => {
+        try {
+            const userDataPath = app.getPath("userData");
+            const settingsPath = path.join(userDataPath, "settings.json");
+            try {
+                const buf = await fsp.readFile(settingsPath, "utf8");
+                const json = JSON.parse(buf || "{}");
+                return json?.[key] ?? null;
+            }
+            catch (readErr) {
+                // If not existing, return null
+                return null;
+            }
+        }
+        catch (error) {
+            console.error("Error reading settings:", error);
+            return null;
+        }
+    });
+    ipcMain.handle("settings:set", async (_, key, value) => {
+        try {
+            const userDataPath = app.getPath("userData");
+            const settingsPath = path.join(userDataPath, "settings.json");
+            let json = {};
+            try {
+                const buf = await fsp.readFile(settingsPath, "utf8");
+                json = JSON.parse(buf || "{}");
+            }
+            catch { }
+            json[key] = value;
+            await fsp.mkdir(path.dirname(settingsPath), { recursive: true });
+            await fsp.writeFile(settingsPath, JSON.stringify(json, null, 2), "utf8");
+            return true;
+        }
+        catch (error) {
+            console.error("Error writing settings:", error);
+            return false;
         }
     });
 }

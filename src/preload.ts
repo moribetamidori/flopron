@@ -172,6 +172,14 @@ const api = {
       return ipcRenderer.invoke("file:getImagePath", relativePath);
     },
   },
+  settings: {
+    async get(key: string): Promise<unknown> {
+      return ipcRenderer.invoke("settings:get", key);
+    },
+    async set(key: string, value: unknown): Promise<boolean> {
+      return ipcRenderer.invoke("settings:set", key, value);
+    },
+  },
 } as const;
 
 contextBridge.exposeInMainWorld("electronAPI", api);

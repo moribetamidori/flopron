@@ -484,10 +484,10 @@ export const AllClustersGrid: React.FC<AllClustersGridProps> = ({
                   />
                   {/* Pulsing ring */}
                   <div
-                    className="absolute inset-0 rounded-full border-2 animate-ping"
+                    className="absolute inset-0 rounded-full border-2"
                     style={{
                       borderColor: color,
-                      animationDuration: "3s",
+                      animation: "customPulse 3s ease-in-out infinite",
                     }}
                   />
                 </div>

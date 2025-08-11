@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self' https://cdn.tailwindcss.com; img-src 'self' data: blob: file:; style-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com"
+      content="default-src 'self' https://cdn.tailwindcss.com; img-src 'self' data: blob: file:; style-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; connect-src 'self' https: data: blob:"
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Neuppy • PKM for the floppy minds</title>
@@ -69,6 +69,19 @@
       /* Canvas specific styles */
       canvas {
         display: block;
+      }
+
+      /* Custom pulse animation to replace animate-ping */
+      @keyframes customPulse {
+        0%,
+        100% {
+          opacity: 0.6;
+          transform: scale(1);
+        }
+        50% {
+          opacity: 0;
+          transform: scale(1.2);
+        }
       }
     </style>
   </head>

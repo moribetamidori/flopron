@@ -315,9 +315,9 @@ export const AllClustersGrid = ({ clusters, onClusterSelect, onBack, }) => {
                                             backgroundColor: color,
                                             boxShadow: `0 0 20px ${color}80`,
                                             animation: "pulse 2s infinite",
-                                        } }), _jsx("div", { className: "absolute inset-0 rounded-full border-2 animate-ping", style: {
+                                        } }), _jsx("div", { className: "absolute inset-0 rounded-full border-2", style: {
                                             borderColor: color,
-                                            animationDuration: "3s",
+                                            animation: "customPulse 3s ease-in-out infinite",
                                         } })] }), _jsx("h3", { className: "text-cyan-400 font-mono text-center text-sm font-bold mb-2", children: cluster.name }), _jsxs("p", { className: "text-cyan-400/60 text-xs text-center mb-1", children: [nodeCount, " nodes"] }), _jsx("p", { className: "text-cyan-400/60 text-xs text-center", children: cluster.description || "No description" }), _jsx("div", { className: `absolute inset-0 bg-cyan-400/10 rounded-lg transition-opacity duration-300 ${isHovered ? "opacity-100" : "opacity-0"}` })] }) }, cluster.id));
             }) }));
     };
