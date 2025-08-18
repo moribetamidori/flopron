@@ -1301,7 +1301,7 @@
           return dispatcher;
         }
         "undefined" !== typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ && "function" === typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart && __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart(Error());
-        var React15 = require_react(), Internals = {
+        var React18 = require_react(), Internals = {
           d: {
             f: noop,
             r: function() {
@@ -1319,7 +1319,7 @@
           },
           p: 0,
           findDOMNode: null
-        }, REACT_PORTAL_TYPE = Symbol.for("react.portal"), ReactSharedInternals = React15.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE;
+        }, REACT_PORTAL_TYPE = Symbol.for("react.portal"), ReactSharedInternals = React18.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE;
         "function" === typeof Map && null != Map.prototype && "function" === typeof Map.prototype.forEach && "function" === typeof Set && null != Set.prototype && "function" === typeof Set.prototype.clear && "function" === typeof Set.prototype.forEach || console.error(
           "React depends on Map and Set built-in types. Make sure that you load a polyfill in older browsers. https://reactjs.org/link/react-polyfills"
         );
@@ -2861,7 +2861,7 @@
           "number" === type && getActiveElement(node.ownerDocument) === node || node.defaultValue === "" + value || (node.defaultValue = "" + value);
         }
         function validateOptionProps(element, props) {
-          null == props.value && ("object" === typeof props.children && null !== props.children ? React15.Children.forEach(props.children, function(child) {
+          null == props.value && ("object" === typeof props.children && null !== props.children ? React18.Children.forEach(props.children, function(child) {
             null == child || "string" === typeof child || "number" === typeof child || "bigint" === typeof child || didWarnInvalidChild || (didWarnInvalidChild = true, console.error(
               "Cannot infer the option value of complex children. Pass a `value` prop or use a plain string as children to <option>."
             ));
@@ -16443,14 +16443,14 @@
           ));
         }
         "undefined" !== typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ && "function" === typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart && __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart(Error());
-        var Scheduler = require_scheduler(), React15 = require_react(), ReactDOM = require_react_dom(), assign = Object.assign, REACT_LEGACY_ELEMENT_TYPE = Symbol.for("react.element"), REACT_ELEMENT_TYPE = Symbol.for("react.transitional.element"), REACT_PORTAL_TYPE = Symbol.for("react.portal"), REACT_FRAGMENT_TYPE = Symbol.for("react.fragment"), REACT_STRICT_MODE_TYPE = Symbol.for("react.strict_mode"), REACT_PROFILER_TYPE = Symbol.for("react.profiler"), REACT_PROVIDER_TYPE = Symbol.for("react.provider"), REACT_CONSUMER_TYPE = Symbol.for("react.consumer"), REACT_CONTEXT_TYPE = Symbol.for("react.context"), REACT_FORWARD_REF_TYPE = Symbol.for("react.forward_ref"), REACT_SUSPENSE_TYPE = Symbol.for("react.suspense"), REACT_SUSPENSE_LIST_TYPE = Symbol.for("react.suspense_list"), REACT_MEMO_TYPE = Symbol.for("react.memo"), REACT_LAZY_TYPE = Symbol.for("react.lazy");
+        var Scheduler = require_scheduler(), React18 = require_react(), ReactDOM = require_react_dom(), assign = Object.assign, REACT_LEGACY_ELEMENT_TYPE = Symbol.for("react.element"), REACT_ELEMENT_TYPE = Symbol.for("react.transitional.element"), REACT_PORTAL_TYPE = Symbol.for("react.portal"), REACT_FRAGMENT_TYPE = Symbol.for("react.fragment"), REACT_STRICT_MODE_TYPE = Symbol.for("react.strict_mode"), REACT_PROFILER_TYPE = Symbol.for("react.profiler"), REACT_PROVIDER_TYPE = Symbol.for("react.provider"), REACT_CONSUMER_TYPE = Symbol.for("react.consumer"), REACT_CONTEXT_TYPE = Symbol.for("react.context"), REACT_FORWARD_REF_TYPE = Symbol.for("react.forward_ref"), REACT_SUSPENSE_TYPE = Symbol.for("react.suspense"), REACT_SUSPENSE_LIST_TYPE = Symbol.for("react.suspense_list"), REACT_MEMO_TYPE = Symbol.for("react.memo"), REACT_LAZY_TYPE = Symbol.for("react.lazy");
         Symbol.for("react.scope");
         var REACT_ACTIVITY_TYPE = Symbol.for("react.activity");
         Symbol.for("react.legacy_hidden");
         Symbol.for("react.tracing_marker");
         var REACT_MEMO_CACHE_SENTINEL = Symbol.for("react.memo_cache_sentinel");
         Symbol.for("react.view_transition");
-        var MAYBE_ITERATOR_SYMBOL = Symbol.iterator, REACT_CLIENT_REFERENCE = Symbol.for("react.client.reference"), isArrayImpl = Array.isArray, ReactSharedInternals = React15.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, ReactDOMSharedInternals = ReactDOM.__DOM_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, NotPending = Object.freeze({
+        var MAYBE_ITERATOR_SYMBOL = Symbol.iterator, REACT_CLIENT_REFERENCE = Symbol.for("react.client.reference"), isArrayImpl = Array.isArray, ReactSharedInternals = React18.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, ReactDOMSharedInternals = ReactDOM.__DOM_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, NotPending = Object.freeze({
           pending: false,
           data: null,
           method: null,
@@ -19172,7 +19172,7 @@
           }
         };
         (function() {
-          var isomorphicReactPackageVersion = React15.version;
+          var isomorphicReactPackageVersion = React18.version;
           if ("19.1.1" !== isomorphicReactPackageVersion)
             throw Error(
               'Incompatible React versions: The "react" and "react-dom" packages must have the exact same version. Instead got:\n  - react:      ' + (isomorphicReactPackageVersion + "\n  - react-dom:  19.1.1\nLearn more: https://react.dev/warnings/version-mismatch")
@@ -19525,20 +19525,20 @@
         function validateChildKeys(node) {
           "object" === typeof node && null !== node && node.$$typeof === REACT_ELEMENT_TYPE && node._store && (node._store.validated = 1);
         }
-        var React15 = require_react(), REACT_ELEMENT_TYPE = Symbol.for("react.transitional.element"), REACT_PORTAL_TYPE = Symbol.for("react.portal"), REACT_FRAGMENT_TYPE = Symbol.for("react.fragment"), REACT_STRICT_MODE_TYPE = Symbol.for("react.strict_mode"), REACT_PROFILER_TYPE = Symbol.for("react.profiler");
+        var React18 = require_react(), REACT_ELEMENT_TYPE = Symbol.for("react.transitional.element"), REACT_PORTAL_TYPE = Symbol.for("react.portal"), REACT_FRAGMENT_TYPE = Symbol.for("react.fragment"), REACT_STRICT_MODE_TYPE = Symbol.for("react.strict_mode"), REACT_PROFILER_TYPE = Symbol.for("react.profiler");
         Symbol.for("react.provider");
-        var REACT_CONSUMER_TYPE = Symbol.for("react.consumer"), REACT_CONTEXT_TYPE = Symbol.for("react.context"), REACT_FORWARD_REF_TYPE = Symbol.for("react.forward_ref"), REACT_SUSPENSE_TYPE = Symbol.for("react.suspense"), REACT_SUSPENSE_LIST_TYPE = Symbol.for("react.suspense_list"), REACT_MEMO_TYPE = Symbol.for("react.memo"), REACT_LAZY_TYPE = Symbol.for("react.lazy"), REACT_ACTIVITY_TYPE = Symbol.for("react.activity"), REACT_CLIENT_REFERENCE = Symbol.for("react.client.reference"), ReactSharedInternals = React15.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, hasOwnProperty = Object.prototype.hasOwnProperty, isArrayImpl = Array.isArray, createTask = console.createTask ? console.createTask : function() {
+        var REACT_CONSUMER_TYPE = Symbol.for("react.consumer"), REACT_CONTEXT_TYPE = Symbol.for("react.context"), REACT_FORWARD_REF_TYPE = Symbol.for("react.forward_ref"), REACT_SUSPENSE_TYPE = Symbol.for("react.suspense"), REACT_SUSPENSE_LIST_TYPE = Symbol.for("react.suspense_list"), REACT_MEMO_TYPE = Symbol.for("react.memo"), REACT_LAZY_TYPE = Symbol.for("react.lazy"), REACT_ACTIVITY_TYPE = Symbol.for("react.activity"), REACT_CLIENT_REFERENCE = Symbol.for("react.client.reference"), ReactSharedInternals = React18.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, hasOwnProperty = Object.prototype.hasOwnProperty, isArrayImpl = Array.isArray, createTask = console.createTask ? console.createTask : function() {
           return null;
         };
-        React15 = {
+        React18 = {
           react_stack_bottom_frame: function(callStackForError) {
             return callStackForError();
           }
         };
         var specialPropKeyWarningShown;
         var didWarnAboutElementRef = {};
-        var unknownOwnerDebugStack = React15.react_stack_bottom_frame.bind(
-          React15,
+        var unknownOwnerDebugStack = React18.react_stack_bottom_frame.bind(
+          React18,
           UnknownOwner
         )();
         var unknownOwnerDebugTask = createTask(getTaskName(UnknownOwner));
@@ -19587,11 +19587,11 @@
   });
 
   // src/renderer.ts
-  var import_react19 = __toESM(require_react(), 1);
+  var import_react22 = __toESM(require_react(), 1);
   var import_client = __toESM(require_client(), 1);
 
   // src/PKMApp.tsx
-  var import_react18 = __toESM(require_react(), 1);
+  var import_react21 = __toESM(require_react(), 1);
 
   // src/hooks/useAudioContext.ts
   var import_react = __toESM(require_react(), 1);
@@ -20678,8 +20678,1569 @@
     );
   };
 
-  // src/components/Sidebar.tsx
+  // src/components/ClusteredGraphView.tsx
+  var import_react7 = __toESM(require_react(), 1);
+  var import_jsx_runtime2 = __toESM(require_jsx_runtime(), 1);
+  var detectCommunities = (nodes, connections) => {
+    const clusters = [];
+    const nodeToCluster = /* @__PURE__ */ new Map();
+    nodes.forEach((node, index) => {
+      nodeToCluster.set(node.id, index);
+      clusters.push({
+        id: `cluster-${index}`,
+        nodes: [node],
+        center: { x: node.x, y: node.y, z: node.z },
+        tags: node.dataLog?.tags || [],
+        strength: 0,
+        color: `hsl(${index * 137.5 % 360}, 70%, 60%)`
+      });
+    });
+    let merged = true;
+    while (merged) {
+      merged = false;
+      for (const connection of connections) {
+        const clusterA = nodeToCluster.get(connection.from);
+        const clusterB = nodeToCluster.get(connection.to);
+        if (clusterA !== void 0 && clusterB !== void 0 && clusterA !== clusterB) {
+          const strength = connection.sharedTags.length;
+          if (strength >= 3) {
+            const clusterAObj = clusters[clusterA];
+            const clusterBObj = clusters[clusterB];
+            clusterAObj.nodes.push(...clusterBObj.nodes);
+            clusterAObj.tags = [
+              .../* @__PURE__ */ new Set([...clusterAObj.tags, ...clusterBObj.tags])
+            ];
+            clusterAObj.strength = Math.max(
+              clusterAObj.strength,
+              clusterBObj.strength,
+              strength
+            );
+            const totalX = clusterAObj.nodes.reduce((sum, n) => sum + n.x, 0);
+            const totalY = clusterAObj.nodes.reduce((sum, n) => sum + n.y, 0);
+            const totalZ = clusterAObj.nodes.reduce((sum, n) => sum + n.z, 0);
+            clusterAObj.center = {
+              x: totalX / clusterAObj.nodes.length,
+              y: totalY / clusterAObj.nodes.length,
+              z: totalZ / clusterAObj.nodes.length
+            };
+            clusterBObj.nodes.forEach((node) => {
+              nodeToCluster.set(node.id, clusterA);
+            });
+            clusters.splice(clusterB, 1);
+            for (let i = clusterB; i < clusters.length; i++) {
+              clusters[i].nodes.forEach((node) => {
+                nodeToCluster.set(node.id, i);
+              });
+            }
+            merged = true;
+            break;
+          }
+        }
+      }
+    }
+    return clusters;
+  };
+  var filterConnections = (connections, minStrength) => {
+    return connections.filter((conn) => conn.sharedTags.length >= minStrength);
+  };
+  var ClusteredGraphView = ({
+    nodes,
+    connections,
+    hoveredNode,
+    selectedNode,
+    sidebarCollapsed,
+    imageCache,
+    time,
+    rotationX,
+    rotationY,
+    zoom,
+    selectedClusterColor,
+    onNodeClick,
+    onNodeHover,
+    rotateX,
+    rotateY,
+    project3D
+  }) => {
+    const [connectionStrength, setConnectionStrength] = (0, import_react7.useState)(2);
+    const [expandedClusters, setExpandedClusters] = (0, import_react7.useState)(
+      /* @__PURE__ */ new Set()
+    );
+    const [showClusterLabels, setShowClusterLabels] = (0, import_react7.useState)(true);
+    const [localZoom, setLocalZoom] = (0, import_react7.useState)(1);
+    const [panX, setPanX] = (0, import_react7.useState)(0);
+    const [panY, setPanY] = (0, import_react7.useState)(0);
+    const [isDragging, setIsDragging] = (0, import_react7.useState)(false);
+    const [dragStart, setDragStart] = (0, import_react7.useState)({ x: 0, y: 0 });
+    const clusters = (0, import_react7.useMemo)(
+      () => detectCommunities(nodes, connections),
+      [nodes, connections]
+    );
+    const filteredConnections = (0, import_react7.useMemo)(
+      () => filterConnections(connections, connectionStrength),
+      [connections, connectionStrength]
+    );
+    const toggleClusterExpansion = (0, import_react7.useCallback)((clusterId) => {
+      setExpandedClusters((prev) => {
+        const newSet = new Set(prev);
+        if (newSet.has(clusterId)) {
+          newSet.delete(clusterId);
+        } else {
+          newSet.add(clusterId);
+        }
+        return newSet;
+      });
+    }, []);
+    const renderCluster = (0, import_react7.useCallback)(
+      (cluster, ctx) => {
+        const isExpanded = expandedClusters.has(cluster.id);
+        const isHovered = cluster.nodes.some((node) => node.id === hoveredNode);
+        let rotatedCenter = rotateX(
+          cluster.center.x,
+          cluster.center.y,
+          cluster.center.z,
+          rotationX
+        );
+        rotatedCenter = rotateY(
+          rotatedCenter.x,
+          rotatedCenter.y,
+          rotatedCenter.z,
+          rotationY
+        );
+        const projectedCenter = project3D(
+          rotatedCenter.x,
+          rotatedCenter.y,
+          rotatedCenter.z,
+          sidebarCollapsed
+        );
+        const scaledX = projectedCenter.x * localZoom + panX;
+        const scaledY = projectedCenter.y * localZoom + panY;
+        const baseRadius = 30;
+        const radius = baseRadius + cluster.nodes.length * 5;
+        ctx.save();
+        const gradient = ctx.createRadialGradient(
+          scaledX,
+          scaledY,
+          0,
+          scaledX,
+          scaledY,
+          radius * 1.5 * localZoom
+        );
+        const hslToRgba = (hsl, alpha) => {
+          const match = hsl.match(/hsl\((\d+),\s*(\d+)%,\s*(\d+)%\)/);
+          if (!match) return hsl;
+          const h = parseInt(match[1]);
+          const s = parseInt(match[2]);
+          const l = parseInt(match[3]);
+          const hue = h / 360;
+          const sat = s / 100;
+          const light = l / 100;
+          const c = (1 - Math.abs(2 * light - 1)) * sat;
+          const x = c * (1 - Math.abs(hue * 6 % 2 - 1));
+          const m = light - c / 2;
+          let r = 0, g = 0, b = 0;
+          if (hue < 1 / 6) {
+            r = c;
+            g = x;
+            b = 0;
+          } else if (hue < 2 / 6) {
+            r = x;
+            g = c;
+            b = 0;
+          } else if (hue < 3 / 6) {
+            r = 0;
+            g = c;
+            b = x;
+          } else if (hue < 4 / 6) {
+            r = 0;
+            g = x;
+            b = c;
+          } else if (hue < 5 / 6) {
+            r = x;
+            g = 0;
+            b = c;
+          } else {
+            r = c;
+            g = 0;
+            b = x;
+          }
+          return `rgba(${Math.round((r + m) * 255)}, ${Math.round(
+            (g + m) * 255
+          )}, ${Math.round((b + m) * 255)}, ${alpha})`;
+        };
+        gradient.addColorStop(0, hslToRgba(cluster.color, 0.4));
+        gradient.addColorStop(0.7, hslToRgba(cluster.color, 0.2));
+        gradient.addColorStop(1, "transparent");
+        ctx.fillStyle = gradient;
+        ctx.beginPath();
+        ctx.arc(scaledX, scaledY, radius * 1.5 * localZoom, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.strokeStyle = cluster.color;
+        ctx.lineWidth = isHovered ? 3 : 2;
+        ctx.globalAlpha = isHovered ? 0.8 : 0.6;
+        ctx.beginPath();
+        ctx.arc(scaledX, scaledY, radius * localZoom, 0, Math.PI * 2);
+        ctx.stroke();
+        if (showClusterLabels) {
+          ctx.fillStyle = cluster.color;
+          ctx.font = "12px monospace";
+          ctx.textAlign = "center";
+          ctx.globalAlpha = 0.9;
+          const label = `${cluster.nodes.length} nodes`;
+          ctx.fillText(label, scaledX, scaledY + radius * localZoom + 20);
+          const mainTags = cluster.tags.slice(0, 3);
+          ctx.font = "10px monospace";
+          ctx.fillText(
+            mainTags.join(", "),
+            scaledX,
+            scaledY + radius * localZoom + 35
+          );
+        }
+        ctx.restore();
+        if (isExpanded || cluster.nodes.length <= 3) {
+          cluster.nodes.forEach((node) => {
+            renderNode(node, ctx, cluster.color);
+          });
+        }
+      },
+      [
+        expandedClusters,
+        hoveredNode,
+        rotationX,
+        rotationY,
+        sidebarCollapsed,
+        showClusterLabels,
+        rotateX,
+        rotateY,
+        project3D
+      ]
+    );
+    const renderNode = (0, import_react7.useCallback)(
+      (node, ctx, clusterColor) => {
+        const isHovered = hoveredNode === node.id;
+        const isSelected = selectedNode?.id === node.id;
+        let rotated = rotateX(node.x, node.y, node.z, rotationX);
+        rotated = rotateY(rotated.x, rotated.y, rotated.z, rotationY);
+        const projected = project3D(
+          rotated.x,
+          rotated.y,
+          rotated.z,
+          sidebarCollapsed
+        );
+        const scaledX = projected.x * localZoom + panX;
+        const scaledY = projected.y * localZoom + panY;
+        const glitchX = Math.sin(time * 20 + node.glitchIntensity * 10) * 2;
+        const glitchY = Math.cos(time * 15 + node.glitchIntensity * 8) * 2;
+        ctx.save();
+        const nodeRadius = isHovered ? 8 : 6;
+        ctx.fillStyle = isSelected ? "#ffff00" : clusterColor || "#00ffff";
+        ctx.globalAlpha = isHovered ? 0.9 : 0.7;
+        ctx.beginPath();
+        ctx.arc(
+          scaledX + glitchX * localZoom,
+          scaledY + glitchY * localZoom,
+          nodeRadius * localZoom,
+          0,
+          Math.PI * 2
+        );
+        ctx.fill();
+        ctx.strokeStyle = isSelected ? "#ffff00" : "#ffffff";
+        ctx.lineWidth = isHovered ? 2 : 1;
+        ctx.globalAlpha = 0.8;
+        ctx.beginPath();
+        ctx.arc(
+          scaledX + glitchX * localZoom,
+          scaledY + glitchY * localZoom,
+          nodeRadius * localZoom,
+          0,
+          Math.PI * 2
+        );
+        ctx.stroke();
+        if (isHovered || isSelected) {
+          ctx.fillStyle = "#ffffff";
+          ctx.font = "10px monospace";
+          ctx.textAlign = "center";
+          ctx.globalAlpha = 0.9;
+          const title = node.dataLog?.title || "Untitled";
+          const truncatedTitle = title.length > 20 ? title.substring(0, 20) + "..." : title;
+          ctx.fillText(
+            truncatedTitle,
+            scaledX + glitchX * localZoom,
+            scaledY + glitchY * localZoom - nodeRadius * localZoom - 10
+          );
+        }
+        ctx.restore();
+      },
+      [
+        hoveredNode,
+        selectedNode,
+        rotationX,
+        rotationY,
+        sidebarCollapsed,
+        time,
+        rotateX,
+        rotateY,
+        project3D
+      ]
+    );
+    const renderClusterConnections = (0, import_react7.useCallback)(
+      (ctx) => {
+        const clusterMap = /* @__PURE__ */ new Map();
+        clusters.forEach((cluster) => {
+          cluster.nodes.forEach((node) => {
+            clusterMap.set(node.id, cluster);
+          });
+        });
+        filteredConnections.forEach((connection) => {
+          const clusterA = clusterMap.get(connection.from);
+          const clusterB = clusterMap.get(connection.to);
+          if (clusterA && clusterB && clusterA.id !== clusterB.id) {
+            let rotatedA = rotateX(
+              clusterA.center.x,
+              clusterA.center.y,
+              clusterA.center.z,
+              rotationX
+            );
+            rotatedA = rotateY(rotatedA.x, rotatedA.y, rotatedA.z, rotationY);
+            let rotatedB = rotateX(
+              clusterB.center.x,
+              clusterB.center.y,
+              clusterB.center.z,
+              rotationX
+            );
+            rotatedB = rotateY(rotatedB.x, rotatedB.y, rotatedB.z, rotationY);
+            const projectedA = project3D(
+              rotatedA.x,
+              rotatedA.y,
+              rotatedA.z,
+              sidebarCollapsed
+            );
+            const projectedB = project3D(
+              rotatedB.x,
+              rotatedB.y,
+              rotatedB.z,
+              sidebarCollapsed
+            );
+            const scaledAX = projectedA.x * localZoom + panX;
+            const scaledAY = projectedA.y * localZoom + panY;
+            const scaledBX = projectedB.x * localZoom + panX;
+            const scaledBY = projectedB.y * localZoom + panY;
+            const strength = connection.sharedTags.length;
+            const alpha = Math.min(0.3 + strength * 0.1, 0.8);
+            const width = Math.min(strength * 1.5, 4);
+            ctx.save();
+            ctx.strokeStyle = "#00ffff";
+            ctx.lineWidth = width;
+            ctx.globalAlpha = alpha;
+            ctx.setLineDash([5, 5]);
+            ctx.beginPath();
+            ctx.moveTo(scaledAX, scaledAY);
+            ctx.lineTo(scaledBX, scaledBY);
+            ctx.stroke();
+            ctx.restore();
+          }
+        });
+      },
+      [
+        clusters,
+        filteredConnections,
+        rotationX,
+        rotationY,
+        sidebarCollapsed,
+        rotateX,
+        rotateY,
+        project3D
+      ]
+    );
+    return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { className: "relative w-full h-full", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { className: "absolute bottom-4 right-4 z-10 bg-black/80 p-3 rounded border border-cyan-400/50", children: /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { className: "space-y-2", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("label", { className: "text-cyan-400 text-xs", children: [
+            "Connection Strength: ",
+            connectionStrength,
+            "+"
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+            "input",
+            {
+              type: "range",
+              min: "1",
+              max: "5",
+              value: connectionStrength,
+              onChange: (e) => setConnectionStrength(parseInt(e.target.value)),
+              className: "w-full"
+            }
+          )
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { className: "flex items-center space-x-2", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+            "input",
+            {
+              type: "checkbox",
+              id: "showLabels",
+              checked: showClusterLabels,
+              onChange: (e) => setShowClusterLabels(e.target.checked),
+              className: "text-cyan-400"
+            }
+          ),
+          /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("label", { htmlFor: "showLabels", className: "text-cyan-400 text-xs", children: "Show Labels" })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("label", { className: "text-cyan-400 text-xs", children: [
+            "Zoom: ",
+            localZoom.toFixed(1),
+            "x"
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+            "input",
+            {
+              type: "range",
+              min: "0.5",
+              max: "3",
+              step: "0.1",
+              value: localZoom,
+              onChange: (e) => setLocalZoom(parseFloat(e.target.value)),
+              className: "w-full"
+            }
+          )
+        ] })
+      ] }) }),
+      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+        "canvas",
+        {
+          className: "w-full h-full",
+          ref: (canvas) => {
+            if (canvas) {
+              const ctx = canvas.getContext("2d");
+              if (ctx) {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+                ctx.fillStyle = "#000";
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                renderClusterConnections(ctx);
+                clusters.forEach((cluster) => renderCluster(cluster, ctx));
+              }
+            }
+          },
+          onMouseMove: (e) => {
+            const rect = e.currentTarget.getBoundingClientRect();
+            if (isDragging) {
+              const deltaX = e.clientX - dragStart.x;
+              const deltaY = e.clientY - dragStart.y;
+              setPanX((prev) => prev + deltaX);
+              setPanY((prev) => prev + deltaY);
+              setDragStart({ x: e.clientX, y: e.clientY });
+              return;
+            }
+            const x = (e.clientX - rect.left - panX) / localZoom;
+            const y = (e.clientY - rect.top - panY) / localZoom;
+            let hoveredNodeId = null;
+            clusters.forEach((cluster) => {
+              if (expandedClusters.has(cluster.id) || cluster.nodes.length <= 3) {
+                cluster.nodes.forEach((node) => {
+                  let rotated = rotateX(node.x, node.y, node.z, rotationX);
+                  rotated = rotateY(rotated.x, rotated.y, rotated.z, rotationY);
+                  const projected = project3D(
+                    rotated.x,
+                    rotated.y,
+                    rotated.z,
+                    sidebarCollapsed
+                  );
+                  const distance = Math.sqrt(
+                    (x - projected.x) ** 2 + (y - projected.y) ** 2
+                  );
+                  if (distance <= 10) {
+                    hoveredNodeId = node.id;
+                  }
+                });
+              }
+            });
+            onNodeHover(hoveredNodeId);
+          },
+          onMouseDown: (e) => {
+            if (e.button === 0) {
+              setIsDragging(true);
+              setDragStart({ x: e.clientX, y: e.clientY });
+            }
+          },
+          onMouseUp: (e) => {
+            if (e.button === 0) {
+              setIsDragging(false);
+            }
+          },
+          onClick: (e) => {
+            if (isDragging) return;
+            const rect = e.currentTarget.getBoundingClientRect();
+            const x = (e.clientX - rect.left - panX) / localZoom;
+            const y = (e.clientY - rect.top - panY) / localZoom;
+            clusters.forEach((cluster) => {
+              let rotatedCenter = rotateX(
+                cluster.center.x,
+                cluster.center.y,
+                cluster.center.z,
+                rotationX
+              );
+              rotatedCenter = rotateY(
+                rotatedCenter.x,
+                rotatedCenter.y,
+                rotatedCenter.z,
+                rotationY
+              );
+              const projectedCenter = project3D(
+                rotatedCenter.x,
+                rotatedCenter.y,
+                rotatedCenter.z,
+                sidebarCollapsed
+              );
+              const radius = 30 + cluster.nodes.length * 5;
+              const distance = Math.sqrt(
+                (x - projectedCenter.x) ** 2 + (y - projectedCenter.y) ** 2
+              );
+              if (distance <= radius) {
+                toggleClusterExpansion(cluster.id);
+              }
+            });
+          },
+          onWheel: (e) => {
+            e.preventDefault();
+            const delta = e.deltaY > 0 ? 0.9 : 1.1;
+            setLocalZoom((prev) => Math.max(0.5, Math.min(3, prev * delta)));
+          }
+        }
+      )
+    ] });
+  };
+
+  // src/components/TimelineView.tsx
+  var import_react8 = __toESM(require_react(), 1);
+  var import_jsx_runtime3 = __toESM(require_jsx_runtime(), 1);
+  var TimelineView = ({
+    nodes,
+    connections,
+    hoveredNode,
+    selectedNode,
+    sidebarCollapsed,
+    imageCache,
+    time,
+    onNodeClick,
+    onNodeHover
+  }) => {
+    const [zoom, setZoom] = (0, import_react8.useState)(1);
+    const [panX, setPanX] = (0, import_react8.useState)(0);
+    const [showConnections, setShowConnections] = (0, import_react8.useState)(true);
+    const [timeRange, setTimeRange] = (0, import_react8.useState)(
+      "month"
+    );
+    const timelineNodes = (0, import_react8.useMemo)(() => {
+      const timelineData = [];
+      nodes.forEach((node) => {
+        const timestamp = node.dataLog?.timestamp ? new Date(node.dataLog.timestamp) : /* @__PURE__ */ new Date();
+        const nodeConnections = connections.filter(
+          (conn) => conn.from === node.id || conn.to === node.id
+        );
+        timelineData.push({
+          node,
+          x: 0,
+          // Will be calculated based on timestamp
+          y: 0,
+          // Will be calculated based on connections
+          timestamp,
+          connections: nodeConnections
+        });
+      });
+      timelineData.sort((a, b) => a.timestamp.getTime() - b.timestamp.getTime());
+      const now = /* @__PURE__ */ new Date();
+      const timeRanges = {
+        week: 7 * 24 * 60 * 60 * 1e3,
+        month: 30 * 24 * 60 * 60 * 1e3,
+        year: 365 * 24 * 60 * 60 * 1e3,
+        all: Math.max(
+          ...timelineData.map((n) => now.getTime() - n.timestamp.getTime())
+        )
+      };
+      const range = timeRanges[timeRange];
+      const canvasWidth = window.innerWidth - (sidebarCollapsed ? 0 : 300);
+      timelineData.forEach((timelineNode) => {
+        const timeDiff = now.getTime() - timelineNode.timestamp.getTime();
+        timelineNode.x = timeDiff / range * canvasWidth * zoom + panX;
+      });
+      timelineData.forEach((timelineNode, index) => {
+        let y = 100 + index * 80;
+        for (let i = 0; i < index; i++) {
+          const prevNode = timelineData[i];
+          const xDiff = Math.abs(timelineNode.x - prevNode.x);
+          if (xDiff < 100) {
+            y = Math.max(y, prevNode.y + 100);
+          }
+        }
+        timelineNode.y = y;
+      });
+      return timelineData;
+    }, [nodes, connections, timeRange, zoom, panX, sidebarCollapsed]);
+    const renderTimelineNode = (0, import_react8.useCallback)(
+      (timelineNode, ctx) => {
+        const { node, x, y } = timelineNode;
+        const isHovered = hoveredNode === node.id;
+        const isSelected = selectedNode?.id === node.id;
+        ctx.save();
+        const nodeRadius = isHovered ? 12 : 8;
+        ctx.fillStyle = isSelected ? "#ffff00" : "#00ffff";
+        ctx.globalAlpha = isHovered ? 0.9 : 0.7;
+        ctx.beginPath();
+        ctx.arc(x, y, nodeRadius, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.strokeStyle = isSelected ? "#ffff00" : "#ffffff";
+        ctx.lineWidth = isHovered ? 3 : 2;
+        ctx.globalAlpha = 0.8;
+        ctx.beginPath();
+        ctx.arc(x, y, nodeRadius, 0, Math.PI * 2);
+        ctx.stroke();
+        if (isHovered || isSelected) {
+          ctx.fillStyle = "#ffffff";
+          ctx.font = "12px monospace";
+          ctx.textAlign = "center";
+          ctx.globalAlpha = 0.9;
+          const title = node.dataLog?.title || "Untitled";
+          const truncatedTitle = title.length > 25 ? title.substring(0, 25) + "..." : title;
+          ctx.fillText(truncatedTitle, x, y - nodeRadius - 10);
+          const dateStr = timelineNode.timestamp.toLocaleDateString();
+          ctx.font = "10px monospace";
+          ctx.fillStyle = "#888888";
+          ctx.fillText(dateStr, x, y - nodeRadius - 25);
+          const tagCount = node.dataLog?.tags?.length || 0;
+          ctx.fillStyle = "#00ff00";
+          ctx.fillText(`${tagCount} tags`, x, y - nodeRadius - 40);
+        }
+        const connectionCount = timelineNode.connections.length;
+        if (connectionCount > 0) {
+          ctx.fillStyle = "#ff00ff";
+          ctx.font = "10px monospace";
+          ctx.textAlign = "center";
+          ctx.fillText(`${connectionCount}`, x, y + nodeRadius + 15);
+        }
+        ctx.restore();
+      },
+      [hoveredNode, selectedNode]
+    );
+    const renderTimelineConnections = (0, import_react8.useCallback)(
+      (ctx) => {
+        if (!showConnections) return;
+        const nodeMap = /* @__PURE__ */ new Map();
+        timelineNodes.forEach((tn) => nodeMap.set(tn.node.id, tn));
+        connections.forEach((connection) => {
+          const fromTimelineNode = nodeMap.get(connection.from);
+          const toTimelineNode = nodeMap.get(connection.to);
+          if (fromTimelineNode && toTimelineNode) {
+            const strength = connection.sharedTags.length;
+            const alpha = Math.min(0.3 + strength * 0.1, 0.8);
+            const width = Math.min(strength * 1.5, 4);
+            ctx.save();
+            ctx.strokeStyle = "#00ffff";
+            ctx.lineWidth = width;
+            ctx.globalAlpha = alpha;
+            ctx.setLineDash([5, 5]);
+            ctx.beginPath();
+            ctx.moveTo(fromTimelineNode.x, fromTimelineNode.y);
+            ctx.lineTo(toTimelineNode.x, toTimelineNode.y);
+            ctx.stroke();
+            if (strength > 0) {
+              const midX = (fromTimelineNode.x + toTimelineNode.x) / 2;
+              const midY = (fromTimelineNode.y + toTimelineNode.y) / 2;
+              ctx.fillStyle = "#00ffff";
+              ctx.globalAlpha = 0.8;
+              ctx.font = "8px monospace";
+              ctx.textAlign = "center";
+              ctx.fillText(`${strength}`, midX, midY - 5);
+            }
+            ctx.restore();
+          }
+        });
+      },
+      [connections, timelineNodes, showConnections]
+    );
+    const renderTimelineAxis = (0, import_react8.useCallback)(
+      (ctx) => {
+        const canvasHeight = window.innerHeight;
+        const canvasWidth = window.innerWidth - (sidebarCollapsed ? 0 : 300);
+        ctx.save();
+        ctx.strokeStyle = "#444444";
+        ctx.lineWidth = 2;
+        ctx.globalAlpha = 0.5;
+        ctx.beginPath();
+        ctx.moveTo(0, 50);
+        ctx.lineTo(canvasWidth, 50);
+        ctx.stroke();
+        const now = /* @__PURE__ */ new Date();
+        const timeRanges = {
+          week: 7 * 24 * 60 * 60 * 1e3,
+          month: 30 * 24 * 60 * 60 * 1e3,
+          year: 365 * 24 * 60 * 60 * 1e3,
+          all: Math.max(
+            ...timelineNodes.map((n) => now.getTime() - n.timestamp.getTime())
+          )
+        };
+        const range = timeRanges[timeRange];
+        const markerCount = timeRange === "week" ? 7 : timeRange === "month" ? 4 : timeRange === "year" ? 12 : 10;
+        for (let i = 0; i <= markerCount; i++) {
+          const x = i / markerCount * canvasWidth * zoom + panX;
+          const timeOffset = i / markerCount * range;
+          const markerDate = new Date(now.getTime() - timeOffset);
+          ctx.beginPath();
+          ctx.moveTo(x, 40);
+          ctx.lineTo(x, 60);
+          ctx.stroke();
+          ctx.fillStyle = "#888888";
+          ctx.font = "10px monospace";
+          ctx.textAlign = "center";
+          ctx.globalAlpha = 0.7;
+          let dateStr = "";
+          if (timeRange === "week") {
+            dateStr = markerDate.toLocaleDateString("en-US", {
+              weekday: "short"
+            });
+          } else if (timeRange === "month") {
+            dateStr = markerDate.toLocaleDateString("en-US", {
+              month: "short",
+              day: "numeric"
+            });
+          } else if (timeRange === "year") {
+            dateStr = markerDate.toLocaleDateString("en-US", { month: "short" });
+          } else {
+            dateStr = markerDate.toLocaleDateString("en-US", {
+              month: "short",
+              year: "numeric"
+            });
+          }
+          ctx.fillText(dateStr, x, 80);
+        }
+        ctx.restore();
+      },
+      [timeRange, zoom, panX, sidebarCollapsed, timelineNodes]
+    );
+    return /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "relative w-full h-full", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "absolute bottom-4 right-4 z-10 bg-black/80 p-3 rounded border border-cyan-400/50", children: /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "space-y-2", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("label", { className: "text-cyan-400 text-xs", children: "Time Range" }),
+          /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(
+            "select",
+            {
+              value: timeRange,
+              onChange: (e) => setTimeRange(e.target.value),
+              className: "w-full bg-black text-cyan-400 border border-cyan-400/50 rounded px-2 py-1 text-xs",
+              children: [
+                /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("option", { value: "week", children: "Week" }),
+                /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("option", { value: "month", children: "Month" }),
+                /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("option", { value: "year", children: "Year" }),
+                /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("option", { value: "all", children: "All Time" })
+              ]
+            }
+          )
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("label", { className: "text-cyan-400 text-xs", children: [
+            "Zoom: ",
+            zoom.toFixed(1),
+            "x"
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+            "input",
+            {
+              type: "range",
+              min: "0.5",
+              max: "3",
+              step: "0.1",
+              value: zoom,
+              onChange: (e) => setZoom(parseFloat(e.target.value)),
+              className: "w-full"
+            }
+          )
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "flex items-center space-x-2", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+            "input",
+            {
+              type: "checkbox",
+              id: "showConnections",
+              checked: showConnections,
+              onChange: (e) => setShowConnections(e.target.checked),
+              className: "text-cyan-400"
+            }
+          ),
+          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("label", { htmlFor: "showConnections", className: "text-cyan-400 text-xs", children: "Show Connections" })
+        ] })
+      ] }) }),
+      /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+        "canvas",
+        {
+          className: "w-full h-full",
+          ref: (canvas) => {
+            if (canvas) {
+              const ctx = canvas.getContext("2d");
+              if (ctx) {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+                ctx.fillStyle = "#000";
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                renderTimelineAxis(ctx);
+                renderTimelineConnections(ctx);
+                timelineNodes.forEach(
+                  (timelineNode) => renderTimelineNode(timelineNode, ctx)
+                );
+              }
+            }
+          },
+          onMouseMove: (e) => {
+            const rect = e.currentTarget.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            let hoveredNodeId = null;
+            timelineNodes.forEach((timelineNode) => {
+              const distance = Math.sqrt(
+                (x - timelineNode.x) ** 2 + (y - timelineNode.y) ** 2
+              );
+              if (distance <= 12) {
+                hoveredNodeId = timelineNode.node.id;
+              }
+            });
+            onNodeHover(hoveredNodeId);
+          },
+          onClick: (e) => {
+            const rect = e.currentTarget.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            timelineNodes.forEach((timelineNode) => {
+              const distance = Math.sqrt(
+                (x - timelineNode.x) ** 2 + (y - timelineNode.y) ** 2
+              );
+              if (distance <= 12) {
+                onNodeClick(timelineNode.node);
+              }
+            });
+          },
+          onWheel: (e) => {
+            e.preventDefault();
+            const delta = e.deltaY > 0 ? 0.9 : 1.1;
+            setZoom((prev) => Math.max(0.5, Math.min(3, prev * delta)));
+          }
+        }
+      )
+    ] });
+  };
+
+  // src/components/TagCentricView.tsx
   var import_react9 = __toESM(require_react(), 1);
+
+  // src/services/appStateService.ts
+  var APP_STATE_KEY = "neuppy_app_state";
+  var appStateService = {
+    saveState: (state) => {
+      try {
+        localStorage.setItem(APP_STATE_KEY, JSON.stringify(state));
+      } catch (error) {
+        console.warn("Failed to save app state:", error);
+      }
+    },
+    loadState: () => {
+      try {
+        const saved = localStorage.getItem(APP_STATE_KEY);
+        return saved ? JSON.parse(saved) : null;
+      } catch (error) {
+        console.warn("Failed to load app state:", error);
+        return null;
+      }
+    },
+    clearState: () => {
+      try {
+        localStorage.removeItem(APP_STATE_KEY);
+      } catch (error) {
+        console.warn("Failed to clear app state:", error);
+      }
+    }
+  };
+
+  // src/components/TagCentricView.tsx
+  var import_jsx_runtime4 = __toESM(require_jsx_runtime(), 1);
+  var TagCentricView = ({
+    nodes,
+    connections,
+    hoveredNode,
+    selectedNode,
+    sidebarCollapsed,
+    imageCache,
+    time,
+    onNodeClick,
+    onNodeHover
+  }) => {
+    const [selectedTags, setSelectedTags] = (0, import_react9.useState)([]);
+    const [showNodeDetails, setShowNodeDetails] = (0, import_react9.useState)(false);
+    const [tagFilter, setTagFilter] = (0, import_react9.useState)("");
+    const [zoom, setZoom] = (0, import_react9.useState)(1);
+    const [panX, setPanX] = (0, import_react9.useState)(0);
+    const [panY, setPanY] = (0, import_react9.useState)(0);
+    const [isDragging, setIsDragging] = (0, import_react9.useState)(false);
+    const [dragStart, setDragStart] = (0, import_react9.useState)({ x: 0, y: 0 });
+    const [hoveredHub, setHoveredHub] = (0, import_react9.useState)(null);
+    const [selectedNodeIndex, setSelectedNodeIndex] = (0, import_react9.useState)(0);
+    const canvasRef = (0, import_react9.useRef)(null);
+    (0, import_react9.useEffect)(() => {
+      const savedState = appStateService.loadState();
+      if (savedState) {
+        if (savedState.zoom !== void 0) setZoom(savedState.zoom);
+        if (savedState.panX !== void 0) setPanX(savedState.panX);
+        if (savedState.panY !== void 0) setPanY(savedState.panY);
+        if (savedState.showNodeDetails !== void 0)
+          setShowNodeDetails(savedState.showNodeDetails);
+        if (savedState.tagFilter !== void 0)
+          setTagFilter(savedState.tagFilter);
+      }
+    }, []);
+    const tagHubs = (0, import_react9.useMemo)(() => {
+      const tagMap = /* @__PURE__ */ new Map();
+      nodes.forEach((node) => {
+        if (node.dataLog?.tags) {
+          node.dataLog.tags.forEach((tag) => {
+            if (!tagMap.has(tag)) {
+              tagMap.set(tag, []);
+            }
+            tagMap.get(tag).push(node);
+          });
+        }
+      });
+      const hubs = [];
+      const canvasWidth = window.innerWidth - (sidebarCollapsed ? 0 : 300);
+      const canvasHeight = window.innerHeight;
+      const centerX = canvasWidth / 2;
+      const centerY = canvasHeight / 2;
+      const sortedTags = Array.from(tagMap.entries()).sort(
+        (a, b) => b[1].length - a[1].length
+      );
+      sortedTags.forEach(([tagName, tagNodes], index) => {
+        const angle = index * 137.5 * (Math.PI / 180);
+        const distance = 100 + index * 20;
+        const x = (centerX + Math.cos(angle) * distance) * zoom + panX;
+        const y = (centerY + Math.sin(angle) * distance) * zoom + panY;
+        const radius = Math.max(20, Math.min(60, 20 + tagNodes.length * 3));
+        const hubConnections = connections.filter(
+          (conn) => tagNodes.some((node) => node.id === conn.from || node.id === conn.to)
+        );
+        const avgStrength = hubConnections.length > 0 ? hubConnections.reduce(
+          (sum, conn) => sum + conn.sharedTags.length,
+          0
+        ) / hubConnections.length : 0;
+        const hue = tagName.charCodeAt(0) * 137.5 % 360;
+        const color = `hsl(${hue}, 70%, 60%)`;
+        hubs.push({
+          name: tagName,
+          nodes: tagNodes,
+          x,
+          y,
+          radius,
+          color,
+          strength: avgStrength
+        });
+      });
+      return hubs;
+    }, [nodes, connections, sidebarCollapsed, zoom, panX, panY]);
+    const filteredHubs = (0, import_react9.useMemo)(() => {
+      if (!tagFilter) return tagHubs;
+      return tagHubs.filter(
+        (hub) => hub.name.toLowerCase().includes(tagFilter.toLowerCase())
+      );
+    }, [tagHubs, tagFilter]);
+    const renderTagHub = (0, import_react9.useCallback)(
+      (hub, ctx) => {
+        const isSelected = selectedTags.includes(hub.name);
+        const isHubHovered = hoveredHub === hub.name;
+        const isNodeHovered = hub.nodes.some((node) => node.id === hoveredNode);
+        ctx.save();
+        const gradient = ctx.createRadialGradient(
+          hub.x,
+          hub.y,
+          0,
+          hub.x,
+          hub.y,
+          hub.radius * 1.5
+        );
+        const hslToRgba = (hsl, alpha) => {
+          const match = hsl.match(/hsl\((\d+),\s*(\d+)%,\s*(\d+)%\)/);
+          if (!match) return hsl;
+          const h = parseInt(match[1]);
+          const s = parseInt(match[2]);
+          const l = parseInt(match[3]);
+          const hue = h / 360;
+          const sat = s / 100;
+          const light = l / 100;
+          const c = (1 - Math.abs(2 * light - 1)) * sat;
+          const x = c * (1 - Math.abs(hue * 6 % 2 - 1));
+          const m = light - c / 2;
+          let r = 0, g = 0, b = 0;
+          if (hue < 1 / 6) {
+            r = c;
+            g = x;
+            b = 0;
+          } else if (hue < 2 / 6) {
+            r = x;
+            g = c;
+            b = 0;
+          } else if (hue < 3 / 6) {
+            r = 0;
+            g = c;
+            b = x;
+          } else if (hue < 4 / 6) {
+            r = 0;
+            g = x;
+            b = c;
+          } else if (hue < 5 / 6) {
+            r = x;
+            g = 0;
+            b = c;
+          } else {
+            r = c;
+            g = 0;
+            b = x;
+          }
+          return `rgba(${Math.round((r + m) * 255)}, ${Math.round(
+            (g + m) * 255
+          )}, ${Math.round((b + m) * 255)}, ${alpha})`;
+        };
+        gradient.addColorStop(0, hslToRgba(hub.color, 0.4));
+        gradient.addColorStop(0.7, hslToRgba(hub.color, 0.2));
+        gradient.addColorStop(1, "transparent");
+        ctx.fillStyle = gradient;
+        ctx.beginPath();
+        ctx.arc(hub.x, hub.y, hub.radius * 1.5 * zoom, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.strokeStyle = hub.color;
+        ctx.lineWidth = isSelected || isHubHovered ? 4 : 2;
+        ctx.globalAlpha = isSelected || isHubHovered ? 0.9 : 0.7;
+        ctx.beginPath();
+        ctx.arc(hub.x, hub.y, hub.radius * zoom, 0, Math.PI * 2);
+        ctx.stroke();
+        ctx.fillStyle = "#ffffff";
+        ctx.font = "12px monospace";
+        ctx.textAlign = "center";
+        ctx.globalAlpha = 0.9;
+        ctx.fillText(hub.name, hub.x, hub.y - 5 * zoom);
+        ctx.font = "10px monospace";
+        ctx.fillStyle = "#cccccc";
+        ctx.fillText(`${hub.nodes.length} nodes`, hub.x, hub.y + 10 * zoom);
+        if (hub.strength > 0) {
+          ctx.fillStyle = "#00ff00";
+          ctx.fillText(
+            `strength: ${hub.strength.toFixed(1)}`,
+            hub.x,
+            hub.y + 25 * zoom
+          );
+        }
+        ctx.restore();
+        if (isSelected || isHubHovered || showNodeDetails) {
+          hub.nodes.forEach((node, nodeIndex) => {
+            renderConnectedNode(node, hub, nodeIndex, ctx);
+          });
+        }
+      },
+      [selectedTags, hoveredNode, hoveredHub, showNodeDetails, zoom]
+    );
+    const renderConnectedNode = (0, import_react9.useCallback)(
+      (node, hub, nodeIndex, ctx) => {
+        const isHovered = hoveredNode === node.id;
+        const isSelected = selectedNode?.id === node.id;
+        const isArrowSelected = hoveredHub === hub.name && selectedNodeIndex === nodeIndex;
+        const angle = nodeIndex * 360 / hub.nodes.length * (Math.PI / 180);
+        const distance = hub.radius + 30;
+        const nodeX = hub.x + Math.cos(angle) * distance * zoom;
+        const nodeY = hub.y + Math.sin(angle) * distance * zoom;
+        ctx.save();
+        ctx.strokeStyle = hub.color;
+        ctx.lineWidth = 1;
+        ctx.globalAlpha = 0.5;
+        ctx.setLineDash([3, 3]);
+        ctx.beginPath();
+        ctx.moveTo(hub.x, hub.y);
+        ctx.lineTo(nodeX, nodeY);
+        ctx.stroke();
+        const nodeRadius = isHovered || isArrowSelected ? 6 : 4;
+        ctx.fillStyle = isSelected || isArrowSelected ? "#ffff00" : hub.color;
+        ctx.globalAlpha = isHovered || isArrowSelected ? 0.9 : 0.7;
+        ctx.beginPath();
+        ctx.arc(nodeX, nodeY, nodeRadius * zoom, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.strokeStyle = isSelected || isArrowSelected ? "#ffff00" : "#ffffff";
+        ctx.lineWidth = isHovered || isArrowSelected ? 2 : 1;
+        ctx.globalAlpha = 0.8;
+        ctx.beginPath();
+        ctx.arc(nodeX, nodeY, nodeRadius * zoom, 0, Math.PI * 2);
+        ctx.stroke();
+        if (isHovered || isSelected || isArrowSelected) {
+          ctx.fillStyle = "#ffffff";
+          ctx.font = "10px monospace";
+          ctx.textAlign = "center";
+          ctx.globalAlpha = 0.9;
+          const title = node.dataLog?.title || "Untitled";
+          const truncatedTitle = title.length > 15 ? title.substring(0, 15) + "..." : title;
+          ctx.fillText(truncatedTitle, nodeX, nodeY - nodeRadius * zoom - 8);
+        }
+        ctx.restore();
+      },
+      [hoveredNode, selectedNode, hoveredHub, selectedNodeIndex, zoom]
+    );
+    const renderHubConnections = (0, import_react9.useCallback)(
+      (ctx) => {
+        const hubMap = /* @__PURE__ */ new Map();
+        filteredHubs.forEach((hub) => {
+          hub.nodes.forEach((node) => {
+            hubMap.set(node.id, hub);
+          });
+        });
+        connections.forEach((connection) => {
+          const fromHub = hubMap.get(connection.from);
+          const toHub = hubMap.get(connection.to);
+          if (fromHub && toHub && fromHub.name !== toHub.name) {
+            const strength = connection.sharedTags.length;
+            const alpha = Math.min(0.2 + strength * 0.05, 0.6);
+            const width = Math.min(strength * 0.5, 2);
+            ctx.save();
+            ctx.strokeStyle = "#00ffff";
+            ctx.lineWidth = width;
+            ctx.globalAlpha = alpha;
+            ctx.setLineDash([8, 4]);
+            ctx.beginPath();
+            ctx.moveTo(fromHub.x, fromHub.y);
+            ctx.lineTo(toHub.x, toHub.y);
+            ctx.stroke();
+            ctx.restore();
+          }
+        });
+      },
+      [filteredHubs, connections]
+    );
+    const handleTagClick = (0, import_react9.useCallback)((tagName) => {
+      setSelectedTags((prev) => {
+        if (prev.includes(tagName)) {
+          return prev.filter((tag) => tag !== tagName);
+        } else {
+          return [...prev, tagName];
+        }
+      });
+    }, []);
+    (0, import_react9.useEffect)(() => {
+      const canvas = canvasRef.current;
+      if (!canvas) return;
+      const ctx = canvas.getContext("2d");
+      if (!ctx) return;
+      ctx.fillStyle = "#000";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      renderHubConnections(ctx);
+      filteredHubs.forEach((hub) => renderTagHub(hub, ctx));
+    }, [filteredHubs, renderHubConnections, renderTagHub, selectedNodeIndex]);
+    (0, import_react9.useEffect)(() => {
+      const canvas = canvasRef.current;
+      if (canvas) {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        const ctx = canvas.getContext("2d");
+        if (ctx) {
+          ctx.fillStyle = "#000";
+          ctx.fillRect(0, 0, canvas.width, canvas.height);
+          renderHubConnections(ctx);
+          filteredHubs.forEach((hub) => renderTagHub(hub, ctx));
+        }
+      }
+    }, [filteredHubs, renderHubConnections, renderTagHub]);
+    (0, import_react9.useEffect)(() => {
+      const handleKeyDown = (e) => {
+        console.log("Key pressed:", e.key, "Hovered hub:", hoveredHub);
+        if (!hoveredHub) return;
+        const hub = filteredHubs.find((h) => h.name === hoveredHub);
+        if (!hub || hub.nodes.length === 0) return;
+        if (e.key === "ArrowRight") {
+          e.preventDefault();
+          console.log(
+            "Moving right, current index:",
+            selectedNodeIndex,
+            "total nodes:",
+            hub.nodes.length
+          );
+          setSelectedNodeIndex((prev) => (prev + 1) % hub.nodes.length);
+        } else if (e.key === "ArrowLeft") {
+          e.preventDefault();
+          console.log(
+            "Moving left, current index:",
+            selectedNodeIndex,
+            "total nodes:",
+            hub.nodes.length
+          );
+          setSelectedNodeIndex(
+            (prev) => (prev - 1 + hub.nodes.length) % hub.nodes.length
+          );
+        }
+      };
+      window.addEventListener("keydown", handleKeyDown);
+      return () => window.removeEventListener("keydown", handleKeyDown);
+    }, [hoveredHub, filteredHubs, selectedNodeIndex]);
+    (0, import_react9.useEffect)(() => {
+      if (hoveredHub && selectedNodeIndex >= 0) {
+        const hub = filteredHubs.find((h) => h.name === hoveredHub);
+        if (hub && hub.nodes[selectedNodeIndex]) {
+          onNodeHover(hub.nodes[selectedNodeIndex].id);
+        }
+      }
+    }, [hoveredHub, selectedNodeIndex, filteredHubs, onNodeHover]);
+    (0, import_react9.useEffect)(() => {
+      const currentState = appStateService.loadState() || {
+        currentView: "tag-centric"
+      };
+      const newState = {
+        ...currentState,
+        zoom,
+        panX,
+        panY,
+        showNodeDetails,
+        tagFilter
+      };
+      appStateService.saveState(newState);
+    }, [zoom, panX, panY, showNodeDetails, tagFilter]);
+    return /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "relative w-full h-full", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: "absolute bottom-4 right-4 z-10 bg-black/80 p-3 rounded border border-cyan-400/50 w-80", children: /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "space-y-2", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("label", { className: "text-cyan-400 text-xs", children: "Search Tags" }),
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
+            "input",
+            {
+              type: "text",
+              value: tagFilter,
+              onChange: (e) => setTagFilter(e.target.value),
+              placeholder: "Filter tags...",
+              className: "w-full bg-black text-cyan-400 border border-cyan-400/50 rounded px-2 py-1 text-xs"
+            }
+          )
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "flex items-center space-x-2", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
+            "input",
+            {
+              type: "checkbox",
+              id: "showNodeDetails",
+              checked: showNodeDetails,
+              onChange: (e) => setShowNodeDetails(e.target.checked),
+              className: "text-cyan-400"
+            }
+          ),
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("label", { htmlFor: "showNodeDetails", className: "text-cyan-400 text-xs", children: "Show All Nodes" })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("label", { className: "text-cyan-400 text-xs", children: [
+            "Zoom: ",
+            zoom.toFixed(1),
+            "x"
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
+            "input",
+            {
+              type: "range",
+              min: "0.01",
+              max: "3",
+              step: "0.1",
+              value: zoom,
+              onChange: (e) => setZoom(parseFloat(e.target.value)),
+              className: "w-full"
+            }
+          )
+        ] })
+      ] }) }),
+      /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
+        "canvas",
+        {
+          className: "w-full h-full",
+          ref: canvasRef,
+          onMouseMove: (e) => {
+            const rect = e.currentTarget.getBoundingClientRect();
+            if (isDragging) {
+              const deltaX = e.clientX - dragStart.x;
+              const deltaY = e.clientY - dragStart.y;
+              setPanX((prev) => prev + deltaX);
+              setPanY((prev) => prev + deltaY);
+              setDragStart({ x: e.clientX, y: e.clientY });
+              return;
+            }
+            const mx = e.clientX - rect.left;
+            const my = e.clientY - rect.top;
+            let hoveredNodeId = null;
+            let hoveredHubName = null;
+            filteredHubs.forEach((hub) => {
+              const hubDistance = Math.sqrt(
+                (mx - hub.x) ** 2 + (my - hub.y) ** 2
+              );
+              const hubRadiusOnScreen = hub.radius * zoom;
+              const hubIsHovered = hubDistance <= hubRadiusOnScreen;
+              if (hubIsHovered) {
+                hoveredHubName = hub.name;
+                if (hub.nodes.length > 0) {
+                  hoveredNodeId = hub.nodes[0].id;
+                }
+              }
+              if (selectedTags.includes(hub.name) || hubIsHovered || showNodeDetails) {
+                hub.nodes.forEach((node, nodeIndex) => {
+                  const angle = nodeIndex * 360 / hub.nodes.length * (Math.PI / 180);
+                  const distance = hub.radius + 30;
+                  const nodeX = hub.x + Math.cos(angle) * distance * zoom;
+                  const nodeY = hub.y + Math.sin(angle) * distance * zoom;
+                  const nodeDistance = Math.sqrt(
+                    (mx - nodeX) ** 2 + (my - nodeY) ** 2
+                  );
+                  if (nodeDistance <= 6 * zoom) {
+                    hoveredNodeId = node.id;
+                  }
+                });
+              }
+            });
+            setHoveredHub(hoveredHubName);
+            if (hoveredHubName !== hoveredHub) {
+              setSelectedNodeIndex(0);
+            }
+            onNodeHover(hoveredNodeId);
+          },
+          onMouseDown: (e) => {
+            if (e.button === 0) {
+              setIsDragging(true);
+              setDragStart({ x: e.clientX, y: e.clientY });
+            }
+          },
+          onMouseUp: (e) => {
+            if (e.button === 0) {
+              setIsDragging(false);
+            }
+          },
+          onClick: (e) => {
+            if (isDragging) return;
+            const rect = e.currentTarget.getBoundingClientRect();
+            const mx = e.clientX - rect.left;
+            const my = e.clientY - rect.top;
+            filteredHubs.forEach((hub) => {
+              const hubDistance = Math.sqrt(
+                (mx - hub.x) ** 2 + (my - hub.y) ** 2
+              );
+              if (hubDistance <= hub.radius * zoom) {
+                handleTagClick(hub.name);
+                return;
+              }
+            });
+            filteredHubs.forEach((hub) => {
+              const hubDistance = Math.sqrt(
+                (mx - hub.x) ** 2 + (my - hub.y) ** 2
+              );
+              const hubIsHovered = hubDistance <= hub.radius * zoom;
+              if (selectedTags.includes(hub.name) || hubIsHovered || showNodeDetails) {
+                hub.nodes.forEach((node, nodeIndex) => {
+                  const angle = nodeIndex * 360 / hub.nodes.length * (Math.PI / 180);
+                  const distance = hub.radius + 30;
+                  const nodeX = hub.x + Math.cos(angle) * distance * zoom;
+                  const nodeY = hub.y + Math.sin(angle) * distance * zoom;
+                  const nodeDistance = Math.sqrt(
+                    (mx - nodeX) ** 2 + (my - nodeY) ** 2
+                  );
+                  if (nodeDistance <= 6 * zoom) {
+                    onNodeClick(node);
+                  }
+                });
+              }
+            });
+          },
+          onWheel: (e) => {
+            e.preventDefault();
+            const delta = e.deltaY > 0 ? 0.9 : 1.1;
+            setZoom((prev) => Math.max(0.01, Math.min(3, prev * delta)));
+          }
+        }
+      )
+    ] });
+  };
+
+  // src/components/ViewSelector.tsx
+  var import_jsx_runtime5 = __toESM(require_jsx_runtime(), 1);
+  var ViewSelector = ({
+    currentView,
+    onViewChange,
+    previewMode,
+    onPreviewModeToggle
+  }) => {
+    const views = [
+      {
+        id: "original",
+        name: "Original",
+        description: "Classic 3D force-directed graph",
+        icon: "\u{1F517}"
+      },
+      {
+        id: "clustered",
+        name: "Clustered",
+        description: "Grouped by shared tags with progressive disclosure",
+        icon: "\u{1FAE7}"
+      },
+      {
+        id: "timeline",
+        name: "Timeline",
+        description: "Chronological view with temporal relationships",
+        icon: "\u{1F4C5}"
+      },
+      {
+        id: "tag-centric",
+        name: "Tag-Centric",
+        description: "Tags as hubs connecting related nodes",
+        icon: "\u{1F3F7}\uFE0F"
+      }
+    ];
+    return /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "absolute top-4 right-4 z-20 bg-black/90 p-4 rounded-lg border border-cyan-400/50 min-w-64", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "text-cyan-400 text-sm font-semibold mb-3", children: "Visualization Mode" }),
+      /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "space-y-2", children: views.map((view) => /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
+        "button",
+        {
+          onClick: () => onViewChange(view.id),
+          className: `w-full text-left p-3 rounded border transition-all duration-200 ${currentView === view.id ? "bg-cyan-400/20 border-cyan-400 text-cyan-400" : "bg-black/50 border-cyan-400/30 text-gray-300 hover:bg-cyan-400/10 hover:border-cyan-400/50"}`,
+          children: /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "flex items-center space-x-3", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("span", { className: "text-lg", children: view.icon }),
+            /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "flex-1", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "font-medium text-sm", children: view.name }),
+              /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "text-xs opacity-75 mt-1", children: view.description })
+            ] }),
+            currentView === view.id && /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "w-2 h-2 bg-cyan-400 rounded-full" })
+          ] })
+        },
+        view.id
+      )) }),
+      /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "mt-4 pt-3 border-t border-cyan-400/30", children: /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "text-cyan-400 text-xs opacity-75", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "font-medium mb-1", children: "Tips:" }),
+        /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("ul", { className: "space-y-1 text-gray-400", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("li", { children: [
+            "\u2022 Use ",
+            /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("strong", { children: "Clustered" }),
+            " for overview and discovery"
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("li", { children: [
+            "\u2022 Use ",
+            /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("strong", { children: "Timeline" }),
+            " for temporal analysis"
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("li", { children: [
+            "\u2022 Use ",
+            /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("strong", { children: "Tag-Centric" }),
+            " for tag exploration"
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("li", { children: [
+            "\u2022 Use ",
+            /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("strong", { children: "Original" }),
+            " for detailed connections"
+          ] })
+        ] })
+      ] }) }),
+      /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "mt-4 pt-3 border-t border-cyan-400/30", children: /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "flex items-center justify-between", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("span", { className: "text-cyan-400 text-sm", children: "Preview Mode" }),
+        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
+          "button",
+          {
+            onClick: onPreviewModeToggle,
+            className: `px-3 py-1 rounded text-xs transition-colors ${previewMode ? "bg-cyan-400/20 text-cyan-400 border border-cyan-400" : "bg-black/50 text-gray-300 border border-cyan-400/30 hover:bg-cyan-400/10"}`,
+            children: previewMode ? "ON" : "OFF"
+          }
+        )
+      ] }) })
+    ] });
+  };
+
+  // src/components/NodeSummary.tsx
+  var import_jsx_runtime6 = __toESM(require_jsx_runtime(), 1);
+  var NodeSummary = ({
+    node,
+    x,
+    y,
+    visible,
+    fixedPosition = false
+  }) => {
+    if (!visible || !node.dataLog) return null;
+    const { dataLog } = node;
+    const tagCount = dataLog.tags?.length || 0;
+    const imageCount = dataLog.images?.length || 0;
+    const linkCount = dataLog.links?.length || 0;
+    const truncatedContent = dataLog.content.length > 150 ? dataLog.content.substring(0, 150) + "..." : dataLog.content;
+    const timestamp = dataLog.timestamp ? new Date(dataLog.timestamp).toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+      hour: "2-digit",
+      minute: "2-digit"
+    }) : "No date";
+    return /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(
+      "div",
+      {
+        className: `fixed z-50 bg-black/95 text-cyan-400 font-mono text-xs p-4 rounded-lg border border-cyan-400/50 pointer-events-none shadow-2xl ${fixedPosition ? "bottom-48 right-4 w-80" : "max-w-80"}`,
+        style: {
+          ...fixedPosition ? {} : {
+            left: (x || 0) + 15,
+            top: (y || 0) - 10,
+            transform: "translateY(-50%)"
+          },
+          backdropFilter: "blur(10px)"
+        },
+        children: [
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "border-b border-cyan-400/30 pb-2 mb-3", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "font-semibold text-cyan-300 text-sm mb-1", children: dataLog.title || "Untitled" }),
+            /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "text-gray-400 text-xs", children: timestamp })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "mb-3", children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "text-gray-300 leading-relaxed", children: truncatedContent }) }),
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "space-y-2", children: [
+            tagCount > 0 && /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "text-cyan-300 font-medium mb-1", children: [
+                "Tags (",
+                tagCount,
+                ")"
+              ] }),
+              /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "flex flex-wrap gap-1", children: [
+                dataLog.tags?.slice(0, 5).map((tag, index) => /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
+                  "span",
+                  {
+                    className: "bg-cyan-400/20 text-cyan-300 px-2 py-1 rounded text-xs",
+                    children: tag
+                  },
+                  index
+                )),
+                tagCount > 5 && /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("span", { className: "text-gray-500 text-xs", children: [
+                  "+",
+                  tagCount - 5,
+                  " more"
+                ] })
+              ] })
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "flex space-x-4 text-xs text-gray-400", children: [
+              imageCount > 0 && /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "flex items-center space-x-1", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { children: "\u{1F5BC}\uFE0F" }),
+                /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("span", { children: [
+                  imageCount,
+                  " image",
+                  imageCount !== 1 ? "s" : ""
+                ] })
+              ] }),
+              linkCount > 0 && /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "flex items-center space-x-1", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { children: "\u{1F517}" }),
+                /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("span", { children: [
+                  linkCount,
+                  " link",
+                  linkCount !== 1 ? "s" : ""
+                ] })
+              ] })
+            ] }),
+            dataLog.cluster && /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "text-xs text-gray-400", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { className: "text-cyan-300", children: "Cluster:" }),
+              " ",
+              dataLog.cluster.name
+            ] })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "mt-3 pt-2 border-t border-cyan-400/30 text-xs text-gray-500", children: "Click to view details \u2022 Right-click for options" })
+        ]
+      }
+    );
+  };
+
+  // src/components/Sidebar.tsx
+  var import_react12 = __toESM(require_react(), 1);
 
   // src/utils/timeUtils.ts
   var getRelativeTime = (timestamp) => {
@@ -20707,16 +22268,16 @@
   };
 
   // src/NodePreview.tsx
-  var import_react7 = __toESM(require_react(), 1);
-  var import_jsx_runtime2 = __toESM(require_jsx_runtime(), 1);
+  var import_react10 = __toESM(require_react(), 1);
+  var import_jsx_runtime7 = __toESM(require_jsx_runtime(), 1);
   function NodePreview({
     dataLog,
     isSelected,
     onClick
   }) {
-    const [imageError, setImageError] = (0, import_react7.useState)(false);
-    const [resolvedSrc, setResolvedSrc] = (0, import_react7.useState)(null);
-    (0, import_react7.useEffect)(() => {
+    const [imageError, setImageError] = (0, import_react10.useState)(false);
+    const [resolvedSrc, setResolvedSrc] = (0, import_react10.useState)(null);
+    (0, import_react10.useEffect)(() => {
       const resolve = async () => {
         setImageError(false);
         const first = dataLog.images?.[0];
@@ -20741,7 +22302,7 @@
     }, [dataLog.images]);
     const renderContent = () => {
       if (dataLog.images.length > 0 && !imageError && resolvedSrc) {
-        return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+        return /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
           "img",
           {
             src: resolvedSrc,
@@ -20754,9 +22315,9 @@
       const text = dataLog.content;
       const maxChars = 40;
       const displayText = text.length > maxChars ? text.substring(0, maxChars) + "..." : text;
-      return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { className: "w-full h-full flex items-center justify-center p-2", children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { className: "text-[8px] text-cyan-400 font-mono leading-tight text-center overflow-hidden", children: displayText }) });
+      return /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("div", { className: "w-full h-full flex items-center justify-center p-2", children: /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("div", { className: "text-[8px] text-cyan-400 font-mono leading-tight text-center overflow-hidden", children: displayText }) });
     };
-    return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
       "div",
       {
         onClick,
@@ -20768,8 +22329,8 @@
   }
 
   // src/components/ClusterDropdown.tsx
-  var import_react8 = __toESM(require_react(), 1);
-  var import_jsx_runtime3 = __toESM(require_jsx_runtime(), 1);
+  var import_react11 = __toESM(require_react(), 1);
+  var import_jsx_runtime8 = __toESM(require_jsx_runtime(), 1);
   var ClusterDropdown = ({
     clusters,
     selectedClusterId,
@@ -20778,9 +22339,9 @@
     onShowAllClusters,
     onSettingsClick
   }) => {
-    const [isOpen, setIsOpen] = (0, import_react8.useState)(false);
-    const [selectedCluster, setSelectedCluster] = (0, import_react8.useState)(null);
-    (0, import_react8.useEffect)(() => {
+    const [isOpen, setIsOpen] = (0, import_react11.useState)(false);
+    const [selectedCluster, setSelectedCluster] = (0, import_react11.useState)(null);
+    (0, import_react11.useEffect)(() => {
       if (selectedClusterId) {
         const cluster = clusters.find((c) => c.id === selectedClusterId);
         setSelectedCluster(cluster || null);
@@ -20804,20 +22365,20 @@
       e.stopPropagation();
       onSettingsClick(clusterId);
     };
-    return /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "relative", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "flex items-center gap-2", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(
+    return /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "relative", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "flex items-center gap-2", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(
           "button",
           {
             onClick: () => setIsOpen(!isOpen),
             className: "flex items-center gap-2 px-3 py-2 bg-black/50 border border-cyan-400/50 rounded text-cyan-400 hover:bg-cyan-400/10 hover:border-cyan-400 transition-all duration-200",
             children: [
-              /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { className: "font-mono font-bold text-md", children: selectedCluster?.name || "JOURNAL ENTRIES" }),
-              /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { className: "text-xs", children: "\u25BC" })
+              /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "font-mono font-bold text-md", children: selectedCluster?.name || "JOURNAL ENTRIES" }),
+              /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "text-xs", children: "\u25BC" })
             ]
           }
         ),
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
           "button",
           {
             onClick: (e) => handleSettingsClick(e, selectedClusterId || void 0),
@@ -20827,21 +22388,21 @@
           }
         )
       ] }),
-      isOpen && /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "absolute top-full left-0 mt-1 w-64 bg-black/95 border border-cyan-400/50 rounded shadow-lg z-50", children: /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "p-2", children: [
-        clusters.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(import_jsx_runtime3.Fragment, { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "text-xs text-cyan-400/70 mb-2 px-2", children: "OTHER CLUSTERS" }),
-          clusters.map((cluster) => /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(
+      isOpen && /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "absolute top-full left-0 mt-1 w-64 bg-black/95 border border-cyan-400/50 rounded shadow-lg z-50", children: /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "p-2", children: [
+        clusters.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(import_jsx_runtime8.Fragment, { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "text-xs text-cyan-400/70 mb-2 px-2", children: "OTHER CLUSTERS" }),
+          clusters.map((cluster) => /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(
             "div",
             {
               className: `flex items-center justify-between px-2 py-1 rounded text-sm transition-colors ${selectedClusterId === cluster.id ? "bg-cyan-400/20 text-cyan-300" : "text-cyan-400 hover:bg-cyan-400/10"}`,
               children: [
-                /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(
+                /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(
                   "button",
                   {
                     onClick: () => handleClusterClick(cluster.id),
                     className: "flex items-center gap-2 flex-1 text-left",
                     children: [
-                      /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+                      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
                         "div",
                         {
                           className: "w-3 h-3 rounded border border-cyan-400/30",
@@ -20852,7 +22413,7 @@
                     ]
                   }
                 ),
-                /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+                /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
                   "button",
                   {
                     onClick: (e) => handleSettingsClick(e, cluster.id),
@@ -20866,8 +22427,8 @@
             cluster.id
           ))
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "border-t border-cyan-400/30 my-2" }),
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "border-t border-cyan-400/30 my-2" }),
+        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
           "button",
           {
             onClick: handleAllClustersClick,
@@ -20875,8 +22436,8 @@
             children: "All Clusters"
           }
         ),
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "border-t border-cyan-400/30 my-2" }),
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "border-t border-cyan-400/30 my-2" }),
+        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
           "button",
           {
             onClick: handleCreateNewClick,
@@ -20885,12 +22446,12 @@
           }
         )
       ] }) }),
-      isOpen && /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "fixed inset-0 z-40", onClick: () => setIsOpen(false) })
+      isOpen && /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "fixed inset-0 z-40", onClick: () => setIsOpen(false) })
     ] });
   };
 
   // src/components/Sidebar.tsx
-  var import_jsx_runtime4 = __toESM(require_jsx_runtime(), 1);
+  var import_jsx_runtime9 = __toESM(require_jsx_runtime(), 1);
   var Sidebar = ({
     nodes,
     selectedNode,
@@ -20910,19 +22471,19 @@
     onSettingsClick,
     onDeleteNodes
   }) => {
-    const nodesByNewest = import_react9.default.useMemo(() => {
+    const nodesByNewest = import_react12.default.useMemo(() => {
       return [...nodes].sort((a, b) => {
         const ta = a.dataLog?.timestamp instanceof Date ? a.dataLog.timestamp.getTime() : 0;
         const tb = b.dataLog?.timestamp instanceof Date ? b.dataLog.timestamp.getTime() : 0;
         return tb - ta;
       });
     }, [nodes]);
-    const [selectedIds, setSelectedIds] = import_react9.default.useState(/* @__PURE__ */ new Set());
-    const [isSelecting, setIsSelecting] = import_react9.default.useState(false);
-    const [startPoint, setStartPoint] = import_react9.default.useState(null);
-    const [currentPoint, setCurrentPoint] = import_react9.default.useState(null);
-    const containerRef = import_react9.default.useRef(null);
-    const itemRefs = import_react9.default.useRef({});
+    const [selectedIds, setSelectedIds] = import_react12.default.useState(/* @__PURE__ */ new Set());
+    const [isSelecting, setIsSelecting] = import_react12.default.useState(false);
+    const [startPoint, setStartPoint] = import_react12.default.useState(null);
+    const [currentPoint, setCurrentPoint] = import_react12.default.useState(null);
+    const containerRef = import_react12.default.useRef(null);
+    const itemRefs = import_react12.default.useRef({});
     const clearSelection = () => setSelectedIds(/* @__PURE__ */ new Set());
     const isNoSelectTarget = (target) => {
       if (!(target instanceof HTMLElement)) return false;
@@ -21015,17 +22576,17 @@
         pointerEvents: "none",
         zIndex: 10
       };
-      return /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { style });
+      return /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { style });
     };
-    return /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(
+    return /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(
       "div",
       {
         className: `absolute left-0 top-0 bottom-0 bg-black/90 border-r border-cyan-400/30 pointer-events-auto transition-all duration-300 flex flex-col ${sidebarCollapsed ? "w-12" : "w-80"}`,
         children: [
-          /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "p-4 border-b border-cyan-400/30", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "flex justify-between items-center", children: [
-              !sidebarCollapsed && /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(import_jsx_runtime4.Fragment, { children: [
-                /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: "flex items-center gap-3", children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
+          /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { className: "p-4 border-b border-cyan-400/30", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { className: "flex justify-between items-center", children: [
+              !sidebarCollapsed && /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(import_jsx_runtime9.Fragment, { children: [
+                /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { className: "flex items-center gap-3", children: /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
                   ClusterDropdown,
                   {
                     clusters,
@@ -21036,7 +22597,7 @@
                     onSettingsClick
                   }
                 ) }),
-                /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
+                /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
                   "button",
                   {
                     onClick: onSidebarToggle,
@@ -21046,7 +22607,7 @@
                   }
                 )
               ] }),
-              sidebarCollapsed && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
+              sidebarCollapsed && /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
                 "button",
                 {
                   onClick: onSidebarToggle,
@@ -21056,18 +22617,18 @@
                 }
               )
             ] }),
-            !sidebarCollapsed && /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("p", { className: "text-cyan-400/70 text-xs mt-2", children: [
+            !sidebarCollapsed && /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("p", { className: "text-cyan-400/70 text-xs mt-2", children: [
               "Click to select \u2022 ",
               nodes.length,
               " total entries"
             ] })
           ] }),
-          !sidebarCollapsed && /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "border-b border-cyan-400/30 p-3 flex-shrink-0", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "mb-2", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("h3", { className: "text-cyan-400 font-mono text-sm font-bold mb-2", children: "FILTER BY TAGS" }),
-              selectedTags.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "mb-2", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("span", { className: "text-cyan-400/70 text-xs", children: "Active filters:" }),
-                /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: "flex flex-wrap gap-1 mt-1", children: selectedTags.map((tag) => /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(
+          !sidebarCollapsed && /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { className: "border-b border-cyan-400/30 p-3 flex-shrink-0", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { className: "mb-2", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("h3", { className: "text-cyan-400 font-mono text-sm font-bold mb-2", children: "FILTER BY TAGS" }),
+              selectedTags.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { className: "mb-2", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { className: "text-cyan-400/70 text-xs", children: "Active filters:" }),
+                /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { className: "flex flex-wrap gap-1 mt-1", children: selectedTags.map((tag) => /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(
                   "span",
                   {
                     className: "px-2 py-1 bg-cyan-400/30 border border-cyan-400/50 rounded text-xs text-cyan-300 cursor-pointer hover:bg-cyan-400/50",
@@ -21081,13 +22642,13 @@
                 )) })
               ] })
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: "flex flex-wrap gap-1 max-h-20 overflow-y-auto", children: (() => {
+            /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { className: "flex flex-wrap gap-1 max-h-20 overflow-y-auto", children: (() => {
               const allTags = /* @__PURE__ */ new Set();
               nodes.forEach((node) => {
                 node.dataLog?.tags?.forEach((tag) => allTags.add(tag));
               });
               return Array.from(allTags).sort();
-            })().map((tag) => /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
+            })().map((tag) => /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
               "span",
               {
                 className: `px-2 py-1 rounded text-xs cursor-pointer transition-all inline-block ${selectedTags.includes(tag) ? "bg-cyan-400/50 border border-cyan-400 text-white" : "bg-black/50 border border-cyan-400/30 text-cyan-400 hover:bg-cyan-400/20"}`,
@@ -21097,7 +22658,7 @@
               tag
             )) })
           ] }),
-          !sidebarCollapsed && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
+          !sidebarCollapsed && /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
             "div",
             {
               className: "flex-1 overflow-y-auto",
@@ -21105,13 +22666,13 @@
               onMouseDown: handleMouseDown,
               onMouseMove: handleMouseMove,
               onMouseUp: handleMouseUp,
-              children: /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "h-full relative", children: [
+              children: /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { className: "h-full relative", children: [
                 selectionVisual(),
                 previewMode ? (
                   // Grid view for preview mode
-                  /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "p-4 space-y-2", children: [
-                    selectedClusterId && (onAddClick || onImageDropClick) && /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "space-y-2", "data-no-select": "true", children: [
-                      onAddClick && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
+                  /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { className: "p-4 space-y-2", children: [
+                    selectedClusterId && (onAddClick || onImageDropClick) && /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { className: "space-y-2", "data-no-select": "true", children: [
+                      onAddClick && /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
                         "button",
                         {
                           onClick: onAddClick,
@@ -21121,7 +22682,7 @@
                           children: "+"
                         }
                       ),
-                      onImageDropClick && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
+                      onImageDropClick && /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
                         "button",
                         {
                           onClick: onImageDropClick,
@@ -21132,17 +22693,17 @@
                         }
                       )
                     ] }),
-                    selectedIds.size > 1 && /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(
+                    selectedIds.size > 1 && /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(
                       "div",
                       {
                         className: "flex items-center justify-between py-1",
                         "data-no-select": "true",
                         children: [
-                          /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "text-xs text-cyan-300/80", children: [
+                          /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { className: "text-xs text-cyan-300/80", children: [
                             "Selected: ",
                             selectedIds.size
                           ] }),
-                          onDeleteNodes && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
+                          onDeleteNodes && /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
                             "button",
                             {
                               onClick: handleDeleteSelected,
@@ -21155,7 +22716,7 @@
                         ]
                       }
                     ),
-                    /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: "grid grid-cols-4 gap-3 select-none", children: nodesByNewest.map((node) => /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
+                    /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { className: "grid grid-cols-4 gap-3 select-none", children: nodesByNewest.map((node) => /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
                       "div",
                       {
                         ref: (el) => {
@@ -21164,7 +22725,7 @@
                         "data-node-id": node.id,
                         className: `flex justify-center rounded ${selectedIds.has(node.id) ? "outline outline-2 outline-cyan-400/80" : ""}`,
                         onClick: () => onNodeClick(node),
-                        children: node.dataLog && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
+                        children: node.dataLog && /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
                           NodePreview,
                           {
                             dataLog: node.dataLog,
@@ -21178,9 +22739,9 @@
                   ] })
                 ) : (
                   // List view for normal mode
-                  /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "p-4 space-y-2 select-none", children: [
-                    selectedClusterId && onAddClick ? /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "space-y-2", "data-no-select": "true", children: [
-                      /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
+                  /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { className: "p-4 space-y-2 select-none", children: [
+                    selectedClusterId && onAddClick ? /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { className: "space-y-2", "data-no-select": "true", children: [
+                      /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
                         "button",
                         {
                           onClick: onAddClick,
@@ -21190,7 +22751,7 @@
                           children: "+"
                         }
                       ),
-                      /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
+                      /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
                         "button",
                         {
                           onClick: onImageDropClick,
@@ -21200,18 +22761,18 @@
                           children: "+++"
                         }
                       )
-                    ] }) : /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: "w-full px-3 py-2 border border-cyan-400/20 text-cyan-400/50 rounded text-center text-sm", children: "Select a cluster to add entries" }),
-                    selectedIds.size > 1 && /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(
+                    ] }) : /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { className: "w-full px-3 py-2 border border-cyan-400/20 text-cyan-400/50 rounded text-center text-sm", children: "Select a cluster to add entries" }),
+                    selectedIds.size > 1 && /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(
                       "div",
                       {
                         className: "flex items-center justify-between py-1",
                         "data-no-select": "true",
                         children: [
-                          /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "text-xs text-cyan-300/80", children: [
+                          /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { className: "text-xs text-cyan-300/80", children: [
                             "Selected: ",
                             selectedIds.size
                           ] }),
-                          onDeleteNodes && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
+                          onDeleteNodes && /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
                             "button",
                             {
                               onClick: handleDeleteSelected,
@@ -21224,7 +22785,7 @@
                         ]
                       }
                     ),
-                    nodesByNewest.map((node) => /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(
+                    nodesByNewest.map((node) => /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(
                       "div",
                       {
                         ref: (el) => {
@@ -21234,12 +22795,12 @@
                         onClick: () => onNodeClick(node),
                         className: `p-3 rounded border cursor-pointer transition-all ${selectedNode?.id === node.id ? "bg-cyan-400/20 border-cyan-400 text-white" : "bg-black/50 border-cyan-400/30 text-cyan-400 hover:bg-cyan-400/10"} ${selectedIds.has(node.id) ? "outline outline-2 outline-cyan-400/80" : ""}`,
                         children: [
-                          /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "flex justify-between items-start mb-1", children: [
-                            /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "flex items-center gap-2", children: [
-                              /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("span", { className: "font-mono text-sm font-bold", children: node.dataLog?.title && node.dataLog.title.length > 15 ? `${node.dataLog.title.substring(0, 15)}...` : node.dataLog?.title || node.id }),
-                              node.dataLog && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("span", { className: "text-xs text-cyan-300/70", children: getRelativeTime(node.dataLog.timestamp) })
+                          /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { className: "flex justify-between items-start mb-1", children: [
+                            /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { className: "flex items-center gap-2", children: [
+                              /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { className: "font-mono text-sm font-bold", children: node.dataLog?.title && node.dataLog.title.length > 15 ? `${node.dataLog.title.substring(0, 15)}...` : node.dataLog?.title || node.id }),
+                              node.dataLog && /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { className: "text-xs text-cyan-300/70", children: getRelativeTime(node.dataLog.timestamp) })
                             ] }),
-                            node.dataLog && getRelativeTime(node.dataLog.timestamp) === null && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("span", { className: "text-xs opacity-70", children: node.dataLog.timestamp.toLocaleDateString(
+                            node.dataLog && getRelativeTime(node.dataLog.timestamp) === null && /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { className: "text-xs opacity-70", children: node.dataLog.timestamp.toLocaleDateString(
                               "en-US",
                               {
                                 month: "2-digit",
@@ -21248,12 +22809,12 @@
                               }
                             ) })
                           ] }),
-                          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: "text-xs opacity-80 line-clamp-2 overflow-hidden", children: /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "break-words", children: [
+                          /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { className: "text-xs opacity-80 line-clamp-2 overflow-hidden", children: /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { className: "break-words", children: [
                             node.dataLog?.content?.substring(0, 10),
                             node.dataLog?.content && node.dataLog.content.length > 10 && "..."
                           ] }) }),
-                          /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "flex flex-wrap gap-1 mt-2", children: [
-                            node.dataLog?.tags.slice(0, 2).map((tag, index) => /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
+                          /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { className: "flex flex-wrap gap-1 mt-2", children: [
+                            node.dataLog?.tags.slice(0, 2).map((tag, index) => /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
                               "span",
                               {
                                 className: "px-1.5 py-0.5 bg-cyan-400/20 border border-cyan-400/50 rounded text-xs",
@@ -21261,7 +22822,7 @@
                               },
                               index
                             )),
-                            node.dataLog && node.dataLog.tags.length > 2 && /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("span", { className: "px-1.5 py-0.5 bg-cyan-400/20 border border-cyan-400/50 rounded text-xs", children: [
+                            node.dataLog && node.dataLog.tags.length > 2 && /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("span", { className: "px-1.5 py-0.5 bg-cyan-400/20 border border-cyan-400/50 rounded text-xs", children: [
                               "+",
                               node.dataLog.tags.length - 2
                             ] })
@@ -21281,22 +22842,22 @@
   };
 
   // src/components/NodeDetailsModal.tsx
-  var import_react11 = __toESM(require_react(), 1);
+  var import_react14 = __toESM(require_react(), 1);
 
   // src/components/AddNodeModal.tsx
-  var import_react10 = __toESM(require_react(), 1);
-  var import_jsx_runtime5 = __toESM(require_jsx_runtime(), 1);
+  var import_react13 = __toESM(require_react(), 1);
+  var import_jsx_runtime10 = __toESM(require_jsx_runtime(), 1);
   var TagInput = ({
     tags,
     onTagsChange,
     availableTags
   }) => {
-    const [inputValue, setInputValue] = (0, import_react10.useState)("");
-    const [showSuggestions, setShowSuggestions] = (0, import_react10.useState)(false);
-    const [filteredSuggestions, setFilteredSuggestions] = (0, import_react10.useState)([]);
-    const [selectedSuggestionIndex, setSelectedSuggestionIndex] = (0, import_react10.useState)(-1);
-    const inputRef = (0, import_react10.useRef)(null);
-    (0, import_react10.useEffect)(() => {
+    const [inputValue, setInputValue] = (0, import_react13.useState)("");
+    const [showSuggestions, setShowSuggestions] = (0, import_react13.useState)(false);
+    const [filteredSuggestions, setFilteredSuggestions] = (0, import_react13.useState)([]);
+    const [selectedSuggestionIndex, setSelectedSuggestionIndex] = (0, import_react13.useState)(-1);
+    const inputRef = (0, import_react13.useRef)(null);
+    (0, import_react13.useEffect)(() => {
       if (inputValue.trim()) {
         const filtered = availableTags.filter(
           (tag) => tag.toLowerCase().includes(inputValue.toLowerCase()) && !tags.includes(tag)
@@ -21348,15 +22909,15 @@
       addTag(tag);
       inputRef.current?.focus();
     };
-    return /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "relative", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "flex flex-wrap gap-2 p-3 bg-black/60 border border-cyan-400/40 rounded min-h-[42px] focus-within:border-cyan-400", children: [
-        tags.map((tag, index) => /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(
+    return /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("div", { className: "relative", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("div", { className: "flex flex-wrap gap-2 p-3 bg-black/60 border border-cyan-400/40 rounded min-h-[42px] focus-within:border-cyan-400", children: [
+        tags.map((tag, index) => /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(
           "span",
           {
             className: "inline-flex items-center px-2 py-1 bg-cyan-400/30 border border-cyan-400/50 rounded text-xs text-cyan-300",
             children: [
               tag,
-              /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
+              /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
                 "button",
                 {
                   type: "button",
@@ -21369,7 +22930,7 @@
           },
           index
         )),
-        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
           "input",
           {
             ref: inputRef,
@@ -21382,7 +22943,7 @@
           }
         )
       ] }),
-      showSuggestions && /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "absolute z-10 w-full mt-1 bg-black/80 border border-cyan-400/40 rounded shadow-lg max-h-40 overflow-y-auto", children: filteredSuggestions.map((tag, index) => /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
+      showSuggestions && /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("div", { className: "absolute z-10 w-full mt-1 bg-black/80 border border-cyan-400/40 rounded shadow-lg max-h-40 overflow-y-auto", children: filteredSuggestions.map((tag, index) => /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
         "button",
         {
           type: "button",
@@ -21398,10 +22959,10 @@
     images,
     onImagesChange
   }) => {
-    const [isDragOver, setIsDragOver] = (0, import_react10.useState)(false);
-    const [isProcessing, setIsProcessing] = (0, import_react10.useState)(false);
-    const [processingFiles, setProcessingFiles] = (0, import_react10.useState)([]);
-    const fileInputRef = (0, import_react10.useRef)(null);
+    const [isDragOver, setIsDragOver] = (0, import_react13.useState)(false);
+    const [isProcessing, setIsProcessing] = (0, import_react13.useState)(false);
+    const [processingFiles, setProcessingFiles] = (0, import_react13.useState)([]);
+    const fileInputRef = (0, import_react13.useRef)(null);
     const handleDragOver = (e) => {
       e.preventDefault();
       setIsDragOver(true);
@@ -21468,8 +23029,8 @@
     const removeImage = (indexToRemove) => {
       onImagesChange(images.filter((_, index) => index !== indexToRemove));
     };
-    return /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "space-y-3", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(
+    return /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("div", { className: "space-y-3", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(
         "div",
         {
           onDragOver: isProcessing ? void 0 : handleDragOver,
@@ -21477,7 +23038,7 @@
           onDrop: isProcessing ? void 0 : handleDrop,
           className: `border-2 border-dashed rounded-lg p-6 text-center transition-colors ${isProcessing ? "border-gray-700 bg-gray-800/50 cursor-not-allowed" : isDragOver ? "border-blue-500 bg-blue-900/20" : "border-gray-600 hover:border-gray-500"}`,
           children: [
-            /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
+            /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
               "input",
               {
                 ref: fileInputRef,
@@ -21488,19 +23049,19 @@
                 className: "hidden"
               }
             ),
-            /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "text-gray-400", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "text-2xl mb-2", children: isProcessing ? "\u23F3" : "\u{1F4C1}" }),
-              isProcessing ? /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "text-center", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("p", { className: "mb-2 text-blue-400", children: "Processing images..." }),
-                processingFiles.map((fileName, index) => /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "text-xs text-gray-500 mb-1", children: fileName.toLowerCase().endsWith(".heic") || fileName.toLowerCase().endsWith(".heif") ? `Converting ${fileName} to PNG...` : `Processing ${fileName}...` }, index))
-              ] }) : /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { children: [
-                /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("p", { className: "mb-2", children: "Drag and drop images here, or click to select" }),
-                /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("p", { className: "text-xs text-gray-500 mb-3", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("div", { className: "text-gray-400", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("div", { className: "text-2xl mb-2", children: isProcessing ? "\u23F3" : "\u{1F4C1}" }),
+              isProcessing ? /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("div", { className: "text-center", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("p", { className: "mb-2 text-blue-400", children: "Processing images..." }),
+                processingFiles.map((fileName, index) => /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("div", { className: "text-xs text-gray-500 mb-1", children: fileName.toLowerCase().endsWith(".heic") || fileName.toLowerCase().endsWith(".heif") ? `Converting ${fileName} to PNG...` : `Processing ${fileName}...` }, index))
+              ] }) : /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("div", { children: [
+                /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("p", { className: "mb-2", children: "Drag and drop images here, or click to select" }),
+                /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("p", { className: "text-xs text-gray-500 mb-3", children: [
                   "Supports: JPEG, PNG, GIF, WebP, HEIC, HEIF",
-                  /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("br", {}),
-                  /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("span", { className: "text-blue-400", children: "HEIC files will be automatically converted to PNG" })
+                  /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("br", {}),
+                  /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { className: "text-blue-400", children: "HEIC files will be automatically converted to PNG" })
                 ] }),
-                /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
+                /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
                   "button",
                   {
                     type: "button",
@@ -21515,19 +23076,19 @@
           ]
         }
       ),
-      images.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "space-y-2", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("label", { className: "block text-sm font-medium text-gray-300", children: [
+      images.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("div", { className: "space-y-2", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("label", { className: "block text-sm font-medium text-gray-300", children: [
           "Selected Images (",
           images.length,
           ")"
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "space-y-1 max-h-32 overflow-y-auto", children: images.map((imagePath, index) => /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(
+        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("div", { className: "space-y-1 max-h-32 overflow-y-auto", children: images.map((imagePath, index) => /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(
           "div",
           {
             className: "flex items-center justify-between p-2 bg-gray-800 rounded text-sm",
             children: [
-              /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("span", { className: "text-gray-300 truncate", children: imagePath }),
-              /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
+              /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { className: "text-gray-300 truncate", children: imagePath }),
+              /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
                 "button",
                 {
                   type: "button",
@@ -21549,7 +23110,7 @@
     onNodeAdded,
     selectedClusterId
   }) => {
-    const [formData, setFormData] = (0, import_react10.useState)({
+    const [formData, setFormData] = (0, import_react13.useState)({
       title: "",
       content: "",
       tags: [],
@@ -21557,19 +23118,19 @@
       links: [],
       clusterId: selectedClusterId || null
     });
-    const [linkInput, setLinkInput] = (0, import_react10.useState)("");
-    const [availableTags, setAvailableTags] = (0, import_react10.useState)([]);
-    const [clusters, setClusters] = (0, import_react10.useState)([]);
-    const [isSubmitting, setIsSubmitting] = (0, import_react10.useState)(false);
-    const [error, setError] = (0, import_react10.useState)(null);
+    const [linkInput, setLinkInput] = (0, import_react13.useState)("");
+    const [availableTags, setAvailableTags] = (0, import_react13.useState)([]);
+    const [clusters, setClusters] = (0, import_react13.useState)([]);
+    const [isSubmitting, setIsSubmitting] = (0, import_react13.useState)(false);
+    const [error, setError] = (0, import_react13.useState)(null);
     const databaseService = DatabaseService.getInstance();
-    (0, import_react10.useEffect)(() => {
+    (0, import_react13.useEffect)(() => {
       if (isOpen) {
         void loadClusters();
         void loadAvailableTags();
       }
     }, [isOpen]);
-    (0, import_react10.useEffect)(() => {
+    (0, import_react13.useEffect)(() => {
       setFormData((prev) => ({
         ...prev,
         clusterId: selectedClusterId || null
@@ -21669,10 +23230,10 @@
       }
     };
     if (!isOpen) return null;
-    return /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "fixed inset-0 bg-black/90 flex items-center justify-center z-50 p-4", children: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "bg-black/95 border border-cyan-400/50 rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto text-cyan-400 font-mono", children: /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "p-6", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "flex justify-between items-center mb-6", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("h2", { className: "text-2xl font-bold text-cyan-400", children: "Add New Memory Node" }),
-        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("div", { className: "fixed inset-0 bg-black/90 flex items-center justify-center z-50 p-4", children: /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("div", { className: "bg-black/95 border border-cyan-400/50 rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto text-cyan-400 font-mono", children: /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("div", { className: "p-6", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("div", { className: "flex justify-between items-center mb-6", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("h2", { className: "text-2xl font-bold text-cyan-400", children: "Add New Memory Node" }),
+        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
           "button",
           {
             onClick: onClose,
@@ -21682,11 +23243,11 @@
           }
         )
       ] }),
-      error && /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "mb-4 p-3 bg-red-900/70 border border-red-700 rounded text-red-200 text-sm", children: error }),
-      /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("form", { onSubmit: handleSubmit, className: "space-y-6", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("label", { className: "block text-sm font-medium text-cyan-300 mb-2", children: "Title *" }),
-          /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
+      error && /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("div", { className: "mb-4 p-3 bg-red-900/70 border border-red-700 rounded text-red-200 text-sm", children: error }),
+      /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("form", { onSubmit: handleSubmit, className: "space-y-6", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("div", { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("label", { className: "block text-sm font-medium text-cyan-300 mb-2", children: "Title *" }),
+          /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
             "input",
             {
               type: "text",
@@ -21700,9 +23261,9 @@
             }
           )
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("label", { className: "block text-sm font-medium text-cyan-300 mb-2", children: "Tags" }),
-          /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("div", { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("label", { className: "block text-sm font-medium text-cyan-300 mb-2", children: "Tags" }),
+          /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
             TagInput,
             {
               tags: formData.tags,
@@ -21710,11 +23271,11 @@
               availableTags
             }
           ),
-          /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("p", { className: "text-xs text-cyan-300/60 mt-1", children: "Type a tag and press Enter to add it. Click existing tags to add them quickly." })
+          /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("p", { className: "text-xs text-cyan-300/60 mt-1", children: "Type a tag and press Enter to add it. Click existing tags to add them quickly." })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("label", { className: "block text-sm font-medium text-cyan-300 mb-2", children: "Content *" }),
-          /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("div", { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("label", { className: "block text-sm font-medium text-cyan-300 mb-2", children: "Content *" }),
+          /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
             "textarea",
             {
               name: "content",
@@ -21728,9 +23289,9 @@
             }
           )
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("label", { className: "block text-sm font-medium text-cyan-300 mb-2", children: "Images" }),
-          /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("div", { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("label", { className: "block text-sm font-medium text-cyan-300 mb-2", children: "Images" }),
+          /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
             ImageDropzone,
             {
               images: formData.images,
@@ -21738,10 +23299,10 @@
             }
           )
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("label", { className: "block text-sm font-medium text-cyan-300 mb-2", children: "Links" }),
-          /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "space-y-3", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "flex gap-2", children: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("div", { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("label", { className: "block text-sm font-medium text-cyan-300 mb-2", children: "Links" }),
+          /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("div", { className: "space-y-3", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("div", { className: "flex gap-2", children: /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
               "input",
               {
                 type: "url",
@@ -21753,13 +23314,13 @@
                 disabled: isSubmitting
               }
             ) }),
-            formData.links.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "space-y-1 max-h-32 overflow-y-auto", children: formData.links.map((link, index) => /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(
+            formData.links.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("div", { className: "space-y-1 max-h-32 overflow-y-auto", children: formData.links.map((link, index) => /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(
               "div",
               {
                 className: "flex items-center justify-between p-2 bg-black/60 border border-cyan-400/30 rounded text-sm",
                 children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("span", { className: "text-cyan-300 truncate", children: link }),
-                  /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
+                  /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { className: "text-cyan-300 truncate", children: link }),
+                  /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
                     "button",
                     {
                       type: "button",
@@ -21774,9 +23335,9 @@
             )) })
           ] })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("label", { className: "block text-sm font-medium text-cyan-300 mb-2", children: "Cluster" }),
-          /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(
+        /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("div", { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("label", { className: "block text-sm font-medium text-cyan-300 mb-2", children: "Cluster" }),
+          /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(
             "select",
             {
               name: "clusterId",
@@ -21785,15 +23346,15 @@
               className: "w-full px-3 py-2 bg-black/60 border border-cyan-400/40 rounded text-cyan-100 focus:outline-none focus:border-cyan-400",
               disabled: isSubmitting,
               children: [
-                /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("option", { value: "", children: "Select a cluster (optional)" }),
-                clusters.map((cluster) => /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("option", { value: cluster.id, children: cluster.name }, cluster.id))
+                /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("option", { value: "", children: "Select a cluster (optional)" }),
+                clusters.map((cluster) => /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("option", { value: cluster.id, children: cluster.name }, cluster.id))
               ]
             }
           ),
-          /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("p", { className: "text-xs text-cyan-300/60 mt-1", children: "Choose which cluster this memory belongs to. Leave empty to use the default cluster." })
+          /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("p", { className: "text-xs text-cyan-300/60 mt-1", children: "Choose which cluster this memory belongs to. Leave empty to use the default cluster." })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "flex justify-end space-x-3 pt-4", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("div", { className: "flex justify-end space-x-3 pt-4", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
             "button",
             {
               type: "button",
@@ -21803,7 +23364,7 @@
               children: "Cancel"
             }
           ),
-          /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
+          /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
             "button",
             {
               type: "submit",
@@ -21818,7 +23379,7 @@
   };
 
   // src/components/NodeDetailsModal.tsx
-  var import_jsx_runtime6 = __toESM(require_jsx_runtime(), 1);
+  var import_jsx_runtime11 = __toESM(require_jsx_runtime(), 1);
   var ImageDisplay = ({
     imagePath,
     alt,
@@ -21826,9 +23387,9 @@
     onClick,
     onError
   }) => {
-    const [resolvedPath, setResolvedPath] = (0, import_react11.useState)(null);
-    const [error, setError] = (0, import_react11.useState)(false);
-    (0, import_react11.useEffect)(() => {
+    const [resolvedPath, setResolvedPath] = (0, import_react14.useState)(null);
+    const [error, setError] = (0, import_react14.useState)(false);
+    (0, import_react14.useEffect)(() => {
       const resolveImagePath = async () => {
         try {
           if (window.electronAPI?.files?.getImagePath) {
@@ -21853,19 +23414,19 @@
       }
     }, [imagePath]);
     if (error || !resolvedPath) {
-      return /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
+      return /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
         "div",
         {
           className: `${className} flex items-center justify-center bg-gray-800 text-gray-400`,
-          children: /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "text-center", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "text-2xl mb-2", children: "\u{1F5BC}\uFE0F" }),
-            /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "text-xs", children: "Image not found" }),
-            /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "text-xs mt-1 opacity-70", children: imagePath })
+          children: /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "text-center", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("div", { className: "text-2xl mb-2", children: "\u{1F5BC}\uFE0F" }),
+            /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("div", { className: "text-xs", children: "Image not found" }),
+            /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("div", { className: "text-xs mt-1 opacity-70", children: imagePath })
           ] })
         }
       );
     }
-    return /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
       "img",
       {
         src: resolvedPath,
@@ -21886,20 +23447,20 @@
     onUpdated,
     onDeleted
   }) => {
-    const [enlargedImage, setEnlargedImage] = (0, import_react11.useState)(null);
-    const [isEditing, setIsEditing] = (0, import_react11.useState)(false);
-    const [isExpanded, setIsExpanded] = (0, import_react11.useState)(false);
-    const databaseService = (0, import_react11.useMemo)(() => DatabaseService.getInstance(), []);
-    const [title, setTitle] = (0, import_react11.useState)("");
-    const [content, setContent] = (0, import_react11.useState)("");
-    const [tags, setTags] = (0, import_react11.useState)([]);
-    const [images, setImages] = (0, import_react11.useState)([]);
-    const [links, setLinks] = (0, import_react11.useState)([]);
-    const [linkInput, setLinkInput] = (0, import_react11.useState)("");
-    const [availableTags, setAvailableTags] = (0, import_react11.useState)([]);
-    const [clusters, setClusters] = (0, import_react11.useState)([]);
-    const [clusterId, setClusterId] = (0, import_react11.useState)(null);
-    (0, import_react11.useEffect)(() => {
+    const [enlargedImage, setEnlargedImage] = (0, import_react14.useState)(null);
+    const [isEditing, setIsEditing] = (0, import_react14.useState)(false);
+    const [isExpanded, setIsExpanded] = (0, import_react14.useState)(false);
+    const databaseService = (0, import_react14.useMemo)(() => DatabaseService.getInstance(), []);
+    const [title, setTitle] = (0, import_react14.useState)("");
+    const [content, setContent] = (0, import_react14.useState)("");
+    const [tags, setTags] = (0, import_react14.useState)([]);
+    const [images, setImages] = (0, import_react14.useState)([]);
+    const [links, setLinks] = (0, import_react14.useState)([]);
+    const [linkInput, setLinkInput] = (0, import_react14.useState)("");
+    const [availableTags, setAvailableTags] = (0, import_react14.useState)([]);
+    const [clusters, setClusters] = (0, import_react14.useState)([]);
+    const [clusterId, setClusterId] = (0, import_react14.useState)(null);
+    (0, import_react14.useEffect)(() => {
       (async () => {
         try {
           const [allTags, allClusters] = await Promise.all([
@@ -21912,7 +23473,7 @@
         }
       })();
     }, [databaseService]);
-    (0, import_react11.useEffect)(() => {
+    (0, import_react14.useEffect)(() => {
       (async () => {
         try {
           const allTags = await databaseService.getAllTags();
@@ -21921,7 +23482,7 @@
         }
       })();
     }, [databaseService, selectedNode, isEditing]);
-    (0, import_react11.useEffect)(() => {
+    (0, import_react14.useEffect)(() => {
       if (!selectedNode?.dataLog) return;
       setTitle(selectedNode.dataLog.title || "");
       setContent(selectedNode.dataLog.content || "");
@@ -21937,11 +23498,11 @@
     }, [selectedNode, clusters]);
     if (!selectedNode || !selectedNode.dataLog) return null;
     const sidebarWidth = sidebarCollapsed ? 48 : 320;
-    return /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
       "div",
       {
         className: "absolute inset-0 z-40 flex pointer-events-none " + (isExpanded ? "items-stretch justify-end" : "items-center justify-center"),
-        children: /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(
+        children: /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(
           "div",
           {
             className: "bg-black/95 border border-cyan-400/50 text-cyan-400 font-mono transition-all duration-300 pointer-events-auto " + (isExpanded ? "p-6 max-w-none w-full h-full overflow-y-auto rounded-none" : "rounded-lg p-8 max-w-2xl w-full mx-4 max-h-[80vh] overflow-y-auto"),
@@ -21952,17 +23513,17 @@
               margin: isExpanded ? 0 : void 0
             },
             children: [
-              /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "flex justify-between items-start", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "flex items-center gap-3", children: isEditing ? /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
+              /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "flex justify-between items-start", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("div", { className: "flex items-center gap-3", children: isEditing ? /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
                   "input",
                   {
                     value: title,
                     onChange: (e) => setTitle(e.target.value),
                     className: "px-3 py-2 bg-black/60 border border-cyan-400/40 rounded text-cyan-100 focus:outline-none focus:border-cyan-400"
                   }
-                ) : /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("h3", { className: "text-xl font-bold", children: selectedNode.dataLog?.title || selectedNode.id }) }),
-                /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "flex items-center gap-2", children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "relative", children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
+                ) : /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("h3", { className: "text-xl font-bold", children: selectedNode.dataLog?.title || selectedNode.id }) }),
+                /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "flex items-center gap-2", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("div", { className: "relative", children: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
                     "button",
                     {
                       className: "px-2 py-1 border border-cyan-400/50 text-cyan-300 rounded hover:text-white hover:border-cyan-400 transition-colors",
@@ -21995,9 +23556,9 @@
                       children: isEditing ? "Done" : "Edit"
                     }
                   ) }),
-                  /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "relative", children: /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("details", { className: "group", children: [
-                    /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("summary", { className: "list-none px-3 py-1 border border-cyan-400/50 text-cyan-300 rounded hover:text-white hover:border-cyan-400 transition-colors cursor-pointer", children: "\u22EF" }),
-                    /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "absolute right-0 mt-2 w-40 bg-black/95 border border-cyan-400/40 rounded shadow-lg z-10", children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
+                  /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("div", { className: "relative", children: /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("details", { className: "group", children: [
+                    /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("summary", { className: "list-none px-3 py-1 border border-cyan-400/50 text-cyan-300 rounded hover:text-white hover:border-cyan-400 transition-colors cursor-pointer", children: "\u22EF" }),
+                    /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("div", { className: "absolute right-0 mt-2 w-40 bg-black/95 border border-cyan-400/40 rounded shadow-lg z-10", children: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
                       "button",
                       {
                         className: "w-full text-left px-3 py-2 text-red-400 hover:bg-red-900/30",
@@ -22021,7 +23582,7 @@
                       }
                     ) })
                   ] }) }),
-                  /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
+                  /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
                     "button",
                     {
                       onClick: () => setIsExpanded((v) => !v),
@@ -22030,7 +23591,7 @@
                       children: isExpanded ? "\u2921" : "\u2922"
                     }
                   ),
-                  /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
+                  /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
                     "button",
                     {
                       onClick: onClose,
@@ -22040,35 +23601,35 @@
                   )
                 ] })
               ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "space-y-2", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(
+              /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "space-y-2", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(
                   "div",
                   {
                     className: "flex flex-wrap items-center gap-x-4 gap-y-1 " + (isEditing ? "mt-2" : ""),
                     children: [
-                      /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("span", { className: "text-xs text-cyan-300/70", children: [
-                        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { className: "opacity-80", children: "Created" }),
+                      /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("span", { className: "text-xs text-cyan-300/70", children: [
+                        /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "opacity-80", children: "Created" }),
                         ":",
-                        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { className: "ml-1 text-cyan-200/80", children: selectedNode.dataLog.timestamp.toLocaleString() })
+                        /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "ml-1 text-cyan-200/80", children: selectedNode.dataLog.timestamp.toLocaleString() })
                       ] }),
-                      /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("span", { className: "text-xs text-cyan-300/70", children: [
-                        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { className: "opacity-80", children: "Modified" }),
+                      /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("span", { className: "text-xs text-cyan-300/70", children: [
+                        /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "opacity-80", children: "Modified" }),
                         ":",
-                        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { className: "ml-1 text-cyan-200/80", children: selectedNode.dataLog.modified_at ? selectedNode.dataLog.modified_at.toLocaleString() : selectedNode.dataLog.updated_at ? selectedNode.dataLog.updated_at.toLocaleString() : selectedNode.dataLog.timestamp.toLocaleString() })
+                        /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "ml-1 text-cyan-200/80", children: selectedNode.dataLog.modified_at ? selectedNode.dataLog.modified_at.toLocaleString() : selectedNode.dataLog.updated_at ? selectedNode.dataLog.updated_at.toLocaleString() : selectedNode.dataLog.timestamp.toLocaleString() })
                       ] })
                     ]
                   }
                 ),
-                /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { className: "text-cyan-300 font-semibold", children: "Tags:" }),
-                  /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "mt-2", children: isEditing ? /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
+                /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "text-cyan-300 font-semibold", children: "Tags:" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("div", { className: "mt-2", children: isEditing ? /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
                     TagInput,
                     {
                       tags,
                       onTagsChange: setTags,
                       availableTags
                     }
-                  ) : /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "flex flex-wrap gap-2", children: tags.map((tag, index) => /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
+                  ) : /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("div", { className: "flex flex-wrap gap-2", children: tags.map((tag, index) => /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
                     "span",
                     {
                       className: "px-3 py-1 bg-cyan-400/20 border border-cyan-400/50 rounded text-sm",
@@ -22077,21 +23638,21 @@
                     index
                   )) }) })
                 ] }),
-                /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { className: "text-cyan-300 font-semibold", children: "Cluster:" }),
-                  /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "mt-2", children: isEditing ? /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
+                /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "text-cyan-300 font-semibold", children: "Cluster:" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("div", { className: "mt-2", children: isEditing ? /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
                     "select",
                     {
                       value: clusterId || "",
                       onChange: (e) => setClusterId(e.target.value || null),
                       className: "w-full px-3 py-2 bg-black/60 border border-cyan-400/40 rounded text-cyan-100 focus:outline-none focus:border-cyan-400",
-                      children: clusters.map((cluster) => /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("option", { value: cluster.id, children: cluster.name }, cluster.id))
+                      children: clusters.map((cluster) => /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("option", { value: cluster.id, children: cluster.name }, cluster.id))
                     }
-                  ) : /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { className: "text-white text-sm", children: clusters.find((c) => c.id === clusterId)?.name || (clusters.length > 0 ? clusters[0].name : "Loading...") }) })
+                  ) : /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "text-white text-sm", children: clusters.find((c) => c.id === clusterId)?.name || (clusters.length > 0 ? clusters[0].name : "Loading...") }) })
                 ] }),
-                /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { className: "text-cyan-300 font-semibold", children: "Content:" }),
-                  isEditing ? /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
+                /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "text-cyan-300 font-semibold", children: "Content:" }),
+                  isEditing ? /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
                     "textarea",
                     {
                       className: "mt-2 w-full px-3 py-2 bg-black/60 border border-cyan-400/40 rounded text-cyan-100 focus:outline-none focus:border-cyan-400",
@@ -22100,12 +23661,12 @@
                       value: content,
                       onChange: (e) => setContent(e.target.value)
                     }
-                  ) : /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("p", { className: "mt-2 text-white text-sm leading-relaxed", children: content })
+                  ) : /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("p", { className: "mt-2 text-white text-sm leading-relaxed", children: content })
                 ] }),
-                /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { className: "text-cyan-300 font-semibold", children: "Images:" }),
-                  isEditing ? /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "mt-2", children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(ImageDropzone, { images, onImagesChange: setImages }) }) : /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "flex flex-wrap gap-4 mt-2", children: images.map((image, index) => /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "flex flex-col items-center", children: [
-                    /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
+                /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "text-cyan-300 font-semibold", children: "Images:" }),
+                  isEditing ? /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("div", { className: "mt-2", children: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(ImageDropzone, { images, onImagesChange: setImages }) }) : /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("div", { className: "flex flex-wrap gap-4 mt-2", children: images.map((image, index) => /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "flex flex-col items-center", children: [
+                    /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
                       ImageDisplay,
                       {
                         imagePath: image,
@@ -22114,13 +23675,13 @@
                         onClick: () => setEnlargedImage(image)
                       }
                     ),
-                    /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { className: "text-xs text-purple-300 mt-1 text-center max-w-32 truncate", children: image.split("/").pop() || image })
+                    /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "text-xs text-purple-300 mt-1 text-center max-w-32 truncate", children: image.split("/").pop() || image })
                   ] }, index)) })
                 ] }),
-                /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { className: "text-cyan-300 font-semibold", children: "Links:" }),
-                  isEditing ? /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "space-y-3 mt-2", children: [
-                    /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
+                /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "text-cyan-300 font-semibold", children: "Links:" }),
+                  isEditing ? /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "space-y-3 mt-2", children: [
+                    /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
                       "input",
                       {
                         type: "url",
@@ -22138,13 +23699,13 @@
                         placeholder: "https://example.com (press Enter to add)"
                       }
                     ),
-                    links.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "space-y-1 max-h-32 overflow-y-auto", children: links.map((link, index) => /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(
+                    links.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("div", { className: "space-y-1 max-h-32 overflow-y-auto", children: links.map((link, index) => /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(
                       "div",
                       {
                         className: "flex items-center justify-between p-2 bg-black/60 border border-cyan-400/30 rounded text-sm",
                         children: [
-                          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { className: "text-cyan-300 truncate", children: link }),
-                          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
+                          /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "text-cyan-300 truncate", children: link }),
+                          /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
                             "button",
                             {
                               type: "button",
@@ -22157,7 +23718,7 @@
                       },
                       index
                     )) })
-                  ] }) : /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "flex flex-wrap gap-2 mt-2", children: links.map((link, index) => /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
+                  ] }) : /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("div", { className: "flex flex-wrap gap-2 mt-2", children: links.map((link, index) => /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
                     "a",
                     {
                       href: link,
@@ -22169,8 +23730,8 @@
                     index
                   )) })
                 ] }),
-                enlargedImage && /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "absolute inset-0 flex items-start justify-center pt-8 pointer-events-none bg-black/90 z-10", children: /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "relative max-w-[70%] max-h-[60%] pointer-events-auto", children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
+                enlargedImage && /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("div", { className: "absolute inset-0 flex items-start justify-center pt-8 pointer-events-none bg-black/90 z-10", children: /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "relative max-w-[70%] max-h-[60%] pointer-events-auto", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
                     ImageDisplay,
                     {
                       imagePath: enlargedImage,
@@ -22178,7 +23739,7 @@
                       className: "max-w-full max-h-full object-contain rounded border border-purple-400/50"
                     }
                   ),
-                  /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
+                  /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
                     "button",
                     {
                       onClick: () => setEnlargedImage(null),
@@ -22187,8 +23748,8 @@
                     }
                   )
                 ] }) }),
-                isEditing && /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "pt-4 flex justify-end gap-2", children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
+                isEditing && /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "pt-4 flex justify-end gap-2", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
                     "button",
                     {
                       className: "px-4 py-2 border border-cyan-400/50 text-cyan-300 rounded hover:text-white hover:border-cyan-400 transition-colors",
@@ -22196,7 +23757,7 @@
                       children: "Cancel Edit"
                     }
                   ),
-                  /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
+                  /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
                     "button",
                     {
                       className: "px-4 py-2 bg-cyan-600 text-white rounded hover:bg-cyan-500",
@@ -22228,119 +23789,80 @@
   };
 
   // src/components/UIOverlay.tsx
-  var import_jsx_runtime7 = __toESM(require_jsx_runtime(), 1);
+  var import_jsx_runtime12 = __toESM(require_jsx_runtime(), 1);
   var UIOverlay = ({
     sidebarCollapsed,
-    previewMode,
     zoom,
     hoveredNode,
     selectedNode,
     nodes,
     rotationX,
     rotationY,
-    onPreviewModeToggle,
     rotateX,
     rotateY,
     project3D
   }) => {
-    return /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { className: "absolute inset-0 pointer-events-none", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { className: "absolute inset-0 pointer-events-none", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
         "div",
         {
           className: `absolute top-8 text-cyan-400 font-mono text-sm transition-all duration-300 ${sidebarCollapsed ? "left-20" : "left-96"} pointer-events-auto`,
-          children: /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("div", { className: "text-xs opacity-70", children: "Drag to rotate \u2022 Scroll to zoom \u2022 Click nodes for details" })
+          children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", { className: "text-xs opacity-70", children: "Drag to rotate \u2022 Scroll to zoom \u2022 Click nodes for details" })
         }
       ),
-      /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("div", { className: "absolute top-8 right-8 text-cyan-400 font-mono text-sm z-20", children: /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
-        "button",
-        {
-          onClick: onPreviewModeToggle,
-          className: `px-4 py-2 border border-cyan-400/50 rounded transition-all duration-200 pointer-events-auto ${previewMode ? "bg-cyan-400/20 text-white border-cyan-400" : "bg-black/50 text-cyan-400 hover:bg-cyan-400/10"}`,
-          children: previewMode ? "Hide Preview" : "Preview"
-        }
-      ) }),
-      /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { className: "absolute top-20 right-8 text-cyan-400 font-mono text-xs", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { className: "absolute top-20 right-8 text-cyan-400 font-mono text-xs", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { children: [
           Math.round(1e3 / 16),
           " FPS"
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { className: "opacity-70", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { className: "opacity-70", children: [
           "Zoom: ",
           Math.round(zoom * 100),
           "%"
         ] })
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { className: "absolute bottom-8 right-8 text-cyan-400 font-mono text-xs bg-black/50 p-3 rounded border border-cyan-400/30", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("div", { className: "mb-2 font-semibold", children: "Connection Strength:" }),
-        /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { className: "space-y-1 text-xs", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { className: "flex items-center", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("div", { className: "w-8 h-0.5 bg-[#00ffff] mr-2 relative", children: /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("div", { className: "absolute top-1/2  w-2 h-2 bg-[#00ffff] border border-black rounded-full transform -translate-y-1/2" }) }),
-            /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("span", { children: "1 shared tag " })
+      /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { className: "absolute bottom-8 left-80 text-cyan-400 font-mono text-xs bg-black/50 p-3 rounded border border-cyan-400/30", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", { className: "mb-2 font-semibold", children: "Connection Strength:" }),
+        /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { className: "space-y-1 text-xs", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { className: "flex items-center", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", { className: "w-8 h-0.5 bg-[#00ffff] mr-2 relative", children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", { className: "absolute top-1/2  w-2 h-2 bg-[#00ffff] border border-black rounded-full transform -translate-y-1/2" }) }),
+            /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { children: "1 shared tag " })
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { className: "flex items-center", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { className: "w-8 h-1 bg-[#ffff00] mr-2 relative", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("div", { className: "absolute top-1/2 w-2 h-2 border border-black bg-yellow-400 rounded-full transform -translate-y-1/2" }),
-              /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("div", { className: "absolute top-1/2 left-1/4 w-2 h-2 border border-black bg-yellow-400 rounded-full transform -translate-y-1/2" })
+          /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { className: "flex items-center", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { className: "w-8 h-1 bg-[#ffff00] mr-2 relative", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", { className: "absolute top-1/2 w-2 h-2 border border-black bg-yellow-400 rounded-full transform -translate-y-1/2" }),
+              /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", { className: "absolute top-1/2 left-1/4 w-2 h-2 border border-black bg-yellow-400 rounded-full transform -translate-y-1/2" })
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("span", { children: "2 shared tags " })
+            /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { children: "2 shared tags " })
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { className: "flex items-center", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { className: "w-8 h-1.5 bg-[#ff00ff] mr-2 relative", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("div", { className: "absolute top-1/2 w-2 h-2 border border-black bg-magenta-400 rounded-full transform -translate-y-1/2" }),
-              /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("div", { className: "absolute top-1/2 left-1/4 w-2 h-2 border border-black bg-magenta-400 rounded-full transform -translate-y-1/2" }),
-              /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("div", { className: "absolute top-1/2 left-1/2 w-2 h-2 border border-black bg-magenta-400 rounded-full transform -translate-y-1/2" })
+          /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { className: "flex items-center", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { className: "w-8 h-1.5 bg-[#ff00ff] mr-2 relative", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", { className: "absolute top-1/2 w-2 h-2 border border-black bg-magenta-400 rounded-full transform -translate-y-1/2" }),
+              /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", { className: "absolute top-1/2 left-1/4 w-2 h-2 border border-black bg-magenta-400 rounded-full transform -translate-y-1/2" }),
+              /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", { className: "absolute top-1/2 left-1/2 w-2 h-2 border border-black bg-magenta-400 rounded-full transform -translate-y-1/2" })
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("span", { children: "3 shared tags " })
+            /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { children: "3 shared tags " })
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { className: "flex items-center", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { className: "w-8 h-2 bg-orange-400 mr-2 relative", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("div", { className: "absolute top-1/2 w-2 h-2 border border-black bg-orange-400 rounded-full transform -translate-y-1/2" }),
-              /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("div", { className: "absolute top-1/2 left-1/4 w-2 h-2 border border-black bg-orange-400 rounded-full transform -translate-y-1/2" }),
-              /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("div", { className: "absolute top-1/2 left-2/4 w-2 h-2 border border-black bg-orange-400 rounded-full transform -translate-y-1/2" }),
-              /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("div", { className: "absolute top-1/2 left-3/4 w-2 h-2 border border-black bg-orange-400 rounded-full transform -translate-y-1/2" })
+          /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { className: "flex items-center", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { className: "w-8 h-2 bg-orange-400 mr-2 relative", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", { className: "absolute top-1/2 w-2 h-2 border border-black bg-orange-400 rounded-full transform -translate-y-1/2" }),
+              /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", { className: "absolute top-1/2 left-1/4 w-2 h-2 border border-black bg-orange-400 rounded-full transform -translate-y-1/2" }),
+              /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", { className: "absolute top-1/2 left-2/4 w-2 h-2 border border-black bg-orange-400 rounded-full transform -translate-y-1/2" }),
+              /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", { className: "absolute top-1/2 left-3/4 w-2 h-2 border border-black bg-orange-400 rounded-full transform -translate-y-1/2" })
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("span", { children: "4 shared tags " })
+            /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { children: "4 shared tags " })
           ] })
         ] })
-      ] }),
-      hoveredNode && !selectedNode && (() => {
-        const hoveredNodeData = nodes.find((n) => n.id === hoveredNode);
-        if (!hoveredNodeData) return null;
-        let rotated = rotateX(
-          hoveredNodeData.x,
-          hoveredNodeData.y,
-          hoveredNodeData.z,
-          rotationX
-        );
-        rotated = rotateY(rotated.x, rotated.y, rotated.z, rotationY);
-        const projected = project3D(
-          rotated.x,
-          rotated.y,
-          rotated.z,
-          sidebarCollapsed
-        );
-        return /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
-          "div",
-          {
-            className: "absolute bg-black/90 border border-cyan-400/50 pt-2 px-2 rounded-lg text-cyan-400 font-mono text-center min-w-[200px] pointer-events-none",
-            style: {
-              left: `${projected.x + 40}px`,
-              top: `${projected.y - 50}px`,
-              transform: "translateY(-50%)"
-            },
-            children: /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("div", { className: "font-bold mb-2 text-xs", children: hoveredNodeData.dataLog?.title || hoveredNodeData.dataLog?.content?.substring(0, 25) || hoveredNode })
-          }
-        );
-      })()
+      ] })
     ] });
   };
 
   // src/components/ClusterSettingsModal.tsx
-  var import_react13 = __toESM(require_react(), 1);
+  var import_react16 = __toESM(require_react(), 1);
 
   // src/components/ColorPicker.tsx
-  var import_react12 = __toESM(require_react(), 1);
-  var import_jsx_runtime8 = __toESM(require_jsx_runtime(), 1);
+  var import_react15 = __toESM(require_react(), 1);
+  var import_jsx_runtime13 = __toESM(require_jsx_runtime(), 1);
   var predefinedColors = [
     "#ff6b6b",
     // Red
@@ -22388,8 +23910,8 @@
     onColorChange,
     className = ""
   }) => {
-    const [isOpen, setIsOpen] = (0, import_react12.useState)(false);
-    const [customColor, setCustomColor] = (0, import_react12.useState)(selectedColor);
+    const [isOpen, setIsOpen] = (0, import_react15.useState)(false);
+    const [customColor, setCustomColor] = (0, import_react15.useState)(selectedColor);
     const handleColorSelect = (color) => {
       onColorChange(color);
       setIsOpen(false);
@@ -22399,30 +23921,30 @@
       setCustomColor(color);
       onColorChange(color);
     };
-    return /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: `relative ${className}`, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(
+    return /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: `relative ${className}`, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(
         "button",
         {
           type: "button",
           onClick: () => setIsOpen(!isOpen),
           className: "flex items-center gap-2 px-3 py-2 border border-cyan-400/50 rounded text-cyan-300 hover:border-cyan-400 transition-colors",
           children: [
-            /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+            /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
               "div",
               {
                 className: "w-6 h-6 rounded border border-cyan-400/30",
                 style: { backgroundColor: selectedColor }
               }
             ),
-            /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "text-sm", children: "Pick Color" }),
-            /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "text-xs", children: "\u25BC" })
+            /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "text-sm", children: "Pick Color" }),
+            /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "text-xs", children: "\u25BC" })
           ]
         }
       ),
-      isOpen && /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "absolute top-full left-0 mt-2 p-4 bg-black/95 border border-cyan-400/40 rounded-lg shadow-lg z-50 min-w-64", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "mb-4", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("h4", { className: "text-cyan-300 text-sm font-semibold mb-2", children: "Predefined Colors" }),
-          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "grid grid-cols-5 gap-2", children: predefinedColors.map((color) => /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+      isOpen && /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "absolute top-full left-0 mt-2 p-4 bg-black/95 border border-cyan-400/40 rounded-lg shadow-lg z-50 min-w-64", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "mb-4", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("h4", { className: "text-cyan-300 text-sm font-semibold mb-2", children: "Predefined Colors" }),
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { className: "grid grid-cols-5 gap-2", children: predefinedColors.map((color) => /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
             "button",
             {
               type: "button",
@@ -22434,10 +23956,10 @@
             color
           )) })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "mb-4", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("h4", { className: "text-cyan-300 text-sm font-semibold mb-2", children: "Custom Color" }),
-          /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "flex items-center gap-2", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "mb-4", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("h4", { className: "text-cyan-300 text-sm font-semibold mb-2", children: "Custom Color" }),
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "flex items-center gap-2", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
               "input",
               {
                 type: "color",
@@ -22446,7 +23968,7 @@
                 className: "w-10 h-10 border border-cyan-400/30 rounded cursor-pointer"
               }
             ),
-            /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+            /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
               "input",
               {
                 type: "text",
@@ -22464,7 +23986,7 @@
             )
           ] })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "flex justify-end", children: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { className: "flex justify-end", children: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
           "button",
           {
             type: "button",
@@ -22474,21 +23996,21 @@
           }
         ) })
       ] }),
-      isOpen && /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "fixed inset-0 z-40", onClick: () => setIsOpen(false) })
+      isOpen && /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { className: "fixed inset-0 z-40", onClick: () => setIsOpen(false) })
     ] });
   };
 
   // src/components/ClusterSettingsModal.tsx
-  var import_jsx_runtime9 = __toESM(require_jsx_runtime(), 1);
+  var import_jsx_runtime14 = __toESM(require_jsx_runtime(), 1);
   var ClusterSettingsModal = ({
     cluster,
     onClose,
     onUpdate
   }) => {
-    const [name, setName] = (0, import_react13.useState)("");
-    const [color, setColor] = (0, import_react13.useState)("#ff6b6b");
-    const [isLoading, setIsLoading] = (0, import_react13.useState)(false);
-    (0, import_react13.useEffect)(() => {
+    const [name, setName] = (0, import_react16.useState)("");
+    const [color, setColor] = (0, import_react16.useState)("#ff6b6b");
+    const [isLoading, setIsLoading] = (0, import_react16.useState)(false);
+    (0, import_react16.useEffect)(() => {
       if (cluster) {
         setName(cluster.name);
         setColor(cluster.color || "#ff6b6b");
@@ -22514,10 +24036,10 @@
       onClose();
     };
     if (!cluster) return null;
-    return /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { className: "fixed inset-0 bg-black/80 flex items-center justify-center z-50", children: /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { className: "bg-black/95 border border-cyan-400/40 rounded-lg p-6 max-w-md w-full mx-4", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { className: "flex items-center justify-between mb-6", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("h2", { className: "text-xl font-mono font-bold text-cyan-400", children: "Cluster Settings" }),
-        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("div", { className: "fixed inset-0 bg-black/80 flex items-center justify-center z-50", children: /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("div", { className: "bg-black/95 border border-cyan-400/40 rounded-lg p-6 max-w-md w-full mx-4", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("div", { className: "flex items-center justify-between mb-6", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("h2", { className: "text-xl font-mono font-bold text-cyan-400", children: "Cluster Settings" }),
+        /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
           "button",
           {
             onClick: onClose,
@@ -22526,10 +24048,10 @@
           }
         )
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { className: "space-y-6", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("label", { className: "block text-cyan-300 text-sm font-semibold mb-2", children: "Cluster Name" }),
-          /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
+      /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("div", { className: "space-y-6", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("div", { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("label", { className: "block text-cyan-300 text-sm font-semibold mb-2", children: "Cluster Name" }),
+          /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
             "input",
             {
               type: "text",
@@ -22540,9 +24062,9 @@
             }
           )
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("label", { className: "block text-cyan-300 text-sm font-semibold mb-2", children: "Cluster Color" }),
-          /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("div", { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("label", { className: "block text-cyan-300 text-sm font-semibold mb-2", children: "Cluster Color" }),
+          /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
             ColorPicker,
             {
               selectedColor: color,
@@ -22550,24 +24072,24 @@
               className: "w-full"
             }
           ),
-          /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("p", { className: "text-cyan-400/60 text-xs mt-2", children: "This color will be used for nodes and connections in this cluster" })
+          /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("p", { className: "text-cyan-400/60 text-xs mt-2", children: "This color will be used for nodes and connections in this cluster" })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { className: "flex items-center gap-3 p-3 bg-black/40 border border-cyan-400/20 rounded", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("div", { className: "flex items-center gap-3 p-3 bg-black/40 border border-cyan-400/20 rounded", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
             "div",
             {
               className: "w-8 h-8 rounded border border-cyan-400/30",
               style: { backgroundColor: color }
             }
           ),
-          /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("p", { className: "text-cyan-300 text-sm font-semibold", children: name || "Cluster Name" }),
-            /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("p", { className: "text-cyan-400/60 text-xs", children: color })
+          /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("div", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("p", { className: "text-cyan-300 text-sm font-semibold", children: name || "Cluster Name" }),
+            /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("p", { className: "text-cyan-400/60 text-xs", children: color })
           ] })
         ] })
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { className: "flex justify-end gap-3 mt-6 pt-4 border-t border-cyan-400/20", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
+      /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("div", { className: "flex justify-end gap-3 mt-6 pt-4 border-t border-cyan-400/20", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
           "button",
           {
             onClick: handleCancel,
@@ -22576,7 +24098,7 @@
             children: "Cancel"
           }
         ),
-        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
           "button",
           {
             onClick: handleSave,
@@ -22590,17 +24112,17 @@
   };
 
   // src/components/CreateClusterModal.tsx
-  var import_react14 = __toESM(require_react(), 1);
-  var import_jsx_runtime10 = __toESM(require_jsx_runtime(), 1);
+  var import_react17 = __toESM(require_react(), 1);
+  var import_jsx_runtime15 = __toESM(require_jsx_runtime(), 1);
   var CreateClusterModal = ({
     isOpen,
     onClose,
     onCreateCluster,
     existingClusters
   }) => {
-    const [name, setName] = (0, import_react14.useState)("");
-    const [description, setDescription] = (0, import_react14.useState)("");
-    const [isSubmitting, setIsSubmitting] = (0, import_react14.useState)(false);
+    const [name, setName] = (0, import_react17.useState)("");
+    const [description, setDescription] = (0, import_react17.useState)("");
+    const [isSubmitting, setIsSubmitting] = (0, import_react17.useState)(false);
     const generateUniqueColor = () => {
       const predefinedColors2 = [
         "#ff6b6b",
@@ -22687,10 +24209,10 @@
       onClose();
     };
     if (!isOpen) return null;
-    return /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("div", { className: "fixed inset-0 bg-black/80 flex items-center justify-center z-50", children: /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("div", { className: "bg-black/95 border border-cyan-400/50 rounded-lg p-6 w-96", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("div", { className: "flex justify-between items-center mb-4", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("h2", { className: "text-cyan-400 font-mono font-bold text-lg", children: "CREATE NEW CLUSTER" }),
-        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "fixed inset-0 bg-black/80 flex items-center justify-center z-50", children: /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "bg-black/95 border border-cyan-400/50 rounded-lg p-6 w-96", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "flex justify-between items-center mb-4", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("h2", { className: "text-cyan-400 font-mono font-bold text-lg", children: "CREATE NEW CLUSTER" }),
+        /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
           "button",
           {
             onClick: handleCancel,
@@ -22699,10 +24221,10 @@
           }
         )
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("form", { onSubmit: handleSubmit, className: "space-y-4", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("div", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("label", { className: "block text-cyan-400 text-sm font-mono mb-2", children: "CLUSTER NAME *" }),
-          /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
+      /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("form", { onSubmit: handleSubmit, className: "space-y-4", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("label", { className: "block text-cyan-400 text-sm font-mono mb-2", children: "CLUSTER NAME *" }),
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
             "input",
             {
               type: "text",
@@ -22714,9 +24236,9 @@
             }
           )
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("div", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("label", { className: "block text-cyan-400 text-sm font-mono mb-2", children: "DESCRIPTION" }),
-          /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("label", { className: "block text-cyan-400 text-sm font-mono mb-2", children: "DESCRIPTION" }),
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
             "textarea",
             {
               value: description,
@@ -22728,8 +24250,8 @@
             }
           )
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("div", { className: "flex gap-3 pt-4", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "flex gap-3 pt-4", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
             "button",
             {
               type: "submit",
@@ -22738,7 +24260,7 @@
               children: isSubmitting ? "Creating..." : "Create Cluster"
             }
           ),
-          /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
             "button",
             {
               type: "button",
@@ -22750,27 +24272,27 @@
           )
         ] })
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("div", { className: "mt-4 pt-4 border-t border-cyan-400/30", children: /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("p", { className: "text-cyan-400/70 text-xs", children: "Clusters help organize your neuron entries into logical groups. Each cluster can contain multiple memory nodes." }) })
+      /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "mt-4 pt-4 border-t border-cyan-400/30", children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("p", { className: "text-cyan-400/70 text-xs", children: "Clusters help organize your neuron entries into logical groups. Each cluster can contain multiple memory nodes." }) })
     ] }) });
   };
 
   // src/components/AllClustersGrid.tsx
-  var import_react15 = __toESM(require_react(), 1);
-  var import_jsx_runtime11 = __toESM(require_jsx_runtime(), 1);
+  var import_react18 = __toESM(require_react(), 1);
+  var import_jsx_runtime16 = __toESM(require_jsx_runtime(), 1);
   var AllClustersGrid = ({
     clusters,
     onClusterSelect,
     onBack
   }) => {
-    const [viewMode, setViewMode] = (0, import_react15.useState)("default");
-    const [clusterPreviews, setClusterPreviews] = (0, import_react15.useState)(
+    const [viewMode, setViewMode] = (0, import_react18.useState)("default");
+    const [clusterPreviews, setClusterPreviews] = (0, import_react18.useState)(
       []
     );
-    const [time, setTime] = (0, import_react15.useState)(0);
-    const [hoveredCluster, setHoveredCluster] = (0, import_react15.useState)(null);
+    const [time, setTime] = (0, import_react18.useState)(0);
+    const [hoveredCluster, setHoveredCluster] = (0, import_react18.useState)(null);
     const databaseService = DatabaseService.getInstance();
-    const animationRef = (0, import_react15.useRef)(null);
-    (0, import_react15.useEffect)(() => {
+    const animationRef = (0, import_react18.useRef)(null);
+    (0, import_react18.useEffect)(() => {
       const animate = () => {
         setTime((prev) => prev + 0.016);
         animationRef.current = requestAnimationFrame(animate);
@@ -22782,12 +24304,12 @@
         }
       };
     }, []);
-    (0, import_react15.useEffect)(() => {
+    (0, import_react18.useEffect)(() => {
       if (viewMode === "preview") {
         loadClusterPreviews();
       }
     }, [viewMode, clusters]);
-    (0, import_react15.useEffect)(() => {
+    (0, import_react18.useEffect)(() => {
       if (viewMode === "preview" && clusterPreviews.length > 0) {
         const canvases = document.querySelectorAll("canvas");
         canvases.forEach((canvas, index) => {
@@ -23060,8 +24582,8 @@
         ctx.fill();
       });
     };
-    const [nodeCounts, setNodeCounts] = (0, import_react15.useState)({});
-    (0, import_react15.useEffect)(() => {
+    const [nodeCounts, setNodeCounts] = (0, import_react18.useState)({});
+    (0, import_react18.useEffect)(() => {
       const loadNodeCounts = async () => {
         const counts = {};
         for (const cluster of clusters) {
@@ -23090,19 +24612,19 @@
       loadNodeCounts();
     }, [clusters]);
     const renderDefaultMode = () => {
-      return /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("div", { className: "grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 p-6", children: clusters.map((cluster) => {
+      return /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("div", { className: "grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 p-6", children: clusters.map((cluster) => {
         const color = getClusterColor(cluster.id);
         const isHovered = hoveredCluster === cluster.id;
         const nodeCount = nodeCounts[cluster.id] || 0;
-        return /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+        return /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(
           "div",
           {
             className: `relative group cursor-pointer transition-all duration-300 ${isHovered ? "scale-105" : "scale-100"}`,
             onClick: () => onClusterSelect(cluster.id),
             onMouseEnter: () => setHoveredCluster(cluster.id),
             onMouseLeave: () => setHoveredCluster(null),
-            children: /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "bg-black/50 border border-cyan-400/30 rounded-lg p-6 h-64 flex flex-col items-center justify-center relative overflow-hidden", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+            children: /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { className: "bg-black/50 border border-cyan-400/30 rounded-lg p-6 h-64 flex flex-col items-center justify-center relative overflow-hidden", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(
                 "div",
                 {
                   className: "absolute inset-0 opacity-20 transition-opacity duration-300",
@@ -23111,8 +24633,8 @@
                   }
                 }
               ),
-              /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "relative mb-4", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+              /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { className: "relative mb-4", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(
                   "div",
                   {
                     className: "w-8 h-8 rounded-full transition-all duration-300",
@@ -23123,7 +24645,7 @@
                     }
                   }
                 ),
-                /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+                /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(
                   "div",
                   {
                     className: "absolute inset-0 rounded-full border-2",
@@ -23134,13 +24656,13 @@
                   }
                 )
               ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("h3", { className: "text-cyan-400 font-mono text-center text-sm font-bold mb-2", children: cluster.name }),
-              /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("p", { className: "text-cyan-400/60 text-xs text-center mb-1", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("h3", { className: "text-cyan-400 font-mono text-center text-sm font-bold mb-2", children: cluster.name }),
+              /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("p", { className: "text-cyan-400/60 text-xs text-center mb-1", children: [
                 nodeCount,
                 " nodes"
               ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("p", { className: "text-cyan-400/60 text-xs text-center", children: cluster.description || "No description" }),
-              /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+              /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("p", { className: "text-cyan-400/60 text-xs text-center", children: cluster.description || "No description" }),
+              /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(
                 "div",
                 {
                   className: `absolute inset-0 bg-cyan-400/10 rounded-lg transition-opacity duration-300 ${isHovered ? "opacity-100" : "opacity-0"}`
@@ -23153,21 +24675,21 @@
       }) });
     };
     const renderPreviewMode = () => {
-      return /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("div", { className: "grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 p-6", children: clusters.map((cluster, index) => {
+      return /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("div", { className: "grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 p-6", children: clusters.map((cluster, index) => {
         const color = getClusterColor(cluster.id);
         const isHovered = hoveredCluster === cluster.id;
         const clusterData = clusterPreviews.find(
           (c) => c.clusterId === cluster.id
         );
-        return /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+        return /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(
           "div",
           {
             className: `relative group cursor-pointer transition-all duration-300 ${isHovered ? "scale-105" : "scale-100"}`,
             onClick: () => onClusterSelect(cluster.id),
             onMouseEnter: () => setHoveredCluster(cluster.id),
             onMouseLeave: () => setHoveredCluster(null),
-            children: /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "bg-black/50 border border-cyan-400/30 rounded-lg p-6 h-64 flex flex-col items-center justify-center relative overflow-hidden", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("div", { className: "border-2 border-cyan-400/30 rounded-lg p-2 mb-4 bg-black/20", children: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+            children: /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { className: "bg-black/50 border border-cyan-400/30 rounded-lg p-6 h-64 flex flex-col items-center justify-center relative overflow-hidden", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("div", { className: "border-2 border-cyan-400/30 rounded-lg p-2 mb-4 bg-black/20", children: /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(
                 "canvas",
                 {
                   ref: (canvas) => {
@@ -23211,12 +24733,12 @@
                   className: "w-[216px] h-40"
                 }
               ) }),
-              /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("h3", { className: "text-cyan-400 font-mono text-center text-sm font-bold mb-2", children: cluster.name }),
-              /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("p", { className: "text-cyan-400/60 text-xs text-center", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("h3", { className: "text-cyan-400 font-mono text-center text-sm font-bold mb-2", children: cluster.name }),
+              /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("p", { className: "text-cyan-400/60 text-xs text-center", children: [
                 clusterData?.nodes.length || 0,
                 " nodes"
               ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+              /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(
                 "div",
                 {
                   className: `absolute inset-0 bg-cyan-400/10 rounded-lg transition-opacity duration-300 ${isHovered ? "opacity-100" : "opacity-0"}`
@@ -23228,10 +24750,10 @@
         );
       }) });
     };
-    return /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "min-h-screen bg-black text-cyan-400", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "flex items-center justify-between p-6 border-b border-cyan-400/30", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "flex items-center gap-4", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { className: "min-h-screen bg-black text-cyan-400", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { className: "flex items-center justify-between p-6 border-b border-cyan-400/30", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { className: "flex items-center gap-4", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(
             "button",
             {
               onClick: onBack,
@@ -23239,12 +24761,12 @@
               children: "\u2190 Back"
             }
           ),
-          /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("h1", { className: "text-2xl font-mono font-bold", children: "All Clusters" })
+          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("h1", { className: "text-2xl font-mono font-bold", children: "All Clusters" })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "flex items-center gap-2", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "text-sm font-mono", children: "View Mode:" }),
-          /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "flex bg-black/50 border border-cyan-400/50 rounded", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { className: "flex items-center gap-2", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: "text-sm font-mono", children: "View Mode:" }),
+          /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { className: "flex bg-black/50 border border-cyan-400/50 rounded", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(
               "button",
               {
                 onClick: () => setViewMode("default"),
@@ -23252,7 +24774,7 @@
                 children: "Default"
               }
             ),
-            /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+            /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(
               "button",
               {
                 onClick: () => setViewMode("preview"),
@@ -23263,16 +24785,16 @@
           ] })
         ] })
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("div", { className: "flex-1 overflow-auto", children: viewMode === "default" ? renderDefaultMode() : renderPreviewMode() }),
-      clusters.length === 0 && /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("div", { className: "flex items-center justify-center h-64", children: /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "text-center", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("p", { className: "text-cyan-400/60 text-lg mb-4", children: "No clusters found" }),
-        /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("p", { className: "text-cyan-400/40 text-sm", children: "Create your first cluster to get started" })
+      /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("div", { className: "flex-1 overflow-auto", children: viewMode === "default" ? renderDefaultMode() : renderPreviewMode() }),
+      clusters.length === 0 && /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("div", { className: "flex items-center justify-center h-64", children: /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { className: "text-center", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("p", { className: "text-cyan-400/60 text-lg mb-4", children: "No clusters found" }),
+        /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("p", { className: "text-cyan-400/40 text-sm", children: "Create your first cluster to get started" })
       ] }) })
     ] });
   };
 
   // src/components/ImageDropModal.tsx
-  var import_react16 = __toESM(require_react(), 1);
+  var import_react19 = __toESM(require_react(), 1);
 
   // node_modules/.pnpm/@google+genai@1.13.0_encoding@0.1.13/node_modules/@google/genai/dist/web/index.mjs
   var _defaultBaseGeminiUrl = void 0;
@@ -39601,7 +41123,7 @@ Be thoughtful and accurate in your analysis. The content should be useful for fu
   };
 
   // src/components/ImageDropModal.tsx
-  var import_jsx_runtime12 = __toESM(require_jsx_runtime(), 1);
+  var import_jsx_runtime17 = __toESM(require_jsx_runtime(), 1);
   var ImageDropModal = ({
     isOpen,
     onClose,
@@ -39611,47 +41133,47 @@ Be thoughtful and accurate in your analysis. The content should be useful for fu
     existingNodes,
     onOpenSettings
   }) => {
-    const [isDragOver, setIsDragOver] = (0, import_react16.useState)(false);
-    const [processingImages, setProcessingImages] = (0, import_react16.useState)(
+    const [isDragOver, setIsDragOver] = (0, import_react19.useState)(false);
+    const [processingImages, setProcessingImages] = (0, import_react19.useState)(
       []
     );
-    const [isProcessing, setIsProcessing] = (0, import_react16.useState)(false);
-    const [isSaving, setIsSaving] = (0, import_react16.useState)(false);
-    const [currentClusterId, setCurrentClusterId] = (0, import_react16.useState)(
+    const [isProcessing, setIsProcessing] = (0, import_react19.useState)(false);
+    const [isSaving, setIsSaving] = (0, import_react19.useState)(false);
+    const [currentClusterId, setCurrentClusterId] = (0, import_react19.useState)(
       selectedClusterId
     );
-    const fileInputRef = (0, import_react16.useRef)(null);
-    const [hasApiKey, setHasApiKey] = (0, import_react16.useState)(false);
-    (0, import_react16.useEffect)(() => {
+    const fileInputRef = (0, import_react19.useRef)(null);
+    const [hasApiKey, setHasApiKey] = (0, import_react19.useState)(false);
+    (0, import_react19.useEffect)(() => {
       if (isOpen) {
         const geminiService = GeminiService.getInstance();
         const apiKey = geminiService.getApiKey();
         setHasApiKey(!!apiKey);
       }
     }, [isOpen]);
-    (0, import_react16.useEffect)(() => {
+    (0, import_react19.useEffect)(() => {
       if (!isOpen) return;
       if (!currentClusterId) {
         const fallback = selectedClusterId || clusters[0]?.id || null;
         setCurrentClusterId(fallback);
       }
     }, [isOpen, currentClusterId, selectedClusterId, clusters]);
-    (0, import_react16.useEffect)(() => {
+    (0, import_react19.useEffect)(() => {
       if (isOpen && selectedClusterId) {
         setCurrentClusterId(selectedClusterId);
       }
     }, [isOpen, selectedClusterId]);
-    const existingTags = import_react16.default.useMemo(() => {
+    const existingTags = import_react19.default.useMemo(() => {
       const tags = /* @__PURE__ */ new Set();
       existingNodes.forEach((node) => {
         node.dataLog?.tags?.forEach((tag) => tags.add(tag));
       });
       return Array.from(tags);
     }, [existingNodes]);
-    const existingContent = import_react16.default.useMemo(() => {
+    const existingContent = import_react19.default.useMemo(() => {
       return existingNodes.map((node) => node.dataLog?.content || "").filter(Boolean).join(" ");
     }, [existingNodes]);
-    const generateNodeFromImage = (0, import_react16.useCallback)(
+    const generateNodeFromImage = (0, import_react19.useCallback)(
       async (file) => {
         try {
           const base64 = await fileToBase64(file);
@@ -39687,7 +41209,7 @@ Be thoughtful and accurate in your analysis. The content should be useful for fu
         reader.onerror = (error) => reject(error);
       });
     };
-    const processImages = (0, import_react16.useCallback)(
+    const processImages = (0, import_react19.useCallback)(
       async (files) => {
         if (!currentClusterId) {
           alert("Please select a cluster first");
@@ -39724,15 +41246,15 @@ Be thoughtful and accurate in your analysis. The content should be useful for fu
       },
       [currentClusterId, generateNodeFromImage]
     );
-    const handleDragOver = (0, import_react16.useCallback)((e) => {
+    const handleDragOver = (0, import_react19.useCallback)((e) => {
       e.preventDefault();
       setIsDragOver(true);
     }, []);
-    const handleDragLeave = (0, import_react16.useCallback)((e) => {
+    const handleDragLeave = (0, import_react19.useCallback)((e) => {
       e.preventDefault();
       setIsDragOver(false);
     }, []);
-    const handleDrop = (0, import_react16.useCallback)(
+    const handleDrop = (0, import_react19.useCallback)(
       (e) => {
         e.preventDefault();
         setIsDragOver(false);
@@ -39744,7 +41266,7 @@ Be thoughtful and accurate in your analysis. The content should be useful for fu
       },
       [processImages]
     );
-    const handleFileSelect = (0, import_react16.useCallback)(
+    const handleFileSelect = (0, import_react19.useCallback)(
       (e) => {
         const files = Array.from(e.target.files || []);
         const imageFiles = files.filter((file) => file.type.startsWith("image/"));
@@ -39809,11 +41331,11 @@ Be thoughtful and accurate in your analysis. The content should be useful for fu
       setProcessingImages((prev) => prev.filter((img) => img.id !== imageId));
     };
     if (!isOpen) return null;
-    return /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", { className: "fixed inset-0 bg-black/80 flex items-center justify-center z-50", children: /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { className: "bg-black border border-cyan-400/50 rounded-lg p-6 w-full max-w-2xl max-h-[80vh] overflow-y-auto", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { className: "flex justify-between items-center mb-4", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("h2", { className: "text-cyan-400 font-mono text-lg font-bold", children: "AI Image Node Generator" }),
-        /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { className: "flex gap-2 items-center", children: [
-          onOpenSettings && /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("div", { className: "fixed inset-0 bg-black/80 flex items-center justify-center z-50", children: /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("div", { className: "bg-black border border-cyan-400/50 rounded-lg p-6 w-full max-w-2xl max-h-[80vh] overflow-y-auto", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("div", { className: "flex justify-between items-center mb-4", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("h2", { className: "text-cyan-400 font-mono text-lg font-bold", children: "AI Image Node Generator" }),
+        /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("div", { className: "flex gap-2 items-center", children: [
+          onOpenSettings && /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(
             "button",
             {
               onClick: () => {
@@ -39829,7 +41351,7 @@ Be thoughtful and accurate in your analysis. The content should be useful for fu
               children: "Input Gemini API"
             }
           ),
-          /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
+          /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(
             "button",
             {
               onClick: onClose,
@@ -39839,31 +41361,31 @@ Be thoughtful and accurate in your analysis. The content should be useful for fu
           )
         ] })
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { className: "mb-4", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("label", { className: "block text-sm font-medium text-cyan-300 mb-2", children: "Cluster" }),
-        /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)(
+      /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("div", { className: "mb-4", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("label", { className: "block text-sm font-medium text-cyan-300 mb-2", children: "Cluster" }),
+        /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)(
           "select",
           {
             value: currentClusterId || "",
             onChange: (e) => setCurrentClusterId(e.target.value || null),
             className: "w-full px-3 py-2 bg-black/60 border border-cyan-400/40 rounded text-cyan-100 focus:outline-none focus:border-cyan-400",
             children: [
-              /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("option", { value: "", children: "Select a cluster" }),
-              clusters.map((cluster) => /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("option", { value: cluster.id, children: cluster.name }, cluster.id))
+              /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("option", { value: "", children: "Select a cluster" }),
+              clusters.map((cluster) => /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("option", { value: cluster.id, children: cluster.name }, cluster.id))
             ]
           }
         ),
-        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("p", { className: "text-xs text-cyan-300/60 mt-1", children: "Choose which cluster these images will be added to." })
+        /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("p", { className: "text-xs text-cyan-300/60 mt-1", children: "Choose which cluster these images will be added to." })
       ] }),
-      !currentClusterId ? /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { className: "text-red-400 text-center py-8", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", { className: "text-2xl mb-4", children: "\u26A0\uFE0F" }),
-        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", { className: "text-lg font-bold mb-2", children: "No Cluster Selected" }),
-        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", { className: "text-sm", children: "Please select a cluster from the sidebar before using the AI Image Generator." })
-      ] }) : !hasApiKey ? /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { className: "text-red-400 text-center py-8", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", { className: "text-2xl mb-4", children: "\u{1F511}" }),
-        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", { className: "text-lg font-bold mb-2", children: "API Key Required" }),
-        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", { className: "text-sm mb-4", children: "Please configure your Gemini API key to use the AI Image Generator." }),
-        onOpenSettings && /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
+      !currentClusterId ? /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("div", { className: "text-red-400 text-center py-8", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("div", { className: "text-2xl mb-4", children: "\u26A0\uFE0F" }),
+        /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("div", { className: "text-lg font-bold mb-2", children: "No Cluster Selected" }),
+        /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("div", { className: "text-sm", children: "Please select a cluster from the sidebar before using the AI Image Generator." })
+      ] }) : !hasApiKey ? /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("div", { className: "text-red-400 text-center py-8", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("div", { className: "text-2xl mb-4", children: "\u{1F511}" }),
+        /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("div", { className: "text-lg font-bold mb-2", children: "API Key Required" }),
+        /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("div", { className: "text-sm mb-4", children: "Please configure your Gemini API key to use the AI Image Generator." }),
+        onOpenSettings && /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(
           "button",
           {
             onClick: onOpenSettings,
@@ -39871,8 +41393,8 @@ Be thoughtful and accurate in your analysis. The content should be useful for fu
             children: "Input Gemini API"
           }
         )
-      ] }) : /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)(import_jsx_runtime12.Fragment, { children: [
-        /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)(
+      ] }) : /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)(import_jsx_runtime17.Fragment, { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)(
           "div",
           {
             className: `border-2 border-dashed rounded-lg p-8 text-center transition-colors ${isDragOver ? "border-cyan-400 bg-cyan-400/10" : "border-cyan-400/50 hover:border-cyan-400/70"}`,
@@ -39880,12 +41402,12 @@ Be thoughtful and accurate in your analysis. The content should be useful for fu
             onDragLeave: handleDragLeave,
             onDrop: handleDrop,
             children: [
-              /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { className: "text-cyan-400 mb-4", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", { className: "text-4xl mb-2", children: "\u{1F4F8}" }),
-                /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", { className: "text-lg font-bold mb-2", children: "Drop Images Here" }),
-                /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", { className: "text-sm text-cyan-400/70", children: "Or click to select files" })
+              /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("div", { className: "text-cyan-400 mb-4", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("div", { className: "text-4xl mb-2", children: "\u{1F4F8}" }),
+                /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("div", { className: "text-lg font-bold mb-2", children: "Drop Images Here" }),
+                /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("div", { className: "text-sm text-cyan-400/70", children: "Or click to select files" })
               ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
+              /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(
                 "input",
                 {
                   ref: fileInputRef,
@@ -39896,7 +41418,7 @@ Be thoughtful and accurate in your analysis. The content should be useful for fu
                   className: "hidden"
                 }
               ),
-              /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
+              /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(
                 "button",
                 {
                   onClick: () => fileInputRef.current?.click(),
@@ -39907,40 +41429,40 @@ Be thoughtful and accurate in your analysis. The content should be useful for fu
             ]
           }
         ),
-        processingImages.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { className: "mt-6", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("h3", { className: "text-cyan-400 font-mono text-sm font-bold mb-3", children: [
+        processingImages.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("div", { className: "mt-6", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("h3", { className: "text-cyan-400 font-mono text-sm font-bold mb-3", children: [
             "Processing Images (",
             processingImages.filter((img) => img.status === "completed").length,
             "/",
             processingImages.length,
             ")"
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", { className: "space-y-3", children: processingImages.map((img) => /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)(
+          /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("div", { className: "space-y-3", children: processingImages.map((img) => /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)(
             "div",
             {
               className: "flex items-center gap-3 p-3 border border-cyan-400/30 rounded",
               children: [
-                /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { className: "w-12 h-12 bg-cyan-400/20 rounded flex items-center justify-center", children: [
-                  img.status === "processing" && /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", { className: "animate-spin text-cyan-400", children: "\u23F3" }),
-                  img.status === "completed" && /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", { className: "text-green-400", children: "\u2713" }),
-                  img.status === "error" && /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", { className: "text-red-400", children: "\u2717" })
+                /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("div", { className: "w-12 h-12 bg-cyan-400/20 rounded flex items-center justify-center", children: [
+                  img.status === "processing" && /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("div", { className: "animate-spin text-cyan-400", children: "\u23F3" }),
+                  img.status === "completed" && /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("div", { className: "text-green-400", children: "\u2713" }),
+                  img.status === "error" && /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("div", { className: "text-red-400", children: "\u2717" })
                 ] }),
-                /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { className: "flex-1 min-w-0", children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", { className: "text-cyan-300 text-sm truncate", children: img.file.name }),
-                  img.status === "completed" && img.result && /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { className: "text-xs text-cyan-400/70 mt-1", children: [
-                    /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { className: "truncate", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("div", { className: "flex-1 min-w-0", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("div", { className: "text-cyan-300 text-sm truncate", children: img.file.name }),
+                  img.status === "completed" && img.result && /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("div", { className: "text-xs text-cyan-400/70 mt-1", children: [
+                    /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("div", { className: "truncate", children: [
                       "Title: ",
                       img.result.title
                     ] }),
-                    /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { className: "truncate", children: [
+                    /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("div", { className: "truncate", children: [
                       "Tags: ",
                       img.result.tags.join(", ")
                     ] })
                   ] }),
-                  img.status === "error" && /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", { className: "text-xs text-red-400 mt-1", children: img.error })
+                  img.status === "error" && /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("div", { className: "text-xs text-red-400 mt-1", children: img.error })
                 ] }),
-                /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { className: "flex gap-2", children: [
-                  img.status === "error" && /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
+                /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("div", { className: "flex gap-2", children: [
+                  img.status === "error" && /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(
                     "button",
                     {
                       onClick: () => handleRetry(img.id),
@@ -39948,7 +41470,7 @@ Be thoughtful and accurate in your analysis. The content should be useful for fu
                       children: "Retry"
                     }
                   ),
-                  /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
+                  /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(
                     "button",
                     {
                       onClick: () => handleRemove(img.id),
@@ -39962,8 +41484,8 @@ Be thoughtful and accurate in your analysis. The content should be useful for fu
             img.id
           )) })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { className: "flex justify-end gap-3 mt-6", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("div", { className: "flex justify-end gap-3 mt-6", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(
             "button",
             {
               onClick: onClose,
@@ -39971,7 +41493,7 @@ Be thoughtful and accurate in your analysis. The content should be useful for fu
               children: "Cancel"
             }
           ),
-          /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
+          /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(
             "button",
             {
               onClick: handleGenerateNodes,
@@ -39986,18 +41508,18 @@ Be thoughtful and accurate in your analysis. The content should be useful for fu
   };
 
   // src/components/GeminiSettingsModal.tsx
-  var import_react17 = __toESM(require_react(), 1);
-  var import_jsx_runtime13 = __toESM(require_jsx_runtime(), 1);
+  var import_react20 = __toESM(require_react(), 1);
+  var import_jsx_runtime18 = __toESM(require_jsx_runtime(), 1);
   var GeminiSettingsModal = ({
     isOpen,
     onClose
   }) => {
-    const [apiKey, setApiKey] = (0, import_react17.useState)("");
-    const [isValidating, setIsValidating] = (0, import_react17.useState)(false);
-    const [validationMessage, setValidationMessage] = (0, import_react17.useState)("");
-    const [showApiKey, setShowApiKey] = (0, import_react17.useState)(false);
-    const [hasApiKey, setHasApiKey] = (0, import_react17.useState)(false);
-    (0, import_react17.useEffect)(() => {
+    const [apiKey, setApiKey] = (0, import_react20.useState)("");
+    const [isValidating, setIsValidating] = (0, import_react20.useState)(false);
+    const [validationMessage, setValidationMessage] = (0, import_react20.useState)("");
+    const [showApiKey, setShowApiKey] = (0, import_react20.useState)(false);
+    const [hasApiKey, setHasApiKey] = (0, import_react20.useState)(false);
+    (0, import_react20.useEffect)(() => {
       if (isOpen) {
         try {
           const geminiService = GeminiService.getInstance();
@@ -40050,10 +41572,10 @@ Be thoughtful and accurate in your analysis. The content should be useful for fu
     };
     if (!isOpen) return null;
     try {
-      return /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { className: "fixed inset-0 bg-black/80 flex items-center justify-center z-50", children: /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "bg-black border border-cyan-400/50 rounded-lg p-6 w-full max-w-md", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "flex justify-between items-center mb-4", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("h2", { className: "text-cyan-400 font-mono text-lg font-bold", children: "Gemini API Settings" }),
-          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
+      return /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("div", { className: "fixed inset-0 bg-black/80 flex items-center justify-center z-50", children: /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)("div", { className: "bg-black border border-cyan-400/50 rounded-lg p-6 w-full max-w-md", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)("div", { className: "flex justify-between items-center mb-4", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("h2", { className: "text-cyan-400 font-mono text-lg font-bold", children: "Gemini API Settings" }),
+          /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(
             "button",
             {
               onClick: onClose,
@@ -40062,11 +41584,11 @@ Be thoughtful and accurate in your analysis. The content should be useful for fu
             }
           )
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "space-y-4", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("label", { className: "block text-cyan-400 text-sm font-bold mb-2", children: "API Key" }),
-            hasApiKey ? /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "flex items-center gap-2", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)("div", { className: "space-y-4", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)("div", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("label", { className: "block text-cyan-400 text-sm font-bold mb-2", children: "API Key" }),
+            hasApiKey ? /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)("div", { className: "flex items-center gap-2", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(
                 "input",
                 {
                   type: showApiKey ? "text" : "password",
@@ -40075,7 +41597,7 @@ Be thoughtful and accurate in your analysis. The content should be useful for fu
                   className: "flex-1 px-3 py-2 bg-black border border-cyan-400/50 text-cyan-300 rounded focus:border-cyan-400 focus:outline-none"
                 }
               ),
-              /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
+              /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(
                 "button",
                 {
                   onClick: toggleApiKeyVisibility,
@@ -40084,7 +41606,7 @@ Be thoughtful and accurate in your analysis. The content should be useful for fu
                   children: showApiKey ? "\u{1F441}\uFE0F" : "\u{1F441}\uFE0F\u200D\u{1F5E8}\uFE0F"
                 }
               )
-            ] }) : /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
+            ] }) : /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(
               "input",
               {
                 type: "password",
@@ -40095,14 +41617,14 @@ Be thoughtful and accurate in your analysis. The content should be useful for fu
               }
             )
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "text-xs text-cyan-400/70", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("p", { children: "Your API key is stored locally and never shared." }),
-            /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("p", { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)("div", { className: "text-xs text-cyan-400/70", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("p", { children: "Your API key is stored locally and never shared." }),
+            /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)("p", { children: [
               "Get your API key from Google AI Studio. Gemini Flash 2.5 is free to use",
               " "
             ] })
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
+          /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(
             "button",
             {
               onClick: handleGetApiKey,
@@ -40110,15 +41632,15 @@ Be thoughtful and accurate in your analysis. The content should be useful for fu
               children: "Get API Key from Google AI Studio"
             }
           ),
-          validationMessage && /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
+          validationMessage && /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(
             "div",
             {
               className: `text-sm p-2 rounded ${validationMessage.includes("successfully") ? "bg-green-400/20 border border-green-400/50 text-green-300" : "bg-red-400/20 border border-red-400/50 text-red-300"}`,
               children: validationMessage
             }
           ),
-          /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "flex justify-end gap-3", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
+          /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)("div", { className: "flex justify-end gap-3", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(
               "button",
               {
                 onClick: onClose,
@@ -40126,7 +41648,7 @@ Be thoughtful and accurate in your analysis. The content should be useful for fu
                 children: hasApiKey ? "Close" : "Cancel"
               }
             ),
-            !hasApiKey ? /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
+            !hasApiKey ? /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(
               "button",
               {
                 onClick: handleSave,
@@ -40134,7 +41656,7 @@ Be thoughtful and accurate in your analysis. The content should be useful for fu
                 className: "px-4 py-2 bg-cyan-400/20 border border-cyan-400/50 text-cyan-300 rounded hover:bg-cyan-400/30 transition-colors disabled:opacity-50 disabled:cursor-not-allowed",
                 children: isValidating ? "Saving..." : "Save"
               }
-            ) : /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
+            ) : /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(
               "button",
               {
                 onClick: () => {
@@ -40151,10 +41673,10 @@ Be thoughtful and accurate in your analysis. The content should be useful for fu
       ] }) });
     } catch (error) {
       console.error("Error rendering GeminiSettingsModal:", error);
-      return /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { className: "fixed inset-0 bg-black/80 flex items-center justify-center z-50", children: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { className: "bg-black border border-red-400/50 rounded-lg p-6 w-full max-w-md", children: /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "text-red-400 text-center", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("h2", { className: "font-mono text-lg font-bold mb-4", children: "Error" }),
-        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("p", { children: "Failed to load settings. Please try again." }),
-        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
+      return /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("div", { className: "fixed inset-0 bg-black/80 flex items-center justify-center z-50", children: /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("div", { className: "bg-black border border-red-400/50 rounded-lg p-6 w-full max-w-md", children: /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)("div", { className: "text-red-400 text-center", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("h2", { className: "font-mono text-lg font-bold mb-4", children: "Error" }),
+        /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("p", { children: "Failed to load settings. Please try again." }),
+        /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(
           "button",
           {
             onClick: onClose,
@@ -40167,7 +41689,7 @@ Be thoughtful and accurate in your analysis. The content should be useful for fu
   };
 
   // src/PKMApp.tsx
-  var import_jsx_runtime14 = __toESM(require_jsx_runtime(), 1);
+  var import_jsx_runtime19 = __toESM(require_jsx_runtime(), 1);
   function PKMApp() {
     const { playNodeSound } = useAudioContext();
     const { nodes, connections, addNode, deleteNode, refreshData } = useDatabaseMemoryTree();
@@ -40183,29 +41705,53 @@ Be thoughtful and accurate in your analysis. The content should be useful for fu
       updateRotation,
       updateZoom
     } = use3DRendering();
-    const [hoveredNode, setHoveredNode] = (0, import_react18.useState)(null);
-    const [selectedNode, setSelectedNode] = (0, import_react18.useState)(null);
-    const [sidebarCollapsed, setSidebarCollapsed] = (0, import_react18.useState)(false);
-    const [previewMode, setPreviewMode] = (0, import_react18.useState)(false);
-    const [selectedTags, setSelectedTags] = (0, import_react18.useState)([]);
-    const [showAddModal, setShowAddModal] = (0, import_react18.useState)(false);
-    const [clusters, setClusters] = (0, import_react18.useState)([]);
-    const [selectedClusterId, setSelectedClusterId] = (0, import_react18.useState)(
+    const [hoveredNode, setHoveredNode] = (0, import_react21.useState)(null);
+    const [selectedNode, setSelectedNode] = (0, import_react21.useState)(null);
+    const [sidebarCollapsed, setSidebarCollapsed] = (0, import_react21.useState)(false);
+    const [previewMode, setPreviewMode] = (0, import_react21.useState)(false);
+    const [selectedTags, setSelectedTags] = (0, import_react21.useState)([]);
+    const [showAddModal, setShowAddModal] = (0, import_react21.useState)(false);
+    const [clusters, setClusters] = (0, import_react21.useState)([]);
+    const [selectedClusterId, setSelectedClusterId] = (0, import_react21.useState)(
       null
     );
-    const [showClusterSettings, setShowClusterSettings] = (0, import_react18.useState)(false);
-    const [showCreateCluster, setShowCreateCluster] = (0, import_react18.useState)(false);
-    const [showAllClustersGrid, setShowAllClustersGrid] = (0, import_react18.useState)(false);
-    const [filteredNodes, setFilteredNodes] = (0, import_react18.useState)([]);
-    const [filteredConnections, setFilteredConnections] = (0, import_react18.useState)(
+    const [showClusterSettings, setShowClusterSettings] = (0, import_react21.useState)(false);
+    const [showCreateCluster, setShowCreateCluster] = (0, import_react21.useState)(false);
+    const [showAllClustersGrid, setShowAllClustersGrid] = (0, import_react21.useState)(false);
+    const [filteredNodes, setFilteredNodes] = (0, import_react21.useState)([]);
+    const [filteredConnections, setFilteredConnections] = (0, import_react21.useState)(
       []
     );
-    const [editingCluster, setEditingCluster] = (0, import_react18.useState)(null);
-    const [showImageDropModal, setShowImageDropModal] = (0, import_react18.useState)(false);
-    const [showGeminiSettings, setShowGeminiSettings] = (0, import_react18.useState)(false);
-    const [dotTooltip, setDotTooltip] = (0, import_react18.useState)(null);
+    const [editingCluster, setEditingCluster] = (0, import_react21.useState)(null);
+    const [showImageDropModal, setShowImageDropModal] = (0, import_react21.useState)(false);
+    const [showGeminiSettings, setShowGeminiSettings] = (0, import_react21.useState)(false);
+    const [dotTooltip, setDotTooltip] = (0, import_react21.useState)(null);
+    const [currentView, setCurrentView] = (0, import_react21.useState)("clustered");
+    const [showViewSelector, setShowViewSelector] = (0, import_react21.useState)(false);
+    const [nodeSummary, setNodeSummary] = (0, import_react21.useState)(null);
+    (0, import_react21.useEffect)(() => {
+      const savedState = appStateService.loadState();
+      if (savedState) {
+        if (savedState.currentView) {
+          setCurrentView(savedState.currentView);
+        }
+        if (savedState.selectedCluster) {
+          setSelectedClusterId(savedState.selectedCluster);
+        }
+      }
+    }, []);
+    const saveAppState = () => {
+      const state = {
+        currentView,
+        selectedCluster: selectedClusterId || void 0
+      };
+      appStateService.saveState(state);
+    };
+    (0, import_react21.useEffect)(() => {
+      saveAppState();
+    }, [currentView, selectedClusterId]);
     const databaseService = DatabaseService.getInstance();
-    (0, import_react18.useEffect)(() => {
+    (0, import_react21.useEffect)(() => {
       loadClusters();
     }, []);
     const generateSharedTagConnections = (nodeList) => {
@@ -40236,7 +41782,7 @@ Be thoughtful and accurate in your analysis. The content should be useful for fu
       }
       return generatedConnections;
     };
-    (0, import_react18.useEffect)(() => {
+    (0, import_react21.useEffect)(() => {
       let filteredNodes2 = nodes;
       if (selectedClusterId) {
         filteredNodes2 = filteredNodes2.filter(
@@ -40289,7 +41835,12 @@ Be thoughtful and accurate in your analysis. The content should be useful for fu
         } else {
           console.log("\u{1F4CB} Using existing clusters");
           setClusters(allClusters);
-          if (!selectedClusterId) {
+          const saved = appStateService.loadState();
+          const savedId = saved?.selectedCluster || null;
+          if (savedId && allClusters.some((c) => c.id === savedId)) {
+            setSelectedClusterId(savedId);
+            console.log(`\u{1F3AF} Restored saved cluster: ${savedId}`);
+          } else if (!selectedClusterId) {
             const defaultCluster = allClusters.find(
               (c) => c.id === "default-cluster"
             );
@@ -40311,6 +41862,26 @@ Be thoughtful and accurate in your analysis. The content should be useful for fu
     };
     const handleNodeHover = (nodeId) => {
       setHoveredNode(nodeId);
+      if (nodeId) {
+        const node = filteredNodes.find((n) => n.id === nodeId);
+        if (node) {
+          let rotated = rotateX(node.x, node.y, node.z, rotationX);
+          rotated = rotateY(rotated.x, rotated.y, rotated.z, rotationY);
+          const projected = project3D(
+            rotated.x,
+            rotated.y,
+            rotated.z,
+            sidebarCollapsed
+          );
+          setNodeSummary({
+            node,
+            x: projected.x,
+            y: projected.y
+          });
+        }
+      } else {
+        setNodeSummary(null);
+      }
     };
     const handleSidebarToggle = () => {
       setSidebarCollapsed(!sidebarCollapsed);
@@ -40323,6 +41894,12 @@ Be thoughtful and accurate in your analysis. The content should be useful for fu
     };
     const handleClusterSelect = (clusterId) => {
       setSelectedClusterId(clusterId);
+      const currentState = appStateService.loadState() || { currentView };
+      appStateService.saveState({
+        ...currentState,
+        currentView,
+        selectedCluster: clusterId || void 0
+      });
     };
     const handleCreateNewCluster = () => {
       setShowCreateCluster(true);
@@ -40384,7 +41961,7 @@ Be thoughtful and accurate in your analysis. The content should be useful for fu
         throw error;
       }
     };
-    const currentTooltipRef = (0, import_react18.useRef)(null);
+    const currentTooltipRef = (0, import_react21.useRef)(null);
     const handleDotHover = (sharedTags, x, y) => {
       const newTooltip = { tags: sharedTags, x, y };
       const current = currentTooltipRef.current;
@@ -40417,6 +41994,22 @@ Be thoughtful and accurate in your analysis. The content should be useful for fu
     };
     const handleOpenGeminiSettings = () => {
       setShowGeminiSettings(true);
+    };
+    const handleViewChange = (view) => {
+      setCurrentView(view);
+      setShowViewSelector(false);
+      const currentState = appStateService.loadState() || {};
+      appStateService.saveState({
+        ...currentState,
+        currentView: view,
+        selectedCluster: selectedClusterId || void 0
+      });
+    };
+    const handleToggleViewSelector = () => {
+      setShowViewSelector(!showViewSelector);
+    };
+    const handleViewSelectorClose = () => {
+      setShowViewSelector(false);
     };
     const handleNodesGenerated = async (nodesData) => {
       try {
@@ -40468,7 +42061,7 @@ Be thoughtful and accurate in your analysis. The content should be useful for fu
       playNodeSound
     });
     if (showAllClustersGrid) {
-      return /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
+      return /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(
         AllClustersGrid,
         {
           clusters,
@@ -40477,14 +42070,14 @@ Be thoughtful and accurate in your analysis. The content should be useful for fu
         }
       );
     }
-    return /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)(
+    return /* @__PURE__ */ (0, import_jsx_runtime19.jsxs)(
       "div",
       {
         className: "relative w-full h-screen overflow-hidden bg-black",
         style: { touchAction: "none" },
         children: [
-          /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("div", { className: "absolute inset-0", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
+          /* @__PURE__ */ (0, import_jsx_runtime19.jsxs)("div", { className: "absolute inset-0", children: [
+            currentView === "original" && /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(
               CanvasRenderer,
               {
                 nodes: filteredNodes,
@@ -40506,7 +42099,56 @@ Be thoughtful and accurate in your analysis. The content should be useful for fu
                 project3D
               }
             ),
-            /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
+            currentView === "clustered" && /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(
+              ClusteredGraphView,
+              {
+                nodes: filteredNodes,
+                connections: filteredConnections,
+                hoveredNode,
+                selectedNode,
+                sidebarCollapsed,
+                imageCache,
+                time,
+                rotationX,
+                rotationY,
+                zoom,
+                selectedClusterColor: clusters.find((c) => c.id === selectedClusterId)?.color,
+                onNodeClick: handleNodeClick,
+                onNodeHover: handleNodeHover,
+                rotateX,
+                rotateY,
+                project3D
+              }
+            ),
+            currentView === "timeline" && /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(
+              TimelineView,
+              {
+                nodes: filteredNodes,
+                connections: filteredConnections,
+                hoveredNode,
+                selectedNode,
+                sidebarCollapsed,
+                imageCache,
+                time,
+                onNodeClick: handleNodeClick,
+                onNodeHover: handleNodeHover
+              }
+            ),
+            currentView === "tag-centric" && /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(
+              TagCentricView,
+              {
+                nodes: filteredNodes,
+                connections: filteredConnections,
+                hoveredNode,
+                selectedNode,
+                sidebarCollapsed,
+                imageCache,
+                time,
+                onNodeClick: handleNodeClick,
+                onNodeHover: handleNodeHover
+              }
+            ),
+            currentView === "original" && /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(
               "canvas",
               {
                 ref: canvasRef,
@@ -40533,7 +42175,7 @@ Be thoughtful and accurate in your analysis. The content should be useful for fu
               }
             )
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
+          /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(
             Sidebar,
             {
               nodes: filteredNodes,
@@ -40555,24 +42197,55 @@ Be thoughtful and accurate in your analysis. The content should be useful for fu
               onDeleteNodes: handleDeleteMultiple
             }
           ),
-          /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
+          showViewSelector && /* @__PURE__ */ (0, import_jsx_runtime19.jsxs)(import_jsx_runtime19.Fragment, { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(
+              "div",
+              {
+                className: "absolute inset-0 z-10",
+                onClick: handleViewSelectorClose
+              }
+            ),
+            /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(
+              ViewSelector,
+              {
+                currentView,
+                onViewChange: handleViewChange,
+                previewMode,
+                onPreviewModeToggle: handlePreviewModeToggle
+              }
+            )
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(
+            "button",
+            {
+              onClick: handleToggleViewSelector,
+              className: "absolute top-4 right-4 z-10 bg-black/80 text-cyan-400 p-3 rounded border border-cyan-400/50 hover:bg-cyan-400/20 transition-colors",
+              title: "Change visualization mode",
+              style: { display: showViewSelector ? "none" : "block" },
+              children: /* @__PURE__ */ (0, import_jsx_runtime19.jsxs)("div", { className: "text-lg", children: [
+                currentView === "original" && "\u{1F517}",
+                currentView === "clustered" && "\u{1FAE7}",
+                currentView === "timeline" && "\u{1F4C5}",
+                currentView === "tag-centric" && "\u{1F3F7}\uFE0F"
+              ] })
+            }
+          ),
+          /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(
             UIOverlay,
             {
               sidebarCollapsed,
-              previewMode,
               zoom,
               hoveredNode,
               selectedNode,
               nodes: filteredNodes,
               rotationX,
               rotationY,
-              onPreviewModeToggle: handlePreviewModeToggle,
               rotateX,
               rotateY,
               project3D
             }
           ),
-          /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
+          /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(
             NodeDetailsModal,
             {
               selectedNode,
@@ -40604,7 +42277,7 @@ Be thoughtful and accurate in your analysis. The content should be useful for fu
               }
             }
           ),
-          /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
+          /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(
             AddNodeModal,
             {
               isOpen: showAddModal,
@@ -40617,7 +42290,7 @@ Be thoughtful and accurate in your analysis. The content should be useful for fu
               selectedClusterId
             }
           ),
-          /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
+          /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(
             ClusterSettingsModal,
             {
               cluster: editingCluster,
@@ -40634,7 +42307,7 @@ Be thoughtful and accurate in your analysis. The content should be useful for fu
               }
             }
           ),
-          /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
+          /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(
             CreateClusterModal,
             {
               isOpen: showCreateCluster,
@@ -40643,7 +42316,7 @@ Be thoughtful and accurate in your analysis. The content should be useful for fu
               existingClusters: clusters
             }
           ),
-          /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
+          /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(
             ImageDropModal,
             {
               isOpen: showImageDropModal,
@@ -40655,14 +42328,24 @@ Be thoughtful and accurate in your analysis. The content should be useful for fu
               onOpenSettings: handleOpenGeminiSettings
             }
           ),
-          /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
+          /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(
             GeminiSettingsModal,
             {
               isOpen: showGeminiSettings,
               onClose: () => setShowGeminiSettings(false)
             }
           ),
-          dotTooltip && /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
+          nodeSummary && /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(
+            NodeSummary,
+            {
+              node: nodeSummary.node,
+              x: nodeSummary.x,
+              y: nodeSummary.y,
+              visible: true,
+              fixedPosition: currentView === "tag-centric"
+            }
+          ),
+          dotTooltip && /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(
             "div",
             {
               className: "fixed z-50 bg-black/90 text-cyan-400 font-mono text-xs p-2 rounded border border-cyan-400/50 pointer-events-none",
@@ -40671,7 +42354,7 @@ Be thoughtful and accurate in your analysis. The content should be useful for fu
                 top: dotTooltip.y - 10,
                 transform: "translateY(-100%)"
               },
-              children: /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("div", { className: "space-y-1", children: dotTooltip.tags.map((tag, index) => /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("div", { className: "text-cyan-300", children: [
+              children: /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("div", { className: "space-y-1", children: dotTooltip.tags.map((tag, index) => /* @__PURE__ */ (0, import_jsx_runtime19.jsxs)("div", { className: "text-cyan-300", children: [
                 "\u2022 ",
                 tag
               ] }, index)) })
@@ -40684,8 +42367,8 @@ Be thoughtful and accurate in your analysis. The content should be useful for fu
 
   // src/renderer.ts
   var LoadingNeuron = () => {
-    const [pulse, setPulse] = import_react19.default.useState(0);
-    import_react19.default.useEffect(() => {
+    const [pulse, setPulse] = import_react22.default.useState(0);
+    import_react22.default.useEffect(() => {
       let animationId;
       let startTime = Date.now();
       const animate = () => {
@@ -40696,7 +42379,7 @@ Be thoughtful and accurate in your analysis. The content should be useful for fu
       animate();
       return () => cancelAnimationFrame(animationId);
     }, []);
-    return import_react19.default.createElement(
+    return import_react22.default.createElement(
       "div",
       {
         style: {
@@ -40714,7 +42397,7 @@ Be thoughtful and accurate in your analysis. The content should be useful for fu
         }
       },
       // Neuron container
-      import_react19.default.createElement(
+      import_react22.default.createElement(
         "div",
         {
           style: {
@@ -40727,7 +42410,7 @@ Be thoughtful and accurate in your analysis. The content should be useful for fu
           }
         },
         // Outer glow
-        import_react19.default.createElement("div", {
+        import_react22.default.createElement("div", {
           style: {
             position: "absolute",
             width: `${120 + pulse * 40}px`,
@@ -40738,7 +42421,7 @@ Be thoughtful and accurate in your analysis. The content should be useful for fu
           }
         }),
         // Core neuron
-        import_react19.default.createElement("div", {
+        import_react22.default.createElement("div", {
           style: {
             position: "absolute",
             width: `${40 + pulse * 20}px`,
@@ -40749,7 +42432,7 @@ Be thoughtful and accurate in your analysis. The content should be useful for fu
           }
         }),
         // Wireframe ring
-        import_react19.default.createElement("div", {
+        import_react22.default.createElement("div", {
           style: {
             position: "absolute",
             width: `${60 + pulse * 25}px`,
@@ -40761,7 +42444,7 @@ Be thoughtful and accurate in your analysis. The content should be useful for fu
         })
       ),
       // Loading text
-      import_react19.default.createElement(
+      import_react22.default.createElement(
         "div",
         {
           style: {
@@ -40774,7 +42457,7 @@ Be thoughtful and accurate in your analysis. The content should be useful for fu
         },
         "INITIALIZING FLOPPY NEURONS..."
       ),
-      import_react19.default.createElement(
+      import_react22.default.createElement(
         "div",
         {
           style: {
@@ -40803,15 +42486,15 @@ Be thoughtful and accurate in your analysis. The content should be useful for fu
       try {
         const root = (0, import_client.createRoot)(rootElement);
         console.log("React root created, rendering...");
-        root.render(import_react19.default.createElement(LoadingNeuron));
+        root.render(import_react22.default.createElement(LoadingNeuron));
         setTimeout(() => {
           console.log("Loading PKM app...");
           try {
-            root.render(import_react19.default.createElement(PKMApp));
+            root.render(import_react22.default.createElement(PKMApp));
           } catch (error) {
             console.error("Error loading PKMApp:", error);
             root.render(
-              import_react19.default.createElement(
+              import_react22.default.createElement(
                 "div",
                 {
                   style: { color: "white", padding: "20px", background: "black" }

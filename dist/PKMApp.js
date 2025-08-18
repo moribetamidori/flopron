@@ -1,4 +1,4 @@
-import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import { jsx as _jsx, jsxs as _jsxs, Fragment as _Fragment } from "react/jsx-runtime";
 import { useState, useRef, useEffect } from "react";
 import { useAudioContext } from "./hooks/useAudioContext";
 import { useImageCache } from "./hooks/useImageCache";
@@ -6,6 +6,11 @@ import { useDatabaseMemoryTree, } from "./hooks/useDatabaseMemoryTree";
 import { use3DRendering } from "./hooks/use3DRendering";
 import { useCanvasInteraction } from "./hooks/useCanvasInteraction";
 import { CanvasRenderer } from "./components/CanvasRenderer";
+import { ClusteredGraphView } from "./components/ClusteredGraphView";
+import { TimelineView } from "./components/TimelineView";
+import { TagCentricView } from "./components/TagCentricView";
+import { ViewSelector } from "./components/ViewSelector";
+import { NodeSummary } from "./components/NodeSummary";
 import { Sidebar } from "./components/Sidebar";
 import { NodeDetailsModal } from "./components/NodeDetailsModal";
 import { UIOverlay } from "./components/UIOverlay";
@@ -16,6 +21,7 @@ import { AllClustersGrid } from "./components/AllClustersGrid";
 import { ImageDropModal } from "./components/ImageDropModal";
 import { GeminiSettingsModal } from "./components/GeminiSettingsModal";
 import { DatabaseService } from "./database/databaseService";
+import { appStateService } from "./services/appStateService";
 export default function PKMApp() {
     // Custom hooks
     const { playNodeSound } = useAudioContext();
@@ -40,6 +46,35 @@ export default function PKMApp() {
     const [showImageDropModal, setShowImageDropModal] = useState(false);
     const [showGeminiSettings, setShowGeminiSettings] = useState(false);
     const [dotTooltip, setDotTooltip] = useState(null);
+    // New visualization state
+    const [currentView, setCurrentView] = useState("clustered");
+    const [showViewSelector, setShowViewSelector] = useState(false);
+    const [nodeSummary, setNodeSummary] = useState(null);
+    // Load saved app state on mount
+    useEffect(() => {
+        const savedState = appStateService.loadState();
+        if (savedState) {
+            if (savedState.currentView) {
+                setCurrentView(savedState.currentView);
+            }
+            if (savedState.selectedCluster) {
+                setSelectedClusterId(savedState.selectedCluster);
+            }
+            // Note: Other state will be restored by individual components
+        }
+    }, []);
+    // Save app state when relevant state changes
+    const saveAppState = () => {
+        const state = {
+            currentView,
+            selectedCluster: selectedClusterId || undefined,
+        };
+        appStateService.saveState(state);
+    };
+    // Save state when view or cluster changes
+    useEffect(() => {
+        saveAppState();
+    }, [currentView, selectedClusterId]);
     // Database service
     const databaseService = DatabaseService.getInstance();
     // Load clusters on mount
@@ -131,8 +166,14 @@ export default function PKMApp() {
             else {
                 console.log("📋 Using existing clusters");
                 setClusters(allClusters);
-                // Set default cluster if none selected
-                if (!selectedClusterId) {
+                // Prefer saved cluster from app state; fall back to default only if missing
+                const saved = appStateService.loadState();
+                const savedId = saved?.selectedCluster || null;
+                if (savedId && allClusters.some((c) => c.id === savedId)) {
+                    setSelectedClusterId(savedId);
+                    console.log(`🎯 Restored saved cluster: ${savedId}`);
+                }
+                else if (!selectedClusterId) {
                     const defaultCluster = allClusters.find((c) => c.id === "default-cluster");
                     const selectedId = defaultCluster?.id || allClusters[0]?.id || null;
                     setSelectedClusterId(selectedId);
@@ -155,6 +196,24 @@ export default function PKMApp() {
     };
     const handleNodeHover = (nodeId) => {
         setHoveredNode(nodeId);
+        // Show node summary on hover
+        if (nodeId) {
+            const node = filteredNodes.find((n) => n.id === nodeId);
+            if (node) {
+                // Calculate position for summary tooltip
+                let rotated = rotateX(node.x, node.y, node.z, rotationX);
+                rotated = rotateY(rotated.x, rotated.y, rotated.z, rotationY);
+                const projected = project3D(rotated.x, rotated.y, rotated.z, sidebarCollapsed);
+                setNodeSummary({
+                    node,
+                    x: projected.x,
+                    y: projected.y,
+                });
+            }
+        }
+        else {
+            setNodeSummary(null);
+        }
     };
     const handleSidebarToggle = () => {
         setSidebarCollapsed(!sidebarCollapsed);
@@ -168,6 +227,13 @@ export default function PKMApp() {
     // Cluster handlers
     const handleClusterSelect = (clusterId) => {
         setSelectedClusterId(clusterId);
+        // Persist immediately
+        const currentState = appStateService.loadState() || { currentView };
+        appStateService.saveState({
+            ...currentState,
+            currentView,
+            selectedCluster: clusterId || undefined,
+        });
     };
     const handleCreateNewCluster = () => {
         setShowCreateCluster(true);
@@ -276,6 +342,26 @@ export default function PKMApp() {
     const handleOpenGeminiSettings = () => {
         setShowGeminiSettings(true);
     };
+    // Handle view mode changes
+    const handleViewChange = (view) => {
+        setCurrentView(view);
+        setShowViewSelector(false);
+        // Persist immediately
+        const currentState = appStateService.loadState() || {};
+        appStateService.saveState({
+            ...currentState,
+            currentView: view,
+            selectedCluster: selectedClusterId || undefined,
+        });
+    };
+    // Toggle view selector
+    const handleToggleViewSelector = () => {
+        setShowViewSelector(!showViewSelector);
+    };
+    // Close view selector when clicking outside
+    const handleViewSelectorClose = () => {
+        setShowViewSelector(false);
+    };
     const handleNodesGenerated = async (nodesData) => {
         try {
             for (const nodeData of nodesData) {
@@ -326,7 +412,7 @@ export default function PKMApp() {
     if (showAllClustersGrid) {
         return (_jsx(AllClustersGrid, { clusters: clusters, onClusterSelect: handleClusterSelectFromGrid, onBack: handleBackFromAllClusters }));
     }
-    return (_jsxs("div", { className: "relative w-full h-screen overflow-hidden bg-black", style: { touchAction: "none" }, children: [_jsxs("div", { className: "absolute inset-0", children: [_jsx(CanvasRenderer, { nodes: filteredNodes, connections: filteredConnections, hoveredNode: hoveredNode, selectedNode: selectedNode, sidebarCollapsed: sidebarCollapsed, previewMode: previewMode, imageCache: imageCache, time: time, rotationX: rotationX, rotationY: rotationY, zoom: zoom, selectedClusterColor: clusters.find((c) => c.id === selectedClusterId)?.color, onDotHover: handleDotHover, onDotLeave: handleDotLeave, rotateX: rotateX, rotateY: rotateY, project3D: project3D }), _jsx("canvas", { ref: canvasRef, className: "w-full h-full cursor-pointer absolute inset-0", style: { touchAction: "none" }, onMouseMove: (e) => {
+    return (_jsxs("div", { className: "relative w-full h-screen overflow-hidden bg-black", style: { touchAction: "none" }, children: [_jsxs("div", { className: "absolute inset-0", children: [currentView === "original" && (_jsx(CanvasRenderer, { nodes: filteredNodes, connections: filteredConnections, hoveredNode: hoveredNode, selectedNode: selectedNode, sidebarCollapsed: sidebarCollapsed, previewMode: previewMode, imageCache: imageCache, time: time, rotationX: rotationX, rotationY: rotationY, zoom: zoom, selectedClusterColor: clusters.find((c) => c.id === selectedClusterId)?.color, onDotHover: handleDotHover, onDotLeave: handleDotLeave, rotateX: rotateX, rotateY: rotateY, project3D: project3D })), currentView === "clustered" && (_jsx(ClusteredGraphView, { nodes: filteredNodes, connections: filteredConnections, hoveredNode: hoveredNode, selectedNode: selectedNode, sidebarCollapsed: sidebarCollapsed, imageCache: imageCache, time: time, rotationX: rotationX, rotationY: rotationY, zoom: zoom, selectedClusterColor: clusters.find((c) => c.id === selectedClusterId)?.color, onNodeClick: handleNodeClick, onNodeHover: handleNodeHover, rotateX: rotateX, rotateY: rotateY, project3D: project3D })), currentView === "timeline" && (_jsx(TimelineView, { nodes: filteredNodes, connections: filteredConnections, hoveredNode: hoveredNode, selectedNode: selectedNode, sidebarCollapsed: sidebarCollapsed, imageCache: imageCache, time: time, onNodeClick: handleNodeClick, onNodeHover: handleNodeHover })), currentView === "tag-centric" && (_jsx(TagCentricView, { nodes: filteredNodes, connections: filteredConnections, hoveredNode: hoveredNode, selectedNode: selectedNode, sidebarCollapsed: sidebarCollapsed, imageCache: imageCache, time: time, onNodeClick: handleNodeClick, onNodeHover: handleNodeHover })), currentView === "original" && (_jsx("canvas", { ref: canvasRef, className: "w-full h-full cursor-pointer absolute inset-0", style: { touchAction: "none" }, onMouseMove: (e) => {
                             // Track mouse position for dot hover detection
                             window.mouseX = e.clientX;
                             window.mouseY = e.clientY;
@@ -336,7 +422,7 @@ export default function PKMApp() {
                             window.mouseY = 0;
                             handleMouseUp();
                             handleDotLeave();
-                        }, onClick: handleCanvasClick, onWheel: handleWheel, onTouchStart: handleTouchStart, onTouchMove: handleTouchMove, onTouchEnd: handleTouchEnd })] }), _jsx(Sidebar, { nodes: filteredNodes, selectedNode: selectedNode, sidebarCollapsed: sidebarCollapsed, previewMode: previewMode, selectedTags: selectedTags, clusters: clusters, selectedClusterId: selectedClusterId, onNodeClick: handleNodeClick, onSidebarToggle: handleSidebarToggle, onTagClick: handleTagClick, onAddClick: () => setShowAddModal(true), onImageDropClick: handleImageDropClick, onClusterSelect: handleClusterSelect, onCreateNewCluster: handleCreateNewCluster, onShowAllClusters: handleShowAllClusters, onSettingsClick: handleSettingsClick, onDeleteNodes: handleDeleteMultiple }), _jsx(UIOverlay, { sidebarCollapsed: sidebarCollapsed, previewMode: previewMode, zoom: zoom, hoveredNode: hoveredNode, selectedNode: selectedNode, nodes: filteredNodes, rotationX: rotationX, rotationY: rotationY, onPreviewModeToggle: handlePreviewModeToggle, rotateX: rotateX, rotateY: rotateY, project3D: project3D }), _jsx(NodeDetailsModal, { selectedNode: selectedNode, sidebarCollapsed: sidebarCollapsed, onClose: handleCloseModal, onUpdated: ({ title, content, tags, images, links }) => {
+                        }, onClick: handleCanvasClick, onWheel: handleWheel, onTouchStart: handleTouchStart, onTouchMove: handleTouchMove, onTouchEnd: handleTouchEnd }))] }), _jsx(Sidebar, { nodes: filteredNodes, selectedNode: selectedNode, sidebarCollapsed: sidebarCollapsed, previewMode: previewMode, selectedTags: selectedTags, clusters: clusters, selectedClusterId: selectedClusterId, onNodeClick: handleNodeClick, onSidebarToggle: handleSidebarToggle, onTagClick: handleTagClick, onAddClick: () => setShowAddModal(true), onImageDropClick: handleImageDropClick, onClusterSelect: handleClusterSelect, onCreateNewCluster: handleCreateNewCluster, onShowAllClusters: handleShowAllClusters, onSettingsClick: handleSettingsClick, onDeleteNodes: handleDeleteMultiple }), showViewSelector && (_jsxs(_Fragment, { children: [_jsx("div", { className: "absolute inset-0 z-10", onClick: handleViewSelectorClose }), _jsx(ViewSelector, { currentView: currentView, onViewChange: handleViewChange, previewMode: previewMode, onPreviewModeToggle: handlePreviewModeToggle })] })), _jsx("button", { onClick: handleToggleViewSelector, className: "absolute top-4 right-4 z-10 bg-black/80 text-cyan-400 p-3 rounded border border-cyan-400/50 hover:bg-cyan-400/20 transition-colors", title: "Change visualization mode", style: { display: showViewSelector ? "none" : "block" }, children: _jsxs("div", { className: "text-lg", children: [currentView === "original" && "🔗", currentView === "clustered" && "🫧", currentView === "timeline" && "📅", currentView === "tag-centric" && "🏷️"] }) }), _jsx(UIOverlay, { sidebarCollapsed: sidebarCollapsed, zoom: zoom, hoveredNode: hoveredNode, selectedNode: selectedNode, nodes: filteredNodes, rotationX: rotationX, rotationY: rotationY, rotateX: rotateX, rotateY: rotateY, project3D: project3D }), _jsx(NodeDetailsModal, { selectedNode: selectedNode, sidebarCollapsed: sidebarCollapsed, onClose: handleCloseModal, onUpdated: ({ title, content, tags, images, links }) => {
                     // Update selectedNode in place for immediate UI reflection
                     setSelectedNode((prev) => prev && prev.dataLog
                         ? {
@@ -375,7 +461,7 @@ export default function PKMApp() {
                         setShowClusterSettings(false);
                         setEditingCluster(null);
                     }
-                } }), _jsx(CreateClusterModal, { isOpen: showCreateCluster, onClose: () => setShowCreateCluster(false), onCreateCluster: handleCreateCluster, existingClusters: clusters }), _jsx(ImageDropModal, { isOpen: showImageDropModal, onClose: () => setShowImageDropModal(false), onNodesGenerated: handleNodesGenerated, selectedClusterId: selectedClusterId, clusters: clusters, existingNodes: filteredNodes, onOpenSettings: handleOpenGeminiSettings }), _jsx(GeminiSettingsModal, { isOpen: showGeminiSettings, onClose: () => setShowGeminiSettings(false) }), dotTooltip && (_jsx("div", { className: "fixed z-50 bg-black/90 text-cyan-400 font-mono text-xs p-2 rounded border border-cyan-400/50 pointer-events-none", style: {
+                } }), _jsx(CreateClusterModal, { isOpen: showCreateCluster, onClose: () => setShowCreateCluster(false), onCreateCluster: handleCreateCluster, existingClusters: clusters }), _jsx(ImageDropModal, { isOpen: showImageDropModal, onClose: () => setShowImageDropModal(false), onNodesGenerated: handleNodesGenerated, selectedClusterId: selectedClusterId, clusters: clusters, existingNodes: filteredNodes, onOpenSettings: handleOpenGeminiSettings }), _jsx(GeminiSettingsModal, { isOpen: showGeminiSettings, onClose: () => setShowGeminiSettings(false) }), nodeSummary && (_jsx(NodeSummary, { node: nodeSummary.node, x: nodeSummary.x, y: nodeSummary.y, visible: true, fixedPosition: currentView === "tag-centric" })), dotTooltip && (_jsx("div", { className: "fixed z-50 bg-black/90 text-cyan-400 font-mono text-xs p-2 rounded border border-cyan-400/50 pointer-events-none", style: {
                     left: dotTooltip.x + 10,
                     top: dotTooltip.y - 10,
                     transform: "translateY(-100%)",

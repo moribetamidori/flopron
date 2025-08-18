@@ -3,14 +3,12 @@ import { MemoryNode } from "../hooks/useDatabaseMemoryTree";
 
 interface UIOverlayProps {
   sidebarCollapsed: boolean;
-  previewMode: boolean;
   zoom: number;
   hoveredNode: string | null;
   selectedNode: MemoryNode | null;
   nodes: MemoryNode[];
   rotationX: number;
   rotationY: number;
-  onPreviewModeToggle: () => void;
   rotateX: (
     x: number,
     y: number,
@@ -33,14 +31,12 @@ interface UIOverlayProps {
 
 export const UIOverlay: React.FC<UIOverlayProps> = ({
   sidebarCollapsed,
-  previewMode,
   zoom,
   hoveredNode,
   selectedNode,
   nodes,
   rotationX,
   rotationY,
-  onPreviewModeToggle,
   rotateX,
   rotateY,
   project3D,
@@ -58,20 +54,6 @@ export const UIOverlay: React.FC<UIOverlayProps> = ({
         </div>
       </div>
 
-      {/* Preview Mode Button */}
-      <div className="absolute top-8 right-8 text-cyan-400 font-mono text-sm z-20">
-        <button
-          onClick={onPreviewModeToggle}
-          className={`px-4 py-2 border border-cyan-400/50 rounded transition-all duration-200 pointer-events-auto ${
-            previewMode
-              ? "bg-cyan-400/20 text-white border-cyan-400"
-              : "bg-black/50 text-cyan-400 hover:bg-cyan-400/10"
-          }`}
-        >
-          {previewMode ? "Hide Preview" : "Preview"}
-        </button>
-      </div>
-
       {/* FPS counter */}
       <div className="absolute top-20 right-8 text-cyan-400 font-mono text-xs">
         <div>{Math.round(1000 / 16)} FPS</div>
@@ -79,7 +61,7 @@ export const UIOverlay: React.FC<UIOverlayProps> = ({
       </div>
 
       {/* Connection Legend */}
-      <div className="absolute bottom-8 right-8 text-cyan-400 font-mono text-xs bg-black/50 p-3 rounded border border-cyan-400/30">
+      <div className="absolute bottom-8 left-80 text-cyan-400 font-mono text-xs bg-black/50 p-3 rounded border border-cyan-400/30">
         <div className="mb-2 font-semibold">Connection Strength:</div>
         <div className="space-y-1 text-xs">
           <div className="flex items-center">
@@ -114,46 +96,6 @@ export const UIOverlay: React.FC<UIOverlayProps> = ({
           </div>
         </div>
       </div>
-
-      {/* Hover Node Info */}
-      {hoveredNode &&
-        !selectedNode &&
-        (() => {
-          const hoveredNodeData = nodes.find((n) => n.id === hoveredNode);
-          if (!hoveredNodeData) return null;
-
-          // Get projected position of the hovered node
-          let rotated = rotateX(
-            hoveredNodeData.x,
-            hoveredNodeData.y,
-            hoveredNodeData.z,
-            rotationX
-          );
-          rotated = rotateY(rotated.x, rotated.y, rotated.z, rotationY);
-          const projected = project3D(
-            rotated.x,
-            rotated.y,
-            rotated.z,
-            sidebarCollapsed
-          );
-
-          return (
-            <div
-              className="absolute bg-black/90 border border-cyan-400/50 pt-2 px-2 rounded-lg text-cyan-400 font-mono text-center min-w-[200px] pointer-events-none"
-              style={{
-                left: `${projected.x + 40}px`,
-                top: `${projected.y - 50}px`,
-                transform: "translateY(-50%)",
-              }}
-            >
-              <div className="font-bold mb-2 text-xs">
-                {hoveredNodeData.dataLog?.title ||
-                  hoveredNodeData.dataLog?.content?.substring(0, 25) ||
-                  hoveredNode}
-              </div>
-            </div>
-          );
-        })()}
     </div>
   );
 };

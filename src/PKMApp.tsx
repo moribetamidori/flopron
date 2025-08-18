@@ -19,6 +19,11 @@ import {
 import { use3DRendering } from "./hooks/use3DRendering";
 import { useCanvasInteraction } from "./hooks/useCanvasInteraction";
 import { CanvasRenderer } from "./components/CanvasRenderer";
+import { ClusteredGraphView } from "./components/ClusteredGraphView";
+import { TimelineView } from "./components/TimelineView";
+import { TagCentricView } from "./components/TagCentricView";
+import { ViewSelector, ViewMode } from "./components/ViewSelector";
+import { NodeSummary } from "./components/NodeSummary";
 import { Sidebar } from "./components/Sidebar";
 import { NodeDetailsModal } from "./components/NodeDetailsModal";
 import { UIOverlay } from "./components/UIOverlay";
@@ -29,6 +34,7 @@ import { AllClustersGrid } from "./components/AllClustersGrid";
 import { ImageDropModal } from "./components/ImageDropModal";
 import { GeminiSettingsModal } from "./components/GeminiSettingsModal";
 import { DatabaseService } from "./database/databaseService";
+import { appStateService, AppState } from "./services/appStateService";
 import {
   DatabaseNeuronCluster,
   CreateNeuronClusterInput,
@@ -82,6 +88,43 @@ export default function PKMApp() {
     x: number;
     y: number;
   } | null>(null);
+
+  // New visualization state
+  const [currentView, setCurrentView] = useState<ViewMode>("clustered");
+  const [showViewSelector, setShowViewSelector] = useState(false);
+  const [nodeSummary, setNodeSummary] = useState<{
+    node: MemoryNode;
+    x: number;
+    y: number;
+  } | null>(null);
+
+  // Load saved app state on mount
+  useEffect(() => {
+    const savedState = appStateService.loadState();
+    if (savedState) {
+      if (savedState.currentView) {
+        setCurrentView(savedState.currentView as ViewMode);
+      }
+      if (savedState.selectedCluster) {
+        setSelectedClusterId(savedState.selectedCluster);
+      }
+      // Note: Other state will be restored by individual components
+    }
+  }, []);
+
+  // Save app state when relevant state changes
+  const saveAppState = () => {
+    const state: AppState = {
+      currentView,
+      selectedCluster: selectedClusterId || undefined,
+    };
+    appStateService.saveState(state);
+  };
+
+  // Save state when view or cluster changes
+  useEffect(() => {
+    saveAppState();
+  }, [currentView, selectedClusterId]);
 
   // Database service
   const databaseService = DatabaseService.getInstance();
@@ -208,9 +251,13 @@ export default function PKMApp() {
       } else {
         console.log("📋 Using existing clusters");
         setClusters(allClusters);
-
-        // Set default cluster if none selected
-        if (!selectedClusterId) {
+        // Prefer saved cluster from app state; fall back to default only if missing
+        const saved = appStateService.loadState();
+        const savedId = saved?.selectedCluster || null;
+        if (savedId && allClusters.some((c) => c.id === savedId)) {
+          setSelectedClusterId(savedId);
+          console.log(`🎯 Restored saved cluster: ${savedId}`);
+        } else if (!selectedClusterId) {
           const defaultCluster = allClusters.find(
             (c) => c.id === "default-cluster"
           );
@@ -235,6 +282,30 @@ export default function PKMApp() {
 
   const handleNodeHover = (nodeId: string | null) => {
     setHoveredNode(nodeId);
+
+    // Show node summary on hover
+    if (nodeId) {
+      const node = filteredNodes.find((n) => n.id === nodeId);
+      if (node) {
+        // Calculate position for summary tooltip
+        let rotated = rotateX(node.x, node.y, node.z, rotationX);
+        rotated = rotateY(rotated.x, rotated.y, rotated.z, rotationY);
+        const projected = project3D(
+          rotated.x,
+          rotated.y,
+          rotated.z,
+          sidebarCollapsed
+        );
+
+        setNodeSummary({
+          node,
+          x: projected.x,
+          y: projected.y,
+        });
+      }
+    } else {
+      setNodeSummary(null);
+    }
   };
 
   const handleSidebarToggle = () => {
@@ -252,6 +323,13 @@ export default function PKMApp() {
   // Cluster handlers
   const handleClusterSelect = (clusterId: string | null) => {
     setSelectedClusterId(clusterId);
+    // Persist immediately
+    const currentState = appStateService.loadState() || { currentView };
+    appStateService.saveState({
+      ...currentState,
+      currentView,
+      selectedCluster: clusterId || undefined,
+    });
   };
 
   const handleCreateNewCluster = () => {
@@ -383,6 +461,29 @@ export default function PKMApp() {
     setShowGeminiSettings(true);
   };
 
+  // Handle view mode changes
+  const handleViewChange = (view: ViewMode) => {
+    setCurrentView(view);
+    setShowViewSelector(false);
+    // Persist immediately
+    const currentState = appStateService.loadState() || {};
+    appStateService.saveState({
+      ...currentState,
+      currentView: view,
+      selectedCluster: selectedClusterId || undefined,
+    });
+  };
+
+  // Toggle view selector
+  const handleToggleViewSelector = () => {
+    setShowViewSelector(!showViewSelector);
+  };
+
+  // Close view selector when clicking outside
+  const handleViewSelectorClose = () => {
+    setShowViewSelector(false);
+  };
+
   const handleNodesGenerated = async (
     nodesData: Array<{
       title: string;
@@ -471,51 +572,108 @@ export default function PKMApp() {
     >
       {/* Canvas container */}
       <div className="absolute inset-0">
-        <CanvasRenderer
-          nodes={filteredNodes}
-          connections={filteredConnections}
-          hoveredNode={hoveredNode}
-          selectedNode={selectedNode}
-          sidebarCollapsed={sidebarCollapsed}
-          previewMode={previewMode}
-          imageCache={imageCache}
-          time={time}
-          rotationX={rotationX}
-          rotationY={rotationY}
-          zoom={zoom}
-          selectedClusterColor={
-            clusters.find((c) => c.id === selectedClusterId)?.color
-          }
-          onDotHover={handleDotHover}
-          onDotLeave={handleDotLeave}
-          rotateX={rotateX}
-          rotateY={rotateY}
-          project3D={project3D}
-        />
-        <canvas
-          ref={canvasRef}
-          className="w-full h-full cursor-pointer absolute inset-0"
-          style={{ touchAction: "none" }}
-          onMouseMove={(e) => {
-            // Track mouse position for dot hover detection
-            window.mouseX = e.clientX;
-            window.mouseY = e.clientY;
-            handleMouseMove(e);
-          }}
-          onMouseDown={handleMouseDown}
-          onMouseUp={handleMouseUp}
-          onMouseLeave={() => {
-            window.mouseX = 0;
-            window.mouseY = 0;
-            handleMouseUp();
-            handleDotLeave();
-          }}
-          onClick={handleCanvasClick}
-          onWheel={handleWheel}
-          onTouchStart={handleTouchStart}
-          onTouchMove={handleTouchMove}
-          onTouchEnd={handleTouchEnd}
-        />
+        {currentView === "original" && (
+          <CanvasRenderer
+            nodes={filteredNodes}
+            connections={filteredConnections}
+            hoveredNode={hoveredNode}
+            selectedNode={selectedNode}
+            sidebarCollapsed={sidebarCollapsed}
+            previewMode={previewMode}
+            imageCache={imageCache}
+            time={time}
+            rotationX={rotationX}
+            rotationY={rotationY}
+            zoom={zoom}
+            selectedClusterColor={
+              clusters.find((c) => c.id === selectedClusterId)?.color
+            }
+            onDotHover={handleDotHover}
+            onDotLeave={handleDotLeave}
+            rotateX={rotateX}
+            rotateY={rotateY}
+            project3D={project3D}
+          />
+        )}
+
+        {currentView === "clustered" && (
+          <ClusteredGraphView
+            nodes={filteredNodes}
+            connections={filteredConnections}
+            hoveredNode={hoveredNode}
+            selectedNode={selectedNode}
+            sidebarCollapsed={sidebarCollapsed}
+            imageCache={imageCache}
+            time={time}
+            rotationX={rotationX}
+            rotationY={rotationY}
+            zoom={zoom}
+            selectedClusterColor={
+              clusters.find((c) => c.id === selectedClusterId)?.color
+            }
+            onNodeClick={handleNodeClick}
+            onNodeHover={handleNodeHover}
+            rotateX={rotateX}
+            rotateY={rotateY}
+            project3D={project3D}
+          />
+        )}
+
+        {currentView === "timeline" && (
+          <TimelineView
+            nodes={filteredNodes}
+            connections={filteredConnections}
+            hoveredNode={hoveredNode}
+            selectedNode={selectedNode}
+            sidebarCollapsed={sidebarCollapsed}
+            imageCache={imageCache}
+            time={time}
+            onNodeClick={handleNodeClick}
+            onNodeHover={handleNodeHover}
+          />
+        )}
+
+        {currentView === "tag-centric" && (
+          <TagCentricView
+            nodes={filteredNodes}
+            connections={filteredConnections}
+            hoveredNode={hoveredNode}
+            selectedNode={selectedNode}
+            sidebarCollapsed={sidebarCollapsed}
+            imageCache={imageCache}
+            time={time}
+            onNodeClick={handleNodeClick}
+            onNodeHover={handleNodeHover}
+          />
+        )}
+
+        {/* Interaction canvas for original view */}
+        {currentView === "original" && (
+          <canvas
+            ref={canvasRef}
+            className="w-full h-full cursor-pointer absolute inset-0"
+            style={{ touchAction: "none" }}
+            onMouseMove={(e) => {
+              // Track mouse position for dot hover detection
+              window.mouseX = e.clientX;
+              window.mouseY = e.clientY;
+              handleMouseMove(e);
+            }}
+            onMouseDown={handleMouseDown}
+            onMouseUp={handleMouseUp}
+            onMouseLeave={() => {
+              window.mouseX = 0;
+              window.mouseY = 0;
+              handleMouseUp();
+              handleDotLeave();
+            }}
+            onClick={handleCanvasClick}
+            onWheel={handleWheel}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+          />
+        )}
       </div>
 
       {/* Sidebar */}
@@ -539,17 +697,46 @@ export default function PKMApp() {
         onDeleteNodes={handleDeleteMultiple}
       />
 
+      {/* View Selector */}
+      {showViewSelector && (
+        <>
+          <div
+            className="absolute inset-0 z-10"
+            onClick={handleViewSelectorClose}
+          />
+          <ViewSelector
+            currentView={currentView}
+            onViewChange={handleViewChange}
+            previewMode={previewMode}
+            onPreviewModeToggle={handlePreviewModeToggle}
+          />
+        </>
+      )}
+
+      {/* View Toggle Button */}
+      <button
+        onClick={handleToggleViewSelector}
+        className="absolute top-4 right-4 z-10 bg-black/80 text-cyan-400 p-3 rounded border border-cyan-400/50 hover:bg-cyan-400/20 transition-colors"
+        title="Change visualization mode"
+        style={{ display: showViewSelector ? "none" : "block" }}
+      >
+        <div className="text-lg">
+          {currentView === "original" && "🔗"}
+          {currentView === "clustered" && "🫧"}
+          {currentView === "timeline" && "📅"}
+          {currentView === "tag-centric" && "🏷️"}
+        </div>
+      </button>
+
       {/* UI Overlay */}
       <UIOverlay
         sidebarCollapsed={sidebarCollapsed}
-        previewMode={previewMode}
         zoom={zoom}
         hoveredNode={hoveredNode}
         selectedNode={selectedNode}
         nodes={filteredNodes}
         rotationX={rotationX}
         rotationY={rotationY}
-        onPreviewModeToggle={handlePreviewModeToggle}
         rotateX={rotateX}
         rotateY={rotateY}
         project3D={project3D}
@@ -643,6 +830,17 @@ export default function PKMApp() {
         isOpen={showGeminiSettings}
         onClose={() => setShowGeminiSettings(false)}
       />
+
+      {/* Node Summary */}
+      {nodeSummary && (
+        <NodeSummary
+          node={nodeSummary.node}
+          x={nodeSummary.x}
+          y={nodeSummary.y}
+          visible={true}
+          fixedPosition={currentView === "tag-centric"}
+        />
+      )}
 
       {/* Dot Tooltip */}
       {dotTooltip && (
