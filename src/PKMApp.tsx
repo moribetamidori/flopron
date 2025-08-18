@@ -716,11 +716,11 @@ export default function PKMApp() {
       {/* View Toggle Button */}
       <button
         onClick={handleToggleViewSelector}
-        className="absolute top-4 right-4 z-10 bg-black/80 text-cyan-400 p-3 rounded border border-cyan-400/50 hover:bg-cyan-400/20 transition-colors"
+        className="absolute top-4 right-4 z-10 bg-black/80 text-cyan-400 p-3 w-12 h-12 rounded border border-cyan-400/50 hover:bg-cyan-400/20 transition-colors flex items-center justify-center"
         title="Change visualization mode"
         style={{ display: showViewSelector ? "none" : "block" }}
       >
-        <div className="text-lg">
+        <div className="text-lg leading-none">
           {currentView === "original" && "🔗"}
           {currentView === "clustered" && "🫧"}
           {currentView === "timeline" && "📅"}
@@ -839,6 +839,7 @@ export default function PKMApp() {
           y={nodeSummary.y}
           visible={true}
           fixedPosition={currentView === "tag-centric"}
+          imageCache={imageCache}
         />
       )}
 

@@ -22153,7 +22153,8 @@
     x,
     y,
     visible,
-    fixedPosition = false
+    fixedPosition = false,
+    imageCache
   }) => {
     if (!visible || !node.dataLog) return null;
     const { dataLog } = node;
@@ -22171,9 +22172,14 @@
     return /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(
       "div",
       {
-        className: `fixed z-50 bg-black/95 text-cyan-400 font-mono text-xs p-4 rounded-lg border border-cyan-400/50 pointer-events-none shadow-2xl ${fixedPosition ? "bottom-48 right-4 w-80" : "max-w-80"}`,
+        className: `fixed z-50 bg-black/95 text-cyan-400 font-mono text-xs p-4 rounded-lg border border-cyan-400/50 pointer-events-none shadow-2xl ${fixedPosition ? "right-4 w-80 overflow-y-auto" : "max-w-80"}`,
         style: {
-          ...fixedPosition ? {} : {
+          ...fixedPosition ? {
+            top: "5rem",
+            // leave space for top right mode button
+            bottom: "12rem"
+            // leave space for bottom controls (search tag panel)
+          } : {
             left: (x || 0) + 15,
             top: (y || 0) - 10,
             transform: "translateY(-50%)"
@@ -22186,6 +22192,43 @@
             /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "text-gray-400 text-xs", children: timestamp })
           ] }),
           /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "mb-3", children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "text-gray-300 leading-relaxed", children: truncatedContent }) }),
+          imageCount > 0 && dataLog.images && dataLog.images[0] && /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "mb-3", children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "relative w-full h-32 rounded border border-cyan-400/30 overflow-hidden", children: (() => {
+            const imageSrc = dataLog.images[0];
+            const cachedImg = imageCache?.get(imageSrc);
+            if (cachedImg) {
+              return /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
+                "img",
+                {
+                  src: cachedImg.src,
+                  alt: "Node content",
+                  className: "w-full h-full object-cover",
+                  onError: (e) => {
+                    e.currentTarget.style.display = "none";
+                    e.currentTarget.nextElementSibling?.classList.remove(
+                      "hidden"
+                    );
+                  }
+                }
+              );
+            }
+            return /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(import_jsx_runtime6.Fragment, { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
+                "img",
+                {
+                  src: imageSrc,
+                  alt: "Node content",
+                  className: "w-full h-full object-cover",
+                  onError: (e) => {
+                    e.currentTarget.style.display = "none";
+                    e.currentTarget.nextElementSibling?.classList.remove(
+                      "hidden"
+                    );
+                  }
+                }
+              ),
+              /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "hidden absolute inset-0 flex items-center justify-center bg-cyan-400/10", children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { className: "text-2xl", children: "\u{1F5BC}\uFE0F" }) })
+            ] });
+          })() }) }),
           /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "space-y-2", children: [
             tagCount > 0 && /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { children: [
               /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "text-cyan-300 font-medium mb-1", children: [
@@ -42219,10 +42262,10 @@ Be thoughtful and accurate in your analysis. The content should be useful for fu
             "button",
             {
               onClick: handleToggleViewSelector,
-              className: "absolute top-4 right-4 z-10 bg-black/80 text-cyan-400 p-3 rounded border border-cyan-400/50 hover:bg-cyan-400/20 transition-colors",
+              className: "absolute top-4 right-4 z-10 bg-black/80 text-cyan-400 p-3 w-12 h-12 rounded border border-cyan-400/50 hover:bg-cyan-400/20 transition-colors flex items-center justify-center",
               title: "Change visualization mode",
               style: { display: showViewSelector ? "none" : "block" },
-              children: /* @__PURE__ */ (0, import_jsx_runtime19.jsxs)("div", { className: "text-lg", children: [
+              children: /* @__PURE__ */ (0, import_jsx_runtime19.jsxs)("div", { className: "text-lg leading-none", children: [
                 currentView === "original" && "\u{1F517}",
                 currentView === "clustered" && "\u{1FAE7}",
                 currentView === "timeline" && "\u{1F4C5}",
@@ -42342,7 +42385,8 @@ Be thoughtful and accurate in your analysis. The content should be useful for fu
               x: nodeSummary.x,
               y: nodeSummary.y,
               visible: true,
-              fixedPosition: currentView === "tag-centric"
+              fixedPosition: currentView === "tag-centric",
+              imageCache
             }
           ),
           dotTooltip && /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(

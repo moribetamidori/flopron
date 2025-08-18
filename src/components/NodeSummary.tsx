@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { MemoryNode } from "../hooks/useDatabaseMemoryTree";
 
 interface NodeSummaryProps {
@@ -7,6 +7,7 @@ interface NodeSummaryProps {
   y?: number;
   visible: boolean;
   fixedPosition?: boolean;
+  imageCache?: Map<string, HTMLImageElement>;
 }
 
 export const NodeSummary: React.FC<NodeSummaryProps> = ({
@@ -15,6 +16,7 @@ export const NodeSummary: React.FC<NodeSummaryProps> = ({
   y,
   visible,
   fixedPosition = false,
+  imageCache,
 }) => {
   if (!visible || !node.dataLog) return null;
 
@@ -43,11 +45,14 @@ export const NodeSummary: React.FC<NodeSummaryProps> = ({
   return (
     <div
       className={`fixed z-50 bg-black/95 text-cyan-400 font-mono text-xs p-4 rounded-lg border border-cyan-400/50 pointer-events-none shadow-2xl ${
-        fixedPosition ? "bottom-48 right-4 w-80" : "max-w-80"
+        fixedPosition ? "right-4 w-80 overflow-y-auto" : "max-w-80"
       }`}
       style={{
         ...(fixedPosition
-          ? {}
+          ? {
+              top: "5rem", // leave space for top right mode button
+              bottom: "12rem", // leave space for bottom controls (search tag panel)
+            }
           : {
               left: (x || 0) + 15,
               top: (y || 0) - 10,
@@ -68,6 +73,55 @@ export const NodeSummary: React.FC<NodeSummaryProps> = ({
       <div className="mb-3">
         <div className="text-gray-300 leading-relaxed">{truncatedContent}</div>
       </div>
+
+      {/* Image Preview */}
+      {imageCount > 0 && dataLog.images && dataLog.images[0] && (
+        <div className="mb-3">
+          <div className="relative w-full h-32 rounded border border-cyan-400/30 overflow-hidden">
+            {(() => {
+              const imageSrc = dataLog.images[0];
+              const cachedImg = imageCache?.get(imageSrc);
+
+              if (cachedImg) {
+                return (
+                  <img
+                    src={cachedImg.src}
+                    alt="Node content"
+                    className="w-full h-full object-cover"
+                    onError={(e) => {
+                      // Fallback to emoji if image fails
+                      e.currentTarget.style.display = "none";
+                      e.currentTarget.nextElementSibling?.classList.remove(
+                        "hidden"
+                      );
+                    }}
+                  />
+                );
+              }
+
+              return (
+                <>
+                  <img
+                    src={imageSrc}
+                    alt="Node content"
+                    className="w-full h-full object-cover"
+                    onError={(e) => {
+                      // Fallback to emoji if image fails
+                      e.currentTarget.style.display = "none";
+                      e.currentTarget.nextElementSibling?.classList.remove(
+                        "hidden"
+                      );
+                    }}
+                  />
+                  <div className="hidden absolute inset-0 flex items-center justify-center bg-cyan-400/10">
+                    <span className="text-2xl">🖼️</span>
+                  </div>
+                </>
+              );
+            })()}
+          </div>
+        </div>
+      )}
 
       {/* Metadata */}
       <div className="space-y-2">
